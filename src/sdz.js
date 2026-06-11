@@ -1,4 +1,4 @@
-import { insertHeader, insertFooter, insertHead } from "./utils/page-layout.js";
+import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
 import { readData } from "./utils/read-data.js";
 import { insertValue } from "./utils/insert-value.js";
 import { latest_year, updateYearSpans, first_year } from "./utils/update-years.js";
@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const headline = document.getElementById("headline");
     headline.innerHTML = postcode ? `${postcode} is in <span class="blue-text">${data.name}</span>` : `Deprivation in <span class="blue-text">${data.name}</span>`
 
-    console.log(data)
+    insertNavButtons(data);
 
 
 })

@@ -50,75 +50,25 @@ export function insertHeader () {
 `
 }
 
-export function insertNavButtons() {
+export function insertNavButtons(data) {
   const nav = document.getElementById("nav");
 
-  const links = config.navigation.filter(l => l.href !== "projections.html" || config.show_projections);
+  nav.innerHTML = `
+    <ol class="breadcrumb mb-0 mt-2 mb-2 text-secondary">
+      <li class="breadcrumb-item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        ${data.type == "sdz" ? `<a href="lgd.html?lgd=${data.parents[0].code}">` : "" }
+        ${data.type == "sdz" ? data.parents[0].name : data.name}
+        ${data.type == "sdz" ? `</a>` : "" }
+      </li>
+      ${data.type == "sdz" ? `<li class="breadcrumb-item">${data.name}</li>`: ""}
+    </ol>
+  `
 
-  const pathname = window.location.pathname;
-  const file = pathname.slice(pathname.lastIndexOf("/") + 1) || "index.html";
-  const pageKey = file.replace(".html", "");
-
-  // Desktop: row of buttons (lg+). Mobile: hamburger dropdown (<lg).
-  nav.innerHTML += `
-    <div class="container-fluid px-1">
-
-      <!-- Mobile only -->
-
-      <div class="d-lg-none w-100 text-center pb-2 mt-1">
-        <div class="dropdown d-inline-block">
-          <button class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            aria-label="Open menu">
-            <span class="me-1 display-6">Menu
-            <i class="bi bi-list" aria-hidden="true"></i></span>
-          </button>
-
-          <!-- optional: keep menu centered under button -->
-          <ul class="dropdown-menu start-50 translate-middle-x">
-            ${links
-            .map(
-              (l) => `
-                <li>
-                  <a class="dropdown-item ${l.href.replace(".html", "-btn") === `${pageKey}-btn` ? "active" : ""}"
-                    id="${l.href.replace(".html", "-btn")}-mobile"
-                    href="${l.href}">
-                    ${l.text}
-                  </a>
-                </li>`
-            )
-            .join("")}
-          </ul>
-        </div>
-      </div>
-
-
-      <!-- Desktop only -->
-      <div class="d-none d-lg-block">
-        <div class="row g-2">
-          ${links
-            .map(
-              (l) => `
-                <a id="${l.href.replace(".html", "-btn")}" class="col nav-btn d-flex justify-content-center align-items-center text-center" href="${l.href}">
-                  ${l.text}
-                </a>`
-            )
-            .join("")}
-        </div>
-      </div>
-
-    </div>
-  `;
-
-  // Apply current-page styling to the DESKTOP buttons (to match your existing CSS)
-  const currentDesktop = document.getElementById(`${pageKey}-btn`);
-  if (currentDesktop) {
-    currentDesktop.classList.add("current-page");
-    currentDesktop.classList.remove("nav-btn");
-    currentDesktop.innerHTML = currentDesktop.textContent;
-  }
+  console.log(data)
+  
 }
 
 

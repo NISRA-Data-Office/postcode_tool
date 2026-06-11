@@ -1,4 +1,4 @@
-import { insertHeader, insertFooter, insertHead } from "./utils/page-layout.js";
+import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
 import { readData } from "./utils/read-data.js";
 import { config } from "./config/config.js";
 
@@ -19,6 +19,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Update headline
     const headline = document.getElementById("headline");
     headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
+
+    insertNavButtons(data);
 
 
 })
