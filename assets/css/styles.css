@@ -468,14 +468,23 @@ thead th {
   border-bottom: 2px solid #e5e7eb;
 }
 
+.postcode-search {
+  position: relative;
+}
+
 .postcode-dropdown {
-  border: 1px solid #ccc;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: none;
   background: #fff;
+  border: 1px solid #ccc;
+  border-top: 0;
   max-height: 300px;
   overflow-y: auto;
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
 .postcode-dropdown__item {
@@ -483,12 +492,21 @@ thead th {
   width: 100%;
   padding: 0.75rem;
   text-align: left;
+  background: #fff;
   border: 0;
-  background: white;
+  border-bottom: 1px solid #eee;
   cursor: pointer;
 }
 
 .postcode-dropdown__item:hover,
 .postcode-dropdown__item:focus {
-  background: #f2f2f2;
+  background: #f5f5f5;
+  outline: none;
+}
+
+.postcode-dropdown__item--selected,
+.postcode-dropdown__item:hover,
+.postcode-dropdown__item:focus {
+  background: #e9ecef;
+  outline: none;
 }
