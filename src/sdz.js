@@ -4,6 +4,7 @@ import { insertValue } from "./utils/insert-value.js";
 import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { postcodeSearch } from "./utils/postcode-search.js";
+import { getHeadline, getParagraph } from "./utils/deprivation-text.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -35,6 +36,12 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     insertValue("place-name", data.name)
+
+    const deprivation_headline = document.getElementById("deprivation-headline");
+    deprivation_headline.innerHTML = getHeadline(data.data.ranks, data.count)
+
+    const deprivation_paragraph = document.getElementById("deprivation-paragraph");
+    deprivation_paragraph.innerHTML = getParagraph(data.data.ranks, data.count, Math.round(data.data.ranks.mdm/data.count * 100), data.name)
 
 
 })

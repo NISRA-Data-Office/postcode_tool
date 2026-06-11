@@ -1,6 +1,13 @@
 /* ===========================
    Base
    =========================== */
+
+   :root {
+	--nisra_blue: #3878c5;
+	--nisra_navy: #00205b;
+	--nisra_purple: #732777;
+}
+
 body {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 18px;
