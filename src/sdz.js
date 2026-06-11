@@ -5,6 +5,7 @@ import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { postcodeSearch } from "./utils/postcode-search.js";
 import { scaleChartMDM } from "./utils/scale-chart-mdm.js";
+import { populateInfoBoxes } from "./utils/info-boxes.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -37,7 +38,20 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("place-count", data.count)
     insertValue("place-name", data.name)
 
-    scaleChartMDM("mdm-scale-chart", data)
+    scaleChartMDM("mdm-scale-chart", data);
+
+    populateInfoBoxes(
+        [
+            "What is the multiple deprivation measure and when do I use it?",
+            "What are the types of deprivation and when do I use them?",
+            "What is a ‘neighbourhood’ or super data zone?"
+        ],
+        [
+            "",
+            "",
+            ""
+        ]
+    )
 
 
 })

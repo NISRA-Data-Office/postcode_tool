@@ -31,7 +31,7 @@ export function populateInfoBoxes(labels, content) {
 
   info_boxes.innerHTML = `
     <div class="row justify-content-center">
-      <div class="col-12 col-xl-8 accordion py-4" id="infoAccordion">
+      <div class="accordion py-4" id="infoAccordion">
         <div class="row g-3">
           ${buttons}
         </div>
