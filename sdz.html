@@ -1,115 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
-<body style="display:none;">
-    
-<banner id="banner"></banner>
-
-<!-- Main Content -->
-<main>
-    <div id="content" class="container">
-
-        <nav id ="nav"></nav>
-
-        <div class="row justify-content-end">
-            <div class="col-12 col-xl-4">
-                <div class="postcode-search">
-                    <div class="input-group">
+   <head></head>
+   <body style="display:none;">
+      <banner id="banner"></banner>
+      <!-- Main Content -->
+      <main>
+         <div id="content" class="container">
+            <nav id ="nav"></nav>
+            <div class="row justify-content-end">
+               <div class="col-12 col-xl-4">
+                  <div class="postcode-search">
+                     <div class="input-group">
                         <input
-                        id="postcode-search"
-                        type="search"
-                        class="form-control"
-                        placeholder="Enter another postcode"
-                        aria-label="Enter postcode"
-                        autocomplete="off"
-                        autocorrect="off"
-                        autocapitalize="off"
-                        spellcheck="false">
+                           id="postcode-search"
+                           type="search"
+                           class="form-control"
+                           placeholder="Enter another postcode"
+                           aria-label="Enter postcode"
+                           autocomplete="off"
+                           autocorrect="off"
+                           autocapitalize="off"
+                           spellcheck="false">
                         <button
-                        id="postcode-go"
-                        class="btn btn-primary"
-                        type="button">
+                           id="postcode-go"
+                           class="btn btn-primary"
+                           type="button">
                         Go
                         </button>
-                    </div>
-                    <div id="postcode-dropdown" class="postcode-dropdown"></div>
-                    </div>
-                    <div class="row mt-2 gap-1 justify-content-center">
-                        <button class="btn btn-primary col purple-bg">About</button>
-                        <button class="btn btn-primary col purple-bg">Download</button>
-                        <button class="btn btn-primary col purple-bg">Share</button>
-                </div>
+                     </div>
+                     <div id="postcode-dropdown" class="postcode-dropdown"></div>
+                  </div>
+                  <div class="row mt-2 gap-1 justify-content-center">
+                     <button class="btn btn-primary col purple-bg">About</button>
+                     <button class="btn btn-primary col purple-bg">Download</button>
+                     <button class="btn btn-primary col purple-bg">Share</button>
+                  </div>
+               </div>
             </div>
-                 
             <h2 id="headline" class="display-5"></h2>
-
             <div id="geo-description"></div>
-
             <div class="row">
-                <div class="col-12 col-xl-5">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <p>Overall deprivation rank:</p>
-                            <p class="overall-rank display-3"></p>
-                            <p>out of <span class="place-count"></span></p>
-                            <p class="text-start mt-3">Rank 1 is the most deprived</p>
-                            <p class="text-start"><span class="place-count"></span> is the least.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-7">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            Hold for map
-                        </div>
-                    </div>
-                </div>
+               <div class="col-12 col-xl-5">
+                  <div class="card h-100">
+                     <div class="card-body text-center">
+                        <p>Overall deprivation rank:</p>
+                        <p class="overall-rank display-3"></p>
+                        <p>out of <span class="place-count"></span></p>
+                        <p class="text-start mt-3">Rank 1 is the most deprived</p>
+                        <p class="text-start"><span class="place-count"></span> is the least.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 col-xl-7">
+                  <div class="card h-100">
+                     <div class="card-body">
+                        Hold for map
+                     </div>
+                  </div>
+               </div>
             </div>
-
             <h3 class="display-6 mt-4"><span class="place-name blue-text"></span><span id="deprivation-headline"></span></h3>
             <p><span id="deprivation-paragraph" blue-text"></span></p>
-
             <div id="mdm-scale-chart"></div>
-
             <p>This is an overall measure, called the multiple deprivation measure.</p>
-
             <div id="info-boxes"></div>
-
             <h3 class="display-6 mt-4">There are different types of deprivation in <span class="place-name blue-text"></span></h3>
-
-            <div class="row mt-4">
-                <div class="col-12 col-xl-3">
-                    <p>Overall</p>
-                    <span class="overall-rank"></span>
-                </div>
-                <div id="overall-scale-chart" class="col-12 col-xl-9"></div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-xl-3">
-                    <p>Income</p>
-                    <span class="income-rank"></span>
-                </div>
-                <div id="income-scale-chart" class="col-12 col-xl-9"></div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-xl-3">
-                    <p>Employment</p>
-                    <span class="employment-rank"></span>
-                </div>
-                <div id="employment-scale-chart" class="col-12 col-xl-9"></div>
-            </div>
-            
-
-        </div>
-                
-    </div>
-        
-</main>
-
-
-<footer id = "footer"></footer>
-
-<script type = "module" src="src/sdz.js"></script>
-
-
-</body>
+            <div id="deprivation-scales" class="mt-4"></div>
+            <h3 class="display-6 mt-4">Deprivation summary for <span class="blue-text place-name"></span></h3>
+            <div id="automated-text" class="mt-3">Automated text placeholder</div>
+            <button class="btn btn-primary purple-bg mt-3">Copy summary</button>
+            <h3 class="display-6 mt-4">Next steps</h3>
+         </div>
+      </main>
+      <footer id = "footer"></footer>
+      <script type = "module" src="src/sdz.js"></script>
+   </body>

@@ -8,6 +8,7 @@ import { getHeadline, getParagraph } from "./utils/deprivation-text.js";
 import { scaleChartMDM } from "./utils/scale-chart-mdm.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { scaleChart } from "./utils/scale-chart.js";
+import { insertScaleTable } from "./utils/insert-scale-table.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -59,16 +60,10 @@ window.addEventListener("DOMContentLoaded", async () => {
             "",
             ""
         ]
-    )
+    )   
 
-    
-    scaleChart("overall-scale-chart", data, "mdm", "above");
 
-    insertValue("income-rank", data.data.ranks.income);
-    scaleChart("income-scale-chart", data, "income");
-
-    insertValue("employment-rank", data.data.ranks.employment);
-    scaleChart("employment-scale-chart", data, "employment");
+    insertScaleTable("deprivation-scales", data);
 
 
 })

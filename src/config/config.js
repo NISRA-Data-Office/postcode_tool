@@ -20,6 +20,17 @@ export const config = {
         "EXAMPLETABLE2"
     ],
     
-    "rateit": "link-to-rateit"
+    "rateit": "link-to-rateit",
+
+    "deprivation_types": {
+        "mdm": "Overall deprivation",
+        "income": "Income",
+        "employment": "Employment",
+        "health": "Health and disability",
+        "education": "Education, skills and training",
+        "services" : "Access to services",
+        "living": "Living environment",
+        "crime": "Crime and disorder"
+    }
     
 }
