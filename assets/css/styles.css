@@ -193,6 +193,10 @@ table tr:not(:has(th)):hover {
   color: #fff;
 }
 
+.blue-text {
+  color: #3878c5;
+}
+
 .grey-bg {
   background-color: #D9D9D9;
 }
@@ -464,3 +468,27 @@ thead th {
   border-bottom: 2px solid #e5e7eb;
 }
 
+.postcode-dropdown {
+  border: 1px solid #ccc;
+  background: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+.postcode-dropdown__item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  text-align: left;
+  border: 0;
+  background: white;
+  cursor: pointer;
+}
+
+.postcode-dropdown__item:hover,
+.postcode-dropdown__item:focus {
+  background: #f2f2f2;
+}
