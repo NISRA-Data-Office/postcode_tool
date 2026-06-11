@@ -4,6 +4,7 @@ import { insertValue } from "./utils/insert-value.js";
 import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { postcodeSearch } from "./utils/postcode-search.js";
+import { scaleChartMDM } from "./utils/scale-chart-mdm.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -35,6 +36,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     insertValue("place-name", data.name)
+
+    scaleChartMDM("mdm-scale-chart", data)
 
 
 })

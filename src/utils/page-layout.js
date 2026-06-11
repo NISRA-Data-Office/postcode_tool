@@ -66,8 +66,6 @@ export function insertNavButtons(data) {
       ${data.type == "sdz" ? `<li class="breadcrumb-item">${data.name}</li>`: ""}
     </ol>
   `
-
-  console.log(data)
   
 }
 
