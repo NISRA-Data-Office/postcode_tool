@@ -7,14 +7,73 @@
 
 <!-- Main Content -->
 <main>
+    <div id="content" class="container">
 
-<div id="content" class="container">
+        <nav id ="nav"></nav>
 
-    <nav id ="nav"></nav>
-        
-    <h2 id="headline" class="display-5 mt-5"></h2>        
-            
-</div>
+        <div class="row justify-content-end">
+            <div class="col-12 col-xl-4">
+                <div class="postcode-search">
+                    <div class="input-group">
+                        <input
+                        id="postcode-search"
+                        type="search"
+                        class="form-control"
+                        placeholder="Enter another postcode"
+                        aria-label="Enter postcode"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false">
+                        <button
+                        id="postcode-go"
+                        class="btn btn-primary"
+                        type="button">
+                        Go
+                        </button>
+                    </div>
+                    <div id="postcode-dropdown" class="postcode-dropdown"></div>
+                    </div>
+                    <div class="row mt-2 gap-1 justify-content-center">
+                        <button class="btn btn-primary col purple-bg">About</button>
+                        <button class="btn btn-primary col purple-bg">Download</button>
+                        <button class="btn btn-primary col purple-bg">Share</button>
+                </div>
+            </div>
+                 
+            <h2 id="headline" class="display-5"></h2>
+
+            <div id="geo-description"></div>
+
+            <div class="row">
+                <div class="col-12 col-xl-5">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <p>Overall deprivation rank:</p>
+                            <p class="overall-rank display-3"></p>
+                            <p>out of <span class="place-count"></span></p>
+                            <p class="text-start mt-3">Rank 1 is the most deprived</p>
+                            <p class="text-start"><span class="place-count"></span> is the least.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            Hold for map
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="display-6 mt-4"><span class="place-name blue-text"></span> is something something something...</h3>
+            <p>text text text than <span class="place-name blue-text"></span>.</p>
+
+            <div id="mdm-scale-chart"></div>
+
+        </div>
+                
+    </div>
         
 </main>
 

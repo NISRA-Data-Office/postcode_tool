@@ -6,7 +6,6 @@ body {
   font-size: 18px;
   line-height: 1.5;           /* better readability than 1.0 */
   font-weight: 400;
-  background-color: #f2f5f8;
 }
 
 /* Headings per style guide */
@@ -215,6 +214,7 @@ table tr:not(:has(th)):hover {
 .purple-bg {
   background-color: #732777;
   color: #fff;
+  border: none;
 }
 
 .purple-border {
@@ -507,3 +507,10 @@ thead th {
   background: #e9ecef;
   outline: none;
 }
+
+  /* svg {
+    width: 100%;
+    height: auto;
+    max-width: 980px;
+    display: block;
+  } */
