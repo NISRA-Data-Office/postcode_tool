@@ -1,0 +1,31 @@
+{
+  "code": "N21000835",
+  "name": "Bangor East and Donaghadee G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000011",
+      "name": "Ards and North Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.6308, 54.643, -5.647, 54.6535],
+  "data": {
+    "ranks": {
+      "mdm": 794,
+      "income": 757,
+      "crime": 89,
+      "employment": 748,
+      "living": 100,
+      "health": 727,
+      "education": 750,
+      "services": 374
+    },
+    "population": 3148,
+    "hectares": 61.3733,
+    "urban_rural": "urban"
+  }
+}

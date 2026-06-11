@@ -1,0 +1,31 @@
+{
+  "code": "N21000411",
+  "name": "Foyleside G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000005",
+      "name": "Derry City and Strabane",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.326, 55.0009, -7.3408, 55.0084],
+  "data": {
+    "ranks": {
+      "mdm": 133,
+      "income": 194,
+      "crime": 719,
+      "employment": 82,
+      "living": 759,
+      "health": 120,
+      "education": 338,
+      "services": 804
+    },
+    "population": 2140,
+    "hectares": 49.6496,
+    "urban_rural": "urban"
+  }
+}

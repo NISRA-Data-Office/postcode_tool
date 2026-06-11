@@ -1,0 +1,31 @@
+{
+  "code": "N21000686",
+  "name": "Clogher Valley A",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000009",
+      "name": "Mid Ulster",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.7847, 54.4624, -6.8784, 54.5309],
+  "data": {
+    "ranks": {
+      "mdm": 436,
+      "income": 426,
+      "crime": 366,
+      "employment": 360,
+      "living": 435,
+      "health": 298,
+      "education": 409,
+      "services": 383
+    },
+    "population": 3100,
+    "hectares": 2118.6982,
+    "urban_rural": "a mix of urban and rural"
+  }
+}

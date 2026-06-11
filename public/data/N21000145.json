@@ -1,0 +1,31 @@
+{
+  "code": "N21000145",
+  "name": "Banbridge K",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000002",
+      "name": "Armagh City, Banbridge and Craigavon",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.2561, 54.3274, -6.2891, 54.3454],
+  "data": {
+    "ranks": {
+      "mdm": 493,
+      "income": 596,
+      "crime": 273,
+      "employment": 343,
+      "living": 481,
+      "health": 419,
+      "education": 288,
+      "services": 437
+    },
+    "population": 3108,
+    "hectares": 242.4946,
+    "urban_rural": "a mix of urban and rural"
+  }
+}

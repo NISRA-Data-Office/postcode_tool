@@ -1,0 +1,31 @@
+{
+  "code": "N21000393",
+  "name": "Ballymoney H",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000004",
+      "name": "Causeway Coast and Glens",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.3209, 54.9637, -6.5162, 55.0675],
+  "data": {
+    "ranks": {
+      "mdm": 622,
+      "income": 660,
+      "crime": 194,
+      "employment": 675,
+      "living": 163,
+      "health": 686,
+      "education": 679,
+      "services": 45
+    },
+    "population": 3254,
+    "hectares": 5432.9699,
+    "urban_rural": "rural"
+  }
+}

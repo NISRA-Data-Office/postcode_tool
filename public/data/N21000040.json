@@ -1,0 +1,31 @@
+{
+  "code": "N21000040",
+  "name": "Macedon D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000001",
+      "name": "Antrim and Newtownabbey",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9136, 54.6679, -5.9422, 54.6786],
+  "data": {
+    "ranks": {
+      "mdm": 146,
+      "income": 332,
+      "crime": 496,
+      "employment": 134,
+      "living": 699,
+      "health": 136,
+      "education": 44,
+      "services": 734
+    },
+    "population": 1812,
+    "hectares": 102.8766,
+    "urban_rural": "urban"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000710",
+  "name": "Newry E",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000010",
+      "name": "Newry, Mourne and Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.3296, 54.171, -6.3488, 54.1861],
+  "data": {
+    "ranks": {
+      "mdm": 65,
+      "income": 61,
+      "crime": 804,
+      "employment": 75,
+      "living": 780,
+      "health": 89,
+      "education": 138,
+      "services": 583
+    },
+    "population": 2149,
+    "hectares": 108.4197,
+    "urban_rural": "urban"
+  }
+}

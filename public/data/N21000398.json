@@ -1,0 +1,31 @@
+{
+  "code": "N21000398",
+  "name": "The Moor B",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000005",
+      "name": "Derry City and Strabane",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.326, 54.9949, -7.3421, 55.0028],
+  "data": {
+    "ranks": {
+      "mdm": 69,
+      "income": 131,
+      "crime": 803,
+      "employment": 39,
+      "living": 822,
+      "health": 55,
+      "education": 157,
+      "services": 827
+    },
+    "population": 2841,
+    "hectares": 53.5902,
+    "urban_rural": "urban"
+  }
+}

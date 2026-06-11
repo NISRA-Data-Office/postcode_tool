@@ -1,0 +1,31 @@
+{
+  "code": "N21000486",
+  "name": "Erne North E",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000006",
+      "name": "Fermanagh and Omagh",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.5862, 54.4096, -7.6066, 54.4312],
+  "data": {
+    "ranks": {
+      "mdm": 355,
+      "income": 280,
+      "crime": 563,
+      "employment": 461,
+      "living": 463,
+      "health": 398,
+      "education": 529,
+      "services": 123
+    },
+    "population": 1374,
+    "hectares": 135.8971,
+    "urban_rural": "rural"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000429",
+  "name": "Waterside G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000005",
+      "name": "Derry City and Strabane",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.2963, 54.9846, -7.3113, 54.9956],
+  "data": {
+    "ranks": {
+      "mdm": 163,
+      "income": 206,
+      "crime": 733,
+      "employment": 117,
+      "living": 742,
+      "health": 131,
+      "education": 201,
+      "services": 835
+    },
+    "population": 2237,
+    "hectares": 53.7141,
+    "urban_rural": "urban"
+  }
+}

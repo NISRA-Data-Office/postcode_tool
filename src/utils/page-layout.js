@@ -43,6 +43,11 @@ export function insertHeader () {
 
 </div>
 
+<div class="w-100 text-center current-page py-2 green-bg">
+    Latest deprivation statistics, built using dummy data
+
+</div>
+
 `
 }
 

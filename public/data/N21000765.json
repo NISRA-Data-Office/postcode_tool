@@ -1,0 +1,31 @@
+{
+  "code": "N21000765",
+  "name": "Downpatrick E",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000010",
+      "name": "Newry, Mourne and Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.7032, 54.322, -5.722, 54.3343],
+  "data": {
+    "ranks": {
+      "mdm": 277,
+      "income": 589,
+      "crime": 263,
+      "employment": 187,
+      "living": 701,
+      "health": 187,
+      "education": 305,
+      "services": 384
+    },
+    "population": 2349,
+    "hectares": 88.4674,
+    "urban_rural": "urban"
+  }
+}

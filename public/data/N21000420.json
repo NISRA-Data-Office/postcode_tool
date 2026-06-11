@@ -1,0 +1,31 @@
+{
+  "code": "N21000420",
+  "name": "Ballyarnett J",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000005",
+      "name": "Derry City and Strabane",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.3198, 55.0163, -7.3587, 55.0388],
+  "data": {
+    "ranks": {
+      "mdm": 172,
+      "income": 251,
+      "crime": 584,
+      "employment": 108,
+      "living": 751,
+      "health": 121,
+      "education": 276,
+      "services": 358
+    },
+    "population": 2248,
+    "hectares": 176.8115,
+    "urban_rural": "urban"
+  }
+}

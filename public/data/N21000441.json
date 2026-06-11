@@ -1,0 +1,31 @@
+{
+  "code": "N21000441",
+  "name": "Faughan F",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000005",
+      "name": "Derry City and Strabane",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.3477, 54.9496, -7.3658, 54.9685],
+  "data": {
+    "ranks": {
+      "mdm": 475,
+      "income": 427,
+      "crime": 460,
+      "employment": 394,
+      "living": 467,
+      "health": 472,
+      "education": 544,
+      "services": 199
+    },
+    "population": 2867,
+    "hectares": 137.958,
+    "urban_rural": "rural"
+  }
+}

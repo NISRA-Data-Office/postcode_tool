@@ -1,0 +1,31 @@
+{
+  "code": "N21000612",
+  "name": "Larne Lough C",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000008",
+      "name": "Mid and East Antrim",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.8375, 54.8337, -5.874, 54.8563],
+  "data": {
+    "ranks": {
+      "mdm": 346,
+      "income": 353,
+      "crime": 564,
+      "employment": 319,
+      "living": 567,
+      "health": 350,
+      "education": 284,
+      "services": 363
+    },
+    "population": 3273,
+    "hectares": 171.4692,
+    "urban_rural": "urban"
+  }
+}

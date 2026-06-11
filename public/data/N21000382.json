@@ -1,0 +1,31 @@
+{
+  "code": "N21000382",
+  "name": "The Glens D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000004",
+      "name": "Causeway Coast and Glens",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.318, 55.0991, -6.4272, 55.1649],
+  "data": {
+    "ranks": {
+      "mdm": 267,
+      "income": 97,
+      "crime": 709,
+      "employment": 395,
+      "living": 406,
+      "health": 516,
+      "education": 434,
+      "services": 43
+    },
+    "population": 1849,
+    "hectares": 2584.6122,
+    "urban_rural": "rural"
+  }
+}

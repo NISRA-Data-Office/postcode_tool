@@ -1,0 +1,31 @@
+{
+  "code": "N21000728",
+  "name": "Crotlieve K",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000010",
+      "name": "Newry, Mourne and Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.2414, 54.0964, -6.281, 54.115],
+  "data": {
+    "ranks": {
+      "mdm": 285,
+      "income": 160,
+      "crime": 703,
+      "employment": 276,
+      "living": 549,
+      "health": 341,
+      "education": 449,
+      "services": 483
+    },
+    "population": 2831,
+    "hectares": 153.2474,
+    "urban_rural": "urban"
+  }
+}

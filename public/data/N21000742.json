@@ -1,0 +1,31 @@
+{
+  "code": "N21000742",
+  "name": "The Mournes P",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000010",
+      "name": "Newry, Mourne and Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9882, 54.0506, -6.0163, 54.0677],
+  "data": {
+    "ranks": {
+      "mdm": 305,
+      "income": 431,
+      "crime": 443,
+      "employment": 265,
+      "living": 594,
+      "health": 334,
+      "education": 228,
+      "services": 382
+    },
+    "population": 2730,
+    "hectares": 160.0847,
+    "urban_rural": "urban"
+  }
+}

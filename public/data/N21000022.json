@@ -1,0 +1,31 @@
+{
+  "code": "N21000022",
+  "name": "Ballyclare D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000001",
+      "name": "Antrim and Newtownabbey",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9812, 54.7431, -6.0011, 54.7573],
+  "data": {
+    "ranks": {
+      "mdm": 459,
+      "income": 624,
+      "crime": 244,
+      "employment": 370,
+      "living": 480,
+      "health": 393,
+      "education": 147,
+      "services": 541
+    },
+    "population": 2546,
+    "hectares": 104.7594,
+    "urban_rural": "urban"
+  }
+}

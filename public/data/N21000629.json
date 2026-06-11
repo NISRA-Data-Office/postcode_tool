@@ -1,0 +1,31 @@
+{
+  "code": "N21000629",
+  "name": "Knockagh B",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000008",
+      "name": "Mid and East Antrim",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.8101, 54.7244, -5.8278, 54.735],
+  "data": {
+    "ranks": {
+      "mdm": 760,
+      "income": 840,
+      "crime": 6,
+      "employment": 648,
+      "living": 214,
+      "health": 625,
+      "education": 634,
+      "services": 295
+    },
+    "population": 1702,
+    "hectares": 91.7544,
+    "urban_rural": "urban"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000311",
+  "name": "Black Mountain L",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000003",
+      "name": "Belfast",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9834, 54.5729, -5.9976, 54.5804],
+  "data": {
+    "ranks": {
+      "mdm": 212,
+      "income": 595,
+      "crime": 262,
+      "employment": 119,
+      "living": 718,
+      "health": 90,
+      "education": 301,
+      "services": 788
+    },
+    "population": 2390,
+    "hectares": 44.539,
+    "urban_rural": "urban"
+  }
+}

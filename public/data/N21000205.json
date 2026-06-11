@@ -1,0 +1,31 @@
+{
+  "code": "N21000205",
+  "name": "Titanic J",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000003",
+      "name": "Belfast",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.882, 54.5934, -5.8938, 54.6011],
+  "data": {
+    "ranks": {
+      "mdm": 250,
+      "income": 316,
+      "crime": 481,
+      "employment": 272,
+      "living": 580,
+      "health": 224,
+      "education": 144,
+      "services": 815
+    },
+    "population": 2070,
+    "hectares": 32.643,
+    "urban_rural": "urban"
+  }
+}

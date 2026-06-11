@@ -1,0 +1,31 @@
+{
+  "code": "N21000504",
+  "name": "Mid Tyrone A",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000006",
+      "name": "Fermanagh and Omagh",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.936, 54.5999, -7.2589, 54.7805],
+  "data": {
+    "ranks": {
+      "mdm": 288,
+      "income": 176,
+      "crime": 676,
+      "employment": 442,
+      "living": 350,
+      "health": 422,
+      "education": 763,
+      "services": 5
+    },
+    "population": 3003,
+    "hectares": 19845.4113,
+    "urban_rural": "rural"
+  }
+}

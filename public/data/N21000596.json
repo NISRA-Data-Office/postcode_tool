@@ -1,0 +1,31 @@
+{
+  "code": "N21000596",
+  "name": "Braid F",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000008",
+      "name": "Mid and East Antrim",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9448, 54.774, -6.2603, 54.9226],
+  "data": {
+    "ranks": {
+      "mdm": 636,
+      "income": 456,
+      "crime": 369,
+      "employment": 781,
+      "living": 73,
+      "health": 766,
+      "education": 759,
+      "services": 52
+    },
+    "population": 3298,
+    "hectares": 16975.5275,
+    "urban_rural": "rural"
+  }
+}

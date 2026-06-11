@@ -1,0 +1,31 @@
+{
+  "code": "N21000227",
+  "name": "Ormiston J",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000003",
+      "name": "Belfast",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.8298, 54.5885, -5.8434, 54.5949],
+  "data": {
+    "ranks": {
+      "mdm": 779,
+      "income": 811,
+      "crime": 49,
+      "employment": 730,
+      "living": 140,
+      "health": 704,
+      "education": 714,
+      "services": 740
+    },
+    "population": 1929,
+    "hectares": 39.7335,
+    "urban_rural": "urban"
+  }
+}

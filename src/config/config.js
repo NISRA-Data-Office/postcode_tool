@@ -1,12 +1,12 @@
 export const config = {
     // Dashboard title
-    "title": "Dashboard Template",
+    "title": "Deprivation in Northern Ireland",
 
     // Set order of page links and display text in navigation bar
     "navigation": [
         { href: "index.html", text: "Home" },
-        { href: "page.html", text: "Page" },
-        { href: "user-notes.html", text: "User Notes" }  
+        { href: "lgd.html", text: "LGD" },
+        { href: "sdz.html", text: "SDZ" }  
     ],
     
     "portal_url": "https://data.nisra.gov.uk/",

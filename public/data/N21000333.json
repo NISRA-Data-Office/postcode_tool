@@ -1,0 +1,31 @@
+{
+  "code": "N21000333",
+  "name": "Court U",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000003",
+      "name": "Belfast",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9537, 54.5965, -5.9636, 54.6005],
+  "data": {
+    "ranks": {
+      "mdm": 37,
+      "income": 73,
+      "crime": 792,
+      "employment": 35,
+      "living": 809,
+      "health": 27,
+      "education": 55,
+      "services": 781
+    },
+    "population": 1284,
+    "hectares": 13.6633,
+    "urban_rural": "urban"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000547",
+  "name": "Downshire East B",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000007",
+      "name": "Lisburn and Castlereagh",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.0234, 54.5084, -6.0382, 54.5134],
+  "data": {
+    "ranks": {
+      "mdm": 312,
+      "income": 419,
+      "crime": 374,
+      "employment": 259,
+      "living": 552,
+      "health": 302,
+      "education": 137,
+      "services": 724
+    },
+    "population": 1648,
+    "hectares": 30.457,
+    "urban_rural": "urban"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000677",
+  "name": "Dungannon B",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000009",
+      "name": "Mid Ulster",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.7671, 54.506, -6.7971, 54.5199],
+  "data": {
+    "ranks": {
+      "mdm": 283,
+      "income": 448,
+      "crime": 365,
+      "employment": 221,
+      "living": 576,
+      "health": 199,
+      "education": 252,
+      "services": 636
+    },
+    "population": 2393,
+    "hectares": 163.4033,
+    "urban_rural": "urban"
+  }
+}

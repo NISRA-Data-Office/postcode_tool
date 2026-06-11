@@ -1,0 +1,31 @@
+{
+  "code": "N21000054",
+  "name": "Glengormley Urban G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000001",
+      "name": "Antrim and Newtownabbey",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9633, 54.6703, -5.9771, 54.6792],
+  "data": {
+    "ranks": {
+      "mdm": 667,
+      "income": 685,
+      "crime": 148,
+      "employment": 644,
+      "living": 199,
+      "health": 513,
+      "education": 395,
+      "services": 691
+    },
+    "population": 1785,
+    "hectares": 48.5855,
+    "urban_rural": "urban"
+  }
+}

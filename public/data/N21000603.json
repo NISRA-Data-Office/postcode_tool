@@ -1,0 +1,31 @@
+{
+  "code": "N21000603",
+  "name": "Coast Road C",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000008",
+      "name": "Mid and East Antrim",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.8264, 54.85, -5.9932, 54.9708],
+  "data": {
+    "ranks": {
+      "mdm": 537,
+      "income": 472,
+      "crime": 362,
+      "employment": 525,
+      "living": 372,
+      "health": 605,
+      "education": 553,
+      "services": 250
+    },
+    "population": 1872,
+    "hectares": 7044.4201,
+    "urban_rural": "a mix of urban and rural"
+  }
+}

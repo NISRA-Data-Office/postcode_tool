@@ -1,0 +1,31 @@
+{
+  "code": "N21000183",
+  "name": "Castle E",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000003",
+      "name": "Belfast",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.92, 54.6356, -5.9297, 54.6414],
+  "data": {
+    "ranks": {
+      "mdm": 336,
+      "income": 380,
+      "crime": 603,
+      "employment": 330,
+      "living": 614,
+      "health": 268,
+      "education": 265,
+      "services": 626
+    },
+    "population": 1597,
+    "hectares": 25.3334,
+    "urban_rural": "urban"
+  }
+}

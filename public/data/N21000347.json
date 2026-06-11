@@ -1,0 +1,31 @@
+{
+  "code": "N21000347",
+  "name": "Limavady E",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000004",
+      "name": "Causeway Coast and Glens",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.9376, 55.0331, -6.9586, 55.0494],
+  "data": {
+    "ranks": {
+      "mdm": 59,
+      "income": 91,
+      "crime": 779,
+      "employment": 41,
+      "living": 821,
+      "health": 65,
+      "education": 78,
+      "services": 456
+    },
+    "population": 2723,
+    "hectares": 126.6522,
+    "urban_rural": "urban"
+  }
+}

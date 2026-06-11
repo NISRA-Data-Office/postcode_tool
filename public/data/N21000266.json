@@ -1,0 +1,31 @@
+{
+  "code": "N21000266",
+  "name": "Botanic S",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000003",
+      "name": "Belfast",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9428, 54.5761, -5.9545, 54.5825],
+  "data": {
+    "ranks": {
+      "mdm": 743,
+      "income": 644,
+      "crime": 193,
+      "employment": 834,
+      "living": 16,
+      "health": 798,
+      "education": 734,
+      "services": 848
+    },
+    "population": 2223,
+    "hectares": 24.5711,
+    "urban_rural": "urban"
+  }
+}

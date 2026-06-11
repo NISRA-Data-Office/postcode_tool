@@ -1,0 +1,31 @@
+{
+  "code": "N21000063",
+  "name": "Airport E",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000001",
+      "name": "Antrim and Newtownabbey",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.9731, 54.6651, -5.9968, 54.6779],
+  "data": {
+    "ranks": {
+      "mdm": 781,
+      "income": 798,
+      "crime": 61,
+      "employment": 784,
+      "living": 64,
+      "health": 701,
+      "education": 688,
+      "services": 458
+    },
+    "population": 3123,
+    "hectares": 97.606,
+    "urban_rural": "urban"
+  }
+}

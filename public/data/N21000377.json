@@ -1,0 +1,31 @@
+{
+  "code": "N21000377",
+  "name": "Causeway K",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000004",
+      "name": "Causeway Coast and Glens",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.5476, 55.0792, -6.7732, 55.2042],
+  "data": {
+    "ranks": {
+      "mdm": 116,
+      "income": 50,
+      "crime": 812,
+      "employment": 143,
+      "living": 740,
+      "health": 201,
+      "education": 139,
+      "services": 342
+    },
+    "population": 3195,
+    "hectares": 7327.6146,
+    "urban_rural": "a mix of urban and rural"
+  }
+}

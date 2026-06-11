@@ -1,0 +1,31 @@
+{
+  "code": "N21000120",
+  "name": "Lurgan Q",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000002",
+      "name": "Armagh City, Banbridge and Craigavon",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.3289, 54.4518, -6.3396, 54.4592],
+  "data": {
+    "ranks": {
+      "mdm": 167,
+      "income": 119,
+      "crime": 750,
+      "employment": 222,
+      "living": 583,
+      "health": 211,
+      "education": 88,
+      "services": 584
+    },
+    "population": 1925,
+    "hectares": 31.0399,
+    "urban_rural": "urban"
+  }
+}

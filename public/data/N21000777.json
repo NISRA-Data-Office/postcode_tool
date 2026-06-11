@@ -1,0 +1,31 @@
+{
+  "code": "N21000777",
+  "name": "Comber G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000011",
+      "name": "Ards and North Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.7781, 54.4961, -5.8025, 54.5081],
+  "data": {
+    "ranks": {
+      "mdm": 756,
+      "income": 688,
+      "crime": 176,
+      "employment": 789,
+      "living": 63,
+      "health": 795,
+      "education": 773,
+      "services": 139
+    },
+    "population": 3038,
+    "hectares": 97.6689,
+    "urban_rural": "rural"
+  }
+}

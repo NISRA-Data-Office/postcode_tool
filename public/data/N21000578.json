@@ -1,0 +1,31 @@
+{
+  "code": "N21000578",
+  "name": "Bannside G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000008",
+      "name": "Mid and East Antrim",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.3574, 54.8468, -6.3772, 54.8536],
+  "data": {
+    "ranks": {
+      "mdm": 741,
+      "income": 791,
+      "crime": 79,
+      "employment": 734,
+      "living": 125,
+      "health": 740,
+      "education": 671,
+      "services": 183
+    },
+    "population": 1682,
+    "hectares": 44.5112,
+    "urban_rural": "rural"
+  }
+}

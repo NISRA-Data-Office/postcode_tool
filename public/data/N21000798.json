@@ -1,0 +1,31 @@
+{
+  "code": "N21000798",
+  "name": "Holywood and Clandeboye D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000011",
+      "name": "Ards and North Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.7907, 54.6414, -5.8234, 54.6614],
+  "data": {
+    "ranks": {
+      "mdm": 831,
+      "income": 794,
+      "crime": 70,
+      "employment": 841,
+      "living": 18,
+      "health": 845,
+      "education": 841,
+      "services": 333
+    },
+    "population": 1699,
+    "hectares": 203.5311,
+    "urban_rural": "urban"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000850",
+  "name": "Ards Peninsula N",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000011",
+      "name": "Ards and North Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.531, 54.3732, -5.5516, 54.3891],
+  "data": {
+    "ranks": {
+      "mdm": 356,
+      "income": 459,
+      "crime": 395,
+      "employment": 346,
+      "living": 496,
+      "health": 455,
+      "education": 478,
+      "services": 71
+    },
+    "population": 2336,
+    "hectares": 94.5558,
+    "urban_rural": "rural"
+  }
+}

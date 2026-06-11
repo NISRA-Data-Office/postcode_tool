@@ -1,0 +1,31 @@
+{
+  "code": "N21000480",
+  "name": "Enniskillen G",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000006",
+      "name": "Fermanagh and Omagh",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.488, 54.2867, -7.6403, 54.3801],
+  "data": {
+    "ranks": {
+      "mdm": 616,
+      "income": 552,
+      "crime": 292,
+      "employment": 606,
+      "living": 238,
+      "health": 617,
+      "education": 659,
+      "services": 198
+    },
+    "population": 2905,
+    "hectares": 5529.2707,
+    "urban_rural": "rural"
+  }
+}

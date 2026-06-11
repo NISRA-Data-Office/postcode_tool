@@ -1,0 +1,31 @@
+{
+  "code": "N21000594",
+  "name": "Braid D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000008",
+      "name": "Mid and East Antrim",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.1959, 54.8888, -6.2122, 54.898],
+  "data": {
+    "ranks": {
+      "mdm": 737,
+      "income": 667,
+      "crime": 164,
+      "employment": 727,
+      "living": 114,
+      "health": 702,
+      "education": 754,
+      "services": 266
+    },
+    "population": 1379,
+    "hectares": 56.893,
+    "urban_rural": "rural"
+  }
+}

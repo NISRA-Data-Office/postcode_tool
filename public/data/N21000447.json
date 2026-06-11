@@ -1,0 +1,31 @@
+{
+  "code": "N21000447",
+  "name": "Sperrin D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000005",
+      "name": "Derry City and Strabane",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.4416, 54.824, -7.4711, 54.8467],
+  "data": {
+    "ranks": {
+      "mdm": 36,
+      "income": 14,
+      "crime": 839,
+      "employment": 33,
+      "living": 829,
+      "health": 69,
+      "education": 65,
+      "services": 529
+    },
+    "population": 2955,
+    "hectares": 180.8953,
+    "urban_rural": "a mix of urban and rural"
+  }
+}

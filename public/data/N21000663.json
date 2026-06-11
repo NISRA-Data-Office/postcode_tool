@@ -1,0 +1,31 @@
+{
+  "code": "N21000663",
+  "name": "Cookstown F",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000009",
+      "name": "Mid Ulster",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.7371, 54.6339, -6.7558, 54.6425],
+  "data": {
+    "ranks": {
+      "mdm": 364,
+      "income": 561,
+      "crime": 271,
+      "employment": 284,
+      "living": 524,
+      "health": 219,
+      "education": 251,
+      "services": 548
+    },
+    "population": 2242,
+    "hectares": 58.1397,
+    "urban_rural": "urban"
+  }
+}

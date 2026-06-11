@@ -1,0 +1,31 @@
+{
+  "code": "N21000646",
+  "name": "Moyola D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000009",
+      "name": "Mid Ulster",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.7655, 54.7881, -6.801, 54.8014],
+  "data": {
+    "ranks": {
+      "mdm": 566,
+      "income": 478,
+      "crime": 342,
+      "employment": 646,
+      "living": 175,
+      "health": 590,
+      "education": 747,
+      "services": 37
+    },
+    "population": 1899,
+    "hectares": 153.7396,
+    "urban_rural": "rural"
+  }
+}

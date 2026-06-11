@@ -1,0 +1,933 @@
+{
+  "code": "N09000004",
+  "name": "Causeway Coast and Glens",
+  "comment": "This json includes data for the MDM app.",
+  "type": "lgd",
+  "parents": [],
+  "children": [
+    {
+      "code": "N21000368",
+      "name": "Causeway A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000379",
+      "name": "The Glens A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000380",
+      "name": "The Glens B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000369",
+      "name": "Causeway B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000370",
+      "name": "Causeway C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000371",
+      "name": "Causeway D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000372",
+      "name": "Causeway E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000373",
+      "name": "Causeway F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000374",
+      "name": "Causeway G",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000381",
+      "name": "The Glens C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000375",
+      "name": "Causeway H",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000350",
+      "name": "Bann A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000376",
+      "name": "Causeway J",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000358",
+      "name": "Coleraine A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000359",
+      "name": "Coleraine B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000377",
+      "name": "Causeway K",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000360",
+      "name": "Coleraine C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000351",
+      "name": "Bann B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000382",
+      "name": "The Glens D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000361",
+      "name": "Coleraine D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000362",
+      "name": "Coleraine E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000363",
+      "name": "Coleraine F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000364",
+      "name": "Coleraine G",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000383",
+      "name": "The Glens E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000378",
+      "name": "Causeway L",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000343",
+      "name": "Limavady A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000365",
+      "name": "Coleraine H",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000366",
+      "name": "Coleraine J",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000367",
+      "name": "Coleraine K",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000352",
+      "name": "Bann C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000386",
+      "name": "Ballymoney A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000387",
+      "name": "Ballymoney B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000384",
+      "name": "The Glens F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000388",
+      "name": "Ballymoney C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000389",
+      "name": "Ballymoney D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000390",
+      "name": "Ballymoney E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000391",
+      "name": "Ballymoney F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000344",
+      "name": "Limavady B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000353",
+      "name": "Bann D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000336",
+      "name": "Benbradagh A",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000345",
+      "name": "Limavady C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000346",
+      "name": "Limavady D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000392",
+      "name": "Ballymoney G",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000385",
+      "name": "The Glens G",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000337",
+      "name": "Benbradagh B",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000347",
+      "name": "Limavady E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000348",
+      "name": "Limavady F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000349",
+      "name": "Limavady G",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000338",
+      "name": "Benbradagh C",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000393",
+      "name": "Ballymoney H",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000394",
+      "name": "Ballymoney J",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000354",
+      "name": "Bann E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000395",
+      "name": "Ballymoney K",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000339",
+      "name": "Benbradagh D",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000355",
+      "name": "Bann F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000356",
+      "name": "Bann G",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000357",
+      "name": "Bann H",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000340",
+      "name": "Benbradagh E",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000396",
+      "name": "Ballymoney L",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000341",
+      "name": "Benbradagh F",
+      "type": "sdz"
+    },
+    {
+      "code": "N21000342",
+      "name": "Benbradagh G",
+      "type": "sdz"
+    }
+  ],
+  "children_count": 850,
+  "bounds": [-5.9769, 54.8203, -7.1659, 55.313],
+  "data": {
+    "ranks": {
+      "N21000368": {
+        "mdm": 339,
+        "income": 98,
+        "crime": 762,
+        "employment": 489,
+        "living": 371,
+        "health": 730,
+        "education": 421,
+        "services": 122
+      },
+      "N21000379": {
+        "mdm": 261,
+        "income": 106,
+        "crime": 728,
+        "employment": 241,
+        "living": 605,
+        "health": 332,
+        "education": 464,
+        "services": 285
+      },
+      "N21000380": {
+        "mdm": 262,
+        "income": 107,
+        "crime": 729,
+        "employment": 242,
+        "living": 606,
+        "health": 333,
+        "education": 465,
+        "services": 286
+      },
+      "N21000369": {
+        "mdm": 337,
+        "income": 118,
+        "crime": 795,
+        "employment": 372,
+        "living": 588,
+        "health": 577,
+        "education": 344,
+        "services": 279
+      },
+      "N21000370": {
+        "mdm": 386,
+        "income": 120,
+        "crime": 744,
+        "employment": 528,
+        "living": 339,
+        "health": 768,
+        "education": 479,
+        "services": 114
+      },
+      "N21000371": {
+        "mdm": 353,
+        "income": 115,
+        "crime": 796,
+        "employment": 401,
+        "living": 573,
+        "health": 600,
+        "education": 373,
+        "services": 277
+      },
+      "N21000372": {
+        "mdm": 354,
+        "income": 116,
+        "crime": 797,
+        "employment": 402,
+        "living": 574,
+        "health": 601,
+        "education": 374,
+        "services": 278
+      },
+      "N21000373": {
+        "mdm": 543,
+        "income": 412,
+        "crime": 441,
+        "employment": 426,
+        "living": 457,
+        "health": 565,
+        "education": 631,
+        "services": 511
+      },
+      "N21000374": {
+        "mdm": 576,
+        "income": 464,
+        "crime": 406,
+        "employment": 477,
+        "living": 414,
+        "health": 587,
+        "education": 665,
+        "services": 569
+      },
+      "N21000381": {
+        "mdm": 217,
+        "income": 82,
+        "crime": 754,
+        "employment": 208,
+        "living": 626,
+        "health": 301,
+        "education": 447,
+        "services": 273
+      },
+      "N21000375": {
+        "mdm": 647,
+        "income": 524,
+        "crime": 337,
+        "employment": 601,
+        "living": 319,
+        "health": 658,
+        "education": 741,
+        "services": 519
+      },
+      "N21000350": {
+        "mdm": 635,
+        "income": 350,
+        "crime": 457,
+        "employment": 663,
+        "living": 187,
+        "health": 765,
+        "education": 721,
+        "services": 308
+      },
+      "N21000376": {
+        "mdm": 443,
+        "income": 199,
+        "crime": 687,
+        "employment": 563,
+        "living": 306,
+        "health": 783,
+        "education": 523,
+        "services": 118
+      },
+      "N21000358": {
+        "mdm": 121,
+        "income": 58,
+        "crime": 818,
+        "employment": 121,
+        "living": 757,
+        "health": 158,
+        "education": 104,
+        "services": 404
+      },
+      "N21000359": {
+        "mdm": 255,
+        "income": 128,
+        "crime": 781,
+        "employment": 240,
+        "living": 715,
+        "health": 287,
+        "education": 239,
+        "services": 472
+      },
+      "N21000377": {
+        "mdm": 116,
+        "income": 50,
+        "crime": 812,
+        "employment": 143,
+        "living": 740,
+        "health": 201,
+        "education": 139,
+        "services": 342
+      },
+      "N21000360": {
+        "mdm": 100,
+        "income": 54,
+        "crime": 767,
+        "employment": 98,
+        "living": 741,
+        "health": 141,
+        "education": 91,
+        "services": 517
+      },
+      "N21000351": {
+        "mdm": 670,
+        "income": 421,
+        "crime": 405,
+        "employment": 733,
+        "living": 122,
+        "health": 824,
+        "education": 746,
+        "services": 246
+      },
+      "N21000382": {
+        "mdm": 267,
+        "income": 97,
+        "crime": 709,
+        "employment": 395,
+        "living": 406,
+        "health": 516,
+        "education": 434,
+        "services": 43
+      },
+      "N21000361": {
+        "mdm": 165,
+        "income": 79,
+        "crime": 718,
+        "employment": 167,
+        "living": 697,
+        "health": 254,
+        "education": 199,
+        "services": 770
+      },
+      "N21000362": {
+        "mdm": 112,
+        "income": 63,
+        "crime": 758,
+        "employment": 110,
+        "living": 720,
+        "health": 176,
+        "education": 123,
+        "services": 624
+      },
+      "N21000363": {
+        "mdm": 256,
+        "income": 207,
+        "crime": 632,
+        "employment": 220,
+        "living": 661,
+        "health": 293,
+        "education": 238,
+        "services": 595
+      },
+      "N21000364": {
+        "mdm": 196,
+        "income": 127,
+        "crime": 686,
+        "employment": 194,
+        "living": 673,
+        "health": 282,
+        "education": 213,
+        "services": 682
+      },
+      "N21000383": {
+        "mdm": 489,
+        "income": 351,
+        "crime": 432,
+        "employment": 553,
+        "living": 248,
+        "health": 672,
+        "education": 752,
+        "services": 32
+      },
+      "N21000378": {
+        "mdm": 416,
+        "income": 287,
+        "crime": 524,
+        "employment": 415,
+        "living": 397,
+        "health": 522,
+        "education": 430,
+        "services": 203
+      },
+      "N21000343": {
+        "mdm": 376,
+        "income": 367,
+        "crime": 537,
+        "employment": 357,
+        "living": 586,
+        "health": 471,
+        "education": 563,
+        "services": 260
+      },
+      "N21000365": {
+        "mdm": 619,
+        "income": 331,
+        "crime": 451,
+        "employment": 556,
+        "living": 263,
+        "health": 685,
+        "education": 607,
+        "services": 508
+      },
+      "N21000366": {
+        "mdm": 451,
+        "income": 297,
+        "crime": 512,
+        "employment": 364,
+        "living": 499,
+        "health": 470,
+        "education": 383,
+        "services": 487
+      },
+      "N21000367": {
+        "mdm": 606,
+        "income": 330,
+        "crime": 452,
+        "employment": 478,
+        "living": 347,
+        "health": 655,
+        "education": 578,
+        "services": 419
+      },
+      "N21000352": {
+        "mdm": 513,
+        "income": 460,
+        "crime": 361,
+        "employment": 417,
+        "living": 447,
+        "health": 570,
+        "education": 443,
+        "services": 337
+      },
+      "N21000386": {
+        "mdm": 437,
+        "income": 366,
+        "crime": 513,
+        "employment": 311,
+        "living": 565,
+        "health": 404,
+        "education": 517,
+        "services": 396
+      },
+      "N21000387": {
+        "mdm": 358,
+        "income": 373,
+        "crime": 458,
+        "employment": 245,
+        "living": 608,
+        "health": 290,
+        "education": 297,
+        "services": 538
+      },
+      "N21000384": {
+        "mdm": 492,
+        "income": 428,
+        "crime": 398,
+        "employment": 603,
+        "living": 220,
+        "health": 673,
+        "education": 633,
+        "services": 18
+      },
+      "N21000388": {
+        "mdm": 304,
+        "income": 301,
+        "crime": 583,
+        "employment": 200,
+        "living": 669,
+        "health": 278,
+        "education": 324,
+        "services": 625
+      },
+      "N21000389": {
+        "mdm": 284,
+        "income": 324,
+        "crime": 562,
+        "employment": 191,
+        "living": 674,
+        "health": 210,
+        "education": 249,
+        "services": 614
+      },
+      "N21000390": {
+        "mdm": 303,
+        "income": 377,
+        "crime": 499,
+        "employment": 196,
+        "living": 672,
+        "health": 238,
+        "education": 272,
+        "services": 524
+      },
+      "N21000391": {
+        "mdm": 384,
+        "income": 500,
+        "crime": 419,
+        "employment": 198,
+        "living": 667,
+        "health": 244,
+        "education": 350,
+        "services": 634
+      },
+      "N21000344": {
+        "mdm": 125,
+        "income": 220,
+        "crime": 727,
+        "employment": 92,
+        "living": 797,
+        "health": 149,
+        "education": 152,
+        "services": 606
+      },
+      "N21000353": {
+        "mdm": 449,
+        "income": 232,
+        "crime": 549,
+        "employment": 512,
+        "living": 312,
+        "health": 699,
+        "education": 559,
+        "services": 104
+      },
+      "N21000336": {
+        "mdm": 244,
+        "income": 375,
+        "crime": 490,
+        "employment": 224,
+        "living": 635,
+        "health": 324,
+        "education": 358,
+        "services": 220
+      },
+      "N21000345": {
+        "mdm": 232,
+        "income": 236,
+        "crime": 660,
+        "employment": 173,
+        "living": 735,
+        "health": 263,
+        "education": 295,
+        "services": 429
+      },
+      "N21000346": {
+        "mdm": 418,
+        "income": 385,
+        "crime": 440,
+        "employment": 277,
+        "living": 548,
+        "health": 366,
+        "education": 509,
+        "services": 291
+      },
+      "N21000392": {
+        "mdm": 539,
+        "income": 511,
+        "crime": 315,
+        "employment": 639,
+        "living": 192,
+        "health": 656,
+        "education": 674,
+        "services": 23
+      },
+      "N21000385": {
+        "mdm": 474,
+        "income": 363,
+        "crime": 433,
+        "employment": 506,
+        "living": 287,
+        "health": 647,
+        "education": 711,
+        "services": 42
+      },
+      "N21000337": {
+        "mdm": 102,
+        "income": 151,
+        "crime": 753,
+        "employment": 69,
+        "living": 801,
+        "health": 118,
+        "education": 164,
+        "services": 329
+      },
+      "N21000347": {
+        "mdm": 59,
+        "income": 91,
+        "crime": 779,
+        "employment": 41,
+        "living": 821,
+        "health": 65,
+        "education": 78,
+        "services": 456
+      },
+      "N21000348": {
+        "mdm": 468,
+        "income": 439,
+        "crime": 380,
+        "employment": 363,
+        "living": 443,
+        "health": 428,
+        "education": 593,
+        "services": 213
+      },
+      "N21000349": {
+        "mdm": 227,
+        "income": 234,
+        "crime": 613,
+        "employment": 159,
+        "living": 725,
+        "health": 212,
+        "education": 307,
+        "services": 310
+      },
+      "N21000338": {
+        "mdm": 411,
+        "income": 374,
+        "crime": 456,
+        "employment": 361,
+        "living": 431,
+        "health": 431,
+        "education": 637,
+        "services": 120
+      },
+      "N21000393": {
+        "mdm": 622,
+        "income": 660,
+        "crime": 194,
+        "employment": 675,
+        "living": 163,
+        "health": 686,
+        "education": 679,
+        "services": 45
+      },
+      "N21000394": {
+        "mdm": 528,
+        "income": 418,
+        "crime": 407,
+        "employment": 686,
+        "living": 151,
+        "health": 715,
+        "education": 710,
+        "services": 15
+      },
+      "N21000354": {
+        "mdm": 397,
+        "income": 216,
+        "crime": 605,
+        "employment": 515,
+        "living": 318,
+        "health": 668,
+        "education": 501,
+        "services": 83
+      },
+      "N21000395": {
+        "mdm": 457,
+        "income": 354,
+        "crime": 482,
+        "employment": 485,
+        "living": 365,
+        "health": 567,
+        "education": 493,
+        "services": 150
+      },
+      "N21000339": {
+        "mdm": 263,
+        "income": 246,
+        "crime": 595,
+        "employment": 300,
+        "living": 482,
+        "health": 372,
+        "education": 527,
+        "services": 57
+      },
+      "N21000355": {
+        "mdm": 352,
+        "income": 104,
+        "crime": 706,
+        "employment": 560,
+        "living": 275,
+        "health": 717,
+        "education": 585,
+        "services": 67
+      },
+      "N21000356": {
+        "mdm": 444,
+        "income": 164,
+        "crime": 652,
+        "employment": 599,
+        "living": 244,
+        "health": 729,
+        "education": 685,
+        "services": 79
+      },
+      "N21000357": {
+        "mdm": 479,
+        "income": 253,
+        "crime": 553,
+        "employment": 571,
+        "living": 296,
+        "health": 683,
+        "education": 645,
+        "services": 132
+      },
+      "N21000340": {
+        "mdm": 199,
+        "income": 57,
+        "crime": 761,
+        "employment": 223,
+        "living": 590,
+        "health": 347,
+        "education": 431,
+        "services": 168
+      },
+      "N21000396": {
+        "mdm": 419,
+        "income": 279,
+        "crime": 550,
+        "employment": 520,
+        "living": 340,
+        "health": 595,
+        "education": 572,
+        "services": 134
+      },
+      "N21000341": {
+        "mdm": 223,
+        "income": 45,
+        "crime": 776,
+        "employment": 274,
+        "living": 546,
+        "health": 429,
+        "education": 499,
+        "services": 160
+      },
+      "N21000342": {
+        "mdm": 224,
+        "income": 46,
+        "crime": 777,
+        "employment": 275,
+        "living": 547,
+        "health": 430,
+        "education": 500,
+        "services": 161
+      }
+    },
+    "population": 141954,
+    "hectares": 197958.16,
+    "location": "Ballycastle, Ballymoney, Coleraine, Limavady, Portrush and Portstewart"
+  }
+}

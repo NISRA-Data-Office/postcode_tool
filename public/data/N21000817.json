@@ -1,0 +1,31 @@
+{
+  "code": "N21000817",
+  "name": "Bangor Central C",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000011",
+      "name": "Ards and North Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.6676, 54.6574, -5.6802, 54.6688],
+  "data": {
+    "ranks": {
+      "mdm": 594,
+      "income": 397,
+      "crime": 476,
+      "employment": 566,
+      "living": 294,
+      "health": 688,
+      "education": 709,
+      "services": 733
+    },
+    "population": 1797,
+    "hectares": 38.2863,
+    "urban_rural": "urban"
+  }
+}

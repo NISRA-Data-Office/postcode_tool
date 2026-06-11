@@ -1,0 +1,31 @@
+{
+  "code": "N21000366",
+  "name": "Coleraine J",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000004",
+      "name": "Causeway Coast and Glens",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.6669, 55.1109, -6.6908, 55.1251],
+  "data": {
+    "ranks": {
+      "mdm": 451,
+      "income": 297,
+      "crime": 512,
+      "employment": 364,
+      "living": 499,
+      "health": 470,
+      "education": 383,
+      "services": 487
+    },
+    "population": 2782,
+    "hectares": 139.9789,
+    "urban_rural": "a mix of urban and rural"
+  }
+}

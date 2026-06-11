@@ -1,0 +1,31 @@
+{
+  "code": "N21000499",
+  "name": "Omagh D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000006",
+      "name": "Fermanagh and Omagh",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-7.2819, 54.5969, -7.3153, 54.6088],
+  "data": {
+    "ranks": {
+      "mdm": 182,
+      "income": 347,
+      "crime": 597,
+      "employment": 122,
+      "living": 749,
+      "health": 119,
+      "education": 348,
+      "services": 501
+    },
+    "population": 1951,
+    "hectares": 173.095,
+    "urban_rural": "urban"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code": "N21000671",
+  "name": "Torrent D",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000009",
+      "name": "Mid Ulster",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-6.5316, 54.5016, -6.6731, 54.6156],
+  "data": {
+    "ranks": {
+      "mdm": 347,
+      "income": 473,
+      "crime": 343,
+      "employment": 285,
+      "living": 540,
+      "health": 231,
+      "education": 425,
+      "services": 189
+    },
+    "population": 3892,
+    "hectares": 5098.136,
+    "urban_rural": "rural"
+  }
+}

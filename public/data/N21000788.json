@@ -1,0 +1,31 @@
+{
+  "code": "N21000788",
+  "name": "Newtownards K",
+  "comment": "This json includes data for the MDM app",
+  "type": "sdz",
+  "count": 850,
+  "parents": [
+    {
+      "code": "N09000011",
+      "name": "Ards and North Down",
+      "type": "lgd"
+    }
+  ],
+  "children": [],
+  "bounds": [-5.681, 54.5908, -5.691, 54.5976],
+  "data": {
+    "ranks": {
+      "mdm": 529,
+      "income": 504,
+      "crime": 393,
+      "employment": 450,
+      "living": 425,
+      "health": 441,
+      "education": 253,
+      "services": 651
+    },
+    "population": 1350,
+    "hectares": 27.8207,
+    "urban_rural": "urban"
+  }
+}
