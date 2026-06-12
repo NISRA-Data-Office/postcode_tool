@@ -7,6 +7,7 @@ import { typeSelect } from "./utils/type-select.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertValue } from "./utils/insert-value.js";
 import { plotScaleMap } from "./utils/plotScaleMap.js";
+import { createLGDTable } from "./utils/lgd-table.js";
 
 let type_select;
 
@@ -14,7 +15,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   await insertHead("Local Government District");
   insertHeader();
   insertFooter();
-
+  lgdMenu("lgd-select");
   postcodeSearch("postcode-search");
 
   populateInfoBoxes(
@@ -65,6 +66,21 @@ async function update_lgd({ animate = true } = {}) {
   );
 
   await plotScaleMap("scale-map", data, type_select.value, { animate });
+    insertValue("place-name", data.name)
+    
+    await plotScaleMap("scale-map", data, type_select.value);
+    
+    const lgdTableContainer = document.getElementById("lgd-table-container");
+    createLGDTable(lgdTableContainer, data, type_select.value);
+
+    type_select.addEventListener("change", () => {
+        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase()
+    );
+    
+    plotScaleMap("scale-map", data, type_select.value)
+    createLGDTable(lgdTableContainer, data, type_select.value)
+    });
+    
 }
 
 window.addEventListener("popstate", () => update_lgd({ animate: true }));

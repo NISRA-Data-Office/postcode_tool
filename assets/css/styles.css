@@ -534,3 +534,46 @@ thead th {
     max-width: 980px;
     display: block;
   } */
+
+#lgd-table-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+#lgd-table-container .lgd-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#lgd-table-container th,
+#lgd-table-container td {
+  border: 1px solid #ffffff;
+  padding: 10px;
+  text-align: left;
+}
+
+#lgd-table-container td {
+  background-color: rgba(242, 242, 242);
+  color: #000;
+}
+
+#lgd-table-container th {
+  background-color: var(--nisra_navy);
+  color: #fff;
+}
+
+#lgd-table-container th:first-child,
+#lgd-table-container td:first-child {
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
+}
+
+#lgd-table-container tbody tr:hover td {
+  background-color: #e6e6e6;
+}
+
+#lgd-table-container thead th {
+  position: sticky;
+  top: 0;
+}
