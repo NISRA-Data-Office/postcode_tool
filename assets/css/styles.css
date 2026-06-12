@@ -50,6 +50,12 @@ main a[target="_blank"]::after {
   height: 500px;
 }
 
+#scale-map,
+#scale-map * {
+    cursor: pointer !important;
+}
+
+
 .map {
   /* height: 100%;         mobile default */
   width: 100%;

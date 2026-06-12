@@ -21,7 +21,7 @@ export function getParagraph(rank, count, percent, name) {
     if (rank.mdm < count * 0.6) return `Just over half (${percent}%) of neighbourhoods are more deprived than ${placeName}.`;
     if (rank.mdm < count * 0.7) return `About two thirds of neighbourhoods are more deprived than ${placeName}.`;
     if (rank.mdm < count * 0.8) return `About three quarters of neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.9) return `${percent}% of neighbourhoods more deprived than ${placeName}.`;
+    if (rank.mdm < count * 0.9) return `${percent}% of neighbourhoods are more deprived than ${placeName}.`;
     if (rank.mdm < count * 0.99) return `Only ${100 - percent}% of neighbourhoods are less deprived than ${placeName}.`;
     if (rank.mdm < count) return `Fewer than 1% of neighbourhoods are less deprived than ${placeName}.`;
     if (rank.mdm === count) return `All neighbourhoods are more deprived than ${placeName}.`;

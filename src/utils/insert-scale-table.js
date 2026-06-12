@@ -15,6 +15,8 @@ const i_text = {
 export function insertScaleTable (id, data) {
 
     const parent = document.getElementById(id);
+
+    parent.innerHTML = "";
     
     const types = Object.keys(data.data.ranks);
 
