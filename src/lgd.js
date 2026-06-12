@@ -8,6 +8,7 @@ import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertValue } from "./utils/insert-value.js";
 import { plotScaleMap } from "./utils/plotScaleMap.js";
 import { createLGDTable } from "./utils/lgd-table.js";
+import { scaleChart } from "./utils/scale-chart.js";
 
 let type_select;
 
@@ -69,6 +70,7 @@ async function update_lgd({ animate = true } = {}) {
     insertValue("place-name", data.name)
     
     await plotScaleMap("scale-map", data, type_select.value);
+    scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
     
     const lgdTableContainer = document.getElementById("lgd-table-container");
     createLGDTable(lgdTableContainer, data, type_select.value);
@@ -78,6 +80,7 @@ async function update_lgd({ animate = true } = {}) {
     );
     
     plotScaleMap("scale-map", data, type_select.value)
+    scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
     createLGDTable(lgdTableContainer, data, type_select.value)
     });
     

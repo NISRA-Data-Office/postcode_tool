@@ -1,9 +1,9 @@
 import { scaleColours } from './ScaleColours.js';
 
-export function scaleChart(id, data, type, showLabels = null) {
+export function scaleChart(id, data, type, showLabels = null, showMarker = true) {
 
   const value = data.data.ranks[type];
-  const count = data.count;
+  const count = data.children_count ?? data.count
 
   const x_position = value / count * -151.90294;
 
@@ -42,7 +42,9 @@ export function scaleChart(id, data, type, showLabels = null) {
    `
        : ""
    }
-
+    ${
+      showMarker
+      ? `
      <rect
       x="${x_position}"
       y="0.2645835"
@@ -54,7 +56,9 @@ export function scaleChart(id, data, type, showLabels = null) {
       fill="#f8f8f8"
       transform="scale(-1,1)"
       id="marker" />
-
+      `
+      : ""
+    }
    ${
      showLabels == "below"
        ? `
