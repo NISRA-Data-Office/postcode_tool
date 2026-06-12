@@ -9,6 +9,7 @@ import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotScaleMap } from "./utils/sdzScaleMap.js";
+import { copySummary } from "./utils/copy-summary.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -87,7 +88,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         ]
     )   
 
-
-      await update_sdz({ animate: false });
+    copySummary();
+    await update_sdz({ animate: false });
 
 })

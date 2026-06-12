@@ -10,6 +10,7 @@ import { plotScaleMap } from "./utils/plotScaleMap.js";
 import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { lgdDeprivationSummary } from "./utils/deprivation-text.js";
+import { copySummary } from "./utils/copy-summary.js";
 
 let type_select;
 
@@ -32,6 +33,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   typeSelect("type-select");
 
   type_select = document.getElementById("type-select");
+
+  copySummary();
 
   type_select.addEventListener("change", async () => {
     insertValue(
