@@ -17,12 +17,12 @@
     "ranks": {
       "mdm": 133,
       "income": 194,
-      "crime": 719,
       "employment": 82,
-      "living": 759,
       "health": 120,
       "education": 338,
-      "services": 804
+      "services": 804,
+      "living": 64,
+      "crime": 108
     },
     "population": 2140,
     "hectares": 49.6496,

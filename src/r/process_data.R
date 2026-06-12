@@ -61,14 +61,7 @@ urban_rural <- cpd %>%
 
 # Import dummy data ####
 
-nimdm <- read.csv(paste0(data_dir, "nimdm-2026-ranks-sdz-dummy-data.csv")) %>%
-  mutate(
-    statistic = case_when(
-      statistic == "Proportion of the population living in households whose equivalised income is below 60 per cent of the NI median" ~ "Crime and Disorder Domain (Rank)",
-      statistic == "Proportion of the working age population who are employment deprived" ~ "Living Environment Domain (Rank)",
-      TRUE ~ statistic
-    )
-  )
+nimdm <- read.csv(paste0(data_dir, "nimdm-2026-ranks-sdz-dummy-data.csv"))
 
 # Import from Data Portal ####
 
@@ -202,8 +195,8 @@ for (sdz in SDZs) {
     count = sdz_count,
     parents = list(
       list(code = sdz_info$grandparent_code,
-           name = children %>% 
-             filter(code == sdz_info$grandparent_code) %>% 
+           name = children %>%
+             filter(code == sdz_info$grandparent_code) %>%
              pull("name"),
            type = "lgd")
     ),
@@ -213,15 +206,15 @@ for (sdz in SDZs) {
       c(sdz_bounds$long_min, sdz_bounds$lat_max)
     ),
     data = list(ranks = sdz_data_values,
-                population = sdz_mye %>% 
-                  filter(area == sdz) %>% 
+                population = sdz_mye %>%
+                  filter(area == sdz) %>%
                   pull("mye"),
-                hectares = hectares %>% 
-                  filter(geocode == sdz) %>% 
+                hectares = hectares %>%
+                  filter(geocode == sdz) %>%
                   pull("Area_ha"),
-                urban_rural = urban_rural %>% 
-                  filter(SDZ2021 == sdz) %>% 
-                  pull("type"))
+                urban_rural = urban_rural %>%
+                  filter(SDZ2021 == sdz) %>%
+                  pull("type")
   )
 
   write_json(sdz_data,
