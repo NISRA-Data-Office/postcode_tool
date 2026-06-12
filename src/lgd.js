@@ -43,6 +43,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 async function update_lgd () {
     const params = new URLSearchParams(window.location.search);
+    if (params.size == 0) {
+        window.location.pathname = "/";
+    }
     const lgd = params.get("lgd");
 
     const data = await readData(lgd);

@@ -18,6 +18,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     postcodeSearch("postcode-search");
 
     const params = new URLSearchParams(window.location.search);
+    if (params.size == 0) {
+        window.location.pathname = "/";
+    }
     const sdz = params.get("sdz");
     const postcode = params.get("postcode");
 
