@@ -1,6 +1,11 @@
 import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
 import { readData } from "./utils/read-data.js";
 import { config } from "./config/config.js";
+import { lgdMenu } from "./utils/lgd-menu.js";
+import { postcodeSearch } from "./utils/postcode-search.js";
+import { typeSelect } from "./utils/type-select.js";
+import { populateInfoBoxes } from "./utils/info-boxes.js";
+import { insertValue } from "./utils/insert-value.js";
 
 
 
@@ -15,12 +20,37 @@ window.addEventListener("DOMContentLoaded", async () => {
     const lgd = params.get("lgd");
 
     const data = await readData(lgd);
-        
-    // Update headline
-    const headline = document.getElementById("headline");
-    headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
 
     insertNavButtons(data);
+
+    lgdMenu("lgd-select");
+    
+    postcodeSearch("postcode-search");
+
+    populateInfoBoxes(
+            [
+                "What is the multiple deprivation measure and when do I use it?",
+                "What are the types of deprivation and when do I use them?",
+                "What is a ‘neighbourhood’ or super data zone?"
+            ],
+            [
+                "",
+                "",
+                ""
+            ]
+        )  
+    
+    typeSelect("type-select");
+
+    insertValue("place-name", data.name)
+
+    const type_select = document.getElementById("type-select")
+    insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase())
+
+    type_select.addEventListener("change", () => {
+        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase())
+        // Add events to update map and update table here
+    });
 
 
 })

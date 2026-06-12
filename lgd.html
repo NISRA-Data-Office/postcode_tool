@@ -14,7 +14,77 @@
 
   <nav id ="nav" aria-label="breadcrumb"></nav>
 
-    <h2 id="headline" class="display-5 mt-5"></h2>       
+  <div class="row justify-content-end">
+               <div class="col-12 col-xl-4">
+                  <div class="postcode-search">
+                     <div class="input-group">
+                        <input
+                           id="postcode-search"
+                           type="search"
+                           class="form-control"
+                           placeholder="Enter postcode"
+                           aria-label="Enter postcode"
+                           autocomplete="off"
+                           autocorrect="off"
+                           autocapitalize="off"
+                           spellcheck="false">
+                        <button
+                           id="postcode-go"
+                           class="btn btn-primary"
+                           type="button">
+                        Go
+                        </button>
+                     </div>
+                     <div id="postcode-dropdown" class="postcode-dropdown"></div>
+                  </div>
+                  <div class="row mt-2 gap-1 justify-content-center">
+                     <button class="btn btn-primary col purple-bg">About</button>
+                     <button class="btn btn-primary col purple-bg">Download</button>
+                     <button class="btn btn-primary col purple-bg">Share</button>
+                  </div>
+               </div>
+            </div>
+
+  <div class="row my-3">
+    <div class="col-12 col-xl-8">
+      <h2 id="headline" class="display-5">Deprivation in <span class="blue-text place-name"></span></h2>
+      <p class="mb-0">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
+      <p class="mb-0">Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
+      <p>Instructions on using map.</p>
+    </div>
+    <div class="col-12 col-xl-4">
+      <p>Select another council area:</p>
+      <select id="lgd-select" class="form-select" aria-label="Select a council area"></select>
+      <p class="mt-3">Select a type of deprivation:</p>
+      <select id="type-select" class="form-select" aria-label="Select a council area"></select>
+    </div>
+  </div>
+
+  <div class="row">
+   <div class="col-12 col-xl-6 mb-3">
+      <div class="card h-100">
+         <div class="card-body">
+            Hold for map
+         </div>
+      </div>
+   </div>
+   <div class="col-12 col-xl-6 mb-3">
+      <div class="card h-100">
+         <div class="card-body">
+            Hold for table
+         </div>
+      </div>
+   </div>
+  </div>
+
+  <div id="info-boxes"></div>
+
+  <h3 class="display-6 mt-4">Deprivation summary for <span class="blue-text place-name"></span></h3>
+
+  <div id="automated-text" class="mt-3">Automated text placeholder</div>
+  <button class="btn btn-primary purple-bg mt-3">Copy summary</button>
+
+
 
 </div>
         

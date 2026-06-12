@@ -14,6 +14,17 @@ export async function lgdMenu (id) {
         return; 
     }
 
+    const params = new URLSearchParams(window.location.search);
+    const current_lgd = params.get("lgd");
+
+    const placeholder = document.createElement("option");
+    placeholder.textContent = "Select a council";
+    placeholder.value = "";
+    placeholder.disabled = true;
+    placeholder.selected = !current_lgd;
+
+    lgd_select.appendChild(placeholder);
+
     for (let i = 0; i < lgd_data.length; i ++) {
 
         let option = document.createElement("option");
@@ -23,14 +34,9 @@ export async function lgdMenu (id) {
         lgd_select.appendChild(option);
     }
 
-    const params = new URLSearchParams(window.location.search);
-    const current_lgd = params.get("lgd");
-
     if (current_lgd) {
         lgd_select.value = current_lgd;
-    } else {
-        lgd_select.selectedIndex = 0;
-    }
+    }    
 
     lgd_select.addEventListener("change", (e) => {
         const lgd = e.target.value;
