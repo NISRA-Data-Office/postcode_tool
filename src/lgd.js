@@ -8,7 +8,7 @@ import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertValue } from "./utils/insert-value.js";
 import { plotScaleMap } from "./utils/plotScaleMap.js";
 
-
+const type_select = document.getElementById("type-select");
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -16,13 +16,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertHeader();
     insertFooter();
 
-
-    const params = new URLSearchParams(window.location.search);
-    const lgd = params.get("lgd");
-
-    const data = await readData(lgd);
-
-    insertNavButtons(data);
+    update_lgd();
 
     lgdMenu("lgd-select");
     
@@ -42,13 +36,22 @@ window.addEventListener("DOMContentLoaded", async () => {
         )  
     
     typeSelect("type-select");
-
-    insertValue("place-name", data.name)
-
-    const type_select = document.getElementById("type-select")
+    
     insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase())
 
-    await plotScaleMap("scale-map", data, type_select.value)
+})
+
+async function update_lgd () {
+    const params = new URLSearchParams(window.location.search);
+    const lgd = params.get("lgd");
+
+    const data = await readData(lgd);
+
+    insertNavButtons(data);
+
+    insertValue("place-name", data.name)
+    
+    await plotScaleMap("scale-map", data, type_select.value);
 
     type_select.addEventListener("change", () => {
         insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase())
@@ -56,7 +59,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         plotScaleMap("scale-map", data, type_select.value)
     });
 
-    
+}
 
+window.addEventListener("popstate", update_lgd);
+window.addEventListener("lgdchange", update_lgd);
 
-})

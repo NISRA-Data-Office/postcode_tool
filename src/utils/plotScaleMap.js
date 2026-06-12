@@ -308,6 +308,12 @@ function addLgdClick(map) {
 
     if (!lgdCode) return;
 
-    window.location.search = `lgd=${encodeURIComponent(lgdCode)}`;
+    window.history.replaceState(
+      {},
+      '',
+      `lgd.html?lgd=${encodeURIComponent(lgdCode)}`
+    );
+
+    window.dispatchEvent(new Event("lgdchange"));
   });
 }

@@ -40,7 +40,18 @@ export async function lgdMenu (id) {
 
     lgd_select.addEventListener("change", (e) => {
         const lgd = e.target.value;
-        window.location.href = `lgd.html?lgd=${encodeURIComponent(lgd)}`;
+        if (window.location.pathname == "/lgd.html") {
+            window.history.replaceState(
+                {},
+                '',
+                `lgd.html?lgd=${encodeURIComponent(lgd)}`
+            );
+
+            window.dispatchEvent(new Event("lgdchange"));
+        } else {
+            window.location.href = `lgd.html?lgd=${encodeURIComponent(lgd)}`;
+        }
+        
     });
 
 }
