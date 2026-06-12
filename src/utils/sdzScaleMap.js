@@ -85,6 +85,8 @@ export async function plotScaleMap(elementId, map_data, options = {}) {
     moveToBounds(map_data.bounds, false);
 
     addSdzClick(map);
+
+    addHoverPopup(map, "sdz-fill", "sdz-shapes", { nameOnly: true });
   });
 }
 
@@ -102,6 +104,57 @@ function addSdzClick(map) {
     window.history.pushState({}, "", `?sdz=${encodeURIComponent(code)}`);
 
     window.dispatchEvent(new Event("sdzchange"));
+  });
+}
+
+function addHoverPopup(map, layerId, sourceId, options = {}) {
+  let hoveredId = null;
+
+  const popup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    offset: [0, -6],
+    className: "nisra-popup"
+  });
+
+  map.on("mousemove", layerId, e => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const feature = e.features?.[0];
+    if (!feature) return;
+
+    if (hoveredId !== null) {
+      map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
+    }
+
+    hoveredId = feature.id;
+    map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: true });
+
+    const props = feature.properties;
+
+    const html = options.nameOnly
+      ? `<div><strong>${props.nisra_label}</strong></div>`
+      : `<div><strong>${props.nisra_label}</strong>: <strong>${
+          props.nisra_value == null
+            ? "Not available"
+            : Number(props.nisra_value).toLocaleString("en-GB")
+        }</strong></div>`;
+
+    popup
+      .setLngLat(e.lngLat)
+      .setHTML(html)
+      .addTo(map);
+  });
+
+  map.on("mouseleave", layerId, () => {
+    map.getCanvas().style.cursor = "";
+
+    if (hoveredId !== null) {
+      map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
+      hoveredId = null;
+    }
+
+    popup.remove();
   });
 }
 
