@@ -1,7 +1,6 @@
 import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
 import { readData } from "./utils/read-data.js";
 import { insertValue } from "./utils/insert-value.js";
-import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { postcodeSearch } from "./utils/postcode-search.js";
 import { getDeprivationSummary, getHeadline, getParagraph } from "./utils/deprivation-text.js";
