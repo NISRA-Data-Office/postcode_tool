@@ -22,8 +22,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     .map(row => row?.[deprivation_type])
     .filter(v => v != null);
 
-  const range_min = values.length ? Math.floor(Math.min(...values)) : 0;
-  const range_max = values.length ? Math.ceil(Math.max(...values)) : 1;
+  const range_min = 1;
+  const range_max = map_data.children_count;
   const range = range_max - range_min || 1;
 
   const lgdFeatures = lgdGeojsonData.features

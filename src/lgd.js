@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   insertHeader();
   insertFooter();
 
-  lgdMenu("lgd-select");
   postcodeSearch("postcode-search");
 
   populateInfoBoxes(
@@ -50,6 +49,8 @@ async function update_lgd({ animate = true } = {}) {
     window.location.pathname = "/";
     return;
   }
+
+  lgdMenu("lgd-select");
 
   const lgd = params.get("lgd");
   const data = await readData(lgd);
