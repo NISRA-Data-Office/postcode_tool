@@ -200,6 +200,12 @@ table tr:not(:has(th)):hover {
   color: #3878c5;
 }
 
+.i-button {
+  cursor: pointer;
+}
+
+
+
 .grey-bg {
   background-color: #D9D9D9;
 }
