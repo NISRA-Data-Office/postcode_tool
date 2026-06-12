@@ -9,6 +9,7 @@ import { insertValue } from "./utils/insert-value.js";
 import { plotScaleMap } from "./utils/plotScaleMap.js";
 import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
+import { lgdDeprivationSummary } from "./utils/deprivation-text.js";
 
 let type_select;
 
@@ -81,6 +82,10 @@ async function update_lgd({ animate = true } = {}) {
         scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
         createLGDTable(lgdTableContainer, data, type_select.value)
     });
+  
+    const summaryContainer = document.getElementById("summary");
+
+    summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
     
 }
 

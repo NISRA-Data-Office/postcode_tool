@@ -101,3 +101,41 @@ export function getDeprivationSummary(rank, count, name, headlineText = "", para
     </ul>
   `;
 }
+
+export function lgdDeprivationSummary(data, type) {
+  
+  const place = data;
+  const children = place.children || [];
+  const deprivation_type = "mdm";
+
+  const enriched = children.map(child => ({
+    name: child.name,
+    rank: place.data?.ranks?.[child.code]?.[deprivation_type]
+  }));
+
+  const sorted = enriched
+    .filter(d => d.rank != null)
+    .sort((a, b) => a.rank - b.rank);
+
+  const mostDeprived = sorted[0];
+  const leastDeprived = sorted[sorted.length - 1];
+
+  return `
+    <div class="summary">
+      <p style="line-height: 1.5em;">
+        Levels of deprivation and disadvantage vary widely across councils and across Northern Ireland. 
+        There are ${children.length} super data zones in ${place.name}. 
+        The most deprived neighbourhood is ${mostDeprived?.name}
+        and the least deprived is ${leastDeprived?.name}.
+      </p>
+
+      <p style="margin-top: 15px; line-height: 1.5em;">
+        ${place.name} contains X out of the Y most deprived neighbourhoods in Northern Ireland.
+      </p>
+
+      <p style="margin-top: 15px; line-height: 1.5em;">
+        ${place.name} contains X out of the Y least deprived neighbourhoods in Northern Ireland.
+      </p>
+    </div>
+  `;
+}
