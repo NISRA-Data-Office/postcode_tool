@@ -216,7 +216,13 @@ table tr:not(:has(th)):hover {
   cursor: pointer;
 }
 
+.no-radius {
+  border-radius: 0;
+}
 
+.black-border {
+  border: 2px solid #000;
+}
 
 .grey-bg {
   background-color: #D9D9D9;
@@ -239,7 +245,12 @@ table tr:not(:has(th)):hover {
 .purple-bg {
   background-color: #732777;
   color: #fff;
-  border: none;
+  border: 2px solid #000;
+}
+
+.purple-bg:hover {
+  background-color: #5e1f62;
+  border: 2px solid #000;
 }
 
 .purple-border {
@@ -492,6 +503,15 @@ thead th {
 
 .postcode-search {
   position: relative;
+}
+
+#postcode-go {
+  border-left: 2px solid #000;
+}
+
+#postcode-go:hover {
+  background-color: #2f66a8;
+  border: 2px solid #000;
 }
 
 .postcode-dropdown {
