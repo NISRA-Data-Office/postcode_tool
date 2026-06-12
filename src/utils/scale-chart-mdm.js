@@ -132,8 +132,6 @@ for (let i = 0; i < scaleColours.length; i ++) {
   `
 }
 
-
-
 }
 
 

@@ -1,11 +1,10 @@
 import { loadShapes } from "./load-shapes.js";
+import { scaleColours } from "./ScaleColours.js";
 
 export let map;
 let geojsonData;
 
-const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
-
-export async function plotMap(elementId, map_data) {
+export async function plotMap(elementId, map_data, deprivation_type) {
   const areas = Object.keys(map_data);
   const values = areas.map(area => map_data[area]).filter(v => v != null);
 
@@ -125,7 +124,7 @@ function getColour(norm) {
   if (norm == null || norm < 0) return "#d3d3d3";
 
   const idx = Math.max(0, Math.min(4, Math.round(norm * 4)));
-  return palette[idx];
+  return scaleColours[idx];
 }
 
 function addHoverPopup(map) {
