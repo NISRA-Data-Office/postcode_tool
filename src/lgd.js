@@ -76,12 +76,10 @@ async function update_lgd({ animate = true } = {}) {
     createLGDTable(lgdTableContainer, data, type_select.value);
 
     type_select.addEventListener("change", () => {
-        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase()
-    );
-    
-    plotScaleMap("scale-map", data, type_select.value)
-    scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
-    createLGDTable(lgdTableContainer, data, type_select.value)
+        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
+        plotScaleMap("scale-map", data, type_select.value)
+        scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
+        createLGDTable(lgdTableContainer, data, type_select.value)
     });
     
 }
