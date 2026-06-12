@@ -41,7 +41,7 @@ export async function lgdMenu (id) {
     lgd_select.addEventListener("change", (e) => {
         const lgd = e.target.value;
         if (window.location.pathname == "/lgd.html") {
-            window.history.replaceState(
+            window.history.pushState(
                 {},
                 '',
                 `lgd.html?lgd=${encodeURIComponent(lgd)}`

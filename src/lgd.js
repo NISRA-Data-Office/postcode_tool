@@ -8,62 +8,63 @@ import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertValue } from "./utils/insert-value.js";
 import { plotScaleMap } from "./utils/plotScaleMap.js";
 
-const type_select = document.getElementById("type-select");
+let type_select;
 
 window.addEventListener("DOMContentLoaded", async () => {
+  await insertHead("Local Government District");
+  insertHeader();
+  insertFooter();
 
-    await insertHead("Local Government District");
-    insertHeader();
-    insertFooter();
+  lgdMenu("lgd-select");
+  postcodeSearch("postcode-search");
 
-    update_lgd();
+  populateInfoBoxes(
+    [
+      "What is the multiple deprivation measure and when do I use it?",
+      "What are the types of deprivation and when do I use them?",
+      "What is a ‘neighbourhood’ or super data zone?"
+    ],
+    ["", "", ""]
+  );
 
-    lgdMenu("lgd-select");
-    
-    postcodeSearch("postcode-search");
+  typeSelect("type-select");
 
-    populateInfoBoxes(
-            [
-                "What is the multiple deprivation measure and when do I use it?",
-                "What are the types of deprivation and when do I use them?",
-                "What is a ‘neighbourhood’ or super data zone?"
-            ],
-            [
-                "",
-                "",
-                ""
-            ]
-        )  
-    
-    typeSelect("type-select");
-    
-    insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase())
+  type_select = document.getElementById("type-select");
 
-})
+  type_select.addEventListener("change", async () => {
+    insertValue(
+      "deprivation-type",
+      config.deprivation_types[type_select.value].toLowerCase()
+    );
 
-async function update_lgd () {
-    const params = new URLSearchParams(window.location.search);
-    if (params.size == 0) {
-        window.location.pathname = "/";
-    }
-    const lgd = params.get("lgd");
+    await update_lgd({ animate: false });
+  });
 
-    const data = await readData(lgd);
+  await update_lgd({ animate: false });
+});
 
-    insertNavButtons(data);
+async function update_lgd({ animate = true } = {}) {
+  const params = new URLSearchParams(window.location.search);
 
-    insertValue("place-name", data.name)
-    
-    await plotScaleMap("scale-map", data, type_select.value);
+  if (params.size === 0) {
+    window.location.pathname = "/";
+    return;
+  }
 
-    type_select.addEventListener("change", () => {
-        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase())
-        // Add events to update map and update table here
-        plotScaleMap("scale-map", data, type_select.value)
-    });
+  const lgd = params.get("lgd");
+  const data = await readData(lgd);
+  document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
 
+  insertNavButtons(data);
+  insertValue("place-name", data.name);
+
+  insertValue(
+    "deprivation-type",
+    config.deprivation_types[type_select.value].toLowerCase()
+  );
+
+  await plotScaleMap("scale-map", data, type_select.value, { animate });
 }
 
-window.addEventListener("popstate", update_lgd);
-window.addEventListener("lgdchange", update_lgd);
-
+window.addEventListener("popstate", () => update_lgd({ animate: true }));
+window.addEventListener("lgdchange", () => update_lgd({ animate: true }));

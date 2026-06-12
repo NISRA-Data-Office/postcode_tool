@@ -6,7 +6,9 @@ export let map;
 let lgdGeojsonData;
 let sdzGeojsonData;
 
-export async function plotScaleMap(elementId, map_data, deprivation_type) {
+export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
+  const { animate = true } = options;
+
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
 
@@ -20,8 +22,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type) {
     .map(row => row?.[deprivation_type])
     .filter(v => v != null);
 
-  const range_min = Math.floor(Math.min(...values));
-  const range_max = Math.ceil(Math.max(...values));
+  const range_min = values.length ? Math.floor(Math.min(...values)) : 0;
+  const range_max = values.length ? Math.ceil(Math.max(...values)) : 1;
   const range = range_max - range_min || 1;
 
   const lgdFeatures = lgdGeojsonData.features
@@ -80,8 +82,10 @@ export async function plotScaleMap(elementId, map_data, deprivation_type) {
   };
 
   if (map) {
-    map.remove();
-    map = null;
+    map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
+    map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
+    moveToBounds(map_data.bounds, animate);
+    return;
   }
 
   map = new maplibregl.Map({
@@ -126,16 +130,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type) {
     addOutlineLayer("lgd-outline", "lgd-shapes");
     addOutlineLayer("sdz-outline", "sdz-shapes");
 
-    if (Array.isArray(map_data.bounds) && map_data.bounds.length === 4) {
-
-        map.resize();
-      map.fitBounds(normaliseBounds(map_data.bounds), {
-        padding: 30,
-        duration: 0
-        });
-    }
-
-
+    moveToBounds(map_data.bounds, false);
 
     map.setMinZoom(map.getZoom() - 1);
     map.setMaxZoom(map.getZoom() + 4);
@@ -254,8 +249,57 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 }
 
+function addLgdClick(map) {
+  map.on("click", e => {
+    const features = map.queryRenderedFeatures(e.point, {
+      layers: ["lgd-fill", "lgd-outline"]
+    });
+
+    const feature = features[0];
+    const lgdCode =
+      feature?.properties?.nisra_code ||
+      feature?.properties?.LGDCode ||
+      feature?.properties?.LGD_code ||
+      feature?.properties?.LGD2014CODE;
+
+    if (!lgdCode) return;
+
+    window.history.pushState(
+      {},
+      "",
+      `lgd.html?lgd=${encodeURIComponent(lgdCode)}`
+    );
+
+    window.dispatchEvent(new Event("lgdchange"));
+  });
+}
+
+function moveToBounds(bounds, animate = true) {
+  if (!Array.isArray(bounds) || bounds.length !== 4) return;
+
+  map.resize();
+
+  const normalisedBounds = normaliseBounds(bounds);
+
+  map.fitBounds(normalisedBounds, {
+    padding: 30,
+    duration: animate ? 800 : 0,
+    essential: true
+  });
+}
+
+function normaliseBounds(bounds) {
+  const [lng1, lat1, lng2, lat2] = bounds;
+
+  return [
+    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
+    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
+  ];
+}
+
 function getLgdCode(feature) {
   return String(
+    feature.properties.LGDCode ||
     feature.properties.LGD2014CODE ||
     feature.properties.LGD_code ||
     feature.properties.LGD_CODE ||
@@ -284,36 +328,4 @@ function getSdzName(feature) {
     feature.properties.SDZ21_name ||
     getSdzCode(feature)
   ).replaceAll("_", " ");
-}
-
-function normaliseBounds(bounds) {
-  const [lng1, lat1, lng2, lat2] = bounds;
-
-  return [
-    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
-    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
-  ];
-}
-
-function addLgdClick(map) {
-  map.on("click", e => {
-    const features = map.queryRenderedFeatures(e.point, {
-      layers: ["lgd-fill", "lgd-outline"]
-    });
-
-    const feature = features[0];
-    const lgdCode = feature?.properties?.LGDCode;
-
-    console.log("Clicked LGD:", lgdCode, feature);
-
-    if (!lgdCode) return;
-
-    window.history.replaceState(
-      {},
-      '',
-      `lgd.html?lgd=${encodeURIComponent(lgdCode)}`
-    );
-
-    window.dispatchEvent(new Event("lgdchange"));
-  });
 }

@@ -26,6 +26,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     const data = await readData(sdz);
     const parent_data = await readData(data.parents[0].code);
+    document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
         
     // Update headline
     const headline = document.getElementById("headline");
