@@ -580,3 +580,11 @@ thead th {
 #info-boxes {
   margin-top: 20px;
 }
+
+#background-map {
+  background-image: url("../img/nimdm_sdz_map.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 350px 0 350px 0
+}

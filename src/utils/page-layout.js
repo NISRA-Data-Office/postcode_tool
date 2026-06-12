@@ -22,7 +22,7 @@ export function insertHeader () {
 
   <!-- Left: NISRA logo -->
   <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-start">
-    <a class="navbar-brand ps-2 d-flex align-items-center" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
+    <a class="navbar-brand ps-2 d-flex align-items-center h1" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
       <img src="assets/img/logo/nisra-only-white.svg"
            alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
     </a>
@@ -30,7 +30,7 @@ export function insertHeader () {
 
   <!-- Center: Page title -->
   <div class="col-12 col-xl-4 d-flex justify-content-center">
-    <h1 class="mb-0 text-white fs-2 app-title text-center">${config.title}</h1>
+    <h1 class="mb-0 text-white fs-2 app-title text-center display-1">${config.title}</h1>
   </div>
 
   <!-- Right: Department logo -->
