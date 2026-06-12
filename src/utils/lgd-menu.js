@@ -23,7 +23,18 @@ export async function lgdMenu (id) {
     placeholder.disabled = true;
     placeholder.selected = !current_lgd;
 
-    lgd_select.appendChild(placeholder);
+    const current_options = lgd_select.options;
+    let has_placeholder = false;
+    
+    for (let i = 0; i < current_options.length; i ++) {
+        if (current_options[i].value == placeholder.value) {
+            has_placeholder = true;
+        } 
+    }
+
+    if (!has_placeholder) {
+        lgd_select.appendChild(placeholder);
+    }
 
     for (let i = 0; i < lgd_data.length; i ++) {
 
@@ -31,7 +42,18 @@ export async function lgdMenu (id) {
         option.value = lgd_data[i].properties.LGDCode;
         option.textContent = lgd_data[i].properties.LGDNAME;
 
-        lgd_select.appendChild(option);
+        let has_option = false;
+
+        for (let j = 0; j < current_options.length; j ++) {
+            if (current_options[j].value == option.value) {
+                has_option = true;
+            } 
+        }
+
+        if (!has_option) {
+            lgd_select.appendChild(option);
+        }
+        
     }
 
     if (current_lgd) {

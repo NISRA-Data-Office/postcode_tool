@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   await insertHead("Local Government District");
   insertHeader();
   insertFooter();
-  lgdMenu("lgd-select");
+  
   postcodeSearch("postcode-search");
 
   populateInfoBoxes(
