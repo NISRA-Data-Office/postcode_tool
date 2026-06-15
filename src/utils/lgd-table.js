@@ -43,16 +43,15 @@ export function createLGDTable(container, place, selectedDeprivation) {
       </thead>
       <tbody>
         ${names.map(child => `
-          <tr>
+          <tr class="sdz-row" code="${child.code}" style="cursor:pointer;">
             <td>${child.rank ?? ""}</td>
             <td>${child.name}</td>
           </tr>
         `).join("")}
       </tbody>
     </table>
-`;
+    `;
 
-    // Add click handlers
     container.querySelectorAll("th[data-key]").forEach(th => {
       th.addEventListener("click", () => {
         const key = th.dataset.key;
@@ -65,6 +64,16 @@ export function createLGDTable(container, place, selectedDeprivation) {
         }
 
         render();
+      });
+    });
+
+    container.querySelectorAll(".sdz-row").forEach(row => {
+      row.addEventListener("click", () => {
+        const code = row.dataset.code;
+
+        if (code) {
+          window.location.href = `sdz.html?sdz=${code}`;
+        }
       });
     });
   }
