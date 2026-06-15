@@ -139,6 +139,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     addHoverPopup(map, "sdz-fill", "sdz-shapes");
 
     addLgdClick(map);
+    addSdzClick(map);
   });
 }
 
@@ -328,4 +329,18 @@ function getSdzName(feature) {
     feature.properties.SDZ21_name ||
     getSdzCode(feature)
   ).replaceAll("_", " ");
+}
+
+function addSdzClick(map) {
+  map.on("click", "sdz-fill", e => {
+    const feature = e.features?.[0];
+    if (!feature) return;
+
+    const sdzCode = feature.properties?.nisra_code;
+    if (!sdzCode) return;
+
+    window.dispatchEvent(new CustomEvent("sdzselect", {
+      detail: { code: sdzCode }
+    }));
+  });
 }

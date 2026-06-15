@@ -1,6 +1,7 @@
 export function createLGDTable(container, place, selectedDeprivation) {
   let sortKey = "rank";
   let sortAsc = true;
+  let selectedCode = null;
 
   function getSortedNames() {
     return (place?.children || [])
@@ -23,6 +24,23 @@ export function createLGDTable(container, place, selectedDeprivation) {
           : (valB ?? Infinity) - (valA ?? Infinity);
       });
   }
+  
+  function highlightRow(code) {
+    const rows = container.querySelectorAll(".sdz-row");
+
+    rows.forEach(row => {
+      if (row.dataset.code === code) {
+        row.classList.add("selected");
+
+        row.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      } else {
+        row.classList.remove("selected");
+      }
+    });
+  }
 
   function render() {
     const names = getSortedNames();
@@ -43,16 +61,15 @@ export function createLGDTable(container, place, selectedDeprivation) {
       </thead>
       <tbody>
         ${names.map(child => `
-          <tr>
+          <tr class="sdz-row" data-code="${child.code}" style="cursor:pointer;">
             <td>${child.rank ?? ""}</td>
             <td>${child.name}</td>
           </tr>
         `).join("")}
       </tbody>
     </table>
-`;
+    `;
 
-    // Add click handlers
     container.querySelectorAll("th[data-key]").forEach(th => {
       th.addEventListener("click", () => {
         const key = th.dataset.key;
@@ -67,7 +84,26 @@ export function createLGDTable(container, place, selectedDeprivation) {
         render();
       });
     });
+
+    container.querySelectorAll(".sdz-row").forEach(row => {
+      row.addEventListener("click", () => {
+        const code = row.dataset.code;
+
+        if (code) {
+          window.location.href = `sdz.html?sdz=${code}`;
+        }
+      });
+    });
+
+    if (selectedCode) {
+      highlightRow(selectedCode);
+    }
   }
+
+  window.addEventListener("sdzselect", (e) => {
+    selectedCode = e.detail.code;
+    highlightRow(selectedCode);
+  });
 
   render();
 }
