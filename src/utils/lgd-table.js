@@ -43,7 +43,7 @@ export function createLGDTable(container, place, selectedDeprivation) {
       </thead>
       <tbody>
         ${names.map(child => `
-          <tr class="sdz-row" code="${child.code}" style="cursor:pointer;">
+          <tr class="sdz-row" data-code="${child.code}" style="cursor:pointer;">
             <td>${child.rank ?? ""}</td>
             <td>${child.name}</td>
           </tr>
