@@ -127,8 +127,17 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     addFillLayer("lgd-fill", "lgd-shapes");
     addFillLayer("sdz-fill", "sdz-shapes");
 
-    addOutlineLayer("lgd-outline", "lgd-shapes");
-    addOutlineLayer("sdz-outline", "sdz-shapes");
+    addOutlineLayer("lgd-outline", "lgd-shapes", 2);
+    addOutlineLayer("sdz-outline", "sdz-shapes", 1);
+
+    map.on("mousemove", e => {
+      const features = map.queryRenderedFeatures(e.point, {
+        layers: ["sdz-fill", "lgd-fill"]
+      });
+    
+      map.getCanvas().style.cursor =
+        features.length > 0 ? "pointer" : "default";
+    });
 
     moveToBounds(map_data.bounds, false);
 
@@ -153,7 +162,7 @@ function addFillLayer(id, source) {
         "case",
         ["boolean", ["get", "nisra_hasValue"], false],
         ["get", "nisra_fill"],
-        "#aaa"
+        "#eeeeee"
       ],
       "fill-opacity": [
         "case",
@@ -165,7 +174,7 @@ function addFillLayer(id, source) {
   });
 }
 
-function addOutlineLayer(id, source) {
+function addOutlineLayer(id, source, line_width) {
   map.addLayer({
     id,
     type: "line",
@@ -180,8 +189,8 @@ function addOutlineLayer(id, source) {
       "line-width": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
-        2,
-        1
+        line_width + 1,
+        line_width
       ],
       "line-opacity": 0.9
     }
@@ -210,7 +219,7 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mousemove", layerId, e => {
-    map.getCanvas().style.cursor = "pointer";
+   
 
     const feature = e.features?.[0];
     if (!feature) return;
@@ -239,7 +248,7 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-    map.getCanvas().style.cursor = "";
+   
 
     if (hoveredId !== null) {
       map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });

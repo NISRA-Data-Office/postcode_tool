@@ -3,12 +3,14 @@ import { loadShapes } from "./load-shapes.js";
 export let map;
 
 let sdzGeojsonData;
+let niBoundaryGeojson
 
 export async function plotNavMap(elementId, map_data, options = {}) {
   const { animate = true } = options;
 
   if (!sdzGeojsonData) {
     sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
+    niBoundaryGeojson = await loadShapes("SDZ2021-dissolved.geo.json")
   }
 
   const selectedCode = map_data.code;
@@ -26,7 +28,8 @@ export async function plotNavMap(elementId, map_data, options = {}) {
 
         nisra_fill: code === selectedCode ? "#0078FF" : "#eeeeee",
         nisra_line: code === selectedCode ? "#0078FF" : "#555",
-        nisra_width: code === selectedCode ? 4 : 1
+        nisra_width: code === selectedCode ? 4 : 1,
+        nisra_opacity: code === selectedCode ? 0.3 : 0.8
       }
     };
   });
@@ -42,6 +45,8 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     return;
   }
 
+  
+
   map = new maplibregl.Map({
     container: elementId,
     style: "public/map/style-omt.json",
@@ -51,9 +56,12 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   });
 
   map.addControl(
-    new maplibregl.NavigationControl(),
-    "top-right"
-  );
+  new maplibregl.NavigationControl({
+    showCompass: false,
+    showZoom: true
+  }),
+  "top-right"
+);
 
   map.on("load", () => {
     map.setRenderWorldCopies(false);
@@ -70,9 +78,25 @@ export async function plotNavMap(elementId, map_data, options = {}) {
       source: "sdz-shapes",
       paint: {
         "fill-color": ["get", "nisra_fill"],
-        "fill-opacity": 0.3
+        "fill-opacity": ["get", "nisra_opacity"]
       }
     });
+
+     map.addSource("ni-boundary", {
+    type: "geojson",
+    data: niBoundaryGeojson
+  });
+
+  map.addLayer({
+  id: "ni-boundary-line",
+  type: "line",
+  source: "ni-boundary",
+  paint: {
+    "line-color": "#000",
+    "line-width": 2
+  }
+});
+
 
     map.addLayer({
       id: "sdz-outline",
@@ -83,6 +107,15 @@ export async function plotNavMap(elementId, map_data, options = {}) {
         "line-width": ["get", "nisra_width"]
       }
     });
+
+    map.on("mousemove", e => {
+  const features = map.queryRenderedFeatures(e.point, {
+    layers: ["sdz-fill"]
+  });
+
+  map.getCanvas().style.cursor =
+    features.length > 0 ? "pointer" : "default";
+});
 
     moveToBounds(map_data.bounds, false);
 
@@ -120,7 +153,7 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mousemove", layerId, e => {
-    map.getCanvas().style.cursor = "pointer";
+    // map.getCanvas().style.cursor = "pointer";
 
     const feature = e.features?.[0];
     if (!feature) return;
@@ -149,7 +182,7 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-    map.getCanvas().style.cursor = "";
+    // map.getCanvas().style.cursor = "";
 
     if (hoveredId !== null) {
       map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
