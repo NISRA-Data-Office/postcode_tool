@@ -8,7 +8,7 @@ const scrollElement = () => {
     return document.documentElement || document.body;
 };
 
-const handleOnScroll = () => {
+export const handleOnScroll = () => {
     const scroll_btn = document.getElementById("scroll-btn");
     if (!scroll_btn) return;
 
