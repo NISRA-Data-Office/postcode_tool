@@ -18,7 +18,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   await insertHead("Local Government District");
   insertHeader();
   insertFooter();
-  
   postcodeSearch("postcode-search");
 
   populateInfoBoxes(

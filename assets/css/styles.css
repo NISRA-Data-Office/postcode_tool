@@ -45,7 +45,7 @@ main a[target="_blank"]::after {
    Map & Legend
    =========================== */
 
-  #scale-map {
+#scale-map {
   width: 100%;
   height: 500px;
 }

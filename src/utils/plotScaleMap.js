@@ -132,7 +132,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
     moveToBounds(map_data.bounds, false);
 
-    map.setMinZoom(map.getZoom() - 1);
+    map.setMinZoom(map.getZoom() - 3);
     map.setMaxZoom(map.getZoom() + 4);
 
     addHoverPopup(map, "lgd-fill", "lgd-shapes", { nameOnly: true });
@@ -152,7 +152,7 @@ function addFillLayer(id, source) {
         "case",
         ["boolean", ["get", "nisra_hasValue"], false],
         ["get", "nisra_fill"],
-        "#eeeeee"
+        "#aaa"
       ],
       "fill-opacity": [
         "case",

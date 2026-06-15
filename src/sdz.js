@@ -17,9 +17,26 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertHeader();
     insertFooter();
     postcodeSearch("postcode-search");
-        
-    
-    async function update_sdz({ animate = true } = {}) {
+
+    populateInfoBoxes(
+        [
+            "What is the multiple deprivation measure and when do I use it?",
+            "What are the types of deprivation and when do I use them?",
+            "What is a ‘neighbourhood’ or super data zone?"
+        ],
+        [
+            "",
+            "",
+            ""
+        ]
+    )   
+
+    copySummary();
+    await update_sdz({ animate: false });
+
+})
+
+async function update_sdz({ animate = true } = {}) {
       const params = new URLSearchParams(window.location.search);
     
       if (params.size === 0) {
@@ -68,27 +85,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     insertScaleTable("deprivation-scales", data);
 
-    }
-    
-    window.addEventListener("popstate", () => update_sdz({ animate: true }));
-    window.addEventListener("sdzchange", () => update_sdz({ animate: true }));
+}
 
-   
-
-    populateInfoBoxes(
-        [
-            "What is the multiple deprivation measure and when do I use it?",
-            "What are the types of deprivation and when do I use them?",
-            "What is a ‘neighbourhood’ or super data zone?"
-        ],
-        [
-            "",
-            "",
-            ""
-        ]
-    )   
-
-    copySummary();
-    await update_sdz({ animate: false });
-
-})
+window.addEventListener("popstate", () => update_sdz({ animate: true }));
+window.addEventListener("sdzchange", () => update_sdz({ animate: true }));
