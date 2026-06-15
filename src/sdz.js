@@ -8,7 +8,7 @@ import { scaleChartMDM } from "./utils/scale-chart-mdm.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
-import { plotScaleMap } from "./utils/sdzScaleMap.js";
+import { plotNavMap } from "./utils/plotNavMap.js";
 import { copySummary } from "./utils/copy-summary.js";
 import { goStart, handleOnScroll } from "./utils/scroll-button.js"
 
@@ -67,7 +67,7 @@ async function update_sdz({ animate = true } = {}) {
       insertValue("overall-rank", data.data.ranks.mdm)
       insertValue("place-count", data.count)
     
-      await plotScaleMap("scale-map", data, { animate });
+      await plotNavMap("scale-map", data, { animate });
 
     const deprivation_headline = document.getElementById("deprivation-headline");
     deprivation_headline.innerHTML = getHeadline(data.data.ranks, data.count)
