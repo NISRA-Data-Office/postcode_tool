@@ -556,6 +556,10 @@ thead th {
   outline: none;
 }
 
+.breadcrumb-item a {
+  color: var(--nisra_blue);
+}
+
   /* svg {
     width: 100%;
     height: auto;
