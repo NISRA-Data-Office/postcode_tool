@@ -4,7 +4,7 @@ export let map;
 
 let sdzGeojsonData;
 
-export async function plotScaleMap(elementId, map_data, options = {}) {
+export async function plotNavMap(elementId, map_data, options = {}) {
   const { animate = true } = options;
 
   if (!sdzGeojsonData) {
@@ -24,7 +24,9 @@ export async function plotScaleMap(elementId, map_data, options = {}) {
         nisra_code: code,
         nisra_label: getSdzName(feature),
 
-        nisra_fill: code === selectedCode ? "#0078FF" : "#eeeeee"
+        nisra_fill: code === selectedCode ? "#0078FF" : "#eeeeee",
+        nisra_line: code === selectedCode ? "#0078FF" : "#555",
+        nisra_width: code === selectedCode ? 4 : 1
       }
     };
   });
@@ -68,7 +70,7 @@ export async function plotScaleMap(elementId, map_data, options = {}) {
       source: "sdz-shapes",
       paint: {
         "fill-color": ["get", "nisra_fill"],
-        "fill-opacity": 0.7
+        "fill-opacity": 0.3
       }
     });
 
@@ -77,8 +79,8 @@ export async function plotScaleMap(elementId, map_data, options = {}) {
       type: "line",
       source: "sdz-shapes",
       paint: {
-        "line-color": "#555",
-        "line-width": 1
+        "line-color": ["get", "nisra_line"],
+        "line-width": ["get", "nisra_width"]
       }
     });
 
