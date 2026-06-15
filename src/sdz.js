@@ -10,7 +10,7 @@ import { scaleChart } from "./utils/scale-chart.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plotNavMap.js";
 import { copySummary } from "./utils/copy-summary.js";
-import { goStart, handleOnScroll } from "./utils/scroll-button.js"
+import { goStart, handleOnScroll } from "./utils/scroll-button.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 

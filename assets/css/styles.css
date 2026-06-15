@@ -629,6 +629,7 @@ thead th {
    position: fixed;
    z-index: 99;
    right: 0px;
+   -webkit-user-select: none;
    user-select: none;
    bottom: 0px;
    color: black;
@@ -640,6 +641,8 @@ thead th {
    font-weight: 700;
    cursor: pointer;
    overflow: auto;
+   border: none;
+   border-top: 1px solid black
 }
 
 #scroll-btn.hidden {

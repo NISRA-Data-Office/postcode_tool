@@ -78,6 +78,7 @@ export function insertFooter () {
     footer.classList.add("py-4");
     footer.classList.add("bg-nisra");
     footer.classList.add("text-nisra");
+    footer.classList.add("pb-5");
     
     footer.innerHTML = `<div class="container">
       <!-- 3 column section -->

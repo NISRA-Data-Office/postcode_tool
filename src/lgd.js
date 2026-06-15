@@ -11,6 +11,7 @@ import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { lgdDeprivationSummary } from "./utils/deprivation-text.js";
 import { copySummary } from "./utils/copy-summary.js";
+import { goStart, handleOnScroll } from "./utils/scroll-button.js";
 
 let type_select;
 
@@ -45,6 +46,10 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 
   await update_lgd({ animate: false });
+
+  handleOnScroll();
+  const scrollBtn = document.getElementById("scroll-btn");
+  scrollBtn.addEventListener("click", goStart);
 });
 
 async function update_lgd({ animate = true } = {}) {
