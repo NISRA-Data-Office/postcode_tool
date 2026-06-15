@@ -11,6 +11,7 @@ import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plotNavMap.js";
 import { copySummary } from "./utils/copy-summary.js";
 import { goStart, handleOnScroll } from "./utils/scroll-button.js";
+import { sharePage } from "./utils/share-page.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -59,8 +60,7 @@ async function update_sdz({ animate = true } = {}) {
       geo_description.innerHTML = `
         <p class="mb-0"><span class="blue-text">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
         <p class="mb-0">Deprivation is calculated for these Super Data Zones.</p>
-        <p><span class="blue-text">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a href="lgd.html?lgd=${data.parents[0].code}">${data.parents[0].name}</a>.</p>
-     `
+        <p><span class="blue-text">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}">${data.parents[0].name}</a>.</p>`
     
       insertNavButtons(data);
       insertValue("place-name", data.name);
