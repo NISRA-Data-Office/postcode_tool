@@ -649,3 +649,20 @@ thead th {
 #scroll-btn:hover {
   color:var(--nisra_blue)
 }
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  @page {
+    margin: 2mm;
+  }
+
+  #scale-map, #footer {
+    page-break-inside: avoid;
+    break-insside: avoid;
+  }
+
+}

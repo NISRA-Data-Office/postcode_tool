@@ -11,6 +11,7 @@ import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plotNavMap.js";
 import { copySummary } from "./utils/copy-summary.js";
 import { goStart, handleOnScroll } from "./utils/scroll-button.js"
+import { sharePage } from "./utils/share-page.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 

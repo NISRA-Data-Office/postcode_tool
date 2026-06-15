@@ -11,6 +11,7 @@ import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { lgdDeprivationSummary } from "./utils/deprivation-text.js";
 import { copySummary } from "./utils/copy-summary.js";
+import { sharePage } from "./utils/share-page.js";
 
 let type_select;
 
