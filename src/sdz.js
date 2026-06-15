@@ -10,6 +10,7 @@ import { scaleChart } from "./utils/scale-chart.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plotNavMap.js";
 import { copySummary } from "./utils/copy-summary.js";
+import { goStart } from "./utils/scroll-button.js"
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -31,6 +32,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         ]
     )   
 
+    const scrollBtn = document.getElementById("scroll-btn");
+    scrollBtn.addEventListener("click", goStart);
     copySummary();
     await update_sdz({ animate: false });
 

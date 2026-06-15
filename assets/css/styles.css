@@ -6,6 +6,7 @@
 	--nisra_blue: #3878c5;
 	--nisra_navy: #00205b;
 	--nisra_purple: #732777;
+  --nisra_slate: #3b3b3b;
 }
 
 body {
@@ -620,4 +621,31 @@ thead th {
   background-position: center center;
   background-size: cover;
   padding: 350px 0 350px 0
+}
+
+#scroll-btn {
+   opacity: 1;
+   transition: opacity 0.5s, visibility 0.5s;
+   position: fixed;
+   z-index: 99;
+   right: 0px;
+   user-select: none;
+   bottom: 0px;
+   color: #ffffff;
+   background-color: #142062;
+   width: 100%;
+   text-align: center;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   font-weight: 700;
+   cursor: pointer;
+   overflow: auto;
+}
+
+#scroll-btn.hidden {
+  display:none;
+}
+
+#scroll-btn:hover {
+  color:var(--nisra_blue)
 }
