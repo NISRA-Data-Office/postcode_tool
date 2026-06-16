@@ -1,10 +1,12 @@
 import { loadShapes } from "./load-shapes.js";
 import { scaleColours } from "./ScaleColours.js";
+import { readData } from "./read-data.js";
 
 export let map;
 
 let lgdGeojsonData;
 let sdzGeojsonData;
+let currentLgdBounds = null;
 
 export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
   const { animate = true, highlightSdz = null } = options;
@@ -88,12 +90,41 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     features: sdzFeatures
   };
 
-  if (map) {
-    map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
-    map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
-    moveToBounds(map_data.bounds, animate);
-    return;
+  let mapBounds = map_data.bounds;
+
+  if (highlightSdz) {
+    const highlightedSdzData = await readData(highlightSdz);
+
+    if (Array.isArray(highlightedSdzData?.bounds)) {
+      mapBounds = [
+        highlightedSdzData.bounds[0] - 0.1, // min lng
+        highlightedSdzData.bounds[1] - 0.1, // min lat
+        highlightedSdzData.bounds[2] + 0.1, // max lng
+        highlightedSdzData.bounds[3] + 0.1  // max lat
+      ];
+    }
+
+
   }
+
+if (map) {
+  if (selectedSdzId !== null) {
+    map.setFeatureState(
+      { source: "sdz-shapes", id: selectedSdzId },
+      { selected: false }
+    );
+
+    selectedSdzId = null;
+  }
+
+  map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
+  map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
+
+  currentLgdBounds = map_data.bounds;
+
+  moveToBounds(mapBounds, animate);
+  return;
+}
 
   map = new maplibregl.Map({
     container: elementId,
@@ -146,7 +177,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
         features.length > 0 ? "pointer" : "default";
     });
 
-    moveToBounds(map_data.bounds, false);
+    moveToBounds(mapBounds, false);
 
     map.setMinZoom(map.getZoom() - 3);
     map.setMaxZoom(map.getZoom() + 4);
@@ -191,6 +222,8 @@ function addOutlineLayer(id, source, line_width) {
         "case",
         ["boolean", ["get", "nisra_highlight"], false],
         "#D4351C",
+          ["boolean", ["feature-state", "selected"], false],
+        "#D4351C",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
         "#555555"
@@ -198,6 +231,8 @@ function addOutlineLayer(id, source, line_width) {
       "line-width": [
         "case",
         ["boolean", ["get", "nisra_highlight"], false],
+        3,
+           ["boolean", ["feature-state", "selected"], false],
         3,
         ["boolean", ["feature-state", "hover"], false],
         line_width + 1,
@@ -356,16 +391,60 @@ function getSdzName(feature) {
   ).replaceAll("_", " ");
 }
 
+let selectedSdzId = null;
+
 function addSdzClick(map) {
   map.on("click", "sdz-fill", e => {
     const feature = e.features?.[0];
     if (!feature) return;
 
+    if (selectedSdzId !== null) {
+      map.setFeatureState(
+        { source: "sdz-shapes", id: selectedSdzId },
+        { selected: false }
+      );
+    }
+
+    selectedSdzId = feature.id;
+
+    map.setFeatureState(
+      { source: "sdz-shapes", id: selectedSdzId },
+      { selected: true }
+    );
+
     const sdzCode = feature.properties?.nisra_code;
-    if (!sdzCode) return;
+
+    const source = map.getSource("sdz-shapes");
+    const currentData = source?._data;
+
+    if (source && currentData?.features) {
+      source.setData({
+        ...currentData,
+        features: currentData.features.map(f => ({
+          ...f,
+          properties: {
+            ...f.properties,
+            nisra_highlight: false
+          }
+        }))
+      });
+    }
+
+    const url = new URL(window.location);
+    url.searchParams.delete("sdz");
+
+    window.history.replaceState(
+      {},
+      "",
+      `${url.pathname}${url.search}${url.hash}`
+    );
+
+    if (currentLgdBounds) {
+      moveToBounds(currentLgdBounds);
+    }
 
     window.dispatchEvent(new CustomEvent("sdzselect", {
       detail: { code: sdzCode }
     }));
   });
-}
+} 
