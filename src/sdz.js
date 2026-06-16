@@ -9,10 +9,15 @@ import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plotNavMap.js";
+import { plotScaleMap } from "./utils/plotScaleMap.js";
 import { copySummary } from "./utils/copy-summary.js";
 import { goStart, handleOnScroll } from "./utils/scroll-button.js";
 import { sharePage } from "./utils/share-page.js";
 import { populateNextStepBoxes } from "./utils/next-steps.js";
+
+  let currentSelectedName = "";
+  let currentSelectedValue = null;
+  let currentLgdData = null;
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -70,6 +75,30 @@ async function update_sdz({ animate = true } = {}) {
     
       await plotNavMap("scale-map", data, { animate });
 
+      const lgdCode = data.parents[0].code;
+      const lgdData = await readData(lgdCode);
+
+      currentSelectedName = data.name;
+      currentSelectedValue = data.data.ranks.mdm;
+      currentLgdData = lgdData;
+
+      await plotScaleMap("comparison-map", lgdData, "mdm", {
+        animate,
+        highlightSdz: data.code,
+        forceLgdView: true,
+        enableComparison: true   
+      });
+
+    scaleChart("comparison-scale-chart", {
+    data: { ranks: { mdm: currentSelectedValue } },
+    children_count: currentLgdData.children_count
+    }, "mdm", "below", true, {
+    markerColor: "#D4351C",
+    markerStroke: "#D4351C"
+    });
+
+
+
     const deprivation_headline = document.getElementById("deprivation-headline");
     deprivation_headline.innerHTML = getHeadline(data.data.ranks, data.count)
 
@@ -110,6 +139,25 @@ async function update_sdz({ animate = true } = {}) {
 
 }
 
+function updateComparisonText(diff, hoveredName) {
+  const el = document.getElementById("comparison-text");
+  if (!el) return;
+
+  let text;
+
+  if (diff === 0) {
+    text = `<strong>${hoveredName}</strong> has a similar deprivation ranking`;
+  } 
+  else if (diff > 0) {
+    text = `<strong>${hoveredName}</strong> is less deprived than ${currentSelectedName}`;
+  } 
+  else {
+    text = `<strong>${hoveredName}</strong> is more deprived than ${currentSelectedName}`;
+  }
+
+  el.innerHTML = text;
+}
+
 window.addEventListener("popstate", () => update_sdz({ animate: true }));
 window.addEventListener("sdzchange", () => update_sdz({ animate: true }));
 document.addEventListener("click", (e) => {
@@ -124,4 +172,22 @@ document.addEventListener("click", (e) => {
     input.focus({ preventScroll: true });
   }
 });
+ window.addEventListener("sdzhovercompare", (e) => {
+  const { hovered, selected } = e.detail;
 
+  if (!hovered?.value || !selected?.value) return;
+
+  const diff = hovered.value - selected.value;
+
+  updateComparisonText(diff, hovered.name);
+
+  scaleChart("comparison-scale-chart", {
+  data: { ranks: { mdm: currentSelectedValue } },
+  children_count: currentLgdData.children_count
+  }, "mdm", "below", true, {
+  compareValue: hovered.value,
+  markerColor: "#D4351C",
+  markerStroke: "#D4351C",
+  compareColor: "#F59E0B"
+});
+});

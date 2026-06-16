@@ -1,9 +1,15 @@
 import { scaleColours } from './ScaleColours.js';
 
-export function scaleChart(id, data, type, showLabels = null, showMarker = true) {
+export function scaleChart(id, data, type, showLabels = null, showMarker = true, options = {}) {
 
   const value = data.data.ranks[type];
   const count = data.children_count ?? data.count
+  const {
+  compareValue = null,
+  markerColor = "#f8f8f8",
+  markerStroke = "#042433",
+  compareColor = "#F59E0B"
+  } = options;
 
   const x_position = value / count * -151.90294;
 
@@ -21,7 +27,7 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
    viewBox="${viewBox}"
    xmlns="http://www.w3.org/2000/svg">
    <g
-     id="g10-${type}"
+     id="g10-${id}-${type}"
      transform="translate(-33.784712,-93.201939)">
    </g>
 
@@ -50,14 +56,30 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
       y="0.2645835"
       width="1.3229166"
       height="10.054167"
-      stroke="#042433"
+      stroke="${markerStroke}"
       stroke-width="0.529167"
       stroke-miterlimit="8"
-      fill="#f8f8f8"
+      fill="${markerColor}"
       transform="scale(-1,1)"
       id="marker" />
       `
       : ""
+    }
+    ${
+    compareValue != null
+    ? `
+  <rect
+    x="${compareValue / count * -151.90294}"
+    y="0.2645835"
+    width="1.3229166"
+    height="10.054167"
+    stroke="${compareColor}"
+    stroke-width="0.6"
+    fill="${compareColor}"
+    transform="scale(-1,1)"
+    id="compare-marker" />
+    `
+    : ""
     }
    ${
      showLabels == "below"
@@ -80,7 +102,7 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
 </svg>
 `;
 
-  const g10 = document.getElementById(`g10-${type}`);
+const g10 = document.getElementById(`g10-${id}-${type}`);
 
   for (let i = 0; i < scaleColours.length; i++) {
     const colour = scaleColours[i];

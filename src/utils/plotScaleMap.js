@@ -7,9 +7,10 @@ export let map;
 let lgdGeojsonData;
 let sdzGeojsonData;
 let currentLgdBounds = null;
+let selectedValue = null;
 
 export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
-  const { animate = true, highlightSdz = null } = options;
+  const { animate = true, highlightSdz = null, forceLgdView = false, enableComparison = false } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
@@ -19,6 +20,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
   const ranks = map_data.data?.ranks || {};
   const sdzCodes = new Set(Object.keys(ranks));
+  if (highlightSdz) selectedValue = ranks[highlightSdz]?.[deprivation_type] || null;
 
   const values = Object.values(ranks)
     .map(row => row?.[deprivation_type])
@@ -92,7 +94,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
   let mapBounds = map_data.bounds;
 
-  if (highlightSdz) {
+  if (highlightSdz && !forceLgdView) {
     const highlightedSdzData = await readData(highlightSdz);
 
     if (Array.isArray(highlightedSdzData?.bounds)) {
@@ -165,16 +167,16 @@ if (map) {
     addFillLayer("lgd-fill", "lgd-shapes");
     addFillLayer("sdz-fill", "sdz-shapes");
 
-    addOutlineLayer("lgd-outline", "lgd-shapes", 2);
-    addOutlineLayer("sdz-outline", "sdz-shapes", 1);
+    addOutlineLayer("lgd-outline", "lgd-shapes", 2, false);
+    addOutlineLayer("sdz-outline", "sdz-shapes", 1, enableComparison);
 
     map.on("mousemove", e => {
       const features = map.queryRenderedFeatures(e.point, {
         layers: ["sdz-fill", "lgd-fill"]
       });
-    
+      
       map.getCanvas().style.cursor =
-        features.length > 0 ? "pointer" : "default";
+        features.length > 0 && !enableComparison ? "pointer" : "default";
     });
 
     moveToBounds(mapBounds, false);
@@ -183,10 +185,16 @@ if (map) {
     map.setMaxZoom(map.getZoom() + 4);
 
     addHoverPopup(map, "lgd-fill", "lgd-shapes", { nameOnly: true });
-    addHoverPopup(map, "sdz-fill", "sdz-shapes");
+    addHoverPopup(map, "sdz-fill", "sdz-shapes", {
+      enableComparison,
+      highlightSdz,
+      selectedValue
+    });
 
     addLgdClick(map);
+    if (!enableComparison) {
     addSdzClick(map);
+    }
   });
 }
 
@@ -212,7 +220,8 @@ function addFillLayer(id, source) {
   });
 }
 
-function addOutlineLayer(id, source, line_width) {
+function addOutlineLayer(id, source, line_width, sdzComparison) {
+  const hoverColor = sdzComparison ? "#F59E0B" : "#222222";
   map.addLayer({
     id,
     type: "line",
@@ -225,7 +234,7 @@ function addOutlineLayer(id, source, line_width) {
           ["boolean", ["feature-state", "selected"], false],
         "#D4351C",
         ["boolean", ["feature-state", "hover"], false],
-        "#222222",
+        hoverColor,
         "#555555"
       ],
       "line-width": [
@@ -261,6 +270,7 @@ function getColour(norm) {
 
 function addHoverPopup(map, layerId, sourceId, options = {}) {
   let hoveredId = null;
+  const { enableComparison = false, highlightSdz = null, selectedValue = null } = options;
 
   const popup = new maplibregl.Popup({
     closeButton: false,
@@ -283,6 +293,29 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: true });
 
     const props = feature.properties;
+
+    if (
+      enableComparison &&
+      sourceId === "sdz-shapes" &&
+      props.nisra_code !== highlightSdz &&   
+      props.nisra_value != null &&
+      selectedValue != null
+    ) {
+      window.dispatchEvent(new CustomEvent("sdzhovercompare", {
+        detail: {
+          hovered: {
+            code: props.nisra_code,
+            value: props.nisra_value,
+            name: props.nisra_label
+          },
+          selected: {
+            code: highlightSdz,
+            value: selectedValue
+          }
+        }
+      }));
+    }
+
 
     const html = options.nameOnly
       ? `<div><strong>${props.nisra_label}</strong></div>`
