@@ -59,9 +59,7 @@ export function insertNavButtons(data) {
         <a href="index.html">Home</a>
       </li>
       <li class="breadcrumb-item">
-        ${data.type == "sdz" ? `<a href="lgd.html?lgd=${data.parents[0].code}">` : "" }
-        ${data.type == "sdz" ? data.parents[0].name : data.name}
-        ${data.type == "sdz" ? `</a>` : "" }
+        ${data.type == "sdz" ? `<a href="lgd.html?lgd=${data.parents[0].code}">${data.parents[0].name}</a>` : data.name }
       </li>
       ${data.type == "sdz" ? `<li class="breadcrumb-item">${data.name}</li>`: ""}
     </ol>
@@ -193,12 +191,7 @@ export async function insertHead(title) {
     });
 
   await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js");
-  await loadScript("https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js");
-  await loadScript("https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js");
-  await loadScript("https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2");
   await loadScript("https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js");
-  await loadScript("https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js");
-  await loadScript("https://cdn.jsdelivr.net/npm/chartjs-chart-treemap/dist/chartjs-chart-treemap.min.js");
 
   document.body.removeAttribute("style");
 

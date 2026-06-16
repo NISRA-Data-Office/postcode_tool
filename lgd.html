@@ -2,99 +2,103 @@
 <html lang="en">
 <head></head>
 <body style="display:none;">
-    
-<banner id="banner"></banner>
-  <!-- Top Navbar -->
+
+   <banner id="banner"></banner>
+   <!-- Top Navbar -->
 
 
-<!-- Main Content -->
-<main>
+   <!-- Main Content -->
+   <main>
 
-<div id="content" class="container">
+      <div id="content" class="container">
 
-  <nav id ="nav" aria-label="breadcrumb"></nav>
+         <nav id ="nav" aria-label="breadcrumb"></nav>
 
-  <div class="row justify-content-end">
-               <div class="col-12 col-xl-4">
-                  <div class="postcode-search">
-                     <div class="input-group">
-                        <input
-                           id="postcode-search"
-                           type="search"
-                           class="form-control no-radius black-border"
-                           placeholder="Enter postcode"
-                           aria-label="Enter postcode"
-                           autocomplete="off"
-                           autocorrect="off"
-                           autocapitalize="off"
-                           spellcheck="false">
+         <div class="row justify-content-end">
+            <div class="col-12 col-xl-4">
+               <div class="postcode-search">
+                  <div class="input-group">
+                     <input
+                        id="postcode-search"
+                        type="search"
+                        class="form-control no-radius black-border"
+                        placeholder="Enter postcode"
+                        aria-label="Enter postcode"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"/>
                         <button
                            id="postcode-go"
                            class="btn btn-primary no-radius black-border"
                            type="button">
-                        Go
+                           Go
                         </button>
-                     </div>
-                     <div id="postcode-dropdown" class="postcode-dropdown"></div>
                   </div>
-                  <div class="row mt-2 gap-1 gx-1">
-                     <button class="btn btn-primary col purple-bg no-radius" onclick="window.location.href='about.html'">About</button>
-                     <button class="btn btn-primary col purple-bg no-radius" onclick="window.print(); return false;">Download</button>
-                     <button class="btn btn-primary col purple-bg no-radius" onclick="sharePage()">Share</button>
-                  </div>
+                  <div id="postcode-dropdown" class="postcode-dropdown"></div>
+               </div>
+               <div class="row mt-2 gap-1 gx-1">
+                  <button class="btn btn-primary col purple-bg no-radius" onclick="window.location.href='about.html'">About</button>
+                  <button class="btn btn-primary col purple-bg no-radius" onclick="window.print(); return false;">Download</button>
+                  <button class="btn btn-primary col purple-bg no-radius" onclick="sharePage()">Share</button>
                </div>
             </div>
+         </div>
 
-  <div class="row my-3">
-    <div class="col-12 col-xl-8">
-      <h2 id="headline" class="h1">Deprivation in <span class="blue-text place-name"></span></h2>
-      <p class="h4 mb-0">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
-      <p class="mb-0">Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
-      <p>Click on a neighbourhood to see its deprivation rank or click a neighbouring council to explore its deprivation profile.</p>
-    </div>
-    <div class="col-12 col-xl-4">
-      <p class="mb-1">Select another council area:</p>
-      <select id="lgd-select" class="form-select no-radius black-border" aria-label="Select a council area"></select>
-      <p class="mt-3 mb-1">Select a type of deprivation:</p>
-      <select id="type-select" class="form-select no-radius black-border" aria-label="Select a council area"></select>
-    </div>
-  </div>
+         <div class="row my-3">
+            <div class="col-12 col-xl-8">
+               <h2 id="headline" class="h1">Deprivation in <span class="blue-text place-name"></span></h2>
+               <p class="h4 mb-0">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
+               <p class="mb-0">Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
+               <p>Click on a neighbourhood to see its deprivation rank or click a neighbouring council to explore its deprivation profile.</p>
+            </div>
+            <div class="col-12 col-xl-4">
+               <p class="mb-1">Select another council area:</p>
+               <select id="lgd-select" class="form-select no-radius black-border" aria-label="Select a council area"></select>
+               <p class="mt-3 mb-1">Select a type of deprivation:</p>
+               <select id="type-select" class="form-select no-radius black-border" aria-label="Select a council area"></select>
+            </div>
+         </div>
 
-  <div class="row">
-   <div class="col-12 col-xl-6 mb-3">
-      <div id="scale-map" class="map"></div>
-      <div id="lgd-scale-chart" class="mt-3"></div>
-   </div>
-   <div class="col-12 col-xl-6 mb-3">
-    <div id="lgd-table-container"></div>
-    <p style="margin-top: 20px;">Click on a neighbourhood name in the table to view its deprivation profile.</p>
-  </div>
+         <div class="row">
+            <div class="col-12 col-xl-6 mb-3">
+               <div id="scale-map" class="map"></div>
+               <div id="lgd-scale-chart" class="mt-3"></div>
+            </div>
+         <div class="col-12 col-xl-6 mb-3">
+            <div id="lgd-table-container"></div>
+            <p style="margin-top: 20px;">Click on a neighbourhood name in the table to view its deprivation profile.</p>
+         </div>
 
-  <div id="info-boxes"></div>
+         <div id="info-boxes"></div>
 
-  <h3 class="h2 mt-4">Deprivation summary for <span class="blue-text place-name"></span></h3>
+         <h3 class="h2 mt-4">Deprivation summary for <span class="blue-text place-name"></span></h3>
 
-  <div class="mt-3" id="summary"></div>
-  <button class="btn btn-primary purple-bg mt-3 mb-4 no-radius" style="width: 50%;" id="copy-summary">Copy summary</button>
+         <div class="mt-3" id="summary"></div>
+         <div class="row">
+            <div class="col">
+               <button class="btn btn-primary purple-bg mt-3 mb-4 no-radius" id="copy-summary">Copy summary</button>
+            </div>
+         </div>
+            
 
+      </div>
+      
+      
+      </div>
 
+      <div class="grey-bg h5 text-end mt-1 mb-0 border">
+         <a href="https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty" target="_blank" noopener="rel" title="Deprivation statistics on the NISRA website (opens in new window)">
+            View more deprivation resources and information
+         </a>
+      </div>
 
-</div>
-        
-        
-        
-</main>
+   </main>
 
-<div class="grey-bg h5 text-end mt-1 mb-0 border">
-   <a href="https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty" target="_blank" noopener="rel" title="Deprivation statistics on the NISRA website (opens in new window)">
-      View more deprivation resources and information
-   </a>
-</div>  
+   <button id="scroll-btn">Back to top</button>
+   <footer id = "footer"></footer>
 
-<button id="scroll-btn">Back to top</button>
-<footer id = "footer"></footer>
-
-<script type = "module" src="src/lgd.js"></script>
+   <script type = "module" src="src/lgd.js"></script>
 
 
 </body>
