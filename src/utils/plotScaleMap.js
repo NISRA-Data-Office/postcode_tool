@@ -57,6 +57,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
   const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
 
+
   return {
     ...feature,
     id: `sdz-${idx}`,
@@ -75,6 +76,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     }
   };
 });
+
+
 
   const styledLgdGeojson = {
     ...lgdGeojsonData,
