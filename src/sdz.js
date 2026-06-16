@@ -94,15 +94,15 @@ async function update_sdz({ animate = true } = {}) {
 
     populateNextStepBoxes([
   {
-    text: `Explore deprivation in areas surrounding ${data.name}`,
+    text: `Explore deprivation in areas surrounding ${data.name} using maps and tables`,
     link: `${lgdLink}`
   },
   {
-    text: `Back to top and enter postcode`,
+    text: `Back to top and enter another postcode`,
     link: "postcode-search"
   },
   {
-    text: `View other deprivation resources`,
+    text: `View other deprivation resources. Reports, detailed tables and background information`,
     link: `${deprivationLink}`
   }
 ]);
