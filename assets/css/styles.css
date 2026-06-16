@@ -216,10 +216,6 @@ table tr:not(:has(th)):hover {
   cursor: pointer;
 }
 
-.no-radius {
-  border-radius: 0;
-}
-
 .black-border {
   border: 2px solid #000;
 }
