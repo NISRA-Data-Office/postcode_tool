@@ -427,6 +427,7 @@ table tr:not(:has(th)):hover {
 .form-select:focus,
 .form-select:focus-visible {
   box-shadow: none;
+  border-color: #000;
 }
 
 /* Nav buttons: draw focus inside the element so it can't be hidden */
