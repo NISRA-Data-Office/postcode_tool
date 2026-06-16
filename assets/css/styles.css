@@ -166,9 +166,9 @@ table tr:not(:has(th)):hover {
   border: 2px solid #000;
 }
 
-.purple-bg:hover {
-  background-color: #5e1f62;
-  border: 2px solid #000;
+.purple-bg:hover, .purple-bg:active {
+  background-color: #5e1f62 !important;
+  border: 2px solid #000 !important;
 }
 
 .purple-border {
