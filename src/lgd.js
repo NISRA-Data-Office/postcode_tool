@@ -87,7 +87,7 @@ async function update_lgd({ animate = true } = {}) {
     scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
     
     const lgdTableContainer = document.getElementById("lgd-table-container");
-    createLGDTable(lgdTableContainer, data, type_select.value);
+    createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
     type_select.addEventListener("change", () => {
         insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());

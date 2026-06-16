@@ -66,13 +66,12 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
       nisra_label: getSdzName(feature),
       nisra_code: sdzCode,
       nisra_value: rawValue,
-      nisra_fill: highlightedSdz
-        ? "#e64791"   
-        : rawValue == null
+      nisra_fill:
+        rawValue == null
           ? "#eeeeee"
           : getColour((rawValue - range_min) / range),
       nisra_hasValue: rawValue !== null && rawValue !== undefined,
-      nisra_highlight: highlightedSdz  
+      nisra_highlight: highlightedSdz
     }
   };
 });
@@ -190,17 +189,26 @@ function addOutlineLayer(id, source, line_width) {
     paint: {
       "line-color": [
         "case",
+        ["boolean", ["get", "nisra_highlight"], false],
+        "#D4351C",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
         "#555555"
       ],
       "line-width": [
         "case",
+        ["boolean", ["get", "nisra_highlight"], false],
+        3,
         ["boolean", ["feature-state", "hover"], false],
         line_width + 1,
         line_width
       ],
-      "line-opacity": 0.9
+      "line-opacity": [
+        "case",
+        ["boolean", ["get", "nisra_highlight"], false],
+        1,
+        0.9
+      ]
     }
   });
 }

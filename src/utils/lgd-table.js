@@ -1,4 +1,6 @@
-export function createLGDTable(container, place, selectedDeprivation) {
+export function createLGDTable(container, place, selectedDeprivation, sdz) {
+
+  console.log(sdz)
   let sortKey = "rank";
   let sortAsc = true;
   let selectedCode = null;
@@ -95,10 +97,15 @@ export function createLGDTable(container, place, selectedDeprivation) {
       });
     });
 
+    if (sdz) {
+      selectedCode = sdz;
+    }
+
     if (selectedCode) {
       highlightRow(selectedCode);
     }
   }
+
 
   window.addEventListener("sdzselect", (e) => {
     selectedCode = e.detail.code;
