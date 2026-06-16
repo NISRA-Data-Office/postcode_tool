@@ -241,6 +241,12 @@ table tr:not(:has(th)):hover {
   border: 2px solid var(--nisra_navy);
 }
 
+@media (max-width: 575px) {
+  .info-tab-btn {
+    border-left: 2px solid var(--nisra_navy);
+    border-right: 2px solid var(--nisra_navy);
+  }
+}
 
 .info-card-wrap {
   display: grid;
