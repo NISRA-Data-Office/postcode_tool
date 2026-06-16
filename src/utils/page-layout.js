@@ -7,10 +7,10 @@ export function insertHeader () {
 
     banner.classList.add("navbar");
     banner.classList.add("p-0");
-    banner.style.backgroundColor = "#00205b";
+    banner.style.backgroundColor = "var(--nisra_navy)";
     banner.innerHTML = `<div class="container-fluid d-flex flex-column align-items-stretch p-0">
     <!-- Banner row (full width) -->
-    <div aria-label="Feedback" class="w-100" style="background-color:#3878c5;">
+    <div aria-label="Feedback" class="w-100" style="background-color:var(--nisra_blue);">
         <div class="text-white text-center py-2 px-3">
             We welcome feedback from users through our 
                 <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer">short survey</a>

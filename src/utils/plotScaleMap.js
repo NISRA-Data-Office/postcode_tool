@@ -66,7 +66,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
       nisra_code: sdzCode,
       nisra_value: rawValue,
       nisra_fill: highlightedSdz
-        ? "#ff0000"   
+        ? "#e64791"   
         : rawValue == null
           ? "#eeeeee"
           : getColour((rawValue - range_min) / range),

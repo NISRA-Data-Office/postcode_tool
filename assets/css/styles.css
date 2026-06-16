@@ -69,9 +69,9 @@ main a[target="_blank"]::after {
    Footer
    =========================== */
 .footer {
-  background-color: #00205b;
+  background-color: var(--nisra_navy);
   color: #fff;
-  border-top: 4px solid #3878c5;
+  border-top: 4px solid var(--nisra_blue);
 }
 .footer a {
   color: #fff;
@@ -112,7 +112,7 @@ table tr:not(:has(th)):hover {
 }
 
 .btn-primary {
-  background-color: #3878c5;
+  background-color: var(--nisra_blue);
 }
 
 .current-page {
@@ -126,20 +126,16 @@ table tr:not(:has(th)):hover {
 }
 
 .blue-bg {
-  background-color: #3878c5;
+  background-color: var(--nisra_blue);
   color: #fff;
 }
 
 .blue-text {
-  color: #3878c5;
+  color: var(--nisra_blue);
 }
 
 .i-button {
   cursor: pointer;
-}
-
-.no-radius {
-  border-radius: 0;
 }
 
 .black-border {
@@ -156,8 +152,8 @@ table tr:not(:has(th)):hover {
 
 .home {
   background-color: #fff;
-  color: #00205B;
-  border: 2px solid #00205B;
+  color: var(--nisra_navy);
+  border: 2px solid var(--nisra_navy);
 }
 
 .blue-bg a, .purple-bg a {
@@ -165,7 +161,7 @@ table tr:not(:has(th)):hover {
 }
 
 .purple-bg {
-  background-color: #732777;
+  background-color: var(--nisra_purple);
   color: #fff;
   border: 2px solid #000;
 }
@@ -176,7 +172,7 @@ table tr:not(:has(th)):hover {
 }
 
 .purple-border {
-  border: 2px solid #732777;
+  border: 2px solid var(--nisra_purple);
 }
 
 .green-border {
@@ -198,13 +194,13 @@ table tr:not(:has(th)):hover {
 
 /* Your custom background */
 .navy-bg {
-  background-color: #00205B !important;
+  background-color: var(--nisra_navy) !important;
   color: #fff !important;
 }
 
 .nav-btn {
-  background-color: #3878c5;
-  border: 2px solid #00205B;
+  background-color: var(--nisra_blue);
+  border: 2px solid var(--nisra_navy);
 }
 
 .nav-btn:hover {
@@ -224,7 +220,7 @@ table tr:not(:has(th)):hover {
 
 /* Only when expanded (i.e., NOT collapsed) */
 .accordion-button:not(.collapsed) {
-  background-color: #00205B;
+  background-color: var(--nisra_navy);
   color: #fff;
 }
 
@@ -234,15 +230,15 @@ table tr:not(:has(th)):hover {
 }
 
 .accordion-button {
-  border-left: 2px solid #00205B;
-  border-top: 2px solid #00205B;
-  border-bottom: 2px solid #00205B;
-  color: #00205B;
+  border-left: 2px solid var(--nisra_navy);
+  border-top: 2px solid var(--nisra_navy);
+  border-bottom: 2px solid var(--nisra_navy);
+  color: var(--nisra_navy);
   font-size: 0.75em;
 }
 
 #info-card {
-  border: 2px solid #00205B;
+  border: 2px solid var(--nisra_navy);
 }
 
 
@@ -349,6 +345,7 @@ table tr:not(:has(th)):hover {
 .form-select:focus,
 .form-select:focus-visible {
   box-shadow: none;
+  border-color: #000;
 }
 
 /* Nav buttons: draw focus inside the element so it can't be hidden */
