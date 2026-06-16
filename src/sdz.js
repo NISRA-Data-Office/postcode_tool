@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         [
             "",
             "",
-            ""
+            "Neighbourhoods are small areas called Super Data Zones (SDZ).They have an average population of 2,270 people."
         ]
     ) 
     handleOnScroll();
