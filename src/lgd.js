@@ -64,6 +64,7 @@ async function update_lgd({ animate = true } = {}) {
   lgdMenu("lgd-select");
 
   const lgd = params.get("lgd");
+  const sdz = params?.get("sdz");
   const data = await readData(lgd);
   document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
 
@@ -75,7 +76,9 @@ async function update_lgd({ animate = true } = {}) {
     config.deprivation_types[type_select.value].toLowerCase()
   );
 
-  await plotScaleMap("scale-map", data, type_select.value, { animate });
+  await plotScaleMap("scale-map", data, type_select.value, { animate,
+    highlightSdz: sdz
+   });
     insertValue("place-name", data.name)
     
     await plotScaleMap("scale-map", data, type_select.value);

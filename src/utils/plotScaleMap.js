@@ -7,7 +7,7 @@ let lgdGeojsonData;
 let sdzGeojsonData;
 
 export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
-  const { animate = true } = options;
+  const { animate = true, highlightSdz = null } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
@@ -52,24 +52,29 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
       sdzCodes.has(getSdzCode(feature))
     )
     .map((feature, idx) => {
-      const sdzCode = getSdzCode(feature);
-      const rawValue = ranks[sdzCode]?.[deprivation_type];
+  const sdzCode = getSdzCode(feature);
+  const rawValue = ranks[sdzCode]?.[deprivation_type];
 
-      return {
-        ...feature,
-        id: `sdz-${idx}`,
-        properties: {
-          ...feature.properties,
-          nisra_label: getSdzName(feature),
-          nisra_code: sdzCode,
-          nisra_value: rawValue,
-          nisra_fill: rawValue == null
-            ? "#eeeeee"
-            : getColour((rawValue - range_min) / range),
-          nisra_hasValue: rawValue !== null && rawValue !== undefined
-        }
-      };
-    });
+  const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
+
+  return {
+    ...feature,
+    id: `sdz-${idx}`,
+    properties: {
+      ...feature.properties,
+      nisra_label: getSdzName(feature),
+      nisra_code: sdzCode,
+      nisra_value: rawValue,
+      nisra_fill: highlightedSdz
+        ? "#ff0000"   
+        : rawValue == null
+          ? "#eeeeee"
+          : getColour((rawValue - range_min) / range),
+      nisra_hasValue: rawValue !== null && rawValue !== undefined,
+      nisra_highlight: highlightedSdz  
+    }
+  };
+});
 
   const styledLgdGeojson = {
     ...lgdGeojsonData,

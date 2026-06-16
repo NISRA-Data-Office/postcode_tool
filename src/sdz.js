@@ -12,6 +12,7 @@ import { plotNavMap } from "./utils/plotNavMap.js";
 import { copySummary } from "./utils/copy-summary.js";
 import { goStart, handleOnScroll } from "./utils/scroll-button.js";
 import { sharePage } from "./utils/share-page.js";
+import { populateNextStepBoxes } from "./utils/next-steps.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -31,7 +32,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             "",
             ""
         ]
-    )   
+    ) 
     handleOnScroll();
     const scrollBtn = document.getElementById("scroll-btn");
     scrollBtn.addEventListener("click", goStart);
@@ -88,7 +89,39 @@ async function update_sdz({ animate = true } = {}) {
 
     insertScaleTable("deprivation-scales", data);
 
+    const lgdLink = `lgd.html?lgd=${data.parents[0].code}&sdz=${data.code}`;
+    const deprivationLink = "https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty";
+
+    populateNextStepBoxes([
+  {
+    text: `Explore deprivation in areas surrounding ${data.name}`,
+    link: `${lgdLink}`
+  },
+  {
+    text: `Back to top and enter postcode`,
+    link: "postcode-search"
+  },
+  {
+    text: `View other deprivation resources`,
+    link: `${deprivationLink}`
+  }
+]);
+
+
 }
 
 window.addEventListener("popstate", () => update_sdz({ animate: true }));
 window.addEventListener("sdzchange", () => update_sdz({ animate: true }));
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".next-step-btn");
+  if (!btn) return;
+
+  const targetId = btn.dataset.target;
+  const input = document.getElementById(targetId);
+
+  if (input) {
+    input.scrollIntoView({ behavior: "smooth", block: "center" });
+    input.focus({ preventScroll: true });
+  }
+});
+
