@@ -142,17 +142,20 @@ async function update_sdz({ animate = true } = {}) {
 function updateComparisonText(diff, hoveredName) {
   const el = document.getElementById("comparison-text");
   if (!el) return;
+  
+  const hoveredStyled = `<span style="color:#F59E0B;"><strong>${hoveredName}</strong></span>`;
+  const selectedStyled = `<span style="color:#D4351C;"><strong>${currentSelectedName}</strong></span>`;
 
   let text;
 
   if (diff === 0) {
-    text = `<strong>${hoveredName}</strong> has a similar deprivation ranking`;
+    text = `${hoveredStyled} has a similar deprivation ranking`;
   } 
   else if (diff > 0) {
-    text = `<strong>${hoveredName}</strong> is less deprived than ${currentSelectedName}`;
+    text = `${hoveredStyled} is less deprived than ${selectedStyled}`;
   } 
   else {
-    text = `<strong>${hoveredName}</strong> is more deprived than ${currentSelectedName}`;
+    text = `${hoveredStyled} is more deprived than ${selectedStyled}`;
   }
 
   el.innerHTML = text;
