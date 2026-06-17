@@ -107,13 +107,17 @@
       id="marker" />
     </g>
 
-   <text x="0" y="20" font-size="5" text-anchor="start">
-        Most deprived
-    </text>
+   <text x="0" y="22" font-size="5" text-anchor="start">
+          ← 1 (Most deprived)
+      </text>
 
-    <text x="150" y="20" font-size="5" text-anchor="end">
-        Least deprived
-    </text>
+      <text x="75" y="22" font-size="5" text-anchor="middle">
+          Rank
+      </text>
+
+      <text x="150" y="22" font-size="5" text-anchor="end">
+          (Least deprived) ${count} →
+      </text>
 </svg>
 
 `
