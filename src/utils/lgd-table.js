@@ -1,6 +1,5 @@
 export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
-  console.log(sdz)
   let sortKey = "rank";
   let sortAsc = true;
   let selectedCode = null;

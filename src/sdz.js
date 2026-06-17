@@ -50,11 +50,17 @@ async function update_sdz({ animate = true } = {}) {
       }
     
       const sdz = params.get("sdz");
+      const postcode = params?.get("postcode");
       const data = await readData(sdz);
-      document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
 
       const headline = document.getElementById("headline");
-      headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
+      if (postcode) {
+        headline.innerHTML =`${postcode} is in <span class="blue-text">${data.name}</span>`;
+        document.getElementsByTagName("title")[0].textContent = `Deprivation in ${postcode}`;
+      } else {
+        headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
+        document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
+      }
 
       const geo_description = document.getElementById("geo-description");
 
