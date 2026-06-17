@@ -9,7 +9,7 @@ export function populateInfoBoxes(labels, content) {
     }
 
     buttons += `
-      <div class="col p-0">
+      <div class="col-12 col-sm p-0">
         <h2 class="accordion-header h-100" role="heading">
           <button
             class="accordion-button collapsed h-100 info-tab-btn"
@@ -34,7 +34,7 @@ export function populateInfoBoxes(labels, content) {
         </div>
 
         <div class="info-card-wrap">
-          <div id="info-card" class="card my-3">
+          <div id="info-card" class="card my-3 rounded-0">
 
             <div id="infoCollapse" class="accordion-collapse collapse" data-active-index="">
               <div class="accordion-body">
@@ -79,7 +79,13 @@ export function populateInfoBoxes(labels, content) {
       const isOpen = collapseEl.classList.contains("show");
       const activeIdx = collapseEl.dataset.activeIndex === "" ? null : Number(collapseEl.dataset.activeIndex);
 
-      // If closed: open with animation (Bootstrap handles animation)
+      const parentCol = btn.closest(".col-12");
+      const cardWrap = document.querySelector(".info-card-wrap");
+
+      if (window.innerWidth <= 575) {
+        parentCol.after(cardWrap);
+      }
+
       if (!isOpen) {
         setContent(idx);
         setActiveButton(idx);
@@ -102,10 +108,15 @@ export function populateInfoBoxes(labels, content) {
   });
 
   // When collapse fully hides, make sure buttons reflect state
-  collapseEl.addEventListener("hidden.bs.collapse", () => {
+  collapseEl.addEventListener("hide.bs.collapse", () => {
     btns.forEach((b) => {
       b.classList.add("collapsed");
       b.setAttribute("aria-expanded", "false");
     });
+    
+    const cardWrap = document.querySelector(".info-card-wrap");
+    const accordion = document.getElementById("infoAccordion");
+    
+    accordion.appendChild(cardWrap);
   });
 }
