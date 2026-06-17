@@ -83,6 +83,10 @@ export async function postcodeSearch(id) {
   }
 
   function runSearch() {
+    const search = normalisePostcode(input.value);
+
+    if (!search) return;
+
     const exactMatch = findExactMatch();
 
     if (exactMatch) {
