@@ -587,7 +587,7 @@ thead th {
     margin: 2mm;
   }
 
-  #scale-map, #footer {
+  #scale-map, #footer, #comparison-map {
     page-break-inside: avoid;
     break-inside: avoid;
   }
