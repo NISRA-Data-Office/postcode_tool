@@ -10,7 +10,7 @@ search_dir <- "public/search_data/"
 geog_file <- "geog_data_withdz_and_area2.xlsx"
 template_file <- "template - main_no_data.json"
 latest_cpd_file <- "CPD_LIGHT_Jan26.csv"
-search_data_filename <- "postcode_JAN2026.csv"
+dummy_data_filename <- "nimdm-2026-ranks-sdz-dummy-data.csv"
 
 code_lookup <- list(
   "N92" = "ctry",

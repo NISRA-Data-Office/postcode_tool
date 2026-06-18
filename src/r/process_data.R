@@ -15,7 +15,7 @@ children <- read_excel(paste0(data_dir, geog_file),
          name = ChildName,
          parent_code = ParentCode) %>%
   mutate(type = unlist(code_lookup[substr(code, 1, 3)])) %>%
-  filter(type != "dz")
+  filter(type %in% c("sdz", "lgd", "dea"))
 
 grandparent_lookup <- children %>% 
   select(parent_code = code, grandparent_code = parent_code)
@@ -24,7 +24,8 @@ children <- left_join(
   children,
   grandparent_lookup,
   by = "parent_code"
-)
+) %>% 
+  filter(type != "dea")
 
 
 map_bounds <- read_excel(paste0(data_dir, geog_file),
@@ -36,7 +37,7 @@ hectares <- read_excel(paste0(data_dir, geog_file),
                        sheet = "geog_areas") %>%
   filter(substr(geocode, 1, 3) != "N08") %>%
   mutate(type = unlist(code_lookup[substr(geocode, 1, 3)])) %>%
-  filter(type != "dz")
+  filter(type %in% c("sdz", "lgd"))
 
 lgd_description <- read_excel(paste0(data_dir, geog_file),
                               sheet = "lgd_description")
@@ -61,7 +62,7 @@ urban_rural <- cpd %>%
 
 # Import dummy data ####
 
-nimdm <- read.csv(paste0(data_dir, "nimdm-2026-ranks-sdz-dummy-data.csv"))
+nimdm <- read.csv(paste0(data_dir, dummy_data_filename))
 
 # Import from Data Portal ####
 
@@ -215,6 +216,7 @@ for (sdz in SDZs) {
                 urban_rural = urban_rural %>%
                   filter(SDZ2021 == sdz) %>%
                   pull("type")
+    )
   )
 
   write_json(sdz_data,
