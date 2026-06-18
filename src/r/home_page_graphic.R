@@ -20,15 +20,11 @@ scale_colours <- ctx$get("scaleColours")
 
 sdz <- st_read("public/map/SDZ2021.geo.json", quiet = TRUE)
 
-# Check the join key names first
-names(sdz)
-names(nimdm)
-
 map_data <- sdz %>%
   left_join(nimdm, by = c("SDZ21_code" = "sdz2021_code")) %>%
   mutate(
-    decile = ntile(value, 10),
-    decile = factor(decile, levels = 1:10)
+    decile = ntile(value, length(scale_colours)),
+    decile = factor(decile, levels = 1:length(scale_colours))
   )
 
 
@@ -60,5 +56,3 @@ ggsave(
   units = "px",
   dpi = 300
 )
-
-
