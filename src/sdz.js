@@ -101,18 +101,30 @@ async function update_sdz({ animate = true } = {}) {
     populateNextStepBoxes([
   {
     text: `Explore deprivation in areas surrounding ${data.name} using maps and tables`,
-    link: `${lgdLink}`
+    link: `${lgdLink}`,
+    title: `Explore deprivation in areas surrounding ${data.name} (opens ${data.parents[0].name} deprivation profile)`
   },
   {
     text: `Back to top and enter another postcode`,
-    link: "postcode-search"
+    link: "postcode-search",
+    title: `Back to top and enter another postcode`
   },
   {
     text: `View other deprivation resources. Reports, detailed tables and background information`,
-    link: `${deprivationLink}`
+    link: `${deprivationLink}`,
+    title: `View other deprivation resources (opens in new tab)`,
+    newTab: true
   }
 ]);
 
+const copyBtn = document.getElementById("copy-summary");
+
+if (copyBtn) {
+  copyBtn.setAttribute(
+    "aria-label",
+    `Copy deprivation summary for ${data.name} to clipboard`
+  );
+}
 
 }
 

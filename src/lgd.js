@@ -100,6 +100,14 @@ async function update_lgd({ animate = true } = {}) {
 
     summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
     
+    const copyBtn = document.getElementById("copy-summary");
+
+    if (copyBtn) {
+      copyBtn.setAttribute(
+        "aria-label",
+        `Copy deprivation summary for ${data.name} to clipboard`
+      );
+    }
 }
 
 window.addEventListener("popstate", () => update_lgd({ animate: true }));
