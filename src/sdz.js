@@ -118,6 +118,7 @@ async function update_sdz({ animate = true } = {}) {
 
 window.addEventListener("popstate", () => update_sdz({ animate: true }));
 window.addEventListener("sdzchange", () => update_sdz({ animate: true }));
+
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".next-step-btn");
   if (!btn) return;

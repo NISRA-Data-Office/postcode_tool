@@ -6,7 +6,8 @@ export const config = {
     "navigation": [
         { href: "index.html", text: "Home" },
         { href: "lgd.html", text: "LGD" },
-        { href: "sdz.html", text: "SDZ" }  
+        { href: "sdz.html", text: "SDZ" },
+        { href: "about.html", text: "About"}  
     ],
     
     "portal_url": "https://data.nisra.gov.uk/",
