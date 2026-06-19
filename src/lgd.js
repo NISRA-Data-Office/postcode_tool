@@ -39,15 +39,6 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   copySummary();
 
-  type_select.addEventListener("change", async () => {
-    insertValue(
-      "deprivation-type",
-      config.deprivation_types[type_select.value].toLowerCase()
-    );
-
-    await update_lgd({ animate: false });
-  });
-
   await update_lgd({ animate: false });
 
   handleOnScroll();
@@ -83,15 +74,20 @@ async function update_lgd({ animate = true } = {}) {
    });
     insertValue("place-name", data.name)
     
-    await plotScaleMap("scale-map", data, type_select.value);
     scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
     
     const lgdTableContainer = document.getElementById("lgd-table-container");
     createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
     type_select.addEventListener("change", () => {
+      const params = new URLSearchParams(window.location.search);
+      const sdz = params.get("sdz");
+
         insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
-        plotScaleMap("scale-map", data, type_select.value)
+        plotScaleMap("scale-map", data, type_select.value, {
+          highlightSdz: sdz,
+          preserveView: true
+        })
         scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
         createLGDTable(lgdTableContainer, data, type_select.value)
     });
@@ -99,7 +95,7 @@ async function update_lgd({ animate = true } = {}) {
     const summaryContainer = document.getElementById("summary");
 
     summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
-    
+
     const copyBtn = document.getElementById("copy-summary");
 
     if (copyBtn) {
