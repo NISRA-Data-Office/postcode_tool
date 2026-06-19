@@ -1,3 +1,5 @@
+import { config } from "../config/config.js";
+
 export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
   let sortKey = "rank";
@@ -45,16 +47,25 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
   function render() {
     const names = getSortedNames();
+    const selectedDeprivationLabel = config.deprivation_types[selectedDeprivation]
 
     container.innerHTML = `
     <table class="lgd-table">
       <thead>
         <tr>
-          <th data-key="rank" style="cursor:pointer;">
+          <th 
+            data-key="rank" 
+            style="cursor:pointer;"
+            tabindex="0"
+            aria-label="Sort by rank">
             Rank (of ${place.children_count})
             ${sortKey === "rank" ? (sortAsc ? " ▲" : " ▼") : ""}
           </th>
-          <th data-key="name" style="cursor:pointer;">
+          <th 
+            data-key="name" 
+            style="cursor:pointer;"
+            tabindex="0"
+            aria-label="Sort councils alphabetically">
             Neighbourhood or super data zone
             ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
           </th>
@@ -62,7 +73,11 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
       </thead>
       <tbody>
         ${names.map(child => `
-          <tr class="sdz-row" data-code="${child.code}" style="cursor:pointer;" title="See ${child.name} deprivation profile">
+          <tr class="sdz-row" 
+              data-code="${child.code}" 
+              style="cursor:pointer;"
+              tabindex="0" 
+              aria-label="View deprivation profile for ${child.name}, ranked ${child.rank}">
             <td>${child.rank ?? ""}</td>
             <td>${child.name}</td>
           </tr>
@@ -72,7 +87,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
     `;
 
     container.querySelectorAll("th[data-key]").forEach(th => {
-      th.addEventListener("click", () => {
+      const handleSort = () => {
         const key = th.dataset.key;
 
         if (sortKey === key) {
@@ -83,6 +98,15 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
         }
 
         render();
+      };
+
+      th.addEventListener("click", handleSort);
+
+      th.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleSort();
+        }
       });
     });
 
@@ -94,6 +118,13 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
           window.location.href = `sdz.html?sdz=${code}`;
         }
       });
+      
+      row.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          row.click();
+        }
+      });                       
     });
 
     if (sdz) {
