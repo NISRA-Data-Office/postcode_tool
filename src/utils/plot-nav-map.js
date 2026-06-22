@@ -26,10 +26,10 @@ export async function plotNavMap(elementId, map_data, options = {}) {
         nisra_code: code,
         nisra_label: getSdzName(feature),
 
-        nisra_fill: code === selectedCode ? "#0078FF" : "#eeeeee",
+        nisra_fill: "#eeeeee",
         nisra_line: code === selectedCode ? "#0078FF" : "#555",
         nisra_width: code === selectedCode ? 4 : 1,
-        nisra_opacity: code === selectedCode ? 0.3 : 0.8
+        nisra_opacity: 0.5
       }
     };
   });
@@ -73,14 +73,19 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     });
 
     map.addLayer({
-      id: "sdz-fill",
-      type: "fill",
-      source: "sdz-shapes",
-      paint: {
-        "fill-color": ["get", "nisra_fill"],
-        "fill-opacity": ["get", "nisra_opacity"]
-      }
-    });
+  id: "sdz-fill",
+  type: "fill",
+  source: "sdz-shapes",
+  paint: {
+    "fill-color": [
+      "case",
+      ["boolean", ["feature-state", "hover"], false],
+      "#999999",
+      ["get", "nisra_fill"]
+    ],
+    "fill-opacity": ["get", "nisra_opacity"]
+  }
+});
 
      map.addSource("ni-boundary", {
     type: "geojson",

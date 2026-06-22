@@ -1,11 +1,13 @@
 import { config } from '../config/config.js';
 
 export function scaleChart(id, data, type, showLabels = null, showMarker = true) {
-
   const value = showMarker ? data.data.ranks[type] : 0;
-  const count = data.sdz_count ?? data.count
+  const count = data.sdz_count ?? data.count;
 
   const x_position = value / count * -151.90294;
+
+  const markerRadius = 3.29156;
+  const markerCy = 5.291667;
 
   const viewBox =
     showLabels == "below"
@@ -42,14 +44,14 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
    `
        : ""
    }
-    ${
-      showMarker
-      ? `
-     <rect
-      x="${x_position}"
-      y="0.2645835"
-      width="1.3229166"
-      height="10.054167"
+
+   ${
+     showMarker
+       ? `
+     <circle
+      cx="${x_position}"
+      cy="${markerCy}"
+      r="${markerRadius}"
       stroke="#042433"
       stroke-width="0.529167"
       stroke-miterlimit="8"
@@ -57,8 +59,9 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
       transform="scale(-1,1)"
       id="marker" />
       `
-      : ""
-    }
+       : ""
+   }
+
    ${
      showLabels == "below"
        ? `
@@ -87,11 +90,11 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
 
     g10.innerHTML += `
       <rect
-        style="fill:${colour};fill-opacity:1;stroke:#ffffff;stroke-width:0.79375"
+        style="fill:${colour};fill-opacity:1;stroke:#ffffff;stroke-width:0.4"
         id="rect${i + 1}"
         width="16.710997"
         height="6.5831203"
-        x=${34.181587 + i * 14.933132}
+        x="${34.181587 + i * 14.933132}"
         y="95.202042" />
     `;
   }
