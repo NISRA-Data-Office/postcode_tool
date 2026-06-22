@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     handleOnScroll();
     const scrollBtn = document.getElementById("scroll-btn");
     scrollBtn.addEventListener("click", goStart);
-    copySummary();
+    
     await update_sdz({ animate: false });
 
 })
@@ -54,12 +54,14 @@ async function update_sdz({ animate = true } = {}) {
       const data = await readData(sdz);
 
       const headline = document.getElementById("headline");
+      const page_title = document.getElementsByTagName("title")[0];
+
       if (postcode) {
         headline.innerHTML =`${postcode} is in <span class="blue-text">${data.name}</span>`;
-        document.getElementsByTagName("title")[0].textContent = `Deprivation in ${postcode}`;
+        page_title.textContent = `Deprivation in ${postcode}`;
       } else {
         headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
-        document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
+        page_title.textContent = `Deprivation in ${data.name}`;
       }
 
       const geo_description = document.getElementById("geo-description");
@@ -87,6 +89,8 @@ async function update_sdz({ animate = true } = {}) {
     insertScaleTable("deprivation-scales", data);
 
     populateNextStepBoxes(data);
+
+    copySummary(data);
 
 }
 

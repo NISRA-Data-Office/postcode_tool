@@ -9,7 +9,7 @@ let sdzGeojsonData;
 let currentLgdBounds = null;
 
 export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
-  const { animate = true, highlightSdz = null } = options;
+  const { animate = true, highlightSdz = null, preserveView = false } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
@@ -122,7 +122,9 @@ if (map) {
 
   currentLgdBounds = map_data.bounds;
 
-  moveToBounds(mapBounds, animate);
+  if (!preserveView) {
+    moveToBounds(mapBounds, animate);
+  }
   return;
 }
 
@@ -431,8 +433,8 @@ function addSdzClick(map) {
     }
 
     const url = new URL(window.location);
-    url.searchParams.delete("sdz");
-
+    url.searchParams.set("sdz", sdzCode);
+    
     window.history.replaceState(
       {},
       "",
