@@ -1,6 +1,6 @@
 import { loadShapes } from "./load-shapes.js";
-import { scaleColours } from "./ScaleColours.js";
 import { readData } from "./read-data.js";
+import { config } from "../config/config.js";
 
 export let map;
 
@@ -255,10 +255,10 @@ function getColour(norm) {
 
   const idx = Math.max(
     0,
-    Math.min(scaleColours.length - 1, Math.floor(norm * scaleColours.length))
+    Math.min(config.scale_colours.length - 1, Math.floor(norm * config.scale_colours.length))
   );
 
-  return scaleColours[idx];
+  return config.scale_colours[idx];
 }
 
 function addHoverPopup(map, layerId, sourceId, options = {}) {

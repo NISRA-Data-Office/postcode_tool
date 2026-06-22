@@ -2,25 +2,9 @@ export const config = {
     // Dashboard title
     "title": "Deprivation in Northern Ireland",
 
-    // Set order of page links and display text in navigation bar
-    "navigation": [
-        { href: "index.html", text: "Home" },
-        { href: "lgd.html", text: "LGD" },
-        { href: "sdz.html", text: "SDZ" },
-        { href: "about.html", text: "About"}  
-    ],
-    
-    "portal_url": "https://data.nisra.gov.uk/",
-
     // Departmental abbreviations. See departments.js for available options
     "department": "DoF",
 
-    // Data portal tables to use in the dashboard.
-    "matrix": [
-        "EXAMPLETABLE1",
-        "EXAMPLETABLE2"
-    ],
-    
     "rateit": "link-to-rateit",
 
     "deprivation_types": {
@@ -32,6 +16,19 @@ export const config = {
         "services" : "Access to services",
         "living": "Living environment",
         "crime": "Crime and disorder"
-    }
+    },
+
+    scale_colours: [
+        '#00205b', 
+        '#0B3270',
+        '#164385',
+        '#22559B',
+        '#2D66B0',
+        '#3878c5',
+        '#44839B',
+        '#508E72',
+        '#5C9948',
+        '#68A41E'
+    ]
     
 }

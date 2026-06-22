@@ -1,22 +1,16 @@
 source("src/r/config.R")
 
-library(sf)
-library(ggplot2)
-library(purrr)
-library(V8)
-library(ggspatial)
-
 nimdm <- read.csv(paste0(data_dir, data_filename)) %>% 
   filter(statistic == "Multiple Deprivation Measure (Rank)")
 
-colour_scale_file <- readLines("src/utils/ScaleColours.js", warn = FALSE) %>%
+config_file <- readLines("src/config/config.js", warn = FALSE) %>%
   sub("export ", "", .) %>%
   paste(collapse = "\n")
 
 ctx <- V8::v8()
-ctx$eval(colour_scale_file)
+ctx$eval(config_file)
 
-scale_colours <- ctx$get("scaleColours")
+scale_colours <- ctx$get("config.scale_colours")
 
 sdz <- st_read("public/map/SDZ2021.geo.json", quiet = TRUE)
 

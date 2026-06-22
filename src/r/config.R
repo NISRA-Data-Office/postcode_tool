@@ -1,8 +1,13 @@
 # Source package libraries ####
-library("dplyr")
-library("readxl")
-library("stringr")
-library("jsonlite")
+library(dplyr)
+library(readxl)
+library(stringr)
+library(jsonlite)
+library(sf)
+library(ggplot2)
+library(purrr)
+library(V8)
+library(ggspatial)
 
 # Paths to directories ####
 ## Inputs ####

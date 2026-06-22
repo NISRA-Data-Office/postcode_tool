@@ -1,4 +1,4 @@
-import { scaleColours } from './ScaleColours.js';
+import { config } from '../config/config.js';
 
 export function scaleChart(id, data, type, showLabels = null, showMarker = true) {
 
@@ -82,8 +82,8 @@ export function scaleChart(id, data, type, showLabels = null, showMarker = true)
 
   const g10 = document.getElementById(`g10-${type}`);
 
-  for (let i = 0; i < scaleColours.length; i++) {
-    const colour = scaleColours[i];
+  for (let i = 0; i < config.scale_colours.length; i++) {
+    const colour = config.scale_colours[i];
 
     g10.innerHTML += `
       <rect

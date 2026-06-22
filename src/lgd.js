@@ -11,7 +11,7 @@ import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { lgdDeprivationSummary } from "./utils/deprivation-text.js";
 import { copySummary } from "./utils/copy-summary.js";
-import { goStart, handleOnScroll } from "./utils/scroll-button.js";
+import { handleOnScroll } from "./utils/scroll-button.js";
 import { sharePage } from "./utils/share-page.js";
 
 let type_select;
@@ -37,13 +37,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   type_select = document.getElementById("type-select");
 
-  copySummary();
-
   await update_lgd({ animate: false });
 
   handleOnScroll();
-  const scrollBtn = document.getElementById("scroll-btn");
-  scrollBtn.addEventListener("click", goStart);
+
 });
 
 async function update_lgd({ animate = true } = {}) {
@@ -96,14 +93,8 @@ async function update_lgd({ animate = true } = {}) {
 
     summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
 
-    const copyBtn = document.getElementById("copy-summary");
+    copySummary(data);
 
-    if (copyBtn) {
-      copyBtn.setAttribute(
-        "aria-label",
-        `Copy deprivation summary for ${data.name} to clipboard`
-      );
-    }
 }
 
 window.addEventListener("popstate", () => update_lgd({ animate: true }));

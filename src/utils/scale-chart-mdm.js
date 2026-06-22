@@ -1,5 +1,5 @@
 
-  import { scaleColours } from './ScaleColours.js';
+  import { config } from '../config/config.js';
   
   export function scaleChartMDM (id, data) {
 
@@ -123,8 +123,8 @@
 `
 
 const g10 = document.getElementById("g10");
-for (let i = 0; i < scaleColours.length; i ++) {
-  let colour = scaleColours[i]
+for (let i = 0; i < config.scale_colours.length; i ++) {
+  let colour = config.scale_colours[i]
   g10.innerHTML += `
     <rect
         style="fill:${colour};fill-opacity:1;stroke:#ffffff;stroke-width:0.79375"

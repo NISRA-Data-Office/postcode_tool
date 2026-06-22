@@ -10,7 +10,7 @@ import { scaleChart } from "./utils/scale-chart.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plot-nav-map.js";
 import { copySummary } from "./utils/copy-summary.js";
-import { goStart, handleOnScroll } from "./utils/scroll-button.js";
+import { handleOnScroll } from "./utils/scroll-button.js";
 import { sharePage } from "./utils/share-page.js";
 import { populateNextStepBoxes } from "./utils/next-steps.js";
 
@@ -34,8 +34,6 @@ window.addEventListener("DOMContentLoaded", async () => {
         ]
     ) 
     handleOnScroll();
-    const scrollBtn = document.getElementById("scroll-btn");
-    scrollBtn.addEventListener("click", goStart);
     
     await update_sdz({ animate: false });
 
