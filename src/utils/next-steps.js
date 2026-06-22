@@ -1,5 +1,23 @@
-export function populateNextStepBoxes(info) {
+export function populateNextStepBoxes(data) {
+
+
+
     const next_step_boxes = document.getElementById("next-steps");
+
+    const info = [
+    {
+      text: `Explore deprivation in areas surrounding ${data.name} using maps and tables`,
+      link: `lgd.html?lgd=${data.parents[0].code}&sdz=${data.code}`
+    },
+    {
+      text: `Back to top and enter another postcode`,
+      link: "postcode-search"
+    },
+    {
+      text: `View other deprivation resources. Reports, detailed tables and background information`,
+      link: `https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty`
+    }
+  ]
 
     let html = "";
 
@@ -35,4 +53,17 @@ export function populateNextStepBoxes(info) {
 });
 
 next_step_boxes.innerHTML = html;
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".next-step-btn");
+  if (!btn) return;
+
+  const targetId = btn.dataset.target;
+  const input = document.getElementById(targetId);
+
+  if (input) {
+    input.scrollIntoView({ behavior: "smooth", block: "center" });
+    input.focus({ preventScroll: true });
+  }
+});
 }

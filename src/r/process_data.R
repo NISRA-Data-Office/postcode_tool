@@ -44,7 +44,7 @@ lgd_description <- read_excel(paste0(data_dir, geog_file),
 
 # Import CPD ####
 
-cpd <- read.csv(paste0(search_dir, latest_cpd_file))
+cpd <- read.csv(paste0(data_dir, latest_cpd_file))
 
 ## Urban Rural status ####
 
@@ -60,9 +60,9 @@ urban_rural <- cpd %>%
   select(-SETTLEMENT15_URBAN_RURAL, - rows) %>% 
   distinct()
 
-# Import dummy data ####
+# Import MDM data ####
 
-nimdm <- read.csv(paste0(data_dir, dummy_data_filename))
+nimdm <- read.csv(paste0(data_dir, data_filename))
 
 # Import from Data Portal ####
 

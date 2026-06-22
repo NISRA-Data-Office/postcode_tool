@@ -6,7 +6,7 @@ import { postcodeSearch } from "./utils/postcode-search.js";
 import { typeSelect } from "./utils/type-select.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertValue } from "./utils/insert-value.js";
-import { plotScaleMap } from "./utils/plotScaleMap.js";
+import { plotScaleMap } from "./utils/plot-scale-map.js";
 import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { lgdDeprivationSummary } from "./utils/deprivation-text.js";

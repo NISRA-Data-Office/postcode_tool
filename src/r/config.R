@@ -1,17 +1,23 @@
+# Source package libraries ####
 library("dplyr")
 library("readxl")
 library("stringr")
 library("jsonlite")
 
+# Paths to directories ####
+## Inputs ####
 data_dir <- "src/r/data/"
+
+## Outputs ####
 output_dir <- "public/data/"
 search_dir <- "public/search_data/"
 
+# Input file names ####
 geog_file <- "geog_data_withdz_and_area2.xlsx"
-template_file <- "template - main_no_data.json"
 latest_cpd_file <- "CPD_LIGHT_Jan26.csv"
-dummy_data_filename <- "nimdm-2026-ranks-sdz-dummy-data.csv"
+data_filename <- "nimdm-2026-ranks-sdz-dummy-data.csv"
 
+# Geo code lookups ####
 code_lookup <- list(
   "N92" = "ctry",
   "N09" = "lgd",
@@ -20,6 +26,7 @@ code_lookup <- list(
   "N21" = "sdz"
 )
 
+# Statistic lookups ####
 stat_lookup <- list(
   "Multiple Deprivation Measure (Rank)" = "mdm",
   "Income Domain (Rank)" = "income",

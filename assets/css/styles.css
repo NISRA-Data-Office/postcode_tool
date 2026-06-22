@@ -192,32 +192,6 @@ table tr:not(:has(th)):hover {
   color: #000;
 }
 
-/* Your custom background */
-.navy-bg {
-  background-color: var(--nisra_navy) !important;
-  color: #fff !important;
-}
-
-.nav-btn {
-  background-color: var(--nisra_blue);
-  border: 2px solid var(--nisra_navy);
-}
-
-.nav-btn:hover {
-  background-color: #6B7EA0;
-  cursor: pointer;
-}
-
-.chart-canvas {
-  height: 40vh !important;
-}
-
-@media (max-width: 1200px) { 
-  .chart-canvas {
-    height: 80vh !important;
-  } 
-}
-
 /* Only when expanded (i.e., NOT collapsed) */
 .accordion-button:not(.collapsed) {
   background-color: var(--nisra_navy);
@@ -265,51 +239,6 @@ table tr:not(:has(th)):hover {
 .info-card-wrap:has(.accordion-collapse.show){
   grid-template-rows: 1fr;   /* open */
   opacity: 1;
-}
-
-#info-content p {
-  margin-bottom: 1em;
-}
-
-.y-label {
-  position: absolute;
-  left: 2.5em;
-  color: #666666;
-  font-size: 0.75rem
-}
-
-.nisra-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid #0b0c0c;
-  margin-top: 1rem;
-}
-
-.nisra-table caption {
-  caption-side: top;
-  text-align: left;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.nisra-table th,
-.nisra-table td {
-  border: 1px solid #b1b4b6;
-  padding: 0.6rem;
-  vertical-align: top;
-  text-align: left;
-}
-
-.nisra-table thead th {
-  background-color: #f3f2f1;
-}
-
-.nisra-table tbody th {
-  font-weight: 600;
-}
-
-.card-footer {
-  margin-top: auto;
 }
 
 /* Clear, consistent focus style for keyboard users */
@@ -365,12 +294,6 @@ table tr:not(:has(th)):hover {
 
 .tab-pane p {
   margin-bottom: 1em;
-}
-
-#co2-diff {
-  font-size: 0.875em;
-  color: #555555;
-  background-color: #fff;
 }
 
 /* Table Styling */
@@ -497,10 +420,6 @@ thead th {
 .lgd-table .sdz-row.selected td {
   background-color: #d9d9d9 !important;
   font-weight: bold;
-}
-
-#info-boxes {
-  margin-top: 20px;
 }
 
 #background-map {

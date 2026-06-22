@@ -6,7 +6,7 @@ library(purrr)
 library(V8)
 library(ggspatial)
 
-nimdm <- read.csv(paste0(data_dir, "nimdm-2026-ranks-sdz-dummy-data.csv")) %>% 
+nimdm <- read.csv(paste0(data_dir, data_filename)) %>% 
   filter(statistic == "Multiple Deprivation Measure (Rank)")
 
 colour_scale_file <- readLines("src/utils/ScaleColours.js", warn = FALSE) %>%

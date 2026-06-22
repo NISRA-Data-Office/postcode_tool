@@ -2,7 +2,7 @@ source("src/r/config.R")
 
 # Import CPD ####
 
-cpd <- read.csv(paste0(search_dir, latest_cpd_file)) %>%
+cpd <- read.csv(paste0(data_dir, latest_cpd_file)) %>%
   filter(SDZ2021 != "000000000") %>%
   mutate(postcode = paste0(
     substr(PC5, 1, nchar(PC5) - 3),
