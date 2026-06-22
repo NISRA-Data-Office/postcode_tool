@@ -1,7 +1,6 @@
 {
   "code": "N09000004",
   "name": "Causeway Coast and Glens",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.9769, 54.8203, -7.1659, 55.313],

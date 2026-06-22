@@ -1,7 +1,6 @@
 {
   "code": "N21000217",
   "name": "Titanic_Y",
-  "comment": "This json includes data for the MDM app",
   "type": "sdz",
   "count": 850,
   "parents": [

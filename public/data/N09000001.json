@@ -1,7 +1,6 @@
 {
   "code": "N09000001",
   "name": "Antrim and Newtownabbey",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.8682, 54.5682, -6.4959, 54.8119],

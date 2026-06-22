@@ -1,7 +1,6 @@
 {
   "code": "N09000010",
   "name": "Newry, Mourne and Down",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.516, 54.0227, -6.669, 54.4957],

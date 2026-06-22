@@ -1,7 +1,6 @@
 {
   "code": "N09000011",
   "name": "Ards and North Down",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.4328, 54.3243, -5.8585, 54.6801],

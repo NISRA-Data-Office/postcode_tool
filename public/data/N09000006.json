@@ -1,7 +1,6 @@
 {
   "code": "N09000006",
   "name": "Fermanagh and Omagh",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-6.936, 54.1133, -8.1775, 54.7805],

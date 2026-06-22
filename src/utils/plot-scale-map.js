@@ -7,6 +7,8 @@ export let map;
 let lgdGeojsonData;
 let sdzGeojsonData;
 let currentLgdBounds = null;
+let selectedSdzId = null;
+let currentIsCountryMap = false;
 
 export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
   const { animate = true, highlightSdz = null, preserveView = false } = options;
@@ -14,22 +16,23 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
 
+  const isCountryMap = map_data.type === "ctry";
+  currentIsCountryMap = isCountryMap;
+
   const selectedLgdCode = map_data.code;
   const selectedLgdName = map_data.name;
 
   const ranks = map_data.data?.ranks || {};
   const sdzCodes = new Set(Object.keys(ranks));
 
- const values = Object.values(ranks)
-  .map(row => row?.ranks?.[deprivation_type])
-  .filter(v => v != null);
-
   const range_min = 1;
-  const range_max = map_data.sdz_count;
+  const range_max = map_data.sdz_count || sdzCodes.size;
   const range = range_max - range_min || 1;
 
   const lgdFeatures = lgdGeojsonData.features
     .filter(feature => {
+      if (isCountryMap) return false;
+
       const lgdCode = getLgdCode(feature);
       const lgdName = getLgdName(feature);
 
@@ -49,36 +52,36 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     }));
 
   const sdzFeatures = sdzGeojsonData.features
-    .filter(feature =>
-      feature.properties.LGD_code === selectedLgdCode &&
-      sdzCodes.has(getSdzCode(feature))
-    )
+    .filter(feature => {
+      const sdzCode = getSdzCode(feature);
+
+      return (
+        sdzCodes.has(sdzCode) &&
+        (isCountryMap || feature.properties.LGD_code === selectedLgdCode)
+      );
+    })
     .map((feature, idx) => {
-  const sdzCode = getSdzCode(feature);
-  const rawValue = ranks[sdzCode]["ranks"]?.[deprivation_type];
+      const sdzCode = getSdzCode(feature);
+      const rawValue = ranks[sdzCode]?.ranks?.[deprivation_type];
+      const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
 
-  const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
-
-
-  return {
-    ...feature,
-    id: `sdz-${idx}`,
-    properties: {
-      ...feature.properties,
-      nisra_label: getSdzName(feature),
-      nisra_code: sdzCode,
-      nisra_value: rawValue,
-      nisra_fill:
-        rawValue == null
-          ? "#eeeeee"
-          : getColour((rawValue - range_min) / range),
-      nisra_hasValue: rawValue !== null && rawValue !== undefined,
-      nisra_highlight: highlightedSdz
-    }
-  };
-});
-
-
+      return {
+        ...feature,
+        id: `sdz-${idx}`,
+        properties: {
+          ...feature.properties,
+          nisra_label: getSdzName(feature),
+          nisra_code: sdzCode,
+          nisra_value: rawValue,
+          nisra_fill:
+            rawValue == null
+              ? "#eeeeee"
+              : getColour((rawValue - range_min) / range),
+          nisra_hasValue: rawValue !== null && rawValue !== undefined,
+          nisra_highlight: highlightedSdz
+        }
+      };
+    });
 
   const styledLgdGeojson = {
     ...lgdGeojsonData,
@@ -97,36 +100,35 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
     if (Array.isArray(highlightedSdzData?.bounds)) {
       mapBounds = [
-        highlightedSdzData.bounds[0] - 0.1, // min lng
-        highlightedSdzData.bounds[1] - 0.1, // min lat
-        highlightedSdzData.bounds[2] + 0.1, // max lng
-        highlightedSdzData.bounds[3] + 0.1  // max lat
+        highlightedSdzData.bounds[0] - 0.1,
+        highlightedSdzData.bounds[1] - 0.1,
+        highlightedSdzData.bounds[2] + 0.1,
+        highlightedSdzData.bounds[3] + 0.1
       ];
     }
-
-
   }
 
-if (map) {
-  if (selectedSdzId !== null) {
-    map.setFeatureState(
-      { source: "sdz-shapes", id: selectedSdzId },
-      { selected: false }
-    );
+  if (map) {
+    if (selectedSdzId !== null) {
+      map.setFeatureState(
+        { source: "sdz-shapes", id: selectedSdzId },
+        { selected: false }
+      );
 
-    selectedSdzId = null;
+      selectedSdzId = null;
+    }
+
+    map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
+    map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
+
+    currentLgdBounds = isCountryMap ? null : map_data.bounds;
+
+    if (!preserveView) {
+      moveToBounds(mapBounds, animate);
+    }
+
+    return;
   }
-
-  map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
-  map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
-
-  currentLgdBounds = map_data.bounds;
-
-  if (!preserveView) {
-    moveToBounds(mapBounds, animate);
-  }
-  return;
-}
 
   map = new maplibregl.Map({
     container: elementId,
@@ -171,10 +173,12 @@ if (map) {
     addOutlineLayer("sdz-outline", "sdz-shapes", 1);
 
     map.on("mousemove", e => {
-      const features = map.queryRenderedFeatures(e.point, {
-        layers: ["sdz-fill", "lgd-fill"]
-      });
-    
+      const layers = currentIsCountryMap
+        ? ["sdz-fill"]
+        : ["sdz-fill", "lgd-fill"];
+
+      const features = map.queryRenderedFeatures(e.point, { layers });
+
       map.getCanvas().style.cursor =
         features.length > 0 ? "pointer" : "default";
     });
@@ -184,8 +188,14 @@ if (map) {
     map.setMinZoom(map.getZoom() - 3);
     map.setMaxZoom(map.getZoom() + 4);
 
-    addHoverPopup(map, "lgd-fill", "lgd-shapes", { nameOnly: true });
-    addHoverPopup(map, "sdz-fill", "sdz-shapes");
+    addHoverPopup(map, "lgd-fill", "lgd-shapes", {
+      nameOnly: true,
+      enabled: () => !currentIsCountryMap
+    });
+
+    addHoverPopup(map, "sdz-fill", "sdz-shapes", {
+      enabled: () => true
+    });
 
     addLgdClick(map);
     addSdzClick(map);
@@ -224,7 +234,7 @@ function addOutlineLayer(id, source, line_width) {
         "case",
         ["boolean", ["get", "nisra_highlight"], false],
         "#D4351C",
-          ["boolean", ["feature-state", "selected"], false],
+        ["boolean", ["feature-state", "selected"], false],
         "#D4351C",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
@@ -234,7 +244,7 @@ function addOutlineLayer(id, source, line_width) {
         "case",
         ["boolean", ["get", "nisra_highlight"], false],
         3,
-           ["boolean", ["feature-state", "selected"], false],
+        ["boolean", ["feature-state", "selected"], false],
         3,
         ["boolean", ["feature-state", "hover"], false],
         line_width + 1,
@@ -255,7 +265,10 @@ function getColour(norm) {
 
   const idx = Math.max(
     0,
-    Math.min(config.scale_colours.length - 1, Math.floor(norm * config.scale_colours.length))
+    Math.min(
+      config.scale_colours.length - 1,
+      Math.floor(norm * config.scale_colours.length)
+    )
   );
 
   return config.scale_colours[idx];
@@ -272,7 +285,10 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mousemove", layerId, e => {
-   
+    if (options.enabled && !options.enabled()) {
+      popup.remove();
+      return;
+    }
 
     const feature = e.features?.[0];
     if (!feature) return;
@@ -301,8 +317,6 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-   
-
     if (hoveredId !== null) {
       map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
       hoveredId = null;
@@ -314,6 +328,8 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 
 function addLgdClick(map) {
   map.on("click", e => {
+    if (currentIsCountryMap) return;
+
     const features = map.queryRenderedFeatures(e.point, {
       layers: ["lgd-fill", "lgd-outline"]
     });
@@ -363,22 +379,22 @@ function normaliseBounds(bounds) {
 function getLgdCode(feature) {
   return String(
     feature.properties.LGDCode ||
-    feature.properties.LGD2014CODE ||
-    feature.properties.LGD_code ||
-    feature.properties.LGD_CODE ||
-    feature.properties.LGDCODE ||
-    feature.properties.code ||
-    ""
+      feature.properties.LGD2014CODE ||
+      feature.properties.LGD_code ||
+      feature.properties.LGD_CODE ||
+      feature.properties.LGDCODE ||
+      feature.properties.code ||
+      ""
   );
 }
 
 function getLgdName(feature) {
   return String(
     feature.properties.LGDNAME ||
-    feature.properties.LGD_name ||
-    feature.properties.LGD_NAME ||
-    feature.properties.name ||
-    ""
+      feature.properties.LGD_name ||
+      feature.properties.LGD_NAME ||
+      feature.properties.name ||
+      ""
   );
 }
 
@@ -389,11 +405,9 @@ function getSdzCode(feature) {
 function getSdzName(feature) {
   return String(
     feature.properties.SDZ21_name ||
-    getSdzCode(feature)
+      getSdzCode(feature)
   );
 }
-
-let selectedSdzId = null;
 
 function addSdzClick(map) {
   map.on("click", "sdz-fill", e => {
@@ -434,7 +448,7 @@ function addSdzClick(map) {
 
     const url = new URL(window.location);
     url.searchParams.set("sdz", sdzCode);
-    
+
     window.history.replaceState(
       {},
       "",
@@ -449,4 +463,4 @@ function addSdzClick(map) {
       detail: { code: sdzCode }
     }));
   });
-} 
+}

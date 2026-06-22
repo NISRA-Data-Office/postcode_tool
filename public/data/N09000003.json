@@ -1,7 +1,6 @@
 {
   "code": "N09000003",
   "name": "Belfast",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.8074, 54.5306, -6.0601, 54.665],

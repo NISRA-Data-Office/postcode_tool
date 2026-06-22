@@ -10,7 +10,8 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
       .map(([code, item]) => ({
         code,
         name: item.name,
-        rank: item.ranks?.[selectedDeprivation]
+        rank: item.ranks?.[selectedDeprivation],
+        lgd: place.data.lgd?.[item.lgd].name
       }))
       .sort((a, b) => {
         const valA = a[sortKey];
@@ -47,6 +48,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
   function render() {
     const names = getSortedNames();
+    
     const selectedDeprivationLabel = config.deprivation_types[selectedDeprivation];
     const sdzCount = place?.sdz_count ?? names.length;
 
@@ -59,7 +61,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
               style="cursor:pointer;"
               tabindex="0"
               aria-label="Sort by rank">
-              Rank (of ${sdzCount})
+              Rank
               ${sortKey === "rank" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
             <th 
@@ -67,9 +69,10 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
               style="cursor:pointer;"
               tabindex="0"
               aria-label="Sort neighbourhoods alphabetically">
-              Neighbourhood or super data zone
+              Neighbourhood
               ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
+            ${place.type === "ctry" ? `<th data-key="lgd" style="cursor:pointer;" tabindex="0", aria-label="Sort councils alphabetically">Council${sortKey === "lgd" ? (sortAsc ? " ▲" : " ▼") : ""}</th>` : ""}
           </tr>
         </thead>
         <tbody>
@@ -81,6 +84,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
                 aria-label="View deprivation profile for ${child.name}, ranked ${child.rank ?? "unknown"}">
               <td>${child.rank ?? ""}</td>
               <td>${child.name}</td>
+              ${place.type === "ctry" ? `<td>${child.lgd}</td>` : ""}
             </tr>
           `).join("")}
         </tbody>

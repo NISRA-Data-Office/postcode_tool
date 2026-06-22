@@ -1,7 +1,6 @@
 {
   "code": "N09000008",
   "name": "Mid and East Antrim",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.688, 54.6889, -6.5064, 55.0563],

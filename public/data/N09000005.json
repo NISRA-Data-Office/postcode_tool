@@ -1,7 +1,6 @@
 {
   "code": "N09000005",
   "name": "Derry City and Strabane",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-6.9022, 54.6075, -7.921, 55.0672],

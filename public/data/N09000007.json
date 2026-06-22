@@ -1,7 +1,6 @@
 {
   "code": "N09000007",
   "name": "Lisburn and Castlereagh",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-5.7575, 54.3705, -6.3046, 54.6244],

@@ -1,7 +1,6 @@
 {
   "code": "N21000825",
   "name": "Bangor_Central_L",
-  "comment": "This json includes data for the MDM app",
   "type": "sdz",
   "count": 850,
   "parents": [

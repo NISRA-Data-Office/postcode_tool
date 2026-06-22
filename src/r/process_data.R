@@ -14,8 +14,7 @@ children <- read_excel(paste0(data_dir, geog_file),
   rename(code = ChildCode,
          name = ChildName,
          parent_code = ParentCode) %>%
-  mutate(type = unlist(code_lookup[substr(code, 1, 3)])) %>%
-  filter(type %in% c("sdz", "lgd", "dea"))
+  mutate(type = unlist(code_lookup[substr(code, 1, 3)]))
 
 grandparent_lookup <- children %>% 
   select(parent_code = code, grandparent_code = parent_code)
@@ -24,9 +23,7 @@ children <- left_join(
   children,
   grandparent_lookup,
   by = "parent_code"
-) %>% 
-  filter(type != "dea")
-
+)
 
 map_bounds <- read_excel(paste0(data_dir, geog_file),
                          sheet = "MapBounds") %>%
@@ -36,8 +33,7 @@ map_bounds <- read_excel(paste0(data_dir, geog_file),
 hectares <- read_excel(paste0(data_dir, geog_file),
                        sheet = "geog_areas") %>%
   filter(substr(geocode, 1, 3) != "N08") %>%
-  mutate(type = unlist(code_lookup[substr(geocode, 1, 3)])) %>%
-  filter(type %in% c("sdz", "lgd"))
+  mutate(type = unlist(code_lookup[substr(geocode, 1, 3)]))
 
 lgd_description <- read_excel(paste0(data_dir, geog_file),
                               sheet = "lgd_description")
@@ -97,6 +93,60 @@ lgd_mye <- data.frame(
 
 # JSON creation ####
 
+## NI JSON ####
+
+ni_bounds <- map_bounds %>% 
+  filter(geog == "CTRY")
+
+ni_children <- list()
+
+child_rows <- children %>%
+  filter(type == "sdz")
+
+for (i in 1:nrow(child_rows)) {
+  ni_children[[child_rows$code[i]]] <- list(
+    name = child_rows$name[i],
+    lgd = child_rows$grandparent_code[i],
+    ranks = list()
+  )
+}
+
+lgd_names <- list()
+
+lgd_rows <- children %>% 
+  filter(type %in% c("ctry", "lgd")) %>% 
+  arrange(type, code)
+
+for (i in 1:nrow(lgd_rows)) {
+  lgd_names[[lgd_rows$code[[i]]]] <- list(
+    name = lgd_rows$name[i]
+  )
+}
+
+sdz_count <- geog_levels %>%
+  filter(geog_code == "sdz") %>%
+  pull("number")
+
+ni_data <- list(
+  code = "N92000002",
+  name = "Northern Ireland",
+  type = "ctry",
+  sdz_count = sdz_count,
+  bounds = c(
+    c(ni_bounds$long_max, ni_bounds$lat_min),
+    c(ni_bounds$long_min, ni_bounds$lat_max)
+  ),
+  data = list(
+    ranks = ni_children,
+    population = lgd_mye %>%
+      filter(area == "N92000002") %>%
+      pull("mye"),
+    hectares = hectares %>%
+      filter(type == "ctry") %>%
+      pull("Area_ha"),
+    lgd = lgd_names
+  )
+)
 
 ## LGD JSONs to contain ranks of all SDZ ####
 
@@ -106,10 +156,6 @@ LGDs <- children %>%
 
 lgd_count <- geog_levels %>%
   filter(geog_code == "lgd") %>%
-  pull("number")
-
-sdz_count <- geog_levels %>%
-  filter(geog_code == "sdz") %>%
   pull("number")
 
 for (lgd in LGDs) {
@@ -134,7 +180,6 @@ for (lgd in LGDs) {
   lgd_data <- list(
     code = lgd,
     name = children$name[children$code == lgd],
-    comment = "This json includes data for the MDM app.",
     type = "lgd",
     sdz_count = sdz_count,
     bounds = c(
@@ -188,7 +233,6 @@ for (sdz in SDZs) {
   sdz_data <- list(
     code = sdz,
     name = sdz_info$name,
-    comment = "This json includes data for the MDM app",
     type = "sdz",
     count = sdz_count,
     parents = list(
@@ -222,6 +266,8 @@ for (sdz in SDZs) {
   lgd_data <- get(paste0(sdz_info$grandparent_code, "_data"))
   lgd_data$data$ranks[[sdz]]$ranks <- sdz_data_values
   assign(paste0(sdz_info$grandparent_code, "_data"), lgd_data)
+  
+  ni_data$data$ranks[[sdz]]$ranks <- sdz_data_values
 
 
 }
@@ -238,3 +284,13 @@ for (lgd in LGDs) {
   cat("Writing data for Local Government District", lgd, "...", which(LGDs == lgd), "of", lgd_count, "\n\n")
 
 }
+
+# Write out NI JSON
+
+write_json(ni_data,
+           paste0(output_dir, "N92000002.json"),
+           auto_unbox = TRUE, 
+           pretty = TRUE)
+
+cat("Writing data for Northern Ireland...")
+

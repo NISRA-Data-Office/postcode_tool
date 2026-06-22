@@ -1,7 +1,6 @@
 {
   "code": "N09000009",
   "name": "Mid Ulster",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-6.4071, 54.3252, -7.367, 54.952],

@@ -1,7 +1,6 @@
 {
   "code": "N09000002",
   "name": "Armagh City, Banbridge and Craigavon",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
   "sdz_count": 850,
   "bounds": [-6.0186, 54.1791, -6.8781, 54.5913],
