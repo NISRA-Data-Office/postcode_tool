@@ -17,7 +17,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
         const valA = a[sortKey];
         const valB = b[sortKey];
 
-        if (sortKey === "name") {
+        if (sortKey === "name" || sortKey === "lgd") {
           return sortAsc
             ? (valA || "").localeCompare(valB || "")
             : (valB || "").localeCompare(valA || "");
@@ -48,9 +48,6 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
   function render() {
     const names = getSortedNames();
-    
-    const selectedDeprivationLabel = config.deprivation_types[selectedDeprivation];
-    const sdzCount = place?.sdz_count ?? names.length;
 
     container.innerHTML = `
       <table class="lgd-table">
@@ -72,7 +69,16 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
               Neighbourhood
               ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
-            ${place.type === "ctry" ? `<th data-key="lgd" style="cursor:pointer;" tabindex="0", aria-label="Sort councils alphabetically">Council${sortKey === "lgd" ? (sortAsc ? " ▲" : " ▼") : ""}</th>` : ""}
+            ${place.type === "ctry" ? `
+              <th 
+                data-key="lgd" 
+                style="cursor:pointer;" 
+                tabindex="0" 
+                aria-label="Sort councils alphabetically">
+                Council
+                ${sortKey === "lgd" ? (sortAsc ? " ▲" : " ▼") : ""}
+              </th>
+            ` : ""}
           </tr>
         </thead>
         <tbody>
@@ -116,6 +122,18 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
     });
 
     container.querySelectorAll(".sdz-row").forEach(row => {
+      row.addEventListener("mouseenter", () => {
+        window.dispatchEvent(new CustomEvent("sdzhover", {
+          detail: { code: row.dataset.code }
+        }));
+      });
+
+      row.addEventListener("mouseleave", () => {
+        window.dispatchEvent(new CustomEvent("sdzhover", {
+          detail: { code: null }
+        }));
+      });
+
       row.addEventListener("click", () => {
         const code = row.dataset.code;
 

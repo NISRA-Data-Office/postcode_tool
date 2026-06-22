@@ -10,6 +10,10 @@ let currentLgdBounds = null;
 let selectedSdzId = null;
 let currentIsCountryMap = false;
 
+let tableHoveredSdzId = null;
+let sdzFeatureIdByCode = new Map();
+let tableHoverListenerAdded = false;
+
 export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
   const { animate = true, highlightSdz = null, preserveView = false } = options;
 
@@ -38,18 +42,23 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
       return lgdCode !== selectedLgdCode && lgdName !== selectedLgdName;
     })
-    .map((feature, idx) => ({
-      ...feature,
-      id: `lgd-${idx}`,
-      properties: {
-        ...feature.properties,
-        nisra_label: getLgdName(feature),
-        nisra_code: getLgdCode(feature),
-        nisra_value: null,
-        nisra_fill: "#eeeeee",
-        nisra_hasValue: false
-      }
-    }));
+    .map((feature, idx) => {
+      const fill = "#eeeeee";
+
+      return {
+        ...feature,
+        id: `lgd-${idx}`,
+        properties: {
+          ...feature.properties,
+          nisra_label: getLgdName(feature),
+          nisra_code: getLgdCode(feature),
+          nisra_value: null,
+          nisra_fill: fill,
+          nisra_fill_hover: darkenColour(fill, 0.18),
+          nisra_hasValue: false
+        }
+      };
+    });
 
   const sdzFeatures = sdzGeojsonData.features
     .filter(feature => {
@@ -65,6 +74,11 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
       const rawValue = ranks[sdzCode]?.ranks?.[deprivation_type];
       const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
 
+      const fill =
+        rawValue == null
+          ? "#eeeeee"
+          : getColour((rawValue - range_min) / range);
+
       return {
         ...feature,
         id: `sdz-${idx}`,
@@ -73,15 +87,20 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
           nisra_label: getSdzName(feature),
           nisra_code: sdzCode,
           nisra_value: rawValue,
-          nisra_fill:
-            rawValue == null
-              ? "#eeeeee"
-              : getColour((rawValue - range_min) / range),
+          nisra_fill: fill,
+          nisra_fill_hover: darkenColour(fill, 0.18),
           nisra_hasValue: rawValue !== null && rawValue !== undefined,
           nisra_highlight: highlightedSdz
         }
       };
     });
+
+  sdzFeatureIdByCode = new Map(
+    sdzFeatures.map(feature => [
+      feature.properties.nisra_code,
+      feature.id
+    ])
+  );
 
   const styledLgdGeojson = {
     ...lgdGeojsonData,
@@ -116,6 +135,15 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
       );
 
       selectedSdzId = null;
+    }
+
+    if (tableHoveredSdzId !== null) {
+      map.setFeatureState(
+        { source: "sdz-shapes", id: tableHoveredSdzId },
+        { hover: false }
+      );
+
+      tableHoveredSdzId = null;
     }
 
     map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
@@ -161,9 +189,9 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     });
 
     map.addSource("sdz-shapes", {
-      type: "geojson",
-      data: styledSdzGeojson,
-      generateId: true
+     type: "geojson",
+     data: styledSdzGeojson,
+     promoteId: "nisra_code"
     });
 
     addFillLayer("lgd-fill", "lgd-shapes");
@@ -199,6 +227,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
     addLgdClick(map);
     addSdzClick(map);
+    addTableHoverListener();
   });
 }
 
@@ -210,16 +239,11 @@ function addFillLayer(id, source) {
     paint: {
       "fill-color": [
         "case",
-        ["boolean", ["get", "nisra_hasValue"], false],
-        ["get", "nisra_fill"],
-        "#eeeeee"
-      ],
-      "fill-opacity": [
-        "case",
         ["boolean", ["feature-state", "hover"], false],
-        0.8,
-        0.7
-      ]
+        ["get", "nisra_fill_hover"],
+        ["get", "nisra_fill"]
+      ],
+      "fill-opacity": 0.7
     }
   });
 }
@@ -260,6 +284,35 @@ function addOutlineLayer(id, source, line_width) {
   });
 }
 
+function addTableHoverListener() {
+  if (tableHoverListenerAdded) return;
+
+  tableHoverListenerAdded = true;
+
+  window.addEventListener("sdzhover", e => {
+    if (!map?.getSource("sdz-shapes")) return;
+
+    if (tableHoveredSdzId !== null) {
+      map.setFeatureState(
+        { source: "sdz-shapes", id: tableHoveredSdzId },
+        { hover: false }
+      );
+
+      tableHoveredSdzId = null;
+    }
+
+    const code = e.detail?.code;
+    if (!code) return;
+
+    tableHoveredSdzId = code;
+
+    map.setFeatureState(
+      { source: "sdz-shapes", id: code },
+      { hover: true }
+    );
+  });
+}
+
 function getColour(norm) {
   if (norm == null || Number.isNaN(norm) || norm < 0) return "#d3d3d3";
 
@@ -272,6 +325,20 @@ function getColour(norm) {
   );
 
   return config.scale_colours[idx];
+}
+
+function darkenColour(hex, amount = 0.18) {
+  if (!hex || typeof hex !== "string" || !hex.startsWith("#") || hex.length !== 7) {
+    return hex;
+  }
+
+  const r = Math.round(parseInt(hex.slice(1, 3), 16) * (1 - amount));
+  const g = Math.round(parseInt(hex.slice(3, 5), 16) * (1 - amount));
+  const b = Math.round(parseInt(hex.slice(5, 7), 16) * (1 - amount));
+
+  return `#${r.toString(16).padStart(2, "0")}${g
+    .toString(16)
+    .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
 }
 
 function addHoverPopup(map, layerId, sourceId, options = {}) {
