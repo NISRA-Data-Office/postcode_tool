@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000011",
-      "name": "Ards and North Down",
-      "type": "lgd"
+      "name": "Ards and North Down"
     }
   ],
-  "children": [],
   "bounds": [-5.4898, 54.5274, -5.6585, 54.5885],
   "data": {
     "ranks": {

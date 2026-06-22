@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000001",
-      "name": "Antrim and Newtownabbey",
-      "type": "lgd"
+      "name": "Antrim and Newtownabbey"
     }
   ],
-  "children": [],
   "bounds": [-6.179, 54.701, -6.47, 54.7718],
   "data": {
     "ranks": {

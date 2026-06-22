@@ -2,8 +2,8 @@ import { config } from '../config/config.js';
 
 export function scaleChart(id, data, type, showLabels = null, showMarker = true) {
 
-  const value = data.data.ranks[type];
-  const count = data.children_count ?? data.count
+  const value = showMarker ? data.data.ranks[type] : 0;
+  const count = data.sdz_count ?? data.count
 
   const x_position = value / count * -151.90294;
 

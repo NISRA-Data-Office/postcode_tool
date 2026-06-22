@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-6.0413, 54.5511, -6.0601, 54.5616],
   "data": {
     "ranks": {

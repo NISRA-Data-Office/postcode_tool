@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000005",
-      "name": "Derry City and Strabane",
-      "type": "lgd"
+      "name": "Derry City and Strabane"
     }
   ],
-  "children": [],
   "bounds": [-7.3114, 55.0189, -7.3295, 55.0291],
   "data": {
     "ranks": {

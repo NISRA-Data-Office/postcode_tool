@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000007",
-      "name": "Lisburn and Castlereagh",
-      "type": "lgd"
+      "name": "Lisburn and Castlereagh"
     }
   ],
-  "children": [],
   "bounds": [-6.0351, 54.5286, -6.0526, 54.538],
   "data": {
     "ranks": {

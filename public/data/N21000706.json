@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000010",
-      "name": "Newry, Mourne and Down",
-      "type": "lgd"
+      "name": "Newry, Mourne and Down"
     }
   ],
-  "children": [],
   "bounds": [-6.332, 54.1826, -6.3532, 54.1962],
   "data": {
     "ranks": {

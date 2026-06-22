@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000009",
-      "name": "Mid Ulster",
-      "type": "lgd"
+      "name": "Mid Ulster"
     }
   ],
-  "children": [],
   "bounds": [-6.4761, 54.8168, -6.6702, 54.8885],
   "data": {
     "ranks": {

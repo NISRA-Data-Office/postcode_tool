@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000006",
-      "name": "Fermanagh and Omagh",
-      "type": "lgd"
+      "name": "Fermanagh and Omagh"
     }
   ],
-  "children": [],
   "bounds": [-7.6265, 54.3405, -7.6582, 54.3552],
   "data": {
     "ranks": {

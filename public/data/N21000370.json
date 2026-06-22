@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000004",
-      "name": "Causeway Coast and Glens",
-      "type": "lgd"
+      "name": "Causeway Coast and Glens"
     }
   ],
-  "children": [],
   "bounds": [-6.5135, 55.1959, -6.5357, 55.2086],
   "data": {
     "ranks": {

@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000002",
-      "name": "Armagh City, Banbridge and Craigavon",
-      "type": "lgd"
+      "name": "Armagh City, Banbridge and Craigavon"
     }
   ],
-  "children": [],
   "bounds": [-6.6164, 54.3469, -6.6401, 54.3631],
   "data": {
     "ranks": {

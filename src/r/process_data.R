@@ -122,10 +122,9 @@ for (lgd in LGDs) {
     filter(grandparent_code == lgd)
 
   for (i in 1:nrow(child_rows)) {
-    lgd_children[[i]] <- list(
-      code = child_rows$code[i],
+    lgd_children[[child_rows$code[i]]] <- list(
       name = child_rows$name[i],
-      type = child_rows$type[[i]]
+      ranks = list()
     )
   }
 
@@ -137,15 +136,13 @@ for (lgd in LGDs) {
     name = children$name[children$code == lgd],
     comment = "This json includes data for the MDM app.",
     type = "lgd",
-    parents = list(),
-    children = lgd_children,
-    children_count = sdz_count,
+    sdz_count = sdz_count,
     bounds = c(
       c(lgd_bounds$long_max, lgd_bounds$lat_min),
       c(lgd_bounds$long_min, lgd_bounds$lat_max)
     ),
     data = list(
-      ranks = list(),
+      ranks = lgd_children,
       population = lgd_mye %>%
         filter(area == lgd) %>%
         pull("mye"),
@@ -172,14 +169,14 @@ for (sdz in SDZs) {
 
   cat("Processing Super Data Zone:", sdz, "...", which(SDZs == sdz), "of", sdz_count, "\n\n")
 
-  sdz_info <- children %>% 
+  sdz_info <- children %>%
     filter(code == sdz)
 
-  sdz_bounds <- map_bounds %>% 
+  sdz_bounds <- map_bounds %>%
     filter(geog_code == sdz)
 
-  sdz_ranks <- nimdm %>% 
-    filter(sdz2021_code == sdz) %>% 
+  sdz_ranks <- nimdm %>%
+    filter(sdz2021_code == sdz) %>%
     mutate(stat = stat_lookup[statistic])
 
   sdz_data_values <- list()
@@ -198,10 +195,8 @@ for (sdz in SDZs) {
       list(code = sdz_info$grandparent_code,
            name = children %>%
              filter(code == sdz_info$grandparent_code) %>%
-             pull("name"),
-           type = "lgd")
+             pull("name"))
     ),
-    children = list(),
     bounds = c(
       c(sdz_bounds$long_max, sdz_bounds$lat_min),
       c(sdz_bounds$long_min, sdz_bounds$lat_max)
@@ -225,7 +220,7 @@ for (sdz in SDZs) {
              pretty = TRUE)
 
   lgd_data <- get(paste0(sdz_info$grandparent_code, "_data"))
-  lgd_data$data$ranks[[sdz]] <- sdz_data_values
+  lgd_data$data$ranks[[sdz]]$ranks <- sdz_data_values
   assign(paste0(sdz_info$grandparent_code, "_data"), lgd_data)
 
 

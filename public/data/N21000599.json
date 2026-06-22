@@ -7,11 +7,9 @@
   "parents": [
     {
       "code": "N09000008",
-      "name": "Mid and East Antrim",
-      "type": "lgd"
+      "name": "Mid and East Antrim"
     }
   ],
-  "children": [],
   "bounds": [-6.2693, 54.8403, -6.2953, 54.856],
   "data": {
     "ranks": {

@@ -69,9 +69,10 @@ async function update_lgd({ animate = true } = {}) {
   await plotScaleMap("scale-map", data, type_select.value, { animate,
     highlightSdz: sdz
    });
-    insertValue("place-name", data.name)
+
+  insertValue("place-name", data.name)
     
-    scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
+  scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
     
     const lgdTableContainer = document.getElementById("lgd-table-container");
     createLGDTable(lgdTableContainer, data, type_select.value, sdz);

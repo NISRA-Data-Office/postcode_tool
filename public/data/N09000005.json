@@ -3,987 +3,854 @@
   "name": "Derry City and Strabane",
   "comment": "This json includes data for the MDM app.",
   "type": "lgd",
-  "parents": [],
-  "children": [
-    {
-      "code": "N21000412",
-      "name": "Ballyarnett_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000413",
-      "name": "Ballyarnett_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000414",
-      "name": "Ballyarnett_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000415",
-      "name": "Ballyarnett_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000436",
-      "name": "Faughan_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000416",
-      "name": "Ballyarnett_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000417",
-      "name": "Ballyarnett_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000418",
-      "name": "Ballyarnett_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000419",
-      "name": "Ballyarnett_H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000437",
-      "name": "Faughan_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000420",
-      "name": "Ballyarnett_J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000421",
-      "name": "Ballyarnett_K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000422",
-      "name": "Ballyarnett_L",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000438",
-      "name": "Faughan_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000405",
-      "name": "Foyleside_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000439",
-      "name": "Faughan_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000406",
-      "name": "Foyleside_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000407",
-      "name": "Foyleside_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000408",
-      "name": "Foyleside_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000409",
-      "name": "Foyleside_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000423",
-      "name": "Waterside_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000410",
-      "name": "Foyleside_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000411",
-      "name": "Foyleside_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000424",
-      "name": "Waterside_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000397",
-      "name": "The_Moor_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000398",
-      "name": "The_Moor_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000425",
-      "name": "Waterside_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000426",
-      "name": "Waterside_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000399",
-      "name": "The_Moor_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000427",
-      "name": "Waterside_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000428",
-      "name": "Waterside_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000400",
-      "name": "The_Moor_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000401",
-      "name": "The_Moor_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000402",
-      "name": "The_Moor_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000429",
-      "name": "Waterside_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000403",
-      "name": "The_Moor_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000430",
-      "name": "Waterside_H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000431",
-      "name": "Waterside_J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000404",
-      "name": "The_Moor_H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000432",
-      "name": "Waterside_K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000433",
-      "name": "Waterside_L",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000434",
-      "name": "Waterside_N",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000435",
-      "name": "Waterside_P",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000440",
-      "name": "Faughan_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000441",
-      "name": "Faughan_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000442",
-      "name": "Faughan_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000443",
-      "name": "Faughan_H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000444",
-      "name": "Sperrin_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000445",
-      "name": "Sperrin_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000446",
-      "name": "Sperrin_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000447",
-      "name": "Sperrin_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000448",
-      "name": "Sperrin_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000449",
-      "name": "Sperrin_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000450",
-      "name": "Sperrin_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000451",
-      "name": "Sperrin_H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000454",
-      "name": "Derg_A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000452",
-      "name": "Sperrin_J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000455",
-      "name": "Derg_B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000456",
-      "name": "Derg_C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000453",
-      "name": "Sperrin_K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000457",
-      "name": "Derg_D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000458",
-      "name": "Derg_E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000459",
-      "name": "Derg_F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000460",
-      "name": "Derg_G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000461",
-      "name": "Derg_H",
-      "type": "sdz"
-    }
-  ],
-  "children_count": 850,
+  "sdz_count": 850,
   "bounds": [-6.9022, 54.6075, -7.921, 55.0672],
   "data": {
     "ranks": {
       "N21000412": {
-        "mdm": 564,
-        "income": 553,
-        "employment": 440,
-        "health": 451,
-        "education": 699,
-        "services": 201,
-        "living": 848,
-        "crime": 433
+        "name": "Ballyarnett_A",
+        "ranks": {
+          "mdm": 564,
+          "income": 553,
+          "employment": 440,
+          "health": 451,
+          "education": 699,
+          "services": 201,
+          "living": 848,
+          "crime": 433
+        }
       },
       "N21000413": {
-        "mdm": 32,
-        "income": 49,
-        "employment": 40,
-        "health": 48,
-        "education": 76,
-        "services": 347,
-        "living": 239,
-        "crime": 45
+        "name": "Ballyarnett_B",
+        "ranks": {
+          "mdm": 32,
+          "income": 49,
+          "employment": 40,
+          "health": 48,
+          "education": 76,
+          "services": 347,
+          "living": 239,
+          "crime": 45
+        }
       },
       "N21000414": {
-        "mdm": 565,
-        "income": 554,
-        "employment": 441,
-        "health": 452,
-        "education": 700,
-        "services": 202,
-        "living": 849,
-        "crime": 434
+        "name": "Ballyarnett_C",
+        "ranks": {
+          "mdm": 565,
+          "income": 554,
+          "employment": 441,
+          "health": 452,
+          "education": 700,
+          "services": 202,
+          "living": 849,
+          "crime": 434
+        }
       },
       "N21000415": {
-        "mdm": 159,
-        "income": 205,
-        "employment": 136,
-        "health": 148,
-        "education": 279,
-        "services": 353,
-        "living": 424,
-        "crime": 279
+        "name": "Ballyarnett_D",
+        "ranks": {
+          "mdm": 159,
+          "income": 205,
+          "employment": 136,
+          "health": 148,
+          "education": 279,
+          "services": 353,
+          "living": 424,
+          "crime": 279
+        }
       },
       "N21000436": {
-        "mdm": 639,
-        "income": 618,
-        "employment": 554,
-        "health": 596,
-        "education": 764,
-        "services": 215,
-        "living": 810,
-        "crime": 411
+        "name": "Faughan_A",
+        "ranks": {
+          "mdm": 639,
+          "income": 618,
+          "employment": 554,
+          "health": 596,
+          "education": 764,
+          "services": 215,
+          "living": 810,
+          "crime": 411
+        }
       },
       "N21000416": {
-        "mdm": 51,
-        "income": 93,
-        "employment": 46,
-        "health": 53,
-        "education": 109,
-        "services": 388,
-        "living": 270,
-        "crime": 31
+        "name": "Ballyarnett_E",
+        "ranks": {
+          "mdm": 51,
+          "income": 93,
+          "employment": 46,
+          "health": 53,
+          "education": 109,
+          "services": 388,
+          "living": 270,
+          "crime": 31
+        }
       },
       "N21000417": {
-        "mdm": 25,
-        "income": 55,
-        "employment": 23,
-        "health": 31,
-        "education": 67,
-        "services": 514,
-        "living": 199,
-        "crime": 43
+        "name": "Ballyarnett_F",
+        "ranks": {
+          "mdm": 25,
+          "income": 55,
+          "employment": 23,
+          "health": 31,
+          "education": 67,
+          "services": 514,
+          "living": 199,
+          "crime": 43
+        }
       },
       "N21000418": {
-        "mdm": 34,
-        "income": 59,
-        "employment": 30,
-        "health": 36,
-        "education": 95,
-        "services": 445,
-        "living": 230,
-        "crime": 42
+        "name": "Ballyarnett_G",
+        "ranks": {
+          "mdm": 34,
+          "income": 59,
+          "employment": 30,
+          "health": 36,
+          "education": 95,
+          "services": 445,
+          "living": 230,
+          "crime": 42
+        }
       },
       "N21000419": {
-        "mdm": 434,
-        "income": 434,
-        "employment": 316,
-        "health": 345,
-        "education": 583,
-        "services": 413,
-        "living": 485,
-        "crime": 451
+        "name": "Ballyarnett_H",
+        "ranks": {
+          "mdm": 434,
+          "income": 434,
+          "employment": 316,
+          "health": 345,
+          "education": 583,
+          "services": 413,
+          "living": 485,
+          "crime": 451
+        }
       },
       "N21000437": {
-        "mdm": 496,
-        "income": 360,
-        "employment": 438,
-        "health": 494,
-        "education": 718,
-        "services": 136,
-        "living": 614,
-        "crime": 575
+        "name": "Faughan_B",
+        "ranks": {
+          "mdm": 496,
+          "income": 360,
+          "employment": 438,
+          "health": 494,
+          "education": 718,
+          "services": 136,
+          "living": 614,
+          "crime": 575
+        }
       },
       "N21000420": {
-        "mdm": 172,
-        "income": 251,
-        "employment": 108,
-        "health": 121,
-        "education": 276,
-        "services": 358,
-        "living": 528,
-        "crime": 113
+        "name": "Ballyarnett_J",
+        "ranks": {
+          "mdm": 172,
+          "income": 251,
+          "employment": 108,
+          "health": 121,
+          "education": 276,
+          "services": 358,
+          "living": 528,
+          "crime": 113
+        }
       },
       "N21000421": {
-        "mdm": 204,
-        "income": 193,
-        "employment": 133,
-        "health": 154,
-        "education": 333,
-        "services": 598,
-        "living": 331,
-        "crime": 333
+        "name": "Ballyarnett_K",
+        "ranks": {
+          "mdm": 204,
+          "income": 193,
+          "employment": 133,
+          "health": 154,
+          "education": 333,
+          "services": 598,
+          "living": 331,
+          "crime": 333
+        }
       },
       "N21000422": {
-        "mdm": 168,
-        "income": 272,
-        "employment": 73,
-        "health": 100,
-        "education": 300,
-        "services": 686,
-        "living": 399,
-        "crime": 241
+        "name": "Ballyarnett_L",
+        "ranks": {
+          "mdm": 168,
+          "income": 272,
+          "employment": 73,
+          "health": 100,
+          "education": 300,
+          "services": 686,
+          "living": 399,
+          "crime": 241
+        }
       },
       "N21000438": {
-        "mdm": 497,
-        "income": 361,
-        "employment": 439,
-        "health": 495,
-        "education": 719,
-        "services": 137,
-        "living": 615,
-        "crime": 576
+        "name": "Faughan_C",
+        "ranks": {
+          "mdm": 497,
+          "income": 361,
+          "employment": 439,
+          "health": 495,
+          "education": 719,
+          "services": 137,
+          "living": 615,
+          "crime": 576
+        }
       },
       "N21000405": {
-        "mdm": 173,
-        "income": 230,
-        "employment": 97,
-        "health": 104,
-        "education": 270,
-        "services": 365,
-        "living": 569,
-        "crime": 191
+        "name": "Foyleside_A",
+        "ranks": {
+          "mdm": 173,
+          "income": 230,
+          "employment": 97,
+          "health": 104,
+          "education": 270,
+          "services": 365,
+          "living": 569,
+          "crime": 191
+        }
       },
       "N21000439": {
-        "mdm": 381,
-        "income": 245,
-        "employment": 321,
-        "health": 348,
-        "education": 560,
-        "services": 224,
-        "living": 742,
-        "crime": 373
+        "name": "Faughan_D",
+        "ranks": {
+          "mdm": 381,
+          "income": 245,
+          "employment": 321,
+          "health": 348,
+          "education": 560,
+          "services": 224,
+          "living": 742,
+          "crime": 373
+        }
       },
       "N21000406": {
-        "mdm": 558,
-        "income": 625,
-        "employment": 289,
-        "health": 330,
-        "education": 707,
-        "services": 637,
-        "living": 548,
-        "crime": 319
+        "name": "Foyleside_B",
+        "ranks": {
+          "mdm": 558,
+          "income": 625,
+          "employment": 289,
+          "health": 330,
+          "education": 707,
+          "services": 637,
+          "living": 548,
+          "crime": 319
+        }
       },
       "N21000407": {
-        "mdm": 201,
-        "income": 219,
-        "employment": 138,
-        "health": 153,
-        "education": 257,
-        "services": 371,
-        "living": 537,
-        "crime": 258
+        "name": "Foyleside_C",
+        "ranks": {
+          "mdm": 201,
+          "income": 219,
+          "employment": 138,
+          "health": 153,
+          "education": 257,
+          "services": 371,
+          "living": 537,
+          "crime": 258
+        }
       },
       "N21000408": {
-        "mdm": 164,
-        "income": 121,
-        "employment": 156,
-        "health": 205,
-        "education": 394,
-        "services": 789,
-        "living": 39,
-        "crime": 86
+        "name": "Foyleside_D",
+        "ranks": {
+          "mdm": 164,
+          "income": 121,
+          "employment": 156,
+          "health": 205,
+          "education": 394,
+          "services": 789,
+          "living": 39,
+          "crime": 86
+        }
       },
       "N21000409": {
-        "mdm": 507,
-        "income": 578,
-        "employment": 263,
-        "health": 318,
-        "education": 575,
-        "services": 411,
-        "living": 447,
-        "crime": 471
+        "name": "Foyleside_E",
+        "ranks": {
+          "mdm": 507,
+          "income": 578,
+          "employment": 263,
+          "health": 318,
+          "education": 575,
+          "services": 411,
+          "living": 447,
+          "crime": 471
+        }
       },
       "N21000423": {
-        "mdm": 302,
-        "income": 320,
-        "employment": 209,
-        "health": 232,
-        "education": 268,
-        "services": 629,
-        "living": 781,
-        "crime": 270
+        "name": "Waterside_A",
+        "ranks": {
+          "mdm": 302,
+          "income": 320,
+          "employment": 209,
+          "health": 232,
+          "education": 268,
+          "services": 629,
+          "living": 781,
+          "crime": 270
+        }
       },
       "N21000410": {
-        "mdm": 92,
-        "income": 108,
-        "employment": 77,
-        "health": 110,
-        "education": 318,
-        "services": 846,
-        "living": 21,
-        "crime": 67
+        "name": "Foyleside_F",
+        "ranks": {
+          "mdm": 92,
+          "income": 108,
+          "employment": 77,
+          "health": 110,
+          "education": 318,
+          "services": 846,
+          "living": 21,
+          "crime": 67
+        }
       },
       "N21000411": {
-        "mdm": 133,
-        "income": 194,
-        "employment": 82,
-        "health": 120,
-        "education": 338,
-        "services": 804,
-        "living": 64,
-        "crime": 108
+        "name": "Foyleside_G",
+        "ranks": {
+          "mdm": 133,
+          "income": 194,
+          "employment": 82,
+          "health": 120,
+          "education": 338,
+          "services": 804,
+          "living": 64,
+          "crime": 108
+        }
       },
       "N21000424": {
-        "mdm": 371,
-        "income": 402,
-        "employment": 201,
-        "health": 241,
-        "education": 317,
-        "services": 608,
-        "living": 807,
-        "crime": 343
+        "name": "Waterside_B",
+        "ranks": {
+          "mdm": 371,
+          "income": 402,
+          "employment": 201,
+          "health": 241,
+          "education": 317,
+          "services": 608,
+          "living": 807,
+          "crime": 343
+        }
       },
       "N21000397": {
-        "mdm": 75,
-        "income": 109,
-        "employment": 52,
-        "health": 63,
-        "education": 154,
-        "services": 797,
-        "living": 86,
-        "crime": 227
+        "name": "The_Moor_A",
+        "ranks": {
+          "mdm": 75,
+          "income": 109,
+          "employment": 52,
+          "health": 63,
+          "education": 154,
+          "services": 797,
+          "living": 86,
+          "crime": 227
+        }
       },
       "N21000398": {
-        "mdm": 69,
-        "income": 131,
-        "employment": 39,
-        "health": 55,
-        "education": 157,
-        "services": 827,
-        "living": 62,
-        "crime": 103
+        "name": "The_Moor_B",
+        "ranks": {
+          "mdm": 69,
+          "income": 131,
+          "employment": 39,
+          "health": 55,
+          "education": 157,
+          "services": 827,
+          "living": 62,
+          "crime": 103
+        }
       },
       "N21000425": {
-        "mdm": 342,
-        "income": 416,
-        "employment": 184,
-        "health": 214,
-        "education": 273,
-        "services": 640,
-        "living": 783,
-        "crime": 329
+        "name": "Waterside_C",
+        "ranks": {
+          "mdm": 342,
+          "income": 416,
+          "employment": 184,
+          "health": 214,
+          "education": 273,
+          "services": 640,
+          "living": 783,
+          "crime": 329
+        }
       },
       "N21000426": {
-        "mdm": 469,
-        "income": 516,
-        "employment": 256,
-        "health": 274,
-        "education": 357,
-        "services": 693,
-        "living": 652,
-        "crime": 304
+        "name": "Waterside_D",
+        "ranks": {
+          "mdm": 469,
+          "income": 516,
+          "employment": 256,
+          "health": 274,
+          "education": 357,
+          "services": 693,
+          "living": 652,
+          "crime": 304
+        }
       },
       "N21000399": {
-        "mdm": 45,
-        "income": 53,
-        "employment": 20,
-        "health": 39,
-        "education": 141,
-        "services": 834,
-        "living": 59,
-        "crime": 40
+        "name": "The_Moor_C",
+        "ranks": {
+          "mdm": 45,
+          "income": 53,
+          "employment": 20,
+          "health": 39,
+          "education": 141,
+          "services": 834,
+          "living": 59,
+          "crime": 40
+        }
       },
       "N21000427": {
-        "mdm": 120,
-        "income": 66,
-        "employment": 101,
-        "health": 125,
-        "education": 173,
-        "services": 825,
-        "living": 148,
-        "crime": 127
+        "name": "Waterside_E",
+        "ranks": {
+          "mdm": 120,
+          "income": 66,
+          "employment": 101,
+          "health": 125,
+          "education": 173,
+          "services": 825,
+          "living": 148,
+          "crime": 127
+        }
       },
       "N21000428": {
-        "mdm": 512,
-        "income": 487,
-        "employment": 307,
-        "health": 321,
-        "education": 448,
-        "services": 738,
-        "living": 407,
-        "crime": 356
+        "name": "Waterside_F",
+        "ranks": {
+          "mdm": 512,
+          "income": 487,
+          "employment": 307,
+          "health": 321,
+          "education": 448,
+          "services": 738,
+          "living": 407,
+          "crime": 356
+        }
       },
       "N21000400": {
-        "mdm": 27,
-        "income": 27,
-        "employment": 14,
-        "health": 22,
-        "education": 52,
-        "services": 672,
-        "living": 105,
-        "crime": 160
+        "name": "The_Moor_D",
+        "ranks": {
+          "mdm": 27,
+          "income": 27,
+          "employment": 14,
+          "health": 22,
+          "education": 52,
+          "services": 672,
+          "living": 105,
+          "crime": 160
+        }
       },
       "N21000401": {
-        "mdm": 28,
-        "income": 35,
-        "employment": 12,
-        "health": 21,
-        "education": 58,
-        "services": 642,
-        "living": 135,
-        "crime": 167
+        "name": "The_Moor_E",
+        "ranks": {
+          "mdm": 28,
+          "income": 35,
+          "employment": 12,
+          "health": 21,
+          "education": 58,
+          "services": 642,
+          "living": 135,
+          "crime": 167
+        }
       },
       "N21000402": {
-        "mdm": 20,
-        "income": 15,
-        "employment": 7,
-        "health": 33,
-        "education": 100,
-        "services": 701,
-        "living": 108,
-        "crime": 51
+        "name": "The_Moor_F",
+        "ranks": {
+          "mdm": 20,
+          "income": 15,
+          "employment": 7,
+          "health": 33,
+          "education": 100,
+          "services": 701,
+          "living": 108,
+          "crime": 51
+        }
       },
       "N21000429": {
-        "mdm": 163,
-        "income": 206,
-        "employment": 117,
-        "health": 131,
-        "education": 201,
-        "services": 835,
-        "living": 166,
-        "crime": 116
+        "name": "Waterside_G",
+        "ranks": {
+          "mdm": 163,
+          "income": 206,
+          "employment": 117,
+          "health": 131,
+          "education": 201,
+          "services": 835,
+          "living": 166,
+          "crime": 116
+        }
       },
       "N21000403": {
-        "mdm": 22,
-        "income": 12,
-        "employment": 17,
-        "health": 45,
-        "education": 115,
-        "services": 763,
-        "living": 48,
-        "crime": 21
+        "name": "The_Moor_G",
+        "ranks": {
+          "mdm": 22,
+          "income": 12,
+          "employment": 17,
+          "health": 45,
+          "education": 115,
+          "services": 763,
+          "living": 48,
+          "crime": 21
+        }
       },
       "N21000430": {
-        "mdm": 610,
-        "income": 642,
-        "employment": 444,
-        "health": 427,
-        "education": 577,
-        "services": 681,
-        "living": 296,
-        "crime": 441
+        "name": "Waterside_H",
+        "ranks": {
+          "mdm": 610,
+          "income": 642,
+          "employment": 444,
+          "health": 427,
+          "education": 577,
+          "services": 681,
+          "living": 296,
+          "crime": 441
+        }
       },
       "N21000431": {
-        "mdm": 350,
-        "income": 600,
-        "employment": 232,
-        "health": 235,
-        "education": 353,
-        "services": 669,
-        "living": 533,
-        "crime": 219
+        "name": "Waterside_J",
+        "ranks": {
+          "mdm": 350,
+          "income": 600,
+          "employment": 232,
+          "health": 235,
+          "education": 353,
+          "services": 669,
+          "living": 533,
+          "crime": 219
+        }
       },
       "N21000404": {
-        "mdm": 42,
-        "income": 43,
-        "employment": 25,
-        "health": 50,
-        "education": 79,
-        "services": 674,
-        "living": 133,
-        "crime": 212
+        "name": "The_Moor_H",
+        "ranks": {
+          "mdm": 42,
+          "income": 43,
+          "employment": 25,
+          "health": 50,
+          "education": 79,
+          "services": 674,
+          "living": 133,
+          "crime": 212
+        }
       },
       "N21000432": {
-        "mdm": 467,
-        "income": 425,
-        "employment": 373,
-        "health": 390,
-        "education": 441,
-        "services": 397,
-        "living": 498,
-        "crime": 379
+        "name": "Waterside_K",
+        "ranks": {
+          "mdm": 467,
+          "income": 425,
+          "employment": 373,
+          "health": 390,
+          "education": 441,
+          "services": 397,
+          "living": 498,
+          "crime": 379
+        }
       },
       "N21000433": {
-        "mdm": 46,
-        "income": 60,
-        "employment": 38,
-        "health": 60,
-        "education": 145,
-        "services": 727,
-        "living": 156,
-        "crime": 49
+        "name": "Waterside_L",
+        "ranks": {
+          "mdm": 46,
+          "income": 60,
+          "employment": 38,
+          "health": 60,
+          "education": 145,
+          "services": 727,
+          "living": 156,
+          "crime": 49
+        }
       },
       "N21000434": {
-        "mdm": 122,
-        "income": 312,
-        "employment": 80,
-        "health": 101,
-        "education": 180,
-        "services": 708,
-        "living": 249,
-        "crime": 87
+        "name": "Waterside_N",
+        "ranks": {
+          "mdm": 122,
+          "income": 312,
+          "employment": 80,
+          "health": 101,
+          "education": 180,
+          "services": 708,
+          "living": 249,
+          "crime": 87
+        }
       },
       "N21000435": {
-        "mdm": 456,
-        "income": 539,
-        "employment": 335,
-        "health": 364,
-        "education": 438,
-        "services": 394,
-        "living": 508,
-        "crime": 345
+        "name": "Waterside_P",
+        "ranks": {
+          "mdm": 456,
+          "income": 539,
+          "employment": 335,
+          "health": 364,
+          "education": 438,
+          "services": 394,
+          "living": 508,
+          "crime": 345
+        }
       },
       "N21000440": {
-        "mdm": 373,
-        "income": 266,
-        "employment": 359,
-        "health": 413,
-        "education": 503,
-        "services": 200,
-        "living": 395,
-        "crime": 470
+        "name": "Faughan_E",
+        "ranks": {
+          "mdm": 373,
+          "income": 266,
+          "employment": 359,
+          "health": 413,
+          "education": 503,
+          "services": 200,
+          "living": 395,
+          "crime": 470
+        }
       },
       "N21000441": {
-        "mdm": 475,
-        "income": 427,
-        "employment": 394,
-        "health": 472,
-        "education": 544,
-        "services": 199,
-        "living": 520,
-        "crime": 590
+        "name": "Faughan_F",
+        "ranks": {
+          "mdm": 475,
+          "income": 427,
+          "employment": 394,
+          "health": 472,
+          "education": 544,
+          "services": 199,
+          "living": 520,
+          "crime": 590
+        }
       },
       "N21000442": {
-        "mdm": 532,
-        "income": 498,
-        "employment": 452,
-        "health": 536,
-        "education": 614,
-        "services": 164,
-        "living": 539,
-        "crime": 646
+        "name": "Faughan_G",
+        "ranks": {
+          "mdm": 532,
+          "income": 498,
+          "employment": 452,
+          "health": 536,
+          "education": 614,
+          "services": 164,
+          "living": 539,
+          "crime": 646
+        }
       },
       "N21000443": {
-        "mdm": 259,
-        "income": 226,
-        "employment": 340,
-        "health": 409,
-        "education": 535,
-        "services": 34,
-        "living": 325,
-        "crime": 684
+        "name": "Faughan_H",
+        "ranks": {
+          "mdm": 259,
+          "income": 226,
+          "employment": 340,
+          "health": 409,
+          "education": 535,
+          "services": 34,
+          "living": 325,
+          "crime": 684
+        }
       },
       "N21000444": {
-        "mdm": 252,
-        "income": 162,
-        "employment": 355,
-        "health": 444,
-        "education": 528,
-        "services": 49,
-        "living": 370,
-        "crime": 735
+        "name": "Sperrin_A",
+        "ranks": {
+          "mdm": 252,
+          "income": 162,
+          "employment": 355,
+          "health": 444,
+          "education": 528,
+          "services": 49,
+          "living": 370,
+          "crime": 735
+        }
       },
       "N21000445": {
-        "mdm": 249,
-        "income": 132,
-        "employment": 318,
-        "health": 392,
-        "education": 352,
-        "services": 55,
-        "living": 411,
-        "crime": 726
+        "name": "Sperrin_B",
+        "ranks": {
+          "mdm": 249,
+          "income": 132,
+          "employment": 318,
+          "health": 392,
+          "education": 352,
+          "services": 55,
+          "living": 411,
+          "crime": 726
+        }
       },
       "N21000446": {
-        "mdm": 155,
-        "income": 72,
-        "employment": 190,
-        "health": 279,
-        "education": 200,
-        "services": 155,
-        "living": 505,
-        "crime": 564
+        "name": "Sperrin_C",
+        "ranks": {
+          "mdm": 155,
+          "income": 72,
+          "employment": 190,
+          "health": 279,
+          "education": 200,
+          "services": 155,
+          "living": 505,
+          "crime": 564
+        }
       },
       "N21000447": {
-        "mdm": 36,
-        "income": 14,
-        "employment": 33,
-        "health": 69,
-        "education": 65,
-        "services": 529,
-        "living": 383,
-        "crime": 122
+        "name": "Sperrin_D",
+        "ranks": {
+          "mdm": 36,
+          "income": 14,
+          "employment": 33,
+          "health": 69,
+          "education": 65,
+          "services": 529,
+          "living": 383,
+          "crime": 122
+        }
       },
       "N21000448": {
-        "mdm": 41,
-        "income": 21,
-        "employment": 36,
-        "health": 79,
-        "education": 66,
-        "services": 573,
-        "living": 416,
-        "crime": 105
+        "name": "Sperrin_E",
+        "ranks": {
+          "mdm": 41,
+          "income": 21,
+          "employment": 36,
+          "health": 79,
+          "education": 66,
+          "services": 573,
+          "living": 416,
+          "crime": 105
+        }
       },
       "N21000449": {
-        "mdm": 209,
-        "income": 143,
-        "employment": 388,
-        "health": 433,
-        "education": 541,
-        "services": 12,
-        "living": 321,
-        "crime": 819
+        "name": "Sperrin_F",
+        "ranks": {
+          "mdm": 209,
+          "income": 143,
+          "employment": 388,
+          "health": 433,
+          "education": 541,
+          "services": 12,
+          "living": 321,
+          "crime": 819
+        }
       },
       "N21000450": {
-        "mdm": 48,
-        "income": 24,
-        "employment": 37,
-        "health": 72,
-        "education": 63,
-        "services": 558,
-        "living": 510,
-        "crime": 155
+        "name": "Sperrin_G",
+        "ranks": {
+          "mdm": 48,
+          "income": 24,
+          "employment": 37,
+          "health": 72,
+          "education": 63,
+          "services": 558,
+          "living": 510,
+          "crime": 155
+        }
       },
       "N21000451": {
-        "mdm": 96,
-        "income": 141,
-        "employment": 62,
-        "health": 114,
-        "education": 113,
-        "services": 467,
-        "living": 690,
-        "crime": 203
+        "name": "Sperrin_H",
+        "ranks": {
+          "mdm": 96,
+          "income": 141,
+          "employment": 62,
+          "health": 114,
+          "education": 113,
+          "services": 467,
+          "living": 690,
+          "crime": 203
+        }
       },
       "N21000454": {
-        "mdm": 149,
-        "income": 262,
-        "employment": 94,
-        "health": 177,
-        "education": 143,
-        "services": 418,
-        "living": 661,
-        "crime": 278
+        "name": "Derg_A",
+        "ranks": {
+          "mdm": 149,
+          "income": 262,
+          "employment": 94,
+          "health": 177,
+          "education": 143,
+          "services": 418,
+          "living": 661,
+          "crime": 278
+        }
       },
       "N21000452": {
-        "mdm": 115,
-        "income": 210,
-        "employment": 68,
-        "health": 132,
-        "education": 128,
-        "services": 476,
-        "living": 760,
-        "crime": 291
+        "name": "Sperrin_J",
+        "ranks": {
+          "mdm": 115,
+          "income": 210,
+          "employment": 68,
+          "health": 132,
+          "education": 128,
+          "services": 476,
+          "living": 760,
+          "crime": 291
+        }
       },
       "N21000455": {
-        "mdm": 158,
-        "income": 225,
-        "employment": 140,
-        "health": 207,
-        "education": 211,
-        "services": 225,
-        "living": 351,
-        "crime": 439
+        "name": "Derg_B",
+        "ranks": {
+          "mdm": 158,
+          "income": 225,
+          "employment": 140,
+          "health": 207,
+          "education": 211,
+          "services": 225,
+          "living": 351,
+          "crime": 439
+        }
       },
       "N21000456": {
-        "mdm": 142,
-        "income": 268,
-        "employment": 106,
-        "health": 188,
-        "education": 177,
-        "services": 239,
-        "living": 355,
-        "crime": 377
+        "name": "Derg_C",
+        "ranks": {
+          "mdm": 142,
+          "income": 268,
+          "employment": 106,
+          "health": 188,
+          "education": 177,
+          "services": 239,
+          "living": 355,
+          "crime": 377
+        }
       },
       "N21000453": {
-        "mdm": 139,
-        "income": 155,
-        "employment": 155,
-        "health": 242,
-        "education": 230,
-        "services": 190,
-        "living": 266,
-        "crime": 474
+        "name": "Sperrin_K",
+        "ranks": {
+          "mdm": 139,
+          "income": 155,
+          "employment": 155,
+          "health": 242,
+          "education": 230,
+          "services": 190,
+          "living": 266,
+          "crime": 474
+        }
       },
       "N21000457": {
-        "mdm": 152,
-        "income": 215,
-        "employment": 144,
-        "health": 197,
-        "education": 226,
-        "services": 191,
-        "living": 617,
-        "crime": 522
+        "name": "Derg_D",
+        "ranks": {
+          "mdm": 152,
+          "income": 215,
+          "employment": 144,
+          "health": 197,
+          "education": 226,
+          "services": 191,
+          "living": 617,
+          "crime": 522
+        }
       },
       "N21000458": {
-        "mdm": 266,
-        "income": 381,
-        "employment": 301,
-        "health": 425,
-        "education": 454,
-        "services": 44,
-        "living": 193,
-        "crime": 548
+        "name": "Derg_E",
+        "ranks": {
+          "mdm": 266,
+          "income": 381,
+          "employment": 301,
+          "health": 425,
+          "education": 454,
+          "services": 44,
+          "living": 193,
+          "crime": 548
+        }
       },
       "N21000459": {
-        "mdm": 141,
-        "income": 184,
-        "employment": 160,
-        "health": 194,
-        "education": 312,
-        "services": 157,
-        "living": 618,
-        "crime": 627
+        "name": "Derg_F",
+        "ranks": {
+          "mdm": 141,
+          "income": 184,
+          "employment": 160,
+          "health": 194,
+          "education": 312,
+          "services": 157,
+          "living": 618,
+          "crime": 627
+        }
       },
       "N21000460": {
-        "mdm": 178,
-        "income": 229,
-        "employment": 192,
-        "health": 251,
-        "education": 287,
-        "services": 151,
-        "living": 560,
-        "crime": 598
+        "name": "Derg_G",
+        "ranks": {
+          "mdm": 178,
+          "income": 229,
+          "employment": 192,
+          "health": 251,
+          "education": 287,
+          "services": 151,
+          "living": 560,
+          "crime": 598
+        }
       },
       "N21000461": {
-        "mdm": 123,
-        "income": 165,
-        "employment": 141,
-        "health": 186,
-        "education": 280,
-        "services": 162,
-        "living": 490,
-        "crime": 630
+        "name": "Derg_H",
+        "ranks": {
+          "mdm": 123,
+          "income": 165,
+          "employment": 141,
+          "health": 186,
+          "education": 280,
+          "services": 162,
+          "living": 490,
+          "crime": 630
+        }
       }
     },
     "population": 152383,

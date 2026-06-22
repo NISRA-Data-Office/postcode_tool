@@ -20,12 +20,12 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
   const ranks = map_data.data?.ranks || {};
   const sdzCodes = new Set(Object.keys(ranks));
 
-  const values = Object.values(ranks)
-    .map(row => row?.[deprivation_type])
-    .filter(v => v != null);
+ const values = Object.values(ranks)
+  .map(row => row?.ranks?.[deprivation_type])
+  .filter(v => v != null);
 
   const range_min = 1;
-  const range_max = map_data.children_count;
+  const range_max = map_data.sdz_count;
   const range = range_max - range_min || 1;
 
   const lgdFeatures = lgdGeojsonData.features
@@ -55,7 +55,7 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     )
     .map((feature, idx) => {
   const sdzCode = getSdzCode(feature);
-  const rawValue = ranks[sdzCode]?.[deprivation_type];
+  const rawValue = ranks[sdzCode]["ranks"]?.[deprivation_type];
 
   const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
 
