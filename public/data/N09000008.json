@@ -7,327 +7,327 @@
   "children": [
     {
       "code": "N21000601",
-      "name": "Coast Road A",
+      "name": "Coast_Road_A",
       "type": "sdz"
     },
     {
       "code": "N21000602",
-      "name": "Coast Road B",
+      "name": "Coast_Road_B",
       "type": "sdz"
     },
     {
       "code": "N21000591",
-      "name": "Braid A",
+      "name": "Braid_A",
       "type": "sdz"
     },
     {
       "code": "N21000592",
-      "name": "Braid B",
+      "name": "Braid_B",
       "type": "sdz"
     },
     {
       "code": "N21000593",
-      "name": "Braid C",
+      "name": "Braid_C",
       "type": "sdz"
     },
     {
       "code": "N21000603",
-      "name": "Coast Road C",
+      "name": "Coast_Road_C",
       "type": "sdz"
     },
     {
       "code": "N21000572",
-      "name": "Bannside A",
+      "name": "Bannside_A",
       "type": "sdz"
     },
     {
       "code": "N21000594",
-      "name": "Braid D",
+      "name": "Braid_D",
       "type": "sdz"
     },
     {
       "code": "N21000595",
-      "name": "Braid E",
+      "name": "Braid_E",
       "type": "sdz"
     },
     {
       "code": "N21000573",
-      "name": "Bannside B",
+      "name": "Bannside_B",
       "type": "sdz"
     },
     {
       "code": "N21000574",
-      "name": "Bannside C",
+      "name": "Bannside_C",
       "type": "sdz"
     },
     {
       "code": "N21000581",
-      "name": "Ballymena A",
+      "name": "Ballymena_A",
       "type": "sdz"
     },
     {
       "code": "N21000604",
-      "name": "Coast Road D",
+      "name": "Coast_Road_D",
       "type": "sdz"
     },
     {
       "code": "N21000582",
-      "name": "Ballymena B",
+      "name": "Ballymena_B",
       "type": "sdz"
     },
     {
       "code": "N21000583",
-      "name": "Ballymena C",
+      "name": "Ballymena_C",
       "type": "sdz"
     },
     {
       "code": "N21000584",
-      "name": "Ballymena D",
+      "name": "Ballymena_D",
       "type": "sdz"
     },
     {
       "code": "N21000575",
-      "name": "Bannside D",
+      "name": "Bannside_D",
       "type": "sdz"
     },
     {
       "code": "N21000585",
-      "name": "Ballymena E",
+      "name": "Ballymena_E",
       "type": "sdz"
     },
     {
       "code": "N21000605",
-      "name": "Coast Road E",
+      "name": "Coast_Road_E",
       "type": "sdz"
     },
     {
       "code": "N21000606",
-      "name": "Coast Road F",
+      "name": "Coast_Road_F",
       "type": "sdz"
     },
     {
       "code": "N21000586",
-      "name": "Ballymena F",
+      "name": "Ballymena_F",
       "type": "sdz"
     },
     {
       "code": "N21000607",
-      "name": "Coast Road G",
+      "name": "Coast_Road_G",
       "type": "sdz"
     },
     {
       "code": "N21000610",
-      "name": "Larne Lough A",
+      "name": "Larne_Lough_A",
       "type": "sdz"
     },
     {
       "code": "N21000608",
-      "name": "Coast Road H",
+      "name": "Coast_Road_H",
       "type": "sdz"
     },
     {
       "code": "N21000609",
-      "name": "Coast Road J",
+      "name": "Coast_Road_J",
       "type": "sdz"
     },
     {
       "code": "N21000587",
-      "name": "Ballymena G",
+      "name": "Ballymena_G",
       "type": "sdz"
     },
     {
       "code": "N21000588",
-      "name": "Ballymena H",
+      "name": "Ballymena_H",
       "type": "sdz"
     },
     {
       "code": "N21000589",
-      "name": "Ballymena J",
+      "name": "Ballymena_J",
       "type": "sdz"
     },
     {
       "code": "N21000576",
-      "name": "Bannside E",
+      "name": "Bannside_E",
       "type": "sdz"
     },
     {
       "code": "N21000611",
-      "name": "Larne Lough B",
+      "name": "Larne_Lough_B",
       "type": "sdz"
     },
     {
       "code": "N21000577",
-      "name": "Bannside F",
+      "name": "Bannside_F",
       "type": "sdz"
     },
     {
       "code": "N21000596",
-      "name": "Braid F",
+      "name": "Braid_F",
       "type": "sdz"
     },
     {
       "code": "N21000612",
-      "name": "Larne Lough C",
+      "name": "Larne_Lough_C",
       "type": "sdz"
     },
     {
       "code": "N21000597",
-      "name": "Braid G",
+      "name": "Braid_G",
       "type": "sdz"
     },
     {
       "code": "N21000598",
-      "name": "Braid H",
+      "name": "Braid_H",
       "type": "sdz"
     },
     {
       "code": "N21000578",
-      "name": "Bannside G",
+      "name": "Bannside_G",
       "type": "sdz"
     },
     {
       "code": "N21000590",
-      "name": "Ballymena K",
+      "name": "Ballymena_K",
       "type": "sdz"
     },
     {
       "code": "N21000599",
-      "name": "Braid J",
+      "name": "Braid_J",
       "type": "sdz"
     },
     {
       "code": "N21000579",
-      "name": "Bannside H",
+      "name": "Bannside_H",
       "type": "sdz"
     },
     {
       "code": "N21000613",
-      "name": "Larne Lough D",
+      "name": "Larne_Lough_D",
       "type": "sdz"
     },
     {
       "code": "N21000614",
-      "name": "Larne Lough E",
+      "name": "Larne_Lough_E",
       "type": "sdz"
     },
     {
       "code": "N21000580",
-      "name": "Bannside J",
+      "name": "Bannside_J",
       "type": "sdz"
     },
     {
       "code": "N21000600",
-      "name": "Braid K",
+      "name": "Braid_K",
       "type": "sdz"
     },
     {
       "code": "N21000615",
-      "name": "Larne Lough F",
+      "name": "Larne_Lough_F",
       "type": "sdz"
     },
     {
       "code": "N21000616",
-      "name": "Larne Lough G",
+      "name": "Larne_Lough_G",
       "type": "sdz"
     },
     {
       "code": "N21000617",
-      "name": "Larne Lough H",
+      "name": "Larne_Lough_H",
       "type": "sdz"
     },
     {
       "code": "N21000619",
-      "name": "Carrick Castle A",
+      "name": "Carrick_Castle_A",
       "type": "sdz"
     },
     {
       "code": "N21000618",
-      "name": "Larne Lough J",
+      "name": "Larne_Lough_J",
       "type": "sdz"
     },
     {
       "code": "N21000628",
-      "name": "Knockagh A",
+      "name": "Knockagh_A",
       "type": "sdz"
     },
     {
       "code": "N21000620",
-      "name": "Carrick Castle B",
+      "name": "Carrick_Castle_B",
       "type": "sdz"
     },
     {
       "code": "N21000621",
-      "name": "Carrick Castle C",
+      "name": "Carrick_Castle_C",
       "type": "sdz"
     },
     {
       "code": "N21000622",
-      "name": "Carrick Castle D",
+      "name": "Carrick_Castle_D",
       "type": "sdz"
     },
     {
       "code": "N21000623",
-      "name": "Carrick Castle E",
+      "name": "Carrick_Castle_E",
       "type": "sdz"
     },
     {
       "code": "N21000629",
-      "name": "Knockagh B",
+      "name": "Knockagh_B",
       "type": "sdz"
     },
     {
       "code": "N21000630",
-      "name": "Knockagh C",
+      "name": "Knockagh_C",
       "type": "sdz"
     },
     {
       "code": "N21000624",
-      "name": "Carrick Castle F",
+      "name": "Carrick_Castle_F",
       "type": "sdz"
     },
     {
       "code": "N21000631",
-      "name": "Knockagh D",
+      "name": "Knockagh_D",
       "type": "sdz"
     },
     {
       "code": "N21000625",
-      "name": "Carrick Castle G",
+      "name": "Carrick_Castle_G",
       "type": "sdz"
     },
     {
       "code": "N21000632",
-      "name": "Knockagh E",
+      "name": "Knockagh_E",
       "type": "sdz"
     },
     {
       "code": "N21000626",
-      "name": "Carrick Castle H",
+      "name": "Carrick_Castle_H",
       "type": "sdz"
     },
     {
       "code": "N21000633",
-      "name": "Knockagh F",
+      "name": "Knockagh_F",
       "type": "sdz"
     },
     {
       "code": "N21000627",
-      "name": "Carrick Castle J",
+      "name": "Carrick_Castle_J",
       "type": "sdz"
     },
     {
       "code": "N21000634",
-      "name": "Knockagh G",
+      "name": "Knockagh_G",
       "type": "sdz"
     },
     {
       "code": "N21000635",
-      "name": "Knockagh H",
+      "name": "Knockagh_H",
       "type": "sdz"
     },
     {
       "code": "N21000636",
-      "name": "Knockagh J",
+      "name": "Knockagh_J",
       "type": "sdz"
     }
   ],

@@ -390,7 +390,7 @@ function getSdzName(feature) {
   return String(
     feature.properties.SDZ21_name ||
     getSdzCode(feature)
-  ).replaceAll("_", " ");
+  );
 }
 
 let selectedSdzId = null;

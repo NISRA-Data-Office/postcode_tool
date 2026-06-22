@@ -7,337 +7,337 @@
   "children": [
     {
       "code": "N21000001",
-      "name": "Dunsilly A",
+      "name": "Dunsilly_A",
       "type": "sdz"
     },
     {
       "code": "N21000019",
-      "name": "Ballyclare A",
+      "name": "Ballyclare_A",
       "type": "sdz"
     },
     {
       "code": "N21000020",
-      "name": "Ballyclare B",
+      "name": "Ballyclare_B",
       "type": "sdz"
     },
     {
       "code": "N21000002",
-      "name": "Dunsilly B",
+      "name": "Dunsilly_B",
       "type": "sdz"
     },
     {
       "code": "N21000021",
-      "name": "Ballyclare C",
+      "name": "Ballyclare_C",
       "type": "sdz"
     },
     {
       "code": "N21000022",
-      "name": "Ballyclare D",
+      "name": "Ballyclare_D",
       "type": "sdz"
     },
     {
       "code": "N21000003",
-      "name": "Dunsilly C",
+      "name": "Dunsilly_C",
       "type": "sdz"
     },
     {
       "code": "N21000023",
-      "name": "Ballyclare E",
+      "name": "Ballyclare_E",
       "type": "sdz"
     },
     {
       "code": "N21000004",
-      "name": "Dunsilly D",
+      "name": "Dunsilly_D",
       "type": "sdz"
     },
     {
       "code": "N21000005",
-      "name": "Dunsilly E",
+      "name": "Dunsilly_E",
       "type": "sdz"
     },
     {
       "code": "N21000024",
-      "name": "Ballyclare F",
+      "name": "Ballyclare_F",
       "type": "sdz"
     },
     {
       "code": "N21000025",
-      "name": "Ballyclare G",
+      "name": "Ballyclare_G",
       "type": "sdz"
     },
     {
       "code": "N21000007",
-      "name": "Antrim A",
+      "name": "Antrim_A",
       "type": "sdz"
     },
     {
       "code": "N21000006",
-      "name": "Dunsilly F",
+      "name": "Dunsilly_F",
       "type": "sdz"
     },
     {
       "code": "N21000008",
-      "name": "Antrim B",
+      "name": "Antrim_B",
       "type": "sdz"
     },
     {
       "code": "N21000026",
-      "name": "Ballyclare H",
+      "name": "Ballyclare_H",
       "type": "sdz"
     },
     {
       "code": "N21000009",
-      "name": "Antrim C",
+      "name": "Antrim_C",
       "type": "sdz"
     },
     {
       "code": "N21000010",
-      "name": "Antrim D",
+      "name": "Antrim_D",
       "type": "sdz"
     },
     {
       "code": "N21000011",
-      "name": "Antrim E",
+      "name": "Antrim_E",
       "type": "sdz"
     },
     {
       "code": "N21000012",
-      "name": "Antrim F",
+      "name": "Antrim_F",
       "type": "sdz"
     },
     {
       "code": "N21000013",
-      "name": "Antrim G",
+      "name": "Antrim_G",
       "type": "sdz"
     },
     {
       "code": "N21000014",
-      "name": "Antrim H",
+      "name": "Antrim_H",
       "type": "sdz"
     },
     {
       "code": "N21000015",
-      "name": "Antrim J",
+      "name": "Antrim_J",
       "type": "sdz"
     },
     {
       "code": "N21000016",
-      "name": "Antrim K",
+      "name": "Antrim_K",
       "type": "sdz"
     },
     {
       "code": "N21000027",
-      "name": "Three Mile Water A",
+      "name": "Three_Mile_Water_A",
       "type": "sdz"
     },
     {
       "code": "N21000017",
-      "name": "Antrim L",
+      "name": "Antrim_L",
       "type": "sdz"
     },
     {
       "code": "N21000028",
-      "name": "Three Mile Water B",
+      "name": "Three_Mile_Water_B",
       "type": "sdz"
     },
     {
       "code": "N21000018",
-      "name": "Antrim N",
+      "name": "Antrim_N",
       "type": "sdz"
     },
     {
       "code": "N21000059",
-      "name": "Airport A",
+      "name": "Airport_A",
       "type": "sdz"
     },
     {
       "code": "N21000060",
-      "name": "Airport B",
+      "name": "Airport_B",
       "type": "sdz"
     },
     {
       "code": "N21000029",
-      "name": "Three Mile Water C",
+      "name": "Three_Mile_Water_C",
       "type": "sdz"
     },
     {
       "code": "N21000030",
-      "name": "Three Mile Water D",
+      "name": "Three_Mile_Water_D",
       "type": "sdz"
     },
     {
       "code": "N21000031",
-      "name": "Three Mile Water E",
+      "name": "Three_Mile_Water_E",
       "type": "sdz"
     },
     {
       "code": "N21000032",
-      "name": "Three Mile Water F",
+      "name": "Three_Mile_Water_F",
       "type": "sdz"
     },
     {
       "code": "N21000033",
-      "name": "Three Mile Water G",
+      "name": "Three_Mile_Water_G",
       "type": "sdz"
     },
     {
       "code": "N21000034",
-      "name": "Three Mile Water H",
+      "name": "Three_Mile_Water_H",
       "type": "sdz"
     },
     {
       "code": "N21000048",
-      "name": "Glengormley Urban A",
+      "name": "Glengormley_Urban_A",
       "type": "sdz"
     },
     {
       "code": "N21000035",
-      "name": "Three Mile Water J",
+      "name": "Three_Mile_Water_J",
       "type": "sdz"
     },
     {
       "code": "N21000036",
-      "name": "Three Mile Water K",
+      "name": "Three_Mile_Water_K",
       "type": "sdz"
     },
     {
       "code": "N21000049",
-      "name": "Glengormley Urban B",
+      "name": "Glengormley_Urban_B",
       "type": "sdz"
     },
     {
       "code": "N21000050",
-      "name": "Glengormley Urban C",
+      "name": "Glengormley_Urban_C",
       "type": "sdz"
     },
     {
       "code": "N21000061",
-      "name": "Airport C",
+      "name": "Airport_C",
       "type": "sdz"
     },
     {
       "code": "N21000037",
-      "name": "Macedon A",
+      "name": "Macedon_A",
       "type": "sdz"
     },
     {
       "code": "N21000051",
-      "name": "Glengormley Urban D",
+      "name": "Glengormley_Urban_D",
       "type": "sdz"
     },
     {
       "code": "N21000038",
-      "name": "Macedon B",
+      "name": "Macedon_B",
       "type": "sdz"
     },
     {
       "code": "N21000052",
-      "name": "Glengormley Urban E",
+      "name": "Glengormley_Urban_E",
       "type": "sdz"
     },
     {
       "code": "N21000062",
-      "name": "Airport D",
+      "name": "Airport_D",
       "type": "sdz"
     },
     {
       "code": "N21000039",
-      "name": "Macedon C",
+      "name": "Macedon_C",
       "type": "sdz"
     },
     {
       "code": "N21000053",
-      "name": "Glengormley Urban F",
+      "name": "Glengormley_Urban_F",
       "type": "sdz"
     },
     {
       "code": "N21000054",
-      "name": "Glengormley Urban G",
+      "name": "Glengormley_Urban_G",
       "type": "sdz"
     },
     {
       "code": "N21000040",
-      "name": "Macedon D",
+      "name": "Macedon_D",
       "type": "sdz"
     },
     {
       "code": "N21000055",
-      "name": "Glengormley Urban H",
+      "name": "Glengormley_Urban_H",
       "type": "sdz"
     },
     {
       "code": "N21000041",
-      "name": "Macedon E",
+      "name": "Macedon_E",
       "type": "sdz"
     },
     {
       "code": "N21000063",
-      "name": "Airport E",
+      "name": "Airport_E",
       "type": "sdz"
     },
     {
       "code": "N21000042",
-      "name": "Macedon F",
+      "name": "Macedon_F",
       "type": "sdz"
     },
     {
       "code": "N21000056",
-      "name": "Glengormley Urban J",
+      "name": "Glengormley_Urban_J",
       "type": "sdz"
     },
     {
       "code": "N21000057",
-      "name": "Glengormley Urban K",
+      "name": "Glengormley_Urban_K",
       "type": "sdz"
     },
     {
       "code": "N21000043",
-      "name": "Macedon G",
+      "name": "Macedon_G",
       "type": "sdz"
     },
     {
       "code": "N21000044",
-      "name": "Macedon H",
+      "name": "Macedon_H",
       "type": "sdz"
     },
     {
       "code": "N21000045",
-      "name": "Macedon J",
+      "name": "Macedon_J",
       "type": "sdz"
     },
     {
       "code": "N21000046",
-      "name": "Macedon K",
+      "name": "Macedon_K",
       "type": "sdz"
     },
     {
       "code": "N21000058",
-      "name": "Glengormley Urban L",
+      "name": "Glengormley_Urban_L",
       "type": "sdz"
     },
     {
       "code": "N21000047",
-      "name": "Macedon L",
+      "name": "Macedon_L",
       "type": "sdz"
     },
     {
       "code": "N21000064",
-      "name": "Airport F",
+      "name": "Airport_F",
       "type": "sdz"
     },
     {
       "code": "N21000065",
-      "name": "Airport G",
+      "name": "Airport_G",
       "type": "sdz"
     },
     {
       "code": "N21000066",
-      "name": "Airport H",
+      "name": "Airport_H",
       "type": "sdz"
     },
     {
       "code": "N21000067",
-      "name": "Airport J",
+      "name": "Airport_J",
       "type": "sdz"
     }
   ],

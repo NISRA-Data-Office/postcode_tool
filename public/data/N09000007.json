@@ -7,307 +7,307 @@
   "children": [
     {
       "code": "N21000562",
-      "name": "Castlereagh East A",
+      "name": "Castlereagh_East_A",
       "type": "sdz"
     },
     {
       "code": "N21000563",
-      "name": "Castlereagh East B",
+      "name": "Castlereagh_East_B",
       "type": "sdz"
     },
     {
       "code": "N21000564",
-      "name": "Castlereagh East C",
+      "name": "Castlereagh_East_C",
       "type": "sdz"
     },
     {
       "code": "N21000565",
-      "name": "Castlereagh East D",
+      "name": "Castlereagh_East_D",
       "type": "sdz"
     },
     {
       "code": "N21000566",
-      "name": "Castlereagh East E",
+      "name": "Castlereagh_East_E",
       "type": "sdz"
     },
     {
       "code": "N21000567",
-      "name": "Castlereagh East F",
+      "name": "Castlereagh_East_F",
       "type": "sdz"
     },
     {
       "code": "N21000518",
-      "name": "Killultagh A",
+      "name": "Killultagh_A",
       "type": "sdz"
     },
     {
       "code": "N21000568",
-      "name": "Castlereagh East G",
+      "name": "Castlereagh_East_G",
       "type": "sdz"
     },
     {
       "code": "N21000569",
-      "name": "Castlereagh East H",
+      "name": "Castlereagh_East_H",
       "type": "sdz"
     },
     {
       "code": "N21000519",
-      "name": "Killultagh B",
+      "name": "Killultagh_B",
       "type": "sdz"
     },
     {
       "code": "N21000553",
-      "name": "Castlereagh South A",
+      "name": "Castlereagh_South_A",
       "type": "sdz"
     },
     {
       "code": "N21000554",
-      "name": "Castlereagh South B",
+      "name": "Castlereagh_South_B",
       "type": "sdz"
     },
     {
       "code": "N21000555",
-      "name": "Castlereagh South C",
+      "name": "Castlereagh_South_C",
       "type": "sdz"
     },
     {
       "code": "N21000520",
-      "name": "Killultagh C",
+      "name": "Killultagh_C",
       "type": "sdz"
     },
     {
       "code": "N21000570",
-      "name": "Castlereagh East J",
+      "name": "Castlereagh_East_J",
       "type": "sdz"
     },
     {
       "code": "N21000556",
-      "name": "Castlereagh South D",
+      "name": "Castlereagh_South_D",
       "type": "sdz"
     },
     {
       "code": "N21000536",
-      "name": "Lisburn North A",
+      "name": "Lisburn_North_A",
       "type": "sdz"
     },
     {
       "code": "N21000537",
-      "name": "Lisburn North B",
+      "name": "Lisburn_North_B",
       "type": "sdz"
     },
     {
       "code": "N21000557",
-      "name": "Castlereagh South E",
+      "name": "Castlereagh_South_E",
       "type": "sdz"
     },
     {
       "code": "N21000538",
-      "name": "Lisburn North C",
+      "name": "Lisburn_North_C",
       "type": "sdz"
     },
     {
       "code": "N21000539",
-      "name": "Lisburn North D",
+      "name": "Lisburn_North_D",
       "type": "sdz"
     },
     {
       "code": "N21000540",
-      "name": "Lisburn North E",
+      "name": "Lisburn_North_E",
       "type": "sdz"
     },
     {
       "code": "N21000571",
-      "name": "Castlereagh East K",
+      "name": "Castlereagh_East_K",
       "type": "sdz"
     },
     {
       "code": "N21000558",
-      "name": "Castlereagh South F",
+      "name": "Castlereagh_South_F",
       "type": "sdz"
     },
     {
       "code": "N21000521",
-      "name": "Killultagh D",
+      "name": "Killultagh_D",
       "type": "sdz"
     },
     {
       "code": "N21000541",
-      "name": "Lisburn North F",
+      "name": "Lisburn_North_F",
       "type": "sdz"
     },
     {
       "code": "N21000522",
-      "name": "Killultagh E",
+      "name": "Killultagh_E",
       "type": "sdz"
     },
     {
       "code": "N21000526",
-      "name": "Lisburn South A",
+      "name": "Lisburn_South_A",
       "type": "sdz"
     },
     {
       "code": "N21000523",
-      "name": "Killultagh F",
+      "name": "Killultagh_F",
       "type": "sdz"
     },
     {
       "code": "N21000542",
-      "name": "Lisburn North G",
+      "name": "Lisburn_North_G",
       "type": "sdz"
     },
     {
       "code": "N21000527",
-      "name": "Lisburn South B",
+      "name": "Lisburn_South_B",
       "type": "sdz"
     },
     {
       "code": "N21000543",
-      "name": "Lisburn North H",
+      "name": "Lisburn_North_H",
       "type": "sdz"
     },
     {
       "code": "N21000528",
-      "name": "Lisburn South C",
+      "name": "Lisburn_South_C",
       "type": "sdz"
     },
     {
       "code": "N21000524",
-      "name": "Killultagh G",
+      "name": "Killultagh_G",
       "type": "sdz"
     },
     {
       "code": "N21000546",
-      "name": "Downshire East A",
+      "name": "Downshire_East_A",
       "type": "sdz"
     },
     {
       "code": "N21000544",
-      "name": "Lisburn North J",
+      "name": "Lisburn_North_J",
       "type": "sdz"
     },
     {
       "code": "N21000529",
-      "name": "Lisburn South D",
+      "name": "Lisburn_South_D",
       "type": "sdz"
     },
     {
       "code": "N21000559",
-      "name": "Castlereagh South G",
+      "name": "Castlereagh_South_G",
       "type": "sdz"
     },
     {
       "code": "N21000530",
-      "name": "Lisburn South E",
+      "name": "Lisburn_South_E",
       "type": "sdz"
     },
     {
       "code": "N21000560",
-      "name": "Castlereagh South H",
+      "name": "Castlereagh_South_H",
       "type": "sdz"
     },
     {
       "code": "N21000531",
-      "name": "Lisburn South F",
+      "name": "Lisburn_South_F",
       "type": "sdz"
     },
     {
       "code": "N21000547",
-      "name": "Downshire East B",
+      "name": "Downshire_East_B",
       "type": "sdz"
     },
     {
       "code": "N21000545",
-      "name": "Lisburn North K",
+      "name": "Lisburn_North_K",
       "type": "sdz"
     },
     {
       "code": "N21000532",
-      "name": "Lisburn South G",
+      "name": "Lisburn_South_G",
       "type": "sdz"
     },
     {
       "code": "N21000533",
-      "name": "Lisburn South H",
+      "name": "Lisburn_South_H",
       "type": "sdz"
     },
     {
       "code": "N21000561",
-      "name": "Castlereagh South J",
+      "name": "Castlereagh_South_J",
       "type": "sdz"
     },
     {
       "code": "N21000548",
-      "name": "Downshire East C",
+      "name": "Downshire_East_C",
       "type": "sdz"
     },
     {
       "code": "N21000534",
-      "name": "Lisburn South J",
+      "name": "Lisburn_South_J",
       "type": "sdz"
     },
     {
       "code": "N21000525",
-      "name": "Killultagh H",
+      "name": "Killultagh_H",
       "type": "sdz"
     },
     {
       "code": "N21000535",
-      "name": "Lisburn South K",
+      "name": "Lisburn_South_K",
       "type": "sdz"
     },
     {
       "code": "N21000511",
-      "name": "Downshire West A",
+      "name": "Downshire_West_A",
       "type": "sdz"
     },
     {
       "code": "N21000512",
-      "name": "Downshire West B",
+      "name": "Downshire_West_B",
       "type": "sdz"
     },
     {
       "code": "N21000513",
-      "name": "Downshire West C",
+      "name": "Downshire_West_C",
       "type": "sdz"
     },
     {
       "code": "N21000514",
-      "name": "Downshire West D",
+      "name": "Downshire_West_D",
       "type": "sdz"
     },
     {
       "code": "N21000549",
-      "name": "Downshire East D",
+      "name": "Downshire_East_D",
       "type": "sdz"
     },
     {
       "code": "N21000515",
-      "name": "Downshire West E",
+      "name": "Downshire_West_E",
       "type": "sdz"
     },
     {
       "code": "N21000516",
-      "name": "Downshire West F",
+      "name": "Downshire_West_F",
       "type": "sdz"
     },
     {
       "code": "N21000517",
-      "name": "Downshire West G",
+      "name": "Downshire_West_G",
       "type": "sdz"
     },
     {
       "code": "N21000550",
-      "name": "Downshire East E",
+      "name": "Downshire_East_E",
       "type": "sdz"
     },
     {
       "code": "N21000551",
-      "name": "Downshire East F",
+      "name": "Downshire_East_F",
       "type": "sdz"
     },
     {
       "code": "N21000552",
-      "name": "Downshire East G",
+      "name": "Downshire_East_G",
       "type": "sdz"
     }
   ],

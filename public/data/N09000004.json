@@ -7,307 +7,307 @@
   "children": [
     {
       "code": "N21000368",
-      "name": "Causeway A",
+      "name": "Causeway_A",
       "type": "sdz"
     },
     {
       "code": "N21000379",
-      "name": "The Glens A",
+      "name": "The_Glens_A",
       "type": "sdz"
     },
     {
       "code": "N21000380",
-      "name": "The Glens B",
+      "name": "The_Glens_B",
       "type": "sdz"
     },
     {
       "code": "N21000369",
-      "name": "Causeway B",
+      "name": "Causeway_B",
       "type": "sdz"
     },
     {
       "code": "N21000370",
-      "name": "Causeway C",
+      "name": "Causeway_C",
       "type": "sdz"
     },
     {
       "code": "N21000371",
-      "name": "Causeway D",
+      "name": "Causeway_D",
       "type": "sdz"
     },
     {
       "code": "N21000372",
-      "name": "Causeway E",
+      "name": "Causeway_E",
       "type": "sdz"
     },
     {
       "code": "N21000373",
-      "name": "Causeway F",
+      "name": "Causeway_F",
       "type": "sdz"
     },
     {
       "code": "N21000374",
-      "name": "Causeway G",
+      "name": "Causeway_G",
       "type": "sdz"
     },
     {
       "code": "N21000381",
-      "name": "The Glens C",
+      "name": "The_Glens_C",
       "type": "sdz"
     },
     {
       "code": "N21000375",
-      "name": "Causeway H",
+      "name": "Causeway_H",
       "type": "sdz"
     },
     {
       "code": "N21000350",
-      "name": "Bann A",
+      "name": "Bann_A",
       "type": "sdz"
     },
     {
       "code": "N21000376",
-      "name": "Causeway J",
+      "name": "Causeway_J",
       "type": "sdz"
     },
     {
       "code": "N21000358",
-      "name": "Coleraine A",
+      "name": "Coleraine_A",
       "type": "sdz"
     },
     {
       "code": "N21000359",
-      "name": "Coleraine B",
+      "name": "Coleraine_B",
       "type": "sdz"
     },
     {
       "code": "N21000377",
-      "name": "Causeway K",
+      "name": "Causeway_K",
       "type": "sdz"
     },
     {
       "code": "N21000360",
-      "name": "Coleraine C",
+      "name": "Coleraine_C",
       "type": "sdz"
     },
     {
       "code": "N21000351",
-      "name": "Bann B",
+      "name": "Bann_B",
       "type": "sdz"
     },
     {
       "code": "N21000382",
-      "name": "The Glens D",
+      "name": "The_Glens_D",
       "type": "sdz"
     },
     {
       "code": "N21000361",
-      "name": "Coleraine D",
+      "name": "Coleraine_D",
       "type": "sdz"
     },
     {
       "code": "N21000362",
-      "name": "Coleraine E",
+      "name": "Coleraine_E",
       "type": "sdz"
     },
     {
       "code": "N21000363",
-      "name": "Coleraine F",
+      "name": "Coleraine_F",
       "type": "sdz"
     },
     {
       "code": "N21000364",
-      "name": "Coleraine G",
+      "name": "Coleraine_G",
       "type": "sdz"
     },
     {
       "code": "N21000383",
-      "name": "The Glens E",
+      "name": "The_Glens_E",
       "type": "sdz"
     },
     {
       "code": "N21000378",
-      "name": "Causeway L",
+      "name": "Causeway_L",
       "type": "sdz"
     },
     {
       "code": "N21000343",
-      "name": "Limavady A",
+      "name": "Limavady_A",
       "type": "sdz"
     },
     {
       "code": "N21000365",
-      "name": "Coleraine H",
+      "name": "Coleraine_H",
       "type": "sdz"
     },
     {
       "code": "N21000366",
-      "name": "Coleraine J",
+      "name": "Coleraine_J",
       "type": "sdz"
     },
     {
       "code": "N21000367",
-      "name": "Coleraine K",
+      "name": "Coleraine_K",
       "type": "sdz"
     },
     {
       "code": "N21000352",
-      "name": "Bann C",
+      "name": "Bann_C",
       "type": "sdz"
     },
     {
       "code": "N21000386",
-      "name": "Ballymoney A",
+      "name": "Ballymoney_A",
       "type": "sdz"
     },
     {
       "code": "N21000387",
-      "name": "Ballymoney B",
+      "name": "Ballymoney_B",
       "type": "sdz"
     },
     {
       "code": "N21000384",
-      "name": "The Glens F",
+      "name": "The_Glens_F",
       "type": "sdz"
     },
     {
       "code": "N21000388",
-      "name": "Ballymoney C",
+      "name": "Ballymoney_C",
       "type": "sdz"
     },
     {
       "code": "N21000389",
-      "name": "Ballymoney D",
+      "name": "Ballymoney_D",
       "type": "sdz"
     },
     {
       "code": "N21000390",
-      "name": "Ballymoney E",
+      "name": "Ballymoney_E",
       "type": "sdz"
     },
     {
       "code": "N21000391",
-      "name": "Ballymoney F",
+      "name": "Ballymoney_F",
       "type": "sdz"
     },
     {
       "code": "N21000344",
-      "name": "Limavady B",
+      "name": "Limavady_B",
       "type": "sdz"
     },
     {
       "code": "N21000353",
-      "name": "Bann D",
+      "name": "Bann_D",
       "type": "sdz"
     },
     {
       "code": "N21000336",
-      "name": "Benbradagh A",
+      "name": "Benbradagh_A",
       "type": "sdz"
     },
     {
       "code": "N21000345",
-      "name": "Limavady C",
+      "name": "Limavady_C",
       "type": "sdz"
     },
     {
       "code": "N21000346",
-      "name": "Limavady D",
+      "name": "Limavady_D",
       "type": "sdz"
     },
     {
       "code": "N21000392",
-      "name": "Ballymoney G",
+      "name": "Ballymoney_G",
       "type": "sdz"
     },
     {
       "code": "N21000385",
-      "name": "The Glens G",
+      "name": "The_Glens_G",
       "type": "sdz"
     },
     {
       "code": "N21000337",
-      "name": "Benbradagh B",
+      "name": "Benbradagh_B",
       "type": "sdz"
     },
     {
       "code": "N21000347",
-      "name": "Limavady E",
+      "name": "Limavady_E",
       "type": "sdz"
     },
     {
       "code": "N21000348",
-      "name": "Limavady F",
+      "name": "Limavady_F",
       "type": "sdz"
     },
     {
       "code": "N21000349",
-      "name": "Limavady G",
+      "name": "Limavady_G",
       "type": "sdz"
     },
     {
       "code": "N21000338",
-      "name": "Benbradagh C",
+      "name": "Benbradagh_C",
       "type": "sdz"
     },
     {
       "code": "N21000393",
-      "name": "Ballymoney H",
+      "name": "Ballymoney_H",
       "type": "sdz"
     },
     {
       "code": "N21000394",
-      "name": "Ballymoney J",
+      "name": "Ballymoney_J",
       "type": "sdz"
     },
     {
       "code": "N21000354",
-      "name": "Bann E",
+      "name": "Bann_E",
       "type": "sdz"
     },
     {
       "code": "N21000395",
-      "name": "Ballymoney K",
+      "name": "Ballymoney_K",
       "type": "sdz"
     },
     {
       "code": "N21000339",
-      "name": "Benbradagh D",
+      "name": "Benbradagh_D",
       "type": "sdz"
     },
     {
       "code": "N21000355",
-      "name": "Bann F",
+      "name": "Bann_F",
       "type": "sdz"
     },
     {
       "code": "N21000356",
-      "name": "Bann G",
+      "name": "Bann_G",
       "type": "sdz"
     },
     {
       "code": "N21000357",
-      "name": "Bann H",
+      "name": "Bann_H",
       "type": "sdz"
     },
     {
       "code": "N21000340",
-      "name": "Benbradagh E",
+      "name": "Benbradagh_E",
       "type": "sdz"
     },
     {
       "code": "N21000396",
-      "name": "Ballymoney L",
+      "name": "Ballymoney_L",
       "type": "sdz"
     },
     {
       "code": "N21000341",
-      "name": "Benbradagh F",
+      "name": "Benbradagh_F",
       "type": "sdz"
     },
     {
       "code": "N21000342",
-      "name": "Benbradagh G",
+      "name": "Benbradagh_G",
       "type": "sdz"
     }
   ],

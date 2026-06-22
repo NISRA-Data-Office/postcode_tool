@@ -7,327 +7,327 @@
   "children": [
     {
       "code": "N21000412",
-      "name": "Ballyarnett A",
+      "name": "Ballyarnett_A",
       "type": "sdz"
     },
     {
       "code": "N21000413",
-      "name": "Ballyarnett B",
+      "name": "Ballyarnett_B",
       "type": "sdz"
     },
     {
       "code": "N21000414",
-      "name": "Ballyarnett C",
+      "name": "Ballyarnett_C",
       "type": "sdz"
     },
     {
       "code": "N21000415",
-      "name": "Ballyarnett D",
+      "name": "Ballyarnett_D",
       "type": "sdz"
     },
     {
       "code": "N21000436",
-      "name": "Faughan A",
+      "name": "Faughan_A",
       "type": "sdz"
     },
     {
       "code": "N21000416",
-      "name": "Ballyarnett E",
+      "name": "Ballyarnett_E",
       "type": "sdz"
     },
     {
       "code": "N21000417",
-      "name": "Ballyarnett F",
+      "name": "Ballyarnett_F",
       "type": "sdz"
     },
     {
       "code": "N21000418",
-      "name": "Ballyarnett G",
+      "name": "Ballyarnett_G",
       "type": "sdz"
     },
     {
       "code": "N21000419",
-      "name": "Ballyarnett H",
+      "name": "Ballyarnett_H",
       "type": "sdz"
     },
     {
       "code": "N21000437",
-      "name": "Faughan B",
+      "name": "Faughan_B",
       "type": "sdz"
     },
     {
       "code": "N21000420",
-      "name": "Ballyarnett J",
+      "name": "Ballyarnett_J",
       "type": "sdz"
     },
     {
       "code": "N21000421",
-      "name": "Ballyarnett K",
+      "name": "Ballyarnett_K",
       "type": "sdz"
     },
     {
       "code": "N21000422",
-      "name": "Ballyarnett L",
+      "name": "Ballyarnett_L",
       "type": "sdz"
     },
     {
       "code": "N21000438",
-      "name": "Faughan C",
+      "name": "Faughan_C",
       "type": "sdz"
     },
     {
       "code": "N21000405",
-      "name": "Foyleside A",
+      "name": "Foyleside_A",
       "type": "sdz"
     },
     {
       "code": "N21000439",
-      "name": "Faughan D",
+      "name": "Faughan_D",
       "type": "sdz"
     },
     {
       "code": "N21000406",
-      "name": "Foyleside B",
+      "name": "Foyleside_B",
       "type": "sdz"
     },
     {
       "code": "N21000407",
-      "name": "Foyleside C",
+      "name": "Foyleside_C",
       "type": "sdz"
     },
     {
       "code": "N21000408",
-      "name": "Foyleside D",
+      "name": "Foyleside_D",
       "type": "sdz"
     },
     {
       "code": "N21000409",
-      "name": "Foyleside E",
+      "name": "Foyleside_E",
       "type": "sdz"
     },
     {
       "code": "N21000423",
-      "name": "Waterside A",
+      "name": "Waterside_A",
       "type": "sdz"
     },
     {
       "code": "N21000410",
-      "name": "Foyleside F",
+      "name": "Foyleside_F",
       "type": "sdz"
     },
     {
       "code": "N21000411",
-      "name": "Foyleside G",
+      "name": "Foyleside_G",
       "type": "sdz"
     },
     {
       "code": "N21000424",
-      "name": "Waterside B",
+      "name": "Waterside_B",
       "type": "sdz"
     },
     {
       "code": "N21000397",
-      "name": "The Moor A",
+      "name": "The_Moor_A",
       "type": "sdz"
     },
     {
       "code": "N21000398",
-      "name": "The Moor B",
+      "name": "The_Moor_B",
       "type": "sdz"
     },
     {
       "code": "N21000425",
-      "name": "Waterside C",
+      "name": "Waterside_C",
       "type": "sdz"
     },
     {
       "code": "N21000426",
-      "name": "Waterside D",
+      "name": "Waterside_D",
       "type": "sdz"
     },
     {
       "code": "N21000399",
-      "name": "The Moor C",
+      "name": "The_Moor_C",
       "type": "sdz"
     },
     {
       "code": "N21000427",
-      "name": "Waterside E",
+      "name": "Waterside_E",
       "type": "sdz"
     },
     {
       "code": "N21000428",
-      "name": "Waterside F",
+      "name": "Waterside_F",
       "type": "sdz"
     },
     {
       "code": "N21000400",
-      "name": "The Moor D",
+      "name": "The_Moor_D",
       "type": "sdz"
     },
     {
       "code": "N21000401",
-      "name": "The Moor E",
+      "name": "The_Moor_E",
       "type": "sdz"
     },
     {
       "code": "N21000402",
-      "name": "The Moor F",
+      "name": "The_Moor_F",
       "type": "sdz"
     },
     {
       "code": "N21000429",
-      "name": "Waterside G",
+      "name": "Waterside_G",
       "type": "sdz"
     },
     {
       "code": "N21000403",
-      "name": "The Moor G",
+      "name": "The_Moor_G",
       "type": "sdz"
     },
     {
       "code": "N21000430",
-      "name": "Waterside H",
+      "name": "Waterside_H",
       "type": "sdz"
     },
     {
       "code": "N21000431",
-      "name": "Waterside J",
+      "name": "Waterside_J",
       "type": "sdz"
     },
     {
       "code": "N21000404",
-      "name": "The Moor H",
+      "name": "The_Moor_H",
       "type": "sdz"
     },
     {
       "code": "N21000432",
-      "name": "Waterside K",
+      "name": "Waterside_K",
       "type": "sdz"
     },
     {
       "code": "N21000433",
-      "name": "Waterside L",
+      "name": "Waterside_L",
       "type": "sdz"
     },
     {
       "code": "N21000434",
-      "name": "Waterside N",
+      "name": "Waterside_N",
       "type": "sdz"
     },
     {
       "code": "N21000435",
-      "name": "Waterside P",
+      "name": "Waterside_P",
       "type": "sdz"
     },
     {
       "code": "N21000440",
-      "name": "Faughan E",
+      "name": "Faughan_E",
       "type": "sdz"
     },
     {
       "code": "N21000441",
-      "name": "Faughan F",
+      "name": "Faughan_F",
       "type": "sdz"
     },
     {
       "code": "N21000442",
-      "name": "Faughan G",
+      "name": "Faughan_G",
       "type": "sdz"
     },
     {
       "code": "N21000443",
-      "name": "Faughan H",
+      "name": "Faughan_H",
       "type": "sdz"
     },
     {
       "code": "N21000444",
-      "name": "Sperrin A",
+      "name": "Sperrin_A",
       "type": "sdz"
     },
     {
       "code": "N21000445",
-      "name": "Sperrin B",
+      "name": "Sperrin_B",
       "type": "sdz"
     },
     {
       "code": "N21000446",
-      "name": "Sperrin C",
+      "name": "Sperrin_C",
       "type": "sdz"
     },
     {
       "code": "N21000447",
-      "name": "Sperrin D",
+      "name": "Sperrin_D",
       "type": "sdz"
     },
     {
       "code": "N21000448",
-      "name": "Sperrin E",
+      "name": "Sperrin_E",
       "type": "sdz"
     },
     {
       "code": "N21000449",
-      "name": "Sperrin F",
+      "name": "Sperrin_F",
       "type": "sdz"
     },
     {
       "code": "N21000450",
-      "name": "Sperrin G",
+      "name": "Sperrin_G",
       "type": "sdz"
     },
     {
       "code": "N21000451",
-      "name": "Sperrin H",
+      "name": "Sperrin_H",
       "type": "sdz"
     },
     {
       "code": "N21000454",
-      "name": "Derg A",
+      "name": "Derg_A",
       "type": "sdz"
     },
     {
       "code": "N21000452",
-      "name": "Sperrin J",
+      "name": "Sperrin_J",
       "type": "sdz"
     },
     {
       "code": "N21000455",
-      "name": "Derg B",
+      "name": "Derg_B",
       "type": "sdz"
     },
     {
       "code": "N21000456",
-      "name": "Derg C",
+      "name": "Derg_C",
       "type": "sdz"
     },
     {
       "code": "N21000453",
-      "name": "Sperrin K",
+      "name": "Sperrin_K",
       "type": "sdz"
     },
     {
       "code": "N21000457",
-      "name": "Derg D",
+      "name": "Derg_D",
       "type": "sdz"
     },
     {
       "code": "N21000458",
-      "name": "Derg E",
+      "name": "Derg_E",
       "type": "sdz"
     },
     {
       "code": "N21000459",
-      "name": "Derg F",
+      "name": "Derg_F",
       "type": "sdz"
     },
     {
       "code": "N21000460",
-      "name": "Derg G",
+      "name": "Derg_G",
       "type": "sdz"
     },
     {
       "code": "N21000461",
-      "name": "Derg H",
+      "name": "Derg_H",
       "type": "sdz"
     }
   ],

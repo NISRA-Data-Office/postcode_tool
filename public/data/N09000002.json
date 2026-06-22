@@ -7,467 +7,467 @@
   "children": [
     {
       "code": "N21000107",
-      "name": "Lurgan A",
+      "name": "Lurgan_A",
       "type": "sdz"
     },
     {
       "code": "N21000108",
-      "name": "Lurgan B",
+      "name": "Lurgan_B",
       "type": "sdz"
     },
     {
       "code": "N21000079",
-      "name": "Portadown A",
+      "name": "Portadown_A",
       "type": "sdz"
     },
     {
       "code": "N21000094",
-      "name": "Craigavon A",
+      "name": "Craigavon_A",
       "type": "sdz"
     },
     {
       "code": "N21000109",
-      "name": "Lurgan C",
+      "name": "Lurgan_C",
       "type": "sdz"
     },
     {
       "code": "N21000110",
-      "name": "Lurgan D",
+      "name": "Lurgan_D",
       "type": "sdz"
     },
     {
       "code": "N21000111",
-      "name": "Lurgan E",
+      "name": "Lurgan_E",
       "type": "sdz"
     },
     {
       "code": "N21000080",
-      "name": "Portadown B",
+      "name": "Portadown_B",
       "type": "sdz"
     },
     {
       "code": "N21000112",
-      "name": "Lurgan F",
+      "name": "Lurgan_F",
       "type": "sdz"
     },
     {
       "code": "N21000113",
-      "name": "Lurgan G",
+      "name": "Lurgan_G",
       "type": "sdz"
     },
     {
       "code": "N21000095",
-      "name": "Craigavon B",
+      "name": "Craigavon_B",
       "type": "sdz"
     },
     {
       "code": "N21000114",
-      "name": "Lurgan H",
+      "name": "Lurgan_H",
       "type": "sdz"
     },
     {
       "code": "N21000115",
-      "name": "Lurgan J",
+      "name": "Lurgan_J",
       "type": "sdz"
     },
     {
       "code": "N21000116",
-      "name": "Lurgan K",
+      "name": "Lurgan_K",
       "type": "sdz"
     },
     {
       "code": "N21000117",
-      "name": "Lurgan L",
+      "name": "Lurgan_L",
       "type": "sdz"
     },
     {
       "code": "N21000118",
-      "name": "Lurgan N",
+      "name": "Lurgan_N",
       "type": "sdz"
     },
     {
       "code": "N21000119",
-      "name": "Lurgan P",
+      "name": "Lurgan_P",
       "type": "sdz"
     },
     {
       "code": "N21000120",
-      "name": "Lurgan Q",
+      "name": "Lurgan_Q",
       "type": "sdz"
     },
     {
       "code": "N21000121",
-      "name": "Lurgan R",
+      "name": "Lurgan_R",
       "type": "sdz"
     },
     {
       "code": "N21000122",
-      "name": "Lurgan S",
+      "name": "Lurgan_S",
       "type": "sdz"
     },
     {
       "code": "N21000123",
-      "name": "Lurgan T",
+      "name": "Lurgan_T",
       "type": "sdz"
     },
     {
       "code": "N21000096",
-      "name": "Craigavon C",
+      "name": "Craigavon_C",
       "type": "sdz"
     },
     {
       "code": "N21000097",
-      "name": "Craigavon D",
+      "name": "Craigavon_D",
       "type": "sdz"
     },
     {
       "code": "N21000098",
-      "name": "Craigavon E",
+      "name": "Craigavon_E",
       "type": "sdz"
     },
     {
       "code": "N21000099",
-      "name": "Craigavon F",
+      "name": "Craigavon_F",
       "type": "sdz"
     },
     {
       "code": "N21000124",
-      "name": "Lagan River A",
+      "name": "Lagan_River_A",
       "type": "sdz"
     },
     {
       "code": "N21000100",
-      "name": "Craigavon G",
+      "name": "Craigavon_G",
       "type": "sdz"
     },
     {
       "code": "N21000101",
-      "name": "Craigavon H",
+      "name": "Craigavon_H",
       "type": "sdz"
     },
     {
       "code": "N21000102",
-      "name": "Craigavon J",
+      "name": "Craigavon_J",
       "type": "sdz"
     },
     {
       "code": "N21000125",
-      "name": "Lagan River B",
+      "name": "Lagan_River_B",
       "type": "sdz"
     },
     {
       "code": "N21000081",
-      "name": "Portadown C",
+      "name": "Portadown_C",
       "type": "sdz"
     },
     {
       "code": "N21000126",
-      "name": "Lagan River C",
+      "name": "Lagan_River_C",
       "type": "sdz"
     },
     {
       "code": "N21000082",
-      "name": "Portadown D",
+      "name": "Portadown_D",
       "type": "sdz"
     },
     {
       "code": "N21000083",
-      "name": "Portadown E",
+      "name": "Portadown_E",
       "type": "sdz"
     },
     {
       "code": "N21000084",
-      "name": "Portadown F",
+      "name": "Portadown_F",
       "type": "sdz"
     },
     {
       "code": "N21000103",
-      "name": "Craigavon K",
+      "name": "Craigavon_K",
       "type": "sdz"
     },
     {
       "code": "N21000085",
-      "name": "Portadown G",
+      "name": "Portadown_G",
       "type": "sdz"
     },
     {
       "code": "N21000086",
-      "name": "Portadown H",
+      "name": "Portadown_H",
       "type": "sdz"
     },
     {
       "code": "N21000104",
-      "name": "Craigavon L",
+      "name": "Craigavon_L",
       "type": "sdz"
     },
     {
       "code": "N21000105",
-      "name": "Craigavon N",
+      "name": "Craigavon_N",
       "type": "sdz"
     },
     {
       "code": "N21000087",
-      "name": "Portadown J",
+      "name": "Portadown_J",
       "type": "sdz"
     },
     {
       "code": "N21000127",
-      "name": "Lagan River D",
+      "name": "Lagan_River_D",
       "type": "sdz"
     },
     {
       "code": "N21000128",
-      "name": "Lagan River E",
+      "name": "Lagan_River_E",
       "type": "sdz"
     },
     {
       "code": "N21000088",
-      "name": "Portadown K",
+      "name": "Portadown_K",
       "type": "sdz"
     },
     {
       "code": "N21000129",
-      "name": "Lagan River F",
+      "name": "Lagan_River_F",
       "type": "sdz"
     },
     {
       "code": "N21000130",
-      "name": "Lagan River G",
+      "name": "Lagan_River_G",
       "type": "sdz"
     },
     {
       "code": "N21000106",
-      "name": "Craigavon P",
+      "name": "Craigavon_P",
       "type": "sdz"
     },
     {
       "code": "N21000089",
-      "name": "Portadown L",
+      "name": "Portadown_L",
       "type": "sdz"
     },
     {
       "code": "N21000090",
-      "name": "Portadown N",
+      "name": "Portadown_N",
       "type": "sdz"
     },
     {
       "code": "N21000091",
-      "name": "Portadown P",
+      "name": "Portadown_P",
       "type": "sdz"
     },
     {
       "code": "N21000131",
-      "name": "Lagan River H",
+      "name": "Lagan_River_H",
       "type": "sdz"
     },
     {
       "code": "N21000068",
-      "name": "Armagh A",
+      "name": "Armagh_A",
       "type": "sdz"
     },
     {
       "code": "N21000092",
-      "name": "Portadown Q",
+      "name": "Portadown_Q",
       "type": "sdz"
     },
     {
       "code": "N21000093",
-      "name": "Portadown R",
+      "name": "Portadown_R",
       "type": "sdz"
     },
     {
       "code": "N21000132",
-      "name": "Lagan River J",
+      "name": "Lagan_River_J",
       "type": "sdz"
     },
     {
       "code": "N21000133",
-      "name": "Lagan River K",
+      "name": "Lagan_River_K",
       "type": "sdz"
     },
     {
       "code": "N21000136",
-      "name": "Banbridge A",
+      "name": "Banbridge_A",
       "type": "sdz"
     },
     {
       "code": "N21000134",
-      "name": "Lagan River L",
+      "name": "Lagan_River_L",
       "type": "sdz"
     },
     {
       "code": "N21000137",
-      "name": "Banbridge B",
+      "name": "Banbridge_B",
       "type": "sdz"
     },
     {
       "code": "N21000150",
-      "name": "Cusher A",
+      "name": "Cusher_A",
       "type": "sdz"
     },
     {
       "code": "N21000151",
-      "name": "Cusher B",
+      "name": "Cusher_B",
       "type": "sdz"
     },
     {
       "code": "N21000138",
-      "name": "Banbridge C",
+      "name": "Banbridge_C",
       "type": "sdz"
     },
     {
       "code": "N21000139",
-      "name": "Banbridge D",
+      "name": "Banbridge_D",
       "type": "sdz"
     },
     {
       "code": "N21000152",
-      "name": "Cusher C",
+      "name": "Cusher_C",
       "type": "sdz"
     },
     {
       "code": "N21000153",
-      "name": "Cusher D",
+      "name": "Cusher_D",
       "type": "sdz"
     },
     {
       "code": "N21000154",
-      "name": "Cusher E",
+      "name": "Cusher_E",
       "type": "sdz"
     },
     {
       "code": "N21000155",
-      "name": "Cusher F",
+      "name": "Cusher_F",
       "type": "sdz"
     },
     {
       "code": "N21000069",
-      "name": "Armagh B",
+      "name": "Armagh_B",
       "type": "sdz"
     },
     {
       "code": "N21000140",
-      "name": "Banbridge E",
+      "name": "Banbridge_E",
       "type": "sdz"
     },
     {
       "code": "N21000070",
-      "name": "Armagh C",
+      "name": "Armagh_C",
       "type": "sdz"
     },
     {
       "code": "N21000141",
-      "name": "Banbridge F",
+      "name": "Banbridge_F",
       "type": "sdz"
     },
     {
       "code": "N21000071",
-      "name": "Armagh D",
+      "name": "Armagh_D",
       "type": "sdz"
     },
     {
       "code": "N21000142",
-      "name": "Banbridge G",
+      "name": "Banbridge_G",
       "type": "sdz"
     },
     {
       "code": "N21000143",
-      "name": "Banbridge H",
+      "name": "Banbridge_H",
       "type": "sdz"
     },
     {
       "code": "N21000144",
-      "name": "Banbridge J",
+      "name": "Banbridge_J",
       "type": "sdz"
     },
     {
       "code": "N21000072",
-      "name": "Armagh E",
+      "name": "Armagh_E",
       "type": "sdz"
     },
     {
       "code": "N21000073",
-      "name": "Armagh F",
+      "name": "Armagh_F",
       "type": "sdz"
     },
     {
       "code": "N21000135",
-      "name": "Lagan River N",
+      "name": "Lagan_River_N",
       "type": "sdz"
     },
     {
       "code": "N21000145",
-      "name": "Banbridge K",
+      "name": "Banbridge_K",
       "type": "sdz"
     },
     {
       "code": "N21000074",
-      "name": "Armagh G",
+      "name": "Armagh_G",
       "type": "sdz"
     },
     {
       "code": "N21000075",
-      "name": "Armagh H",
+      "name": "Armagh_H",
       "type": "sdz"
     },
     {
       "code": "N21000156",
-      "name": "Cusher G",
+      "name": "Cusher_G",
       "type": "sdz"
     },
     {
       "code": "N21000076",
-      "name": "Armagh J",
+      "name": "Armagh_J",
       "type": "sdz"
     },
     {
       "code": "N21000146",
-      "name": "Banbridge L",
+      "name": "Banbridge_L",
       "type": "sdz"
     },
     {
       "code": "N21000147",
-      "name": "Banbridge N",
+      "name": "Banbridge_N",
       "type": "sdz"
     },
     {
       "code": "N21000157",
-      "name": "Cusher H",
+      "name": "Cusher_H",
       "type": "sdz"
     },
     {
       "code": "N21000158",
-      "name": "Cusher J",
+      "name": "Cusher_J",
       "type": "sdz"
     },
     {
       "code": "N21000148",
-      "name": "Banbridge P",
+      "name": "Banbridge_P",
       "type": "sdz"
     },
     {
       "code": "N21000159",
-      "name": "Cusher K",
+      "name": "Cusher_K",
       "type": "sdz"
     },
     {
       "code": "N21000077",
-      "name": "Armagh K",
+      "name": "Armagh_K",
       "type": "sdz"
     },
     {
       "code": "N21000078",
-      "name": "Armagh L",
+      "name": "Armagh_L",
       "type": "sdz"
     },
     {
       "code": "N21000160",
-      "name": "Cusher L",
+      "name": "Cusher_L",
       "type": "sdz"
     },
     {
       "code": "N21000149",
-      "name": "Banbridge Q",
+      "name": "Banbridge_Q",
       "type": "sdz"
     }
   ],

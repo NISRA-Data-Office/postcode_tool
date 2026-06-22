@@ -7,247 +7,247 @@
   "children": [
     {
       "code": "N21000504",
-      "name": "Mid Tyrone A",
+      "name": "Mid_Tyrone_A",
       "type": "sdz"
     },
     {
       "code": "N21000505",
-      "name": "Mid Tyrone B",
+      "name": "Mid_Tyrone_B",
       "type": "sdz"
     },
     {
       "code": "N21000489",
-      "name": "West Tyrone A",
+      "name": "West_Tyrone_A",
       "type": "sdz"
     },
     {
       "code": "N21000506",
-      "name": "Mid Tyrone C",
+      "name": "Mid_Tyrone_C",
       "type": "sdz"
     },
     {
       "code": "N21000496",
-      "name": "Omagh A",
+      "name": "Omagh_A",
       "type": "sdz"
     },
     {
       "code": "N21000497",
-      "name": "Omagh B",
+      "name": "Omagh_B",
       "type": "sdz"
     },
     {
       "code": "N21000490",
-      "name": "West Tyrone B",
+      "name": "West_Tyrone_B",
       "type": "sdz"
     },
     {
       "code": "N21000507",
-      "name": "Mid Tyrone D",
+      "name": "Mid_Tyrone_D",
       "type": "sdz"
     },
     {
       "code": "N21000498",
-      "name": "Omagh C",
+      "name": "Omagh_C",
       "type": "sdz"
     },
     {
       "code": "N21000499",
-      "name": "Omagh D",
+      "name": "Omagh_D",
       "type": "sdz"
     },
     {
       "code": "N21000500",
-      "name": "Omagh E",
+      "name": "Omagh_E",
       "type": "sdz"
     },
     {
       "code": "N21000501",
-      "name": "Omagh F",
+      "name": "Omagh_F",
       "type": "sdz"
     },
     {
       "code": "N21000502",
-      "name": "Omagh G",
+      "name": "Omagh_G",
       "type": "sdz"
     },
     {
       "code": "N21000503",
-      "name": "Omagh H",
+      "name": "Omagh_H",
       "type": "sdz"
     },
     {
       "code": "N21000508",
-      "name": "Mid Tyrone E",
+      "name": "Mid_Tyrone_E",
       "type": "sdz"
     },
     {
       "code": "N21000509",
-      "name": "Mid Tyrone F",
+      "name": "Mid_Tyrone_F",
       "type": "sdz"
     },
     {
       "code": "N21000482",
-      "name": "Erne North A",
+      "name": "Erne_North_A",
       "type": "sdz"
     },
     {
       "code": "N21000510",
-      "name": "Mid Tyrone G",
+      "name": "Mid_Tyrone_G",
       "type": "sdz"
     },
     {
       "code": "N21000483",
-      "name": "Erne North B",
+      "name": "Erne_North_B",
       "type": "sdz"
     },
     {
       "code": "N21000491",
-      "name": "West Tyrone C",
+      "name": "West_Tyrone_C",
       "type": "sdz"
     },
     {
       "code": "N21000484",
-      "name": "Erne North C",
+      "name": "Erne_North_C",
       "type": "sdz"
     },
     {
       "code": "N21000492",
-      "name": "West Tyrone D",
+      "name": "West_Tyrone_D",
       "type": "sdz"
     },
     {
       "code": "N21000493",
-      "name": "West Tyrone E",
+      "name": "West_Tyrone_E",
       "type": "sdz"
     },
     {
       "code": "N21000494",
-      "name": "West Tyrone F",
+      "name": "West_Tyrone_F",
       "type": "sdz"
     },
     {
       "code": "N21000485",
-      "name": "Erne North D",
+      "name": "Erne_North_D",
       "type": "sdz"
     },
     {
       "code": "N21000495",
-      "name": "West Tyrone G",
+      "name": "West_Tyrone_G",
       "type": "sdz"
     },
     {
       "code": "N21000474",
-      "name": "Enniskillen A",
+      "name": "Enniskillen_A",
       "type": "sdz"
     },
     {
       "code": "N21000486",
-      "name": "Erne North E",
+      "name": "Erne_North_E",
       "type": "sdz"
     },
     {
       "code": "N21000487",
-      "name": "Erne North F",
+      "name": "Erne_North_F",
       "type": "sdz"
     },
     {
       "code": "N21000468",
-      "name": "Erne West A",
+      "name": "Erne_West_A",
       "type": "sdz"
     },
     {
       "code": "N21000488",
-      "name": "Erne North G",
+      "name": "Erne_North_G",
       "type": "sdz"
     },
     {
       "code": "N21000469",
-      "name": "Erne West B",
+      "name": "Erne_West_B",
       "type": "sdz"
     },
     {
       "code": "N21000475",
-      "name": "Enniskillen B",
+      "name": "Enniskillen_B",
       "type": "sdz"
     },
     {
       "code": "N21000476",
-      "name": "Enniskillen C",
+      "name": "Enniskillen_C",
       "type": "sdz"
     },
     {
       "code": "N21000477",
-      "name": "Enniskillen D",
+      "name": "Enniskillen_D",
       "type": "sdz"
     },
     {
       "code": "N21000470",
-      "name": "Erne West C",
+      "name": "Erne_West_C",
       "type": "sdz"
     },
     {
       "code": "N21000478",
-      "name": "Enniskillen E",
+      "name": "Enniskillen_E",
       "type": "sdz"
     },
     {
       "code": "N21000479",
-      "name": "Enniskillen F",
+      "name": "Enniskillen_F",
       "type": "sdz"
     },
     {
       "code": "N21000480",
-      "name": "Enniskillen G",
+      "name": "Enniskillen_G",
       "type": "sdz"
     },
     {
       "code": "N21000481",
-      "name": "Enniskillen H",
+      "name": "Enniskillen_H",
       "type": "sdz"
     },
     {
       "code": "N21000462",
-      "name": "Erne East A",
+      "name": "Erne_East_A",
       "type": "sdz"
     },
     {
       "code": "N21000471",
-      "name": "Erne West D",
+      "name": "Erne_West_D",
       "type": "sdz"
     },
     {
       "code": "N21000463",
-      "name": "Erne East B",
+      "name": "Erne_East_B",
       "type": "sdz"
     },
     {
       "code": "N21000464",
-      "name": "Erne East C",
+      "name": "Erne_East_C",
       "type": "sdz"
     },
     {
       "code": "N21000472",
-      "name": "Erne West E",
+      "name": "Erne_West_E",
       "type": "sdz"
     },
     {
       "code": "N21000465",
-      "name": "Erne East D",
+      "name": "Erne_East_D",
       "type": "sdz"
     },
     {
       "code": "N21000466",
-      "name": "Erne East E",
+      "name": "Erne_East_E",
       "type": "sdz"
     },
     {
       "code": "N21000473",
-      "name": "Erne West F",
+      "name": "Erne_West_F",
       "type": "sdz"
     },
     {
       "code": "N21000467",
-      "name": "Erne East F",
+      "name": "Erne_East_F",
       "type": "sdz"
     }
   ],

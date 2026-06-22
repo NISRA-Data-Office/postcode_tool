@@ -153,7 +153,6 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mousemove", layerId, e => {
-    // map.getCanvas().style.cursor = "pointer";
 
     const feature = e.features?.[0];
     if (!feature) return;
@@ -182,7 +181,6 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-    // map.getCanvas().style.cursor = "";
 
     if (hoveredId !== null) {
       map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
@@ -217,5 +215,5 @@ function getSdzCode(feature) {
 function getSdzName(feature) {
   return String(
     feature.properties.SDZ21_name || getSdzCode(feature)
-  ).replaceAll("_", " ");
+  );
 }

@@ -8,8 +8,8 @@ geog_levels <- read_excel(paste0(data_dir, geog_file),
 children <- read_excel(paste0(data_dir, geog_file),
                        sheet = "ParentChild") %>%
   mutate(ChildName = case_when(
-    grepl("_", ChildName) ~ gsub("_", " ", ChildName),
-    TRUE ~ gsub(" And "," and ", str_to_title(ChildName))
+    !grepl("_", ChildName) ~ gsub(" And "," and ", str_to_title(ChildName)),
+    TRUE ~ ChildName
   )) %>%
   rename(code = ChildCode,
          name = ChildName,
