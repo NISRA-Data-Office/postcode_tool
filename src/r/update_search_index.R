@@ -22,9 +22,8 @@ for (sdz in SDZs) {
   sdz_name <- cpd %>% 
     filter(SDZ2021 == sdz) %>% 
     first() %>% 
-    pull(SDZ2021_name) %>% 
-    gsub("_", " ", .)
-
+    pull(SDZ2021_name)
+  
   postcodes <- cpd %>% 
     filter(SDZ2021 == sdz) %>% 
     pull(postcode)
