@@ -123,15 +123,14 @@ export function getDeprivationSummary(data) {
 export function lgdDeprivationSummary(data, type) {
   
   const place = data;
-  const children = place.children || [];
   const deprivation_type = "mdm";
-
-  const enriched = children.map(child => ({
-    name: child.name,
-    rank: place.data?.ranks?.[child.code]?.[deprivation_type]
+  const children = Object.entries(place.data?.ranks || {}).map(([code, item]) => ({
+    code,
+    name: item.name,
+    rank: item.ranks?.[deprivation_type]
   }));
 
-  const sorted = enriched
+  const sorted = children
     .filter(d => d.rank != null)
     .sort((a, b) => a.rank - b.rank);
 
