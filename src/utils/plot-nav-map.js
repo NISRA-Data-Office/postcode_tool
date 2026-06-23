@@ -54,7 +54,8 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   center: [-6.7, 54.7],
   zoom: 7,
   maxBounds: niMaxBounds,
-  attributionControl: false
+  attributionControl: false,
+  dragRotate: false,
 });
 
   map.addControl(

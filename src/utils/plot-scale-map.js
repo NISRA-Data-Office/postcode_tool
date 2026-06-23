@@ -171,7 +171,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
   preserveDrawingBuffer: true,
   canvasContextAttributes: {
     preserveDrawingBuffer: true
-  }
+  },
+  dragRotate: false,
 });
 
   map.addControl(
