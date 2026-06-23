@@ -6,22 +6,32 @@ export let map;
 
 let lgdGeojsonData;
 let sdzGeojsonData;
+
 let currentLgdBounds = null;
 let selectedSdzId = null;
-let currentIsCountryMap = false;
-
 let tableHoveredSdzId = null;
-let sdzFeatureIdByCode = new Map();
 let tableHoverListenerAdded = false;
 
-export async function plotScaleMap(elementId, map_data, deprivation_type, options = {}) {
-  const { animate = true, highlightSdz = null, preserveView = false } = options;
+const mapState = {
+  isCountryMap: false
+};
+
+export async function plotScaleMap(
+  elementId,
+  map_data,
+  deprivation_type,
+  options = {}
+) {
+  const {
+    animate = true,
+    highlightSdz = null,
+    preserveView = false
+  } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
 
-  const isCountryMap = map_data.type === "ctry";
-  currentIsCountryMap = isCountryMap;
+  mapState.isCountryMap = map_data.type === "ctry";
 
   const selectedLgdCode = map_data.code;
   const selectedLgdName = map_data.name;
@@ -29,11 +39,121 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
   const ranks = map_data.data?.ranks || {};
   const sdzCodes = new Set(Object.keys(ranks));
 
-  const range_min = 1;
-  const range_max = map_data.sdz_count || sdzCodes.size;
-  const range = range_max - range_min || 1;
+  const rangeMin = 1;
+  const rangeMax = map_data.sdz_count || sdzCodes.size;
+  const range = rangeMax - rangeMin || 1;
 
-  const lgdFeatures = lgdGeojsonData.features
+  const styledLgdGeojson = {
+    ...lgdGeojsonData,
+    features: buildLgdFeatures({
+      selectedLgdCode,
+      selectedLgdName,
+      isCountryMap: mapState.isCountryMap
+    })
+  };
+
+  const styledSdzGeojson = {
+    ...sdzGeojsonData,
+    features: buildSdzFeatures({
+      sdzCodes,
+      ranks,
+      deprivation_type,
+      selectedLgdCode,
+      isCountryMap: mapState.isCountryMap,
+      rangeMin,
+      range,
+      highlightSdz
+    })
+  };
+
+  let mapBounds = await getTargetBounds(map_data, highlightSdz);
+
+  if (map) {
+    clearCurrentFeatureStates();
+
+    map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
+
+    if (animate) {
+      animateSourceColours("sdz-shapes", styledSdzGeojson, 500);
+    } else {
+      map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
+    }
+
+    currentLgdBounds = mapState.isCountryMap ? null : map_data.bounds;
+
+    if (!preserveView) {
+      moveToBounds(mapBounds, animate);
+    }
+
+    return;
+  }
+
+  const niData = await readData("N92000002");
+  const niMaxBounds = normaliseBounds(niData.bounds);
+
+  map = new maplibregl.Map({
+    container: elementId,
+    style: "public/map/style-omt.json",
+    center: [-6.7, 54.7],
+    zoom: window.innerWidth < 1200 ? 6 : 7.5,
+    maxBounds: niMaxBounds,
+    attributionControl: false,
+    preserveDrawingBuffer: true
+  });
+
+  map.addControl(
+    new maplibregl.NavigationControl({
+      showZoom: true,
+      showCompass: false,
+      visualizePitch: false
+    }),
+    "top-right"
+  );
+
+  map.on("load", () => {
+    map.setRenderWorldCopies(false);
+
+    map.addSource("lgd-shapes", {
+      type: "geojson",
+      data: styledLgdGeojson
+    });
+
+    map.addSource("sdz-shapes", {
+      type: "geojson",
+      data: styledSdzGeojson,
+      promoteId: "nisra_code"
+    });
+
+    addFillLayer("lgd-fill", "lgd-shapes");
+    addFillLayer("sdz-fill", "sdz-shapes");
+
+    addOutlineLayer("lgd-outline", "lgd-shapes", 2);
+    addOutlineLayer("sdz-outline", "sdz-shapes", 1);
+
+    addCursorPointer();
+
+    moveToBounds(mapBounds, false);
+
+    map.setMinZoom(map.getZoom() - 3);
+    map.setMaxZoom(map.getZoom() + 4);
+
+    addHoverPopup(map, "lgd-fill", "lgd-shapes", {
+      nameOnly: true,
+      enabled: () => !mapState.isCountryMap
+    });
+
+    addHoverPopup(map, "sdz-fill", "sdz-shapes", {
+      enabled: () => true
+    });
+
+    addLgdClick(map);
+    addSdzClick(map);
+    addTableHoverListener();
+  });
+}
+
+function buildLgdFeatures({ selectedLgdCode, selectedLgdName, isCountryMap }) {
+  return lgdGeojsonData.features
     .filter(feature => {
       if (isCountryMap) return false;
 
@@ -54,14 +174,25 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
           nisra_code: getLgdCode(feature),
           nisra_value: null,
           nisra_fill: fill,
-          nisra_fill_hover: darkenColour(fill, 0.18),
+          nisra_fill_hover: darkenColour(fill),
           nisra_hasValue: false,
           nisra_opacity: 0
         }
       };
     });
+}
 
-  const sdzFeatures = sdzGeojsonData.features
+function buildSdzFeatures({
+  sdzCodes,
+  ranks,
+  deprivation_type,
+  selectedLgdCode,
+  isCountryMap,
+  rangeMin,
+  range,
+  highlightSdz
+}) {
+  return sdzGeojsonData.features
     .filter(feature => {
       const sdzCode = getSdzCode(feature);
 
@@ -73,12 +204,11 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     .map((feature, idx) => {
       const sdzCode = getSdzCode(feature);
       const rawValue = ranks[sdzCode]?.ranks?.[deprivation_type];
-      const highlightedSdz = highlightSdz && sdzCode === highlightSdz;
 
       const fill =
         rawValue == null
           ? "#eeeeee"
-          : getColour((rawValue - range_min) / range);
+          : getColour((rawValue - rangeMin) / range);
 
       return {
         ...feature,
@@ -89,154 +219,30 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
           nisra_code: sdzCode,
           nisra_value: rawValue,
           nisra_fill: fill,
-          nisra_fill_hover: darkenColour(fill, 0.18),
-          nisra_hasValue: rawValue !== null && rawValue !== undefined,
-          nisra_highlight: highlightedSdz,
+          nisra_fill_hover: darkenColour(fill),
+          nisra_hasValue: rawValue != null,
+          nisra_highlight: highlightSdz && sdzCode === highlightSdz,
           nisra_opacity: 0.6
         }
       };
     });
+}
 
-  sdzFeatureIdByCode = new Map(
-    sdzFeatures.map(feature => [
-      feature.properties.nisra_code,
-      feature.id
-    ])
-  );
+async function getTargetBounds(map_data, highlightSdz) {
+  if (!highlightSdz) return map_data.bounds;
 
-  const styledLgdGeojson = {
-    ...lgdGeojsonData,
-    features: lgdFeatures
-  };
+  const highlightedSdzData = await readData(highlightSdz);
 
-  const styledSdzGeojson = {
-    ...sdzGeojsonData,
-    features: sdzFeatures
-  };
-
-  let mapBounds = map_data.bounds;
-
-  if (highlightSdz) {
-    const highlightedSdzData = await readData(highlightSdz);
-
-    if (Array.isArray(highlightedSdzData?.bounds)) {
-      mapBounds = [
-        highlightedSdzData.bounds[0] - 0.05,
-        highlightedSdzData.bounds[1] - 0.05,
-        highlightedSdzData.bounds[2] + 0.05,
-        highlightedSdzData.bounds[3] + 0.05
-      ];
-    }
+  if (!Array.isArray(highlightedSdzData?.bounds)) {
+    return map_data.bounds;
   }
 
-  if (map) {
-    if (selectedSdzId !== null) {
-      map.setFeatureState(
-        { source: "sdz-shapes", id: selectedSdzId },
-        { selected: false }
-      );
-
-      selectedSdzId = null;
-    }
-
-    if (tableHoveredSdzId !== null) {
-      map.setFeatureState(
-        { source: "sdz-shapes", id: tableHoveredSdzId },
-        { hover: false }
-      );
-
-      tableHoveredSdzId = null;
-    }
-
-    map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
-    map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
-
-    currentLgdBounds = isCountryMap ? null : map_data.bounds;
-
-    if (!preserveView) {
-      moveToBounds(mapBounds, animate);
-    }
-
-    return;
-  }
-
-  const ni_data = await readData("N92000002");
-  const niMaxBounds = normaliseBounds(ni_data.bounds);
-
-  map = new maplibregl.Map({
-  container: elementId,
-  style: "public/map/style-omt.json",
-  center: [-6.7, 54.7],
-  zoom: window.innerWidth < 1200 ? 6 : 7.5,
-  maxBounds: niMaxBounds,
-  attributionControl: false,
-  preserveDrawingBuffer: true,
-  canvasContextAttributes: {
-    preserveDrawingBuffer: true
-  }
-});
-
-  map.addControl(
-    new maplibregl.NavigationControl({
-      showZoom: true,
-      showCompass: false,
-      visualizePitch: false
-    }),
-    "top-right"
-  );
-
-  map.on("load", () => {
-    map.setRenderWorldCopies(false);
-
-    map.setMaxBounds(niMaxBounds);
-
-    map.addSource("lgd-shapes", {
-      type: "geojson",
-      data: styledLgdGeojson,
-      generateId: true
-    });
-
-    map.addSource("sdz-shapes", {
-     type: "geojson",
-     data: styledSdzGeojson,
-     promoteId: "nisra_code"
-    });
-
-    addFillLayer("lgd-fill", "lgd-shapes");
-    addFillLayer("sdz-fill", "sdz-shapes");
-
-    addOutlineLayer("lgd-outline", "lgd-shapes", 2);
-    addOutlineLayer("sdz-outline", "sdz-shapes", 1);
-
-    map.on("mousemove", e => {
-      const layers = currentIsCountryMap
-        ? ["sdz-fill"]
-        : ["sdz-fill", "lgd-fill"];
-
-      const features = map.queryRenderedFeatures(e.point, { layers });
-
-      map.getCanvas().style.cursor =
-        features.length > 0 ? "pointer" : "default";
-    });
-
-    moveToBounds(mapBounds, false);
-
-    map.setMinZoom(map.getZoom() - 3);
-    map.setMaxZoom(map.getZoom() + 4);
-
-    addHoverPopup(map, "lgd-fill", "lgd-shapes", {
-      nameOnly: true,
-      enabled: () => !currentIsCountryMap
-    });
-
-    addHoverPopup(map, "sdz-fill", "sdz-shapes", {
-      enabled: () => true
-    });
-
-    addLgdClick(map);
-    addSdzClick(map);
-    addTableHoverListener();
-  });
+  return [
+    highlightedSdzData.bounds[0] - 0.05,
+    highlightedSdzData.bounds[1] - 0.05,
+    highlightedSdzData.bounds[2] + 0.05,
+    highlightedSdzData.bounds[3] + 0.05
+  ];
 }
 
 function addFillLayer(id, source) {
@@ -256,7 +262,7 @@ function addFillLayer(id, source) {
   });
 }
 
-function addOutlineLayer(id, source, line_width) {
+function addOutlineLayer(id, source, lineWidth) {
   map.addLayer({
     id,
     type: "line",
@@ -279,8 +285,8 @@ function addOutlineLayer(id, source, line_width) {
         ["boolean", ["feature-state", "selected"], false],
         3,
         ["boolean", ["feature-state", "hover"], false],
-        line_width + 1,
-        line_width
+        lineWidth + 1,
+        lineWidth
       ],
       "line-opacity": [
         "case",
@@ -292,6 +298,19 @@ function addOutlineLayer(id, source, line_width) {
   });
 }
 
+function addCursorPointer() {
+  map.on("mousemove", e => {
+    const layers = mapState.isCountryMap
+      ? ["sdz-fill"]
+      : ["sdz-fill", "lgd-fill"];
+
+    const features = map.queryRenderedFeatures(e.point, { layers });
+
+    map.getCanvas().style.cursor =
+      features.length > 0 ? "pointer" : "default";
+  });
+}
+
 function addTableHoverListener() {
   if (tableHoverListenerAdded) return;
 
@@ -300,14 +319,11 @@ function addTableHoverListener() {
   window.addEventListener("sdzhover", e => {
     if (!map?.getSource("sdz-shapes")) return;
 
-    if (tableHoveredSdzId !== null) {
-      map.setFeatureState(
-        { source: "sdz-shapes", id: tableHoveredSdzId },
-        { hover: false }
-      );
-
-      tableHoveredSdzId = null;
-    }
+    tableHoveredSdzId = clearFeatureState(
+      "sdz-shapes",
+      tableHoveredSdzId,
+      "hover"
+    );
 
     const code = e.detail?.code;
     if (!code) return;
@@ -319,34 +335,6 @@ function addTableHoverListener() {
       { hover: true }
     );
   });
-}
-
-function getColour(norm) {
-  if (norm == null || Number.isNaN(norm) || norm < 0) return "#d3d3d3";
-
-  const idx = Math.max(
-    0,
-    Math.min(
-      config.scale_colours.length - 1,
-      Math.floor(norm * config.scale_colours.length)
-    )
-  );
-
-  return config.scale_colours[idx];
-}
-
-function darkenColour(hex, amount = 0.18) {
-  if (!hex || typeof hex !== "string" || !hex.startsWith("#") || hex.length !== 7) {
-    return hex;
-  }
-
-  const r = Math.round(parseInt(hex.slice(1, 3), 16) * (1 - amount));
-  const g = Math.round(parseInt(hex.slice(3, 5), 16) * (1 - amount));
-  const b = Math.round(parseInt(hex.slice(5, 7), 16) * (1 - amount));
-
-  return `#${r.toString(16).padStart(2, "0")}${g
-    .toString(16)
-    .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
 }
 
 function addHoverPopup(map, layerId, sourceId, options = {}) {
@@ -368,48 +356,50 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     const feature = e.features?.[0];
     if (!feature) return;
 
-    if (hoveredId !== null) {
-      map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
-    }
+    hoveredId = clearFeatureState(sourceId, hoveredId, "hover");
 
     hoveredId = feature.id;
-    map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: true });
 
-    const props = feature.properties;
-
-    const html = options.nameOnly
-      ? `<div><strong>${props.nisra_label}</strong></div>`
-      : `<div><strong>${props.nisra_label}</strong>: <strong>${
-          props.nisra_value == null
-            ? "Not available"
-            : Number(props.nisra_value).toLocaleString("en-GB")
-        }</strong></div>`;
+    map.setFeatureState(
+      { source: sourceId, id: hoveredId },
+      { hover: true }
+    );
 
     popup
       .setLngLat(e.lngLat)
-      .setHTML(html)
+      .setHTML(getPopupHtml(feature.properties, options))
       .addTo(map);
   });
 
   map.on("mouseleave", layerId, () => {
-    if (hoveredId !== null) {
-      map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
-      hoveredId = null;
-    }
-
+    hoveredId = clearFeatureState(sourceId, hoveredId, "hover");
     popup.remove();
   });
 }
 
+function getPopupHtml(props, options = {}) {
+  if (options.nameOnly) {
+    return `<div><strong>${props.nisra_label}</strong></div>`;
+  }
+
+  const value =
+    props.nisra_value == null
+      ? "Not available"
+      : Number(props.nisra_value).toLocaleString("en-GB");
+
+  return `<div><strong>${props.nisra_label}</strong>: <strong>${value}</strong></div>`;
+}
+
 function addLgdClick(map) {
   map.on("click", e => {
-    if (currentIsCountryMap) return;
+    if (mapState.isCountryMap) return;
 
     const features = map.queryRenderedFeatures(e.point, {
       layers: ["lgd-fill", "lgd-outline"]
     });
 
     const feature = features[0];
+
     const lgdCode =
       feature?.properties?.nisra_code ||
       feature?.properties?.LGDCode ||
@@ -428,14 +418,98 @@ function addLgdClick(map) {
   });
 }
 
+function addSdzClick(map) {
+  map.on("click", "sdz-fill", e => {
+    const feature = e.features?.[0];
+    if (!feature) return;
+
+    selectedSdzId = clearFeatureState(
+      "sdz-shapes",
+      selectedSdzId,
+      "selected"
+    );
+
+    selectedSdzId = feature.id;
+
+    map.setFeatureState(
+      { source: "sdz-shapes", id: selectedSdzId },
+      { selected: true }
+    );
+
+    const sdzCode = feature.properties?.nisra_code;
+
+    removeStaticSdzHighlight();
+
+    const url = new URL(window.location);
+    url.searchParams.set("sdz", sdzCode);
+
+    window.history.replaceState(
+      {},
+      "",
+      `${url.pathname}${url.search}${url.hash}`
+    );
+
+    if (currentLgdBounds) {
+      moveToBounds(currentLgdBounds);
+    }
+
+    window.dispatchEvent(
+      new CustomEvent("sdzselect", {
+        detail: { code: sdzCode }
+      })
+    );
+  });
+}
+
+function removeStaticSdzHighlight() {
+  const source = map.getSource("sdz-shapes");
+  const currentData = source?._data;
+
+  if (!source || !currentData?.features) return;
+
+  source.setData({
+    ...currentData,
+    features: currentData.features.map(feature => ({
+      ...feature,
+      properties: {
+        ...feature.properties,
+        nisra_highlight: false
+      }
+    }))
+  });
+}
+
+function clearCurrentFeatureStates() {
+  selectedSdzId = clearFeatureState(
+    "sdz-shapes",
+    selectedSdzId,
+    "selected"
+  );
+
+  tableHoveredSdzId = clearFeatureState(
+    "sdz-shapes",
+    tableHoveredSdzId,
+    "hover"
+  );
+}
+
+function clearFeatureState(source, id, stateName) {
+  if (id === null || !map?.getSource(source)) return null;
+
+  map.setFeatureState(
+    { source, id },
+    { [stateName]: false }
+  );
+
+  return null;
+}
+
 function moveToBounds(bounds, animate = true) {
   if (!Array.isArray(bounds) || bounds.length !== 4) return;
 
   map.resize();
 
-  const normalisedBounds = normaliseBounds(bounds);
-
-  map.fitBounds(normalisedBounds, {
+  map.fitBounds(normaliseBounds(bounds), {
     padding: 30,
     duration: animate ? 800 : 0,
     essential: true
@@ -449,6 +523,121 @@ function normaliseBounds(bounds) {
     [Math.min(lng1, lng2), Math.min(lat1, lat2)],
     [Math.max(lng1, lng2), Math.max(lat1, lat2)]
   ];
+}
+
+function animateSourceColours(sourceId, newGeojson, duration = 500) {
+  const source = map.getSource(sourceId);
+  const oldGeojson = source?._data;
+
+  if (!source || !oldGeojson?.features) {
+    source?.setData(newGeojson);
+    return;
+  }
+
+  const oldFillByCode = new Map(
+    oldGeojson.features.map(feature => [
+      feature.properties.nisra_code,
+      feature.properties.nisra_fill
+    ])
+  );
+
+  const start = performance.now();
+
+  function frame(now) {
+    const t = Math.min(1, (now - start) / duration);
+
+    const animatedGeojson = {
+      ...newGeojson,
+      features: newGeojson.features.map(feature => {
+        const code = feature.properties.nisra_code;
+        const from = oldFillByCode.get(code) || feature.properties.nisra_fill;
+        const to = feature.properties.nisra_fill;
+        const fill = interpolateColour(from, to, t);
+
+        return {
+          ...feature,
+          properties: {
+            ...feature.properties,
+            nisra_fill: fill,
+            nisra_fill_hover: darkenColour(fill)
+          }
+        };
+      })
+    };
+
+    source.setData(animatedGeojson);
+
+    if (t < 1) {
+      requestAnimationFrame(frame);
+    } else {
+      source.setData(newGeojson);
+    }
+  }
+
+  requestAnimationFrame(frame);
+}
+
+function interpolateColour(from, to, t) {
+  const start = hexToRgb(from);
+  const end = hexToRgb(to);
+
+  if (!start || !end) return to;
+
+  return rgbToHex([
+    lerp(start[0], end[0], t),
+    lerp(start[1], end[1], t),
+    lerp(start[2], end[2], t)
+  ]);
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function hexToRgb(hex) {
+  if (
+    !hex ||
+    typeof hex !== "string" ||
+    !hex.startsWith("#") ||
+    hex.length !== 7
+  ) {
+    return null;
+  }
+
+  return [
+    parseInt(hex.slice(1, 3), 16),
+    parseInt(hex.slice(3, 5), 16),
+    parseInt(hex.slice(5, 7), 16)
+  ];
+}
+
+function rgbToHex([r, g, b]) {
+  return `#${Math.round(r).toString(16).padStart(2, "0")}${Math.round(g)
+    .toString(16)
+    .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
+}
+
+function getColour(norm) {
+  if (norm == null || Number.isNaN(norm) || norm < 0) {
+    return "#d3d3d3";
+  }
+
+  const idx = Math.max(
+    0,
+    Math.min(
+      config.scale_colours.length - 1,
+      Math.floor(norm * config.scale_colours.length)
+    )
+  );
+
+  return config.scale_colours[idx];
+}
+
+function darkenColour(hex, amount = 0.18) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return hex;
+
+  return rgbToHex(rgb.map(value => value * (1 - amount)));
 }
 
 function getLgdCode(feature) {
@@ -478,64 +667,5 @@ function getSdzCode(feature) {
 }
 
 function getSdzName(feature) {
-  return String(
-    feature.properties.SDZ21_name ||
-      getSdzCode(feature)
-  );
-}
-
-function addSdzClick(map) {
-  map.on("click", "sdz-fill", e => {
-    const feature = e.features?.[0];
-    if (!feature) return;
-
-    if (selectedSdzId !== null) {
-      map.setFeatureState(
-        { source: "sdz-shapes", id: selectedSdzId },
-        { selected: false }
-      );
-    }
-
-    selectedSdzId = feature.id;
-
-    map.setFeatureState(
-      { source: "sdz-shapes", id: selectedSdzId },
-      { selected: true }
-    );
-
-    const sdzCode = feature.properties?.nisra_code;
-
-    const source = map.getSource("sdz-shapes");
-    const currentData = source?._data;
-
-    if (source && currentData?.features) {
-      source.setData({
-        ...currentData,
-        features: currentData.features.map(f => ({
-          ...f,
-          properties: {
-            ...f.properties,
-            nisra_highlight: false
-          }
-        }))
-      });
-    }
-
-    const url = new URL(window.location);
-    url.searchParams.set("sdz", sdzCode);
-
-    window.history.replaceState(
-      {},
-      "",
-      `${url.pathname}${url.search}${url.hash}`
-    );
-
-    if (currentLgdBounds) {
-      moveToBounds(currentLgdBounds);
-    }
-
-    window.dispatchEvent(new CustomEvent("sdzselect", {
-      detail: { code: sdzCode }
-    }));
-  });
+  return String(feature.properties.SDZ21_name || getSdzCode(feature));
 }
