@@ -1,4 +1,5 @@
 import { loadShapes } from "./load-shapes.js";
+import { readData } from "./read-data.js";
 
 export let map;
 
@@ -25,11 +26,9 @@ export async function plotNavMap(elementId, map_data, options = {}) {
         ...feature.properties,
         nisra_code: code,
         nisra_label: getSdzName(feature),
-
-        nisra_fill: "#eeeeee",
         nisra_line: code === selectedCode ? "#0078FF" : "#555",
         nisra_width: code === selectedCode ? 4 : 1,
-        nisra_opacity: 0.5
+        hover_opacity: code === selectedCode ? 0 : 0.4
       }
     };
   });
@@ -45,15 +44,18 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     return;
   }
 
+  const ni_data = await readData("N92000002");
+  const niMaxBounds = normaliseBounds(ni_data.bounds);
   
 
   map = new maplibregl.Map({
-    container: elementId,
-    style: "public/map/style-omt.json",
-    center: [-6.7, 54.7],
-    zoom: 7,
-    attributionControl: false
-  });
+  container: elementId,
+  style: "public/map/style-omt.json",
+  center: [-6.7, 54.7],
+  zoom: 7,
+  maxBounds: niMaxBounds,
+  attributionControl: false
+});
 
   map.addControl(
   new maplibregl.NavigationControl({
@@ -81,9 +83,14 @@ export async function plotNavMap(elementId, map_data, options = {}) {
       "case",
       ["boolean", ["feature-state", "hover"], false],
       "#999999",
-      ["get", "nisra_fill"]
+      "#fff"
     ],
-    "fill-opacity": ["get", "nisra_opacity"]
+    "fill-opacity": [
+      "case",
+      ["boolean", ["feature-state", "hover"], false],
+      ["get", "hover_opacity"],
+      0
+    ]
   }
 });
 
@@ -98,7 +105,7 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   source: "ni-boundary",
   paint: {
     "line-color": "#000",
-    "line-width": 2
+    "line-width": 4
   }
 });
 
@@ -122,9 +129,11 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     features.length > 0 ? "pointer" : "default";
 });
 
-    moveToBounds(map_data.bounds, false);
+  map.setMaxBounds(niMaxBounds);
 
-    addSdzClick(map);
+  moveToBounds(map_data.bounds, false);
+
+  addSdzClick(map);
 
     addHoverPopup(map, "sdz-fill", "sdz-shapes", { nameOnly: true });
   });
@@ -211,6 +220,17 @@ function moveToBounds(bounds, animate = true) {
     padding: 30,
     duration: animate ? 800 : 0
   });
+}
+
+function normaliseBounds(bounds) {
+  if (!bounds || bounds.length !== 4) return null;
+
+  const [lng1, lat1, lng2, lat2] = bounds;
+
+  return [
+    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
+    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
+  ];
 }
 
 function getSdzCode(feature) {

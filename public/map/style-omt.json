@@ -35,7 +35,7 @@
     {
       "id": "background",
       "type": "background",
-      "paint": {"background-color": "#ccc"}
+      "paint": {"background-color": "#F2F3F0"}
     },
     {
       "id": "park",
@@ -44,7 +44,7 @@
       "source-layer": "park",
       "filter": ["==", "$type", "Polygon"],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#ccc"}
+      "paint": {"fill-color": "#F2F3F0"}
     },
     {
       "id": "water",
