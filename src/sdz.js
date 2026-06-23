@@ -4,9 +4,8 @@ import { insertValue } from "./utils/insert-value.js";
 import { config } from "./config/config.js";
 import { postcodeSearch } from "./utils/postcode-search.js";
 import { getDeprivationSummary, getHeadline, getParagraph } from "./utils/deprivation-text.js";
-import { scaleChartMDM } from "./utils/scale-chart-mdm.js";
-import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { scaleChart } from "./utils/scale-chart.js";
+import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertScaleTable } from "./utils/insert-scale-table.js";
 import { plotNavMap } from "./utils/plot-nav-map.js";
 import { copySummary } from "./utils/copy-summary.js";
@@ -82,7 +81,10 @@ async function update_sdz({ animate = true } = {}) {
 
     document.getElementById("deprivation-summary").innerHTML = getDeprivationSummary(data);
 
-    scaleChartMDM("mdm-scale-chart", data);
+    scaleChart("mdm-scale-chart", data, "mdm", {
+      labels: "below",
+      annotation: true
+    });
 
     insertScaleTable("deprivation-scales", data);
 

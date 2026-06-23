@@ -72,8 +72,11 @@ async function update_lgd({ animate = true } = {}) {
 
   insertValue("place-name", data.name)
     
-  scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
-    
+  scaleChart("lgd-scale-chart", data, type_select.value, {
+    labels: "below",
+    marker: false
+  });
+
     const lgdTableContainer = document.getElementById("lgd-table-container");
     createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
@@ -86,7 +89,10 @@ async function update_lgd({ animate = true } = {}) {
           highlightSdz: sdz,
           preserveView: true
         })
-        scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
+        scaleChart("lgd-scale-chart", data, type_select.value, {
+          labels: "below",
+          marker: false
+        });
         createLGDTable(lgdTableContainer, data, type_select.value)
     });
   
