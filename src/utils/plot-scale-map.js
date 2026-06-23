@@ -158,17 +158,21 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
     return;
   }
 
+  const ni_data = await readData("N92000002");
+  const niMaxBounds = normaliseBounds(ni_data.bounds);
+
   map = new maplibregl.Map({
-    container: elementId,
-    style: "public/map/style-omt.json",
-    center: [-6.7, 54.7],
-    zoom: window.innerWidth < 1200 ? 6 : 7.5,
-    attributionControl: false,
-    preserveDrawingBuffer: true,
-    canvasContextAttributes: {
-      preserveDrawingBuffer: true
-    }
-  });
+  container: elementId,
+  style: "public/map/style-omt.json",
+  center: [-6.7, 54.7],
+  zoom: window.innerWidth < 1200 ? 6 : 7.5,
+  maxBounds: niMaxBounds,
+  attributionControl: false,
+  preserveDrawingBuffer: true,
+  canvasContextAttributes: {
+    preserveDrawingBuffer: true
+  }
+});
 
   map.addControl(
     new maplibregl.NavigationControl({
@@ -181,6 +185,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
   map.on("load", () => {
     map.setRenderWorldCopies(false);
+
+    map.setMaxBounds(niMaxBounds);
 
     map.addSource("lgd-shapes", {
       type: "geojson",
