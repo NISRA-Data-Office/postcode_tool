@@ -93,7 +93,7 @@ async function update_lgd({ animate = true } = {}) {
           labels: "below",
           marker: false
         });
-        createLGDTable(lgdTableContainer, data, type_select.value)
+        createLGDTable(lgdTableContainer, data, type_select.value, sdz)
     });
   
     const summaryContainer = document.getElementById("summary");

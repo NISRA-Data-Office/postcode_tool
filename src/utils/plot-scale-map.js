@@ -55,7 +55,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
           nisra_value: null,
           nisra_fill: fill,
           nisra_fill_hover: darkenColour(fill, 0.18),
-          nisra_hasValue: false
+          nisra_hasValue: false,
+          nisra_opacity: 0
         }
       };
     });
@@ -90,7 +91,8 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
           nisra_fill: fill,
           nisra_fill_hover: darkenColour(fill, 0.18),
           nisra_hasValue: rawValue !== null && rawValue !== undefined,
-          nisra_highlight: highlightedSdz
+          nisra_highlight: highlightedSdz,
+          nisra_opacity: 0.6
         }
       };
     });
@@ -119,10 +121,10 @@ export async function plotScaleMap(elementId, map_data, deprivation_type, option
 
     if (Array.isArray(highlightedSdzData?.bounds)) {
       mapBounds = [
-        highlightedSdzData.bounds[0] - 0.1,
-        highlightedSdzData.bounds[1] - 0.1,
-        highlightedSdzData.bounds[2] + 0.1,
-        highlightedSdzData.bounds[3] + 0.1
+        highlightedSdzData.bounds[0] - 0.05,
+        highlightedSdzData.bounds[1] - 0.05,
+        highlightedSdzData.bounds[2] + 0.05,
+        highlightedSdzData.bounds[3] + 0.05
       ];
     }
   }
@@ -249,7 +251,7 @@ function addFillLayer(id, source) {
         ["get", "nisra_fill_hover"],
         ["get", "nisra_fill"]
       ],
-      "fill-opacity": 0.7
+      "fill-opacity": ["get", "nisra_opacity"]
     }
   });
 }
