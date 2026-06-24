@@ -74,7 +74,7 @@ export async function plotScaleMap(
     map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
 
     if (animate) {
-      animateSourceColours("sdz-shapes", styledSdzGeojson, 500);
+      animateSourceColours("sdz-shapes", styledSdzGeojson, 1000);
     } else {
       map.getSource("sdz-shapes")?.setData(styledSdzGeojson);
     }
@@ -487,17 +487,33 @@ function clearCurrentFeatureStates() {
   );
 }
 
-function animateSourceColours(sourceId, newGeojson, duration = 500) {
-  const source = map.getSource(sourceId);
-  const oldGeojson = source?._data;
+let colourAnimationToken = 0;
 
-  if (!source || !oldGeojson?.features) {
+function animateSourceColours(sourceId, newGeojson, duration = 2000) {
+  const token = ++colourAnimationToken;
+
+  const source = map.getSource(sourceId);
+  const oldGeojson_raw = source?._data;
+
+  if (!source || !oldGeojson_raw?.features?.length) {
     source?.setData(newGeojson);
     return;
   }
 
+  const params = new URLSearchParams(window.location.search);
+  const lgd = params.get("lgd");
+
+  const oldFeaturesForCurrentLgd = oldGeojson_raw.features.filter(
+    feature => feature.properties.LGD_code === lgd
+  );
+
+  if (!oldFeaturesForCurrentLgd.length) {
+    source.setData(newGeojson);
+    return;
+  }
+
   const oldFillByCode = new Map(
-    oldGeojson.features.map(feature => [
+    oldFeaturesForCurrentLgd.map(feature => [
       feature.properties.nisra_code,
       feature.properties.nisra_fill
     ])
@@ -506,13 +522,15 @@ function animateSourceColours(sourceId, newGeojson, duration = 500) {
   const start = performance.now();
 
   function frame(now) {
+    if (token !== colourAnimationToken) return;
+
     const t = Math.min(1, (now - start) / duration);
 
     const animatedGeojson = {
       ...newGeojson,
       features: newGeojson.features.map(feature => {
         const code = feature.properties.nisra_code;
-        const from = oldFillByCode.get(code) || feature.properties.nisra_fill;
+        const from = oldFillByCode.get(code) ?? feature.properties.nisra_fill;
         const to = feature.properties.nisra_fill;
         const fill = interpolateColour(from, to, t);
 
