@@ -1,17 +1,14 @@
 {
   "code": "N21000152",
-  "name": "Cusher C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Cusher_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000002",
-      "name": "Armagh City, Banbridge and Craigavon",
-      "type": "lgd"
+      "name": "Armagh City, Banbridge and Craigavon"
     }
   ],
-  "children": [],
   "bounds": [-6.4059, 54.3551, -6.4239, 54.3627],
   "data": {
     "ranks": {

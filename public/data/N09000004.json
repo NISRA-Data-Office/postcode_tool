@@ -1,929 +1,803 @@
 {
   "code": "N09000004",
   "name": "Causeway Coast and Glens",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
-  "parents": [],
-  "children": [
-    {
-      "code": "N21000368",
-      "name": "Causeway A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000379",
-      "name": "The Glens A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000380",
-      "name": "The Glens B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000369",
-      "name": "Causeway B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000370",
-      "name": "Causeway C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000371",
-      "name": "Causeway D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000372",
-      "name": "Causeway E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000373",
-      "name": "Causeway F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000374",
-      "name": "Causeway G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000381",
-      "name": "The Glens C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000375",
-      "name": "Causeway H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000350",
-      "name": "Bann A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000376",
-      "name": "Causeway J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000358",
-      "name": "Coleraine A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000359",
-      "name": "Coleraine B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000377",
-      "name": "Causeway K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000360",
-      "name": "Coleraine C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000351",
-      "name": "Bann B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000382",
-      "name": "The Glens D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000361",
-      "name": "Coleraine D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000362",
-      "name": "Coleraine E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000363",
-      "name": "Coleraine F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000364",
-      "name": "Coleraine G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000383",
-      "name": "The Glens E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000378",
-      "name": "Causeway L",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000343",
-      "name": "Limavady A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000365",
-      "name": "Coleraine H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000366",
-      "name": "Coleraine J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000367",
-      "name": "Coleraine K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000352",
-      "name": "Bann C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000386",
-      "name": "Ballymoney A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000387",
-      "name": "Ballymoney B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000384",
-      "name": "The Glens F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000388",
-      "name": "Ballymoney C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000389",
-      "name": "Ballymoney D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000390",
-      "name": "Ballymoney E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000391",
-      "name": "Ballymoney F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000344",
-      "name": "Limavady B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000353",
-      "name": "Bann D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000336",
-      "name": "Benbradagh A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000345",
-      "name": "Limavady C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000346",
-      "name": "Limavady D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000392",
-      "name": "Ballymoney G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000385",
-      "name": "The Glens G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000337",
-      "name": "Benbradagh B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000347",
-      "name": "Limavady E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000348",
-      "name": "Limavady F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000349",
-      "name": "Limavady G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000338",
-      "name": "Benbradagh C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000393",
-      "name": "Ballymoney H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000394",
-      "name": "Ballymoney J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000354",
-      "name": "Bann E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000395",
-      "name": "Ballymoney K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000339",
-      "name": "Benbradagh D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000355",
-      "name": "Bann F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000356",
-      "name": "Bann G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000357",
-      "name": "Bann H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000340",
-      "name": "Benbradagh E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000396",
-      "name": "Ballymoney L",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000341",
-      "name": "Benbradagh F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000342",
-      "name": "Benbradagh G",
-      "type": "sdz"
-    }
-  ],
-  "children_count": 850,
+  "sdz_count": 850,
   "bounds": [-5.9769, 54.8203, -7.1659, 55.313],
   "data": {
     "ranks": {
       "N21000368": {
-        "mdm": 339,
-        "income": 98,
-        "employment": 489,
-        "health": 730,
-        "education": 421,
-        "services": 122,
-        "living": 378,
-        "crime": 610
+        "name": "Causeway_A",
+        "ranks": {
+          "mdm": 339,
+          "income": 98,
+          "employment": 489,
+          "health": 730,
+          "education": 421,
+          "services": 122,
+          "living": 378,
+          "crime": 610
+        }
       },
       "N21000379": {
-        "mdm": 261,
-        "income": 106,
-        "employment": 241,
-        "health": 332,
-        "education": 464,
-        "services": 285,
-        "living": 695,
-        "crime": 367
+        "name": "The_Glens_A",
+        "ranks": {
+          "mdm": 261,
+          "income": 106,
+          "employment": 241,
+          "health": 332,
+          "education": 464,
+          "services": 285,
+          "living": 695,
+          "crime": 367
+        }
       },
       "N21000380": {
-        "mdm": 262,
-        "income": 107,
-        "employment": 242,
-        "health": 333,
-        "education": 465,
-        "services": 286,
-        "living": 696,
-        "crime": 368
+        "name": "The_Glens_B",
+        "ranks": {
+          "mdm": 262,
+          "income": 107,
+          "employment": 242,
+          "health": 333,
+          "education": 465,
+          "services": 286,
+          "living": 696,
+          "crime": 368
+        }
       },
       "N21000369": {
-        "mdm": 337,
-        "income": 118,
-        "employment": 372,
-        "health": 577,
-        "education": 344,
-        "services": 279,
-        "living": 706,
-        "crime": 276
+        "name": "Causeway_B",
+        "ranks": {
+          "mdm": 337,
+          "income": 118,
+          "employment": 372,
+          "health": 577,
+          "education": 344,
+          "services": 279,
+          "living": 706,
+          "crime": 276
+        }
       },
       "N21000370": {
-        "mdm": 386,
-        "income": 120,
-        "employment": 528,
-        "health": 768,
-        "education": 479,
-        "services": 114,
-        "living": 301,
-        "crime": 585
+        "name": "Causeway_C",
+        "ranks": {
+          "mdm": 386,
+          "income": 120,
+          "employment": 528,
+          "health": 768,
+          "education": 479,
+          "services": 114,
+          "living": 301,
+          "crime": 585
+        }
       },
       "N21000371": {
-        "mdm": 353,
-        "income": 115,
-        "employment": 401,
-        "health": 600,
-        "education": 373,
-        "services": 277,
-        "living": 728,
-        "crime": 260
+        "name": "Causeway_D",
+        "ranks": {
+          "mdm": 353,
+          "income": 115,
+          "employment": 401,
+          "health": 600,
+          "education": 373,
+          "services": 277,
+          "living": 728,
+          "crime": 260
+        }
       },
       "N21000372": {
-        "mdm": 354,
-        "income": 116,
-        "employment": 402,
-        "health": 601,
-        "education": 374,
-        "services": 278,
-        "living": 729,
-        "crime": 261
+        "name": "Causeway_E",
+        "ranks": {
+          "mdm": 354,
+          "income": 116,
+          "employment": 402,
+          "health": 601,
+          "education": 374,
+          "services": 278,
+          "living": 729,
+          "crime": 261
+        }
       },
       "N21000373": {
-        "mdm": 543,
-        "income": 412,
-        "employment": 426,
-        "health": 565,
-        "education": 631,
-        "services": 511,
-        "living": 752,
-        "crime": 239
+        "name": "Causeway_F",
+        "ranks": {
+          "mdm": 543,
+          "income": 412,
+          "employment": 426,
+          "health": 565,
+          "education": 631,
+          "services": 511,
+          "living": 752,
+          "crime": 239
+        }
       },
       "N21000374": {
-        "mdm": 576,
-        "income": 464,
-        "employment": 477,
-        "health": 587,
-        "education": 665,
-        "services": 569,
-        "living": 722,
-        "crime": 255
+        "name": "Causeway_G",
+        "ranks": {
+          "mdm": 576,
+          "income": 464,
+          "employment": 477,
+          "health": 587,
+          "education": 665,
+          "services": 569,
+          "living": 722,
+          "crime": 255
+        }
       },
       "N21000381": {
-        "mdm": 217,
-        "income": 82,
-        "employment": 208,
-        "health": 301,
-        "education": 447,
-        "services": 273,
-        "living": 625,
-        "crime": 334
+        "name": "The_Glens_C",
+        "ranks": {
+          "mdm": 217,
+          "income": 82,
+          "employment": 208,
+          "health": 301,
+          "education": 447,
+          "services": 273,
+          "living": 625,
+          "crime": 334
+        }
       },
       "N21000375": {
-        "mdm": 647,
-        "income": 524,
-        "employment": 601,
-        "health": 658,
-        "education": 741,
-        "services": 519,
-        "living": 794,
-        "crime": 316
+        "name": "Causeway_H",
+        "ranks": {
+          "mdm": 647,
+          "income": 524,
+          "employment": 601,
+          "health": 658,
+          "education": 741,
+          "services": 519,
+          "living": 794,
+          "crime": 316
+        }
       },
       "N21000350": {
-        "mdm": 635,
-        "income": 350,
-        "employment": 663,
-        "health": 765,
-        "education": 721,
-        "services": 308,
-        "living": 717,
-        "crime": 557
+        "name": "Bann_A",
+        "ranks": {
+          "mdm": 635,
+          "income": 350,
+          "employment": 663,
+          "health": 765,
+          "education": 721,
+          "services": 308,
+          "living": 717,
+          "crime": 557
+        }
       },
       "N21000376": {
-        "mdm": 443,
-        "income": 199,
-        "employment": 563,
-        "health": 783,
-        "education": 523,
-        "services": 118,
-        "living": 299,
-        "crime": 583
+        "name": "Causeway_J",
+        "ranks": {
+          "mdm": 443,
+          "income": 199,
+          "employment": 563,
+          "health": 783,
+          "education": 523,
+          "services": 118,
+          "living": 299,
+          "crime": 583
+        }
       },
       "N21000358": {
-        "mdm": 121,
-        "income": 58,
-        "employment": 121,
-        "health": 158,
-        "education": 104,
-        "services": 404,
-        "living": 446,
-        "crime": 214
+        "name": "Coleraine_A",
+        "ranks": {
+          "mdm": 121,
+          "income": 58,
+          "employment": 121,
+          "health": 158,
+          "education": 104,
+          "services": 404,
+          "living": 446,
+          "crime": 214
+        }
       },
       "N21000359": {
-        "mdm": 255,
-        "income": 128,
-        "employment": 240,
-        "health": 287,
-        "education": 239,
-        "services": 472,
-        "living": 497,
-        "crime": 288
+        "name": "Coleraine_B",
+        "ranks": {
+          "mdm": 255,
+          "income": 128,
+          "employment": 240,
+          "health": 287,
+          "education": 239,
+          "services": 472,
+          "living": 497,
+          "crime": 288
+        }
       },
       "N21000377": {
-        "mdm": 116,
-        "income": 50,
-        "employment": 143,
-        "health": 201,
-        "education": 139,
-        "services": 342,
-        "living": 314,
-        "crime": 284
+        "name": "Causeway_K",
+        "ranks": {
+          "mdm": 116,
+          "income": 50,
+          "employment": 143,
+          "health": 201,
+          "education": 139,
+          "services": 342,
+          "living": 314,
+          "crime": 284
+        }
       },
       "N21000360": {
-        "mdm": 100,
-        "income": 54,
-        "employment": 98,
-        "health": 141,
-        "education": 91,
-        "services": 517,
-        "living": 388,
-        "crime": 250
+        "name": "Coleraine_C",
+        "ranks": {
+          "mdm": 100,
+          "income": 54,
+          "employment": 98,
+          "health": 141,
+          "education": 91,
+          "services": 517,
+          "living": 388,
+          "crime": 250
+        }
       },
       "N21000351": {
-        "mdm": 670,
-        "income": 421,
-        "employment": 733,
-        "health": 824,
-        "education": 746,
-        "services": 246,
-        "living": 768,
-        "crime": 689
+        "name": "Bann_B",
+        "ranks": {
+          "mdm": 670,
+          "income": 421,
+          "employment": 733,
+          "health": 824,
+          "education": 746,
+          "services": 246,
+          "living": 768,
+          "crime": 689
+        }
       },
       "N21000382": {
-        "mdm": 267,
-        "income": 97,
-        "employment": 395,
-        "health": 516,
-        "education": 434,
-        "services": 43,
-        "living": 317,
-        "crime": 654
+        "name": "The_Glens_D",
+        "ranks": {
+          "mdm": 267,
+          "income": 97,
+          "employment": 395,
+          "health": 516,
+          "education": 434,
+          "services": 43,
+          "living": 317,
+          "crime": 654
+        }
       },
       "N21000361": {
-        "mdm": 165,
-        "income": 79,
-        "employment": 167,
-        "health": 254,
-        "education": 199,
-        "services": 770,
-        "living": 99,
-        "crime": 72
+        "name": "Coleraine_D",
+        "ranks": {
+          "mdm": 165,
+          "income": 79,
+          "employment": 167,
+          "health": 254,
+          "education": 199,
+          "services": 770,
+          "living": 99,
+          "crime": 72
+        }
       },
       "N21000362": {
-        "mdm": 112,
-        "income": 63,
-        "employment": 110,
-        "health": 176,
-        "education": 123,
-        "services": 624,
-        "living": 289,
-        "crime": 221
+        "name": "Coleraine_E",
+        "ranks": {
+          "mdm": 112,
+          "income": 63,
+          "employment": 110,
+          "health": 176,
+          "education": 123,
+          "services": 624,
+          "living": 289,
+          "crime": 221
+        }
       },
       "N21000363": {
-        "mdm": 256,
-        "income": 207,
-        "employment": 220,
-        "health": 293,
-        "education": 238,
-        "services": 595,
-        "living": 386,
-        "crime": 199
+        "name": "Coleraine_F",
+        "ranks": {
+          "mdm": 256,
+          "income": 207,
+          "employment": 220,
+          "health": 293,
+          "education": 238,
+          "services": 595,
+          "living": 386,
+          "crime": 199
+        }
       },
       "N21000364": {
-        "mdm": 196,
-        "income": 127,
-        "employment": 194,
-        "health": 282,
-        "education": 213,
-        "services": 682,
-        "living": 157,
-        "crime": 73
+        "name": "Coleraine_G",
+        "ranks": {
+          "mdm": 196,
+          "income": 127,
+          "employment": 194,
+          "health": 282,
+          "education": 213,
+          "services": 682,
+          "living": 157,
+          "crime": 73
+        }
       },
       "N21000383": {
-        "mdm": 489,
-        "income": 351,
-        "employment": 553,
-        "health": 672,
-        "education": 752,
-        "services": 32,
-        "living": 263,
-        "crime": 665
+        "name": "The_Glens_E",
+        "ranks": {
+          "mdm": 489,
+          "income": 351,
+          "employment": 553,
+          "health": 672,
+          "education": 752,
+          "services": 32,
+          "living": 263,
+          "crime": 665
+        }
       },
       "N21000378": {
-        "mdm": 416,
-        "income": 287,
-        "employment": 415,
-        "health": 522,
-        "education": 430,
-        "services": 203,
-        "living": 577,
-        "crime": 698
+        "name": "Causeway_L",
+        "ranks": {
+          "mdm": 416,
+          "income": 287,
+          "employment": 415,
+          "health": 522,
+          "education": 430,
+          "services": 203,
+          "living": 577,
+          "crime": 698
+        }
       },
       "N21000343": {
-        "mdm": 376,
-        "income": 367,
-        "employment": 357,
-        "health": 471,
-        "education": 563,
-        "services": 260,
-        "living": 122,
-        "crime": 438
+        "name": "Limavady_A",
+        "ranks": {
+          "mdm": 376,
+          "income": 367,
+          "employment": 357,
+          "health": 471,
+          "education": 563,
+          "services": 260,
+          "living": 122,
+          "crime": 438
+        }
       },
       "N21000365": {
-        "mdm": 619,
-        "income": 331,
-        "employment": 556,
-        "health": 685,
-        "education": 607,
-        "services": 508,
-        "living": 570,
-        "crime": 486
+        "name": "Coleraine_H",
+        "ranks": {
+          "mdm": 619,
+          "income": 331,
+          "employment": 556,
+          "health": 685,
+          "education": 607,
+          "services": 508,
+          "living": 570,
+          "crime": 486
+        }
       },
       "N21000366": {
-        "mdm": 451,
-        "income": 297,
-        "employment": 364,
-        "health": 470,
-        "education": 383,
-        "services": 487,
-        "living": 530,
-        "crime": 296
+        "name": "Coleraine_J",
+        "ranks": {
+          "mdm": 451,
+          "income": 297,
+          "employment": 364,
+          "health": 470,
+          "education": 383,
+          "services": 487,
+          "living": 530,
+          "crime": 296
+        }
       },
       "N21000367": {
-        "mdm": 606,
-        "income": 330,
-        "employment": 478,
-        "health": 655,
-        "education": 578,
-        "services": 419,
-        "living": 761,
-        "crime": 617
+        "name": "Coleraine_K",
+        "ranks": {
+          "mdm": 606,
+          "income": 330,
+          "employment": 478,
+          "health": 655,
+          "education": 578,
+          "services": 419,
+          "living": 761,
+          "crime": 617
+        }
       },
       "N21000352": {
-        "mdm": 513,
-        "income": 460,
-        "employment": 417,
-        "health": 570,
-        "education": 443,
-        "services": 337,
-        "living": 637,
-        "crime": 328
+        "name": "Bann_C",
+        "ranks": {
+          "mdm": 513,
+          "income": 460,
+          "employment": 417,
+          "health": 570,
+          "education": 443,
+          "services": 337,
+          "living": 637,
+          "crime": 328
+        }
       },
       "N21000386": {
-        "mdm": 437,
-        "income": 366,
-        "employment": 311,
-        "health": 404,
-        "education": 517,
-        "services": 396,
-        "living": 290,
-        "crime": 489
+        "name": "Ballymoney_A",
+        "ranks": {
+          "mdm": 437,
+          "income": 366,
+          "employment": 311,
+          "health": 404,
+          "education": 517,
+          "services": 396,
+          "living": 290,
+          "crime": 489
+        }
       },
       "N21000387": {
-        "mdm": 358,
-        "income": 373,
-        "employment": 245,
-        "health": 290,
-        "education": 297,
-        "services": 538,
-        "living": 619,
-        "crime": 542
+        "name": "Ballymoney_B",
+        "ranks": {
+          "mdm": 358,
+          "income": 373,
+          "employment": 245,
+          "health": 290,
+          "education": 297,
+          "services": 538,
+          "living": 619,
+          "crime": 542
+        }
       },
       "N21000384": {
-        "mdm": 492,
-        "income": 428,
-        "employment": 603,
-        "health": 673,
-        "education": 633,
-        "services": 18,
-        "living": 326,
-        "crime": 751
+        "name": "The_Glens_F",
+        "ranks": {
+          "mdm": 492,
+          "income": 428,
+          "employment": 603,
+          "health": 673,
+          "education": 633,
+          "services": 18,
+          "living": 326,
+          "crime": 751
+        }
       },
       "N21000388": {
-        "mdm": 304,
-        "income": 301,
-        "employment": 200,
-        "health": 278,
-        "education": 324,
-        "services": 625,
-        "living": 358,
-        "crime": 416
+        "name": "Ballymoney_C",
+        "ranks": {
+          "mdm": 304,
+          "income": 301,
+          "employment": 200,
+          "health": 278,
+          "education": 324,
+          "services": 625,
+          "living": 358,
+          "crime": 416
+        }
       },
       "N21000389": {
-        "mdm": 284,
-        "income": 324,
-        "employment": 191,
-        "health": 210,
-        "education": 249,
-        "services": 614,
-        "living": 434,
-        "crime": 459
+        "name": "Ballymoney_D",
+        "ranks": {
+          "mdm": 284,
+          "income": 324,
+          "employment": 191,
+          "health": 210,
+          "education": 249,
+          "services": 614,
+          "living": 434,
+          "crime": 459
+        }
       },
       "N21000390": {
-        "mdm": 303,
-        "income": 377,
-        "employment": 196,
-        "health": 238,
-        "education": 272,
-        "services": 524,
-        "living": 482,
-        "crime": 536
+        "name": "Ballymoney_E",
+        "ranks": {
+          "mdm": 303,
+          "income": 377,
+          "employment": 196,
+          "health": 238,
+          "education": 272,
+          "services": 524,
+          "living": 482,
+          "crime": 536
+        }
       },
       "N21000391": {
-        "mdm": 384,
-        "income": 500,
-        "employment": 198,
-        "health": 244,
-        "education": 350,
-        "services": 634,
-        "living": 298,
-        "crime": 407
+        "name": "Ballymoney_F",
+        "ranks": {
+          "mdm": 384,
+          "income": 500,
+          "employment": 198,
+          "health": 244,
+          "education": 350,
+          "services": 634,
+          "living": 298,
+          "crime": 407
+        }
       },
       "N21000344": {
-        "mdm": 125,
-        "income": 220,
-        "employment": 92,
-        "health": 149,
-        "education": 152,
-        "services": 606,
-        "living": 165,
-        "crime": 96
+        "name": "Limavady_B",
+        "ranks": {
+          "mdm": 125,
+          "income": 220,
+          "employment": 92,
+          "health": 149,
+          "education": 152,
+          "services": 606,
+          "living": 165,
+          "crime": 96
+        }
       },
       "N21000353": {
-        "mdm": 449,
-        "income": 232,
-        "employment": 512,
-        "health": 699,
-        "education": 559,
-        "services": 104,
-        "living": 371,
-        "crime": 621
+        "name": "Bann_D",
+        "ranks": {
+          "mdm": 449,
+          "income": 232,
+          "employment": 512,
+          "health": 699,
+          "education": 559,
+          "services": 104,
+          "living": 371,
+          "crime": 621
+        }
       },
       "N21000336": {
-        "mdm": 244,
-        "income": 375,
-        "employment": 224,
-        "health": 324,
-        "education": 358,
-        "services": 220,
-        "living": 353,
-        "crime": 362
+        "name": "Benbradagh_A",
+        "ranks": {
+          "mdm": 244,
+          "income": 375,
+          "employment": 224,
+          "health": 324,
+          "education": 358,
+          "services": 220,
+          "living": 353,
+          "crime": 362
+        }
       },
       "N21000345": {
-        "mdm": 232,
-        "income": 236,
-        "employment": 173,
-        "health": 263,
-        "education": 295,
-        "services": 429,
-        "living": 471,
-        "crime": 216
+        "name": "Limavady_C",
+        "ranks": {
+          "mdm": 232,
+          "income": 236,
+          "employment": 173,
+          "health": 263,
+          "education": 295,
+          "services": 429,
+          "living": 471,
+          "crime": 216
+        }
       },
       "N21000346": {
-        "mdm": 418,
-        "income": 385,
-        "employment": 277,
-        "health": 366,
-        "education": 509,
-        "services": 291,
-        "living": 732,
-        "crime": 398
+        "name": "Limavady_D",
+        "ranks": {
+          "mdm": 418,
+          "income": 385,
+          "employment": 277,
+          "health": 366,
+          "education": 509,
+          "services": 291,
+          "living": 732,
+          "crime": 398
+        }
       },
       "N21000392": {
-        "mdm": 539,
-        "income": 511,
-        "employment": 639,
-        "health": 656,
-        "education": 674,
-        "services": 23,
-        "living": 280,
-        "crime": 836
+        "name": "Ballymoney_G",
+        "ranks": {
+          "mdm": 539,
+          "income": 511,
+          "employment": 639,
+          "health": 656,
+          "education": 674,
+          "services": 23,
+          "living": 280,
+          "crime": 836
+        }
       },
       "N21000385": {
-        "mdm": 474,
-        "income": 363,
-        "employment": 506,
-        "health": 647,
-        "education": 711,
-        "services": 42,
-        "living": 308,
-        "crime": 634
+        "name": "The_Glens_G",
+        "ranks": {
+          "mdm": 474,
+          "income": 363,
+          "employment": 506,
+          "health": 647,
+          "education": 711,
+          "services": 42,
+          "living": 308,
+          "crime": 634
+        }
       },
       "N21000337": {
-        "mdm": 102,
-        "income": 151,
-        "employment": 69,
-        "health": 118,
-        "education": 164,
-        "services": 329,
-        "living": 262,
-        "crime": 132
+        "name": "Benbradagh_B",
+        "ranks": {
+          "mdm": 102,
+          "income": 151,
+          "employment": 69,
+          "health": 118,
+          "education": 164,
+          "services": 329,
+          "living": 262,
+          "crime": 132
+        }
       },
       "N21000347": {
-        "mdm": 59,
-        "income": 91,
-        "employment": 41,
-        "health": 65,
-        "education": 78,
-        "services": 456,
-        "living": 417,
-        "crime": 27
+        "name": "Limavady_E",
+        "ranks": {
+          "mdm": 59,
+          "income": 91,
+          "employment": 41,
+          "health": 65,
+          "education": 78,
+          "services": 456,
+          "living": 417,
+          "crime": 27
+        }
       },
       "N21000348": {
-        "mdm": 468,
-        "income": 439,
-        "employment": 363,
-        "health": 428,
-        "education": 593,
-        "services": 213,
-        "living": 634,
-        "crime": 528
+        "name": "Limavady_F",
+        "ranks": {
+          "mdm": 468,
+          "income": 439,
+          "employment": 363,
+          "health": 428,
+          "education": 593,
+          "services": 213,
+          "living": 634,
+          "crime": 528
+        }
       },
       "N21000349": {
-        "mdm": 227,
-        "income": 234,
-        "employment": 159,
-        "health": 212,
-        "education": 307,
-        "services": 310,
-        "living": 666,
-        "crime": 259
+        "name": "Limavady_G",
+        "ranks": {
+          "mdm": 227,
+          "income": 234,
+          "employment": 159,
+          "health": 212,
+          "education": 307,
+          "services": 310,
+          "living": 666,
+          "crime": 259
+        }
       },
       "N21000338": {
-        "mdm": 411,
-        "income": 374,
-        "employment": 361,
-        "health": 431,
-        "education": 637,
-        "services": 120,
-        "living": 506,
-        "crime": 545
+        "name": "Benbradagh_C",
+        "ranks": {
+          "mdm": 411,
+          "income": 374,
+          "employment": 361,
+          "health": 431,
+          "education": 637,
+          "services": 120,
+          "living": 506,
+          "crime": 545
+        }
       },
       "N21000393": {
-        "mdm": 622,
-        "income": 660,
-        "employment": 675,
-        "health": 686,
-        "education": 679,
-        "services": 45,
-        "living": 189,
-        "crime": 825
+        "name": "Ballymoney_H",
+        "ranks": {
+          "mdm": 622,
+          "income": 660,
+          "employment": 675,
+          "health": 686,
+          "education": 679,
+          "services": 45,
+          "living": 189,
+          "crime": 825
+        }
       },
       "N21000394": {
-        "mdm": 528,
-        "income": 418,
-        "employment": 686,
-        "health": 715,
-        "education": 710,
-        "services": 15,
-        "living": 348,
-        "crime": 833
+        "name": "Ballymoney_J",
+        "ranks": {
+          "mdm": 528,
+          "income": 418,
+          "employment": 686,
+          "health": 715,
+          "education": 710,
+          "services": 15,
+          "living": 348,
+          "crime": 833
+        }
       },
       "N21000354": {
-        "mdm": 397,
-        "income": 216,
-        "employment": 515,
-        "health": 668,
-        "education": 501,
-        "services": 83,
-        "living": 428,
-        "crime": 738
+        "name": "Bann_E",
+        "ranks": {
+          "mdm": 397,
+          "income": 216,
+          "employment": 515,
+          "health": 668,
+          "education": 501,
+          "services": 83,
+          "living": 428,
+          "crime": 738
+        }
       },
       "N21000395": {
-        "mdm": 457,
-        "income": 354,
-        "employment": 485,
-        "health": 567,
-        "education": 493,
-        "services": 150,
-        "living": 426,
-        "crime": 663
+        "name": "Ballymoney_K",
+        "ranks": {
+          "mdm": 457,
+          "income": 354,
+          "employment": 485,
+          "health": 567,
+          "education": 493,
+          "services": 150,
+          "living": 426,
+          "crime": 663
+        }
       },
       "N21000339": {
-        "mdm": 263,
-        "income": 246,
-        "employment": 300,
-        "health": 372,
-        "education": 527,
-        "services": 57,
-        "living": 572,
-        "crime": 582
+        "name": "Benbradagh_D",
+        "ranks": {
+          "mdm": 263,
+          "income": 246,
+          "employment": 300,
+          "health": 372,
+          "education": 527,
+          "services": 57,
+          "living": 572,
+          "crime": 582
+        }
       },
       "N21000355": {
-        "mdm": 352,
-        "income": 104,
-        "employment": 560,
-        "health": 717,
-        "education": 585,
-        "services": 67,
-        "living": 292,
-        "crime": 813
+        "name": "Bann_F",
+        "ranks": {
+          "mdm": 352,
+          "income": 104,
+          "employment": 560,
+          "health": 717,
+          "education": 585,
+          "services": 67,
+          "living": 292,
+          "crime": 813
+        }
       },
       "N21000356": {
-        "mdm": 444,
-        "income": 164,
-        "employment": 599,
-        "health": 729,
-        "education": 685,
-        "services": 79,
-        "living": 536,
-        "crime": 784
+        "name": "Bann_G",
+        "ranks": {
+          "mdm": 444,
+          "income": 164,
+          "employment": 599,
+          "health": 729,
+          "education": 685,
+          "services": 79,
+          "living": 536,
+          "crime": 784
+        }
       },
       "N21000357": {
-        "mdm": 479,
-        "income": 253,
-        "employment": 571,
-        "health": 683,
-        "education": 645,
-        "services": 132,
-        "living": 391,
-        "crime": 687
+        "name": "Bann_H",
+        "ranks": {
+          "mdm": 479,
+          "income": 253,
+          "employment": 571,
+          "health": 683,
+          "education": 645,
+          "services": 132,
+          "living": 391,
+          "crime": 687
+        }
       },
       "N21000340": {
-        "mdm": 199,
-        "income": 57,
-        "employment": 223,
-        "health": 347,
-        "education": 431,
-        "services": 168,
-        "living": 605,
-        "crime": 667
+        "name": "Benbradagh_E",
+        "ranks": {
+          "mdm": 199,
+          "income": 57,
+          "employment": 223,
+          "health": 347,
+          "education": 431,
+          "services": 168,
+          "living": 605,
+          "crime": 667
+        }
       },
       "N21000396": {
-        "mdm": 419,
-        "income": 279,
-        "employment": 520,
-        "health": 595,
-        "education": 572,
-        "services": 134,
-        "living": 268,
-        "crime": 706
+        "name": "Ballymoney_L",
+        "ranks": {
+          "mdm": 419,
+          "income": 279,
+          "employment": 520,
+          "health": 595,
+          "education": 572,
+          "services": 134,
+          "living": 268,
+          "crime": 706
+        }
       },
       "N21000341": {
-        "mdm": 223,
-        "income": 45,
-        "employment": 274,
-        "health": 429,
-        "education": 499,
-        "services": 160,
-        "living": 514,
-        "crime": 785
+        "name": "Benbradagh_F",
+        "ranks": {
+          "mdm": 223,
+          "income": 45,
+          "employment": 274,
+          "health": 429,
+          "education": 499,
+          "services": 160,
+          "living": 514,
+          "crime": 785
+        }
       },
       "N21000342": {
-        "mdm": 224,
-        "income": 46,
-        "employment": 275,
-        "health": 430,
-        "education": 500,
-        "services": 161,
-        "living": 515,
-        "crime": 786
+        "name": "Benbradagh_G",
+        "ranks": {
+          "mdm": 224,
+          "income": 46,
+          "employment": 275,
+          "health": 430,
+          "education": 500,
+          "services": 161,
+          "living": 515,
+          "crime": 786
+        }
       }
     },
     "population": 141954,

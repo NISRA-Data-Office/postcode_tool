@@ -14,7 +14,13 @@
 
          <nav id ="nav" aria-label="breadcrumb"></nav>
 
-         <div class="row justify-content-end">
+         <div class="row mb-4">
+            <div class="col-12 col-xl-8">
+               <h2 id="headline" class="h1">Deprivation in <span class="blue-text place-name"></span></h2>
+               <p class="h4 mb-0">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
+               <p class="mb-0">Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
+               <p>Click on a neighbourhood to see its deprivation rank or click a neighbouring council to explore its deprivation profile.</p>
+            </div>
             <div class="col-12 col-xl-4">
                <div class="postcode-search">
                   <div class="input-group">
@@ -38,30 +44,20 @@
                      <div id="postcode-dropdown" class="postcode-dropdown"></div>
                   </div>
                   <div class="row mt-2 gap-1 gx-1">
-                     <button class="btn btn-primary col purple-bg rounded-0" onclick="window.location.href='about.html'">About</button>
-                     <button class="btn btn-primary col purple-bg rounded-0" onclick="window.print(); return false;">Download</button>
-                     <button class="btn btn-primary col purple-bg rounded-0" onclick="sharePage()">Share</button>
+                     <button class="btn btn-primary col purple-bg rounded-0" aria-label="About this app (opens About page)" onclick="window.location.href='about.html'">About</button>
+                     <button class="btn btn-primary col purple-bg rounded-0" aria-label="Download this page as a PDF" onclick="window.print(); return false;">Download</button>
+                     <button class="btn btn-primary col purple-bg rounded-0" aria-label="Share this page" onclick="sharePage()">Share</button>
                   </div>
                   <div id="postcode-dropdown" class="postcode-dropdown"></div>
-               </div>
-             
-            </div>
-       
+               
 
-         <div class="row my-3">
-            <div class="col-12 col-xl-8">
-               <h2 id="headline" class="h1">Deprivation in <span class="blue-text place-name"></span></h2>
-               <p class="h4 mb-0">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
-               <p class="mb-0">Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
-               <p>Click on a neighbourhood to see its deprivation rank or click a neighbouring council to explore its deprivation profile.</p>
-            </div>
-            <div class="col-12 col-xl-4">
-               <p class="mb-1">Select another council area:</p>
+               <p class="mt-3 mb-1">Select another area:</p>
                <select id="lgd-select" class="form-select rounded-0 black-border" aria-label="Select a council area"></select>
                <p class="mt-3 mb-1">Select a type of deprivation:</p>
                <select id="type-select" class="form-select rounded-0 black-border" aria-label="Select a council area"></select>
+             
             </div>
-         </div>
+            </div>
 
          <div class="row">
             <div class="col-12 col-xl-6 mb-3">
@@ -71,6 +67,8 @@
          <div class="col-12 col-xl-6 mb-3">
             <div id="lgd-table-container"></div>
             <p style="margin-top: 20px;">Click on a neighbourhood name in the table to view its deprivation profile.</p>
+         </div>
+
          </div>
 
          <div id="info-boxes"></div>
@@ -83,17 +81,18 @@
                <button class="btn btn-primary purple-bg mt-3 mb-4 rounded-0" id="copy-summary">Copy summary</button>
             </div>
          </div>
-            
-
   
          </div>
       </div>
 
 
       <div class="grey-bg h5 text-end mt-1 mb-0 border">
-         <a href="https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty" target="_blank" noopener="rel" title="Deprivation statistics on the NISRA website (opens in new window)">
-            View more deprivation resources and information
-         </a>
+         <div class="container py-1">
+            <a href="https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty" target="_blank" rel="noopener" title="Deprivation statistics on the NISRA website (opens in new window)">
+               View more deprivation resources and information
+            </a>
+         </div>
+         
       </div>
 
    </main>

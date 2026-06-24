@@ -1,17 +1,14 @@
 {
   "code": "N21000337",
-  "name": "Benbradagh B",
-  "comment": "This json includes data for the MDM app",
+  "name": "Benbradagh_B",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000004",
-      "name": "Causeway Coast and Glens",
-      "type": "lgd"
+      "name": "Causeway Coast and Glens"
     }
   ],
-  "children": [],
   "bounds": [-6.9112, 55.0046, -7.045, 55.08],
   "data": {
     "ranks": {

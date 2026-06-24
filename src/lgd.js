@@ -6,12 +6,12 @@ import { postcodeSearch } from "./utils/postcode-search.js";
 import { typeSelect } from "./utils/type-select.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { insertValue } from "./utils/insert-value.js";
-import { plotScaleMap } from "./utils/plotScaleMap.js";
+import { plotScaleMap } from "./utils/plot-scale-map.js";
 import { createLGDTable } from "./utils/lgd-table.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { lgdDeprivationSummary } from "./utils/deprivation-text.js";
 import { copySummary } from "./utils/copy-summary.js";
-import { goStart, handleOnScroll } from "./utils/scroll-button.js";
+import { handleOnScroll } from "./utils/scroll-button.js";
 import { sharePage } from "./utils/share-page.js";
 
 let type_select;
@@ -37,22 +37,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   type_select = document.getElementById("type-select");
 
-  copySummary();
-
-  type_select.addEventListener("change", async () => {
-    insertValue(
-      "deprivation-type",
-      config.deprivation_types[type_select.value].toLowerCase()
-    );
-
-    await update_lgd({ animate: false });
-  });
-
   await update_lgd({ animate: false });
 
   handleOnScroll();
-  const scrollBtn = document.getElementById("scroll-btn");
-  scrollBtn.addEventListener("click", goStart);
+
 });
 
 async function update_lgd({ animate = true } = {}) {
@@ -68,6 +56,11 @@ async function update_lgd({ animate = true } = {}) {
   const lgd = params.get("lgd");
   const sdz = params?.get("sdz");
   const data = await readData(lgd);
+  if (!data) {
+    window.location.pathname = "/";
+    window.location.search = "";
+    return;
+  }
   document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
 
   insertNavButtons(data);
@@ -81,25 +74,39 @@ async function update_lgd({ animate = true } = {}) {
   await plotScaleMap("scale-map", data, type_select.value, { animate,
     highlightSdz: sdz
    });
-    insertValue("place-name", data.name)
+
+  insertValue("place-name", data.name)
     
-    await plotScaleMap("scale-map", data, type_select.value);
-    scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
-    
+  scaleChart("lgd-scale-chart", data, type_select.value, {
+    labels: "below",
+    marker: false
+  });
+
     const lgdTableContainer = document.getElementById("lgd-table-container");
     createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
     type_select.addEventListener("change", () => {
+      const params = new URLSearchParams(window.location.search);
+      const sdz = params.get("sdz");
+
         insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
-        plotScaleMap("scale-map", data, type_select.value)
-        scaleChart("lgd-scale-chart", data, type_select.value, "below", false);
-        createLGDTable(lgdTableContainer, data, type_select.value)
+        plotScaleMap("scale-map", data, type_select.value, {
+          highlightSdz: sdz,
+          preserveView: true
+        })
+        scaleChart("lgd-scale-chart", data, type_select.value, {
+          labels: "below",
+          marker: false
+        });
+        createLGDTable(lgdTableContainer, data, type_select.value, sdz)
     });
   
     const summaryContainer = document.getElementById("summary");
 
     summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
-    
+
+    copySummary(data);
+
 }
 
 window.addEventListener("popstate", () => update_lgd({ animate: true }));

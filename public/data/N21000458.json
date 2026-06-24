@@ -1,17 +1,14 @@
 {
   "code": "N21000458",
-  "name": "Derg E",
-  "comment": "This json includes data for the MDM app",
+  "name": "Derg_E",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000005",
-      "name": "Derry City and Strabane",
-      "type": "lgd"
+      "name": "Derry City and Strabane"
     }
   ],
-  "children": [],
   "bounds": [-7.3629, 54.7109, -7.3946, 54.7232],
   "data": {
     "ranks": {

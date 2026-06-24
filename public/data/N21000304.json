@@ -1,17 +1,14 @@
 {
   "code": "N21000304",
-  "name": "Black Mountain D",
-  "comment": "This json includes data for the MDM app",
+  "name": "Black_Mountain_D",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.988, 54.5738, -6.0457, 54.6129],
   "data": {
     "ranks": {

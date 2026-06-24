@@ -1,989 +1,855 @@
 {
   "code": "N09000008",
   "name": "Mid and East Antrim",
-  "comment": "This json includes data for the MDM app.",
   "type": "lgd",
-  "parents": [],
-  "children": [
-    {
-      "code": "N21000601",
-      "name": "Coast Road A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000602",
-      "name": "Coast Road B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000591",
-      "name": "Braid A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000592",
-      "name": "Braid B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000593",
-      "name": "Braid C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000603",
-      "name": "Coast Road C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000572",
-      "name": "Bannside A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000594",
-      "name": "Braid D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000595",
-      "name": "Braid E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000573",
-      "name": "Bannside B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000574",
-      "name": "Bannside C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000581",
-      "name": "Ballymena A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000604",
-      "name": "Coast Road D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000582",
-      "name": "Ballymena B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000583",
-      "name": "Ballymena C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000584",
-      "name": "Ballymena D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000575",
-      "name": "Bannside D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000585",
-      "name": "Ballymena E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000605",
-      "name": "Coast Road E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000606",
-      "name": "Coast Road F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000586",
-      "name": "Ballymena F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000607",
-      "name": "Coast Road G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000610",
-      "name": "Larne Lough A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000608",
-      "name": "Coast Road H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000609",
-      "name": "Coast Road J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000587",
-      "name": "Ballymena G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000588",
-      "name": "Ballymena H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000589",
-      "name": "Ballymena J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000576",
-      "name": "Bannside E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000611",
-      "name": "Larne Lough B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000577",
-      "name": "Bannside F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000596",
-      "name": "Braid F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000612",
-      "name": "Larne Lough C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000597",
-      "name": "Braid G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000598",
-      "name": "Braid H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000578",
-      "name": "Bannside G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000590",
-      "name": "Ballymena K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000599",
-      "name": "Braid J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000579",
-      "name": "Bannside H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000613",
-      "name": "Larne Lough D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000614",
-      "name": "Larne Lough E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000580",
-      "name": "Bannside J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000600",
-      "name": "Braid K",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000615",
-      "name": "Larne Lough F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000616",
-      "name": "Larne Lough G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000617",
-      "name": "Larne Lough H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000619",
-      "name": "Carrick Castle A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000618",
-      "name": "Larne Lough J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000628",
-      "name": "Knockagh A",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000620",
-      "name": "Carrick Castle B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000621",
-      "name": "Carrick Castle C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000622",
-      "name": "Carrick Castle D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000623",
-      "name": "Carrick Castle E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000629",
-      "name": "Knockagh B",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000630",
-      "name": "Knockagh C",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000624",
-      "name": "Carrick Castle F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000631",
-      "name": "Knockagh D",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000625",
-      "name": "Carrick Castle G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000632",
-      "name": "Knockagh E",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000626",
-      "name": "Carrick Castle H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000633",
-      "name": "Knockagh F",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000627",
-      "name": "Carrick Castle J",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000634",
-      "name": "Knockagh G",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000635",
-      "name": "Knockagh H",
-      "type": "sdz"
-    },
-    {
-      "code": "N21000636",
-      "name": "Knockagh J",
-      "type": "sdz"
-    }
-  ],
-  "children_count": 850,
+  "sdz_count": 850,
   "bounds": [-5.688, 54.6889, -6.5064, 55.0563],
   "data": {
     "ranks": {
       "N21000601": {
-        "mdm": 433,
-        "income": 414,
-        "employment": 548,
-        "health": 660,
-        "education": 681,
-        "services": 27,
-        "living": 138,
-        "crime": 505
+        "name": "Coast_Road_A",
+        "ranks": {
+          "mdm": 433,
+          "income": 414,
+          "employment": 548,
+          "health": 660,
+          "education": 681,
+          "services": 27,
+          "living": 138,
+          "crime": 505
+        }
       },
       "N21000602": {
-        "mdm": 417,
-        "income": 398,
-        "employment": 579,
-        "health": 690,
-        "education": 697,
-        "services": 11,
-        "living": 102,
-        "crime": 512
+        "name": "Coast_Road_B",
+        "ranks": {
+          "mdm": 417,
+          "income": 398,
+          "employment": 579,
+          "health": 690,
+          "education": 697,
+          "services": 11,
+          "living": 102,
+          "crime": 512
+        }
       },
       "N21000591": {
-        "mdm": 586,
-        "income": 455,
-        "employment": 694,
-        "health": 759,
-        "education": 715,
-        "services": 35,
-        "living": 581,
-        "crime": 827
+        "name": "Braid_A",
+        "ranks": {
+          "mdm": 586,
+          "income": 455,
+          "employment": 694,
+          "health": 759,
+          "education": 715,
+          "services": 35,
+          "living": 581,
+          "crime": 827
+        }
       },
       "N21000592": {
-        "mdm": 693,
-        "income": 541,
-        "employment": 749,
-        "health": 777,
-        "education": 796,
-        "services": 163,
-        "living": 573,
-        "crime": 744
+        "name": "Braid_B",
+        "ranks": {
+          "mdm": 693,
+          "income": 541,
+          "employment": 749,
+          "health": 777,
+          "education": 796,
+          "services": 163,
+          "living": 573,
+          "crime": 744
+        }
       },
       "N21000593": {
-        "mdm": 568,
-        "income": 382,
-        "employment": 676,
-        "health": 689,
-        "education": 625,
-        "services": 232,
-        "living": 284,
-        "crime": 526
+        "name": "Braid_C",
+        "ranks": {
+          "mdm": 568,
+          "income": 382,
+          "employment": 676,
+          "health": 689,
+          "education": 625,
+          "services": 232,
+          "living": 284,
+          "crime": 526
+        }
       },
       "N21000603": {
-        "mdm": 537,
-        "income": 472,
-        "employment": 525,
-        "health": 605,
-        "education": 553,
-        "services": 250,
-        "living": 361,
-        "crime": 506
+        "name": "Coast_Road_C",
+        "ranks": {
+          "mdm": 537,
+          "income": 472,
+          "employment": 525,
+          "health": 605,
+          "education": 553,
+          "services": 250,
+          "living": 361,
+          "crime": 506
+        }
       },
       "N21000572": {
-        "mdm": 604,
-        "income": 614,
-        "employment": 604,
-        "health": 675,
-        "education": 555,
-        "services": 208,
-        "living": 227,
-        "crime": 638
+        "name": "Bannside_A",
+        "ranks": {
+          "mdm": 604,
+          "income": 614,
+          "employment": 604,
+          "health": 675,
+          "education": 555,
+          "services": 208,
+          "living": 227,
+          "crime": 638
+        }
       },
       "N21000594": {
-        "mdm": 737,
-        "income": 667,
-        "employment": 727,
-        "health": 702,
-        "education": 754,
-        "services": 266,
-        "living": 598,
-        "crime": 678
+        "name": "Braid_D",
+        "ranks": {
+          "mdm": 737,
+          "income": 667,
+          "employment": 727,
+          "health": 702,
+          "education": 754,
+          "services": 266,
+          "living": 598,
+          "crime": 678
+        }
       },
       "N21000595": {
-        "mdm": 738,
-        "income": 668,
-        "employment": 728,
-        "health": 703,
-        "education": 755,
-        "services": 267,
-        "living": 599,
-        "crime": 679
+        "name": "Braid_E",
+        "ranks": {
+          "mdm": 738,
+          "income": 668,
+          "employment": 728,
+          "health": 703,
+          "education": 755,
+          "services": 267,
+          "living": 599,
+          "crime": 679
+        }
       },
       "N21000573": {
-        "mdm": 683,
-        "income": 742,
-        "employment": 673,
-        "health": 679,
-        "education": 627,
-        "services": 233,
-        "living": 327,
-        "crime": 608
+        "name": "Bannside_B",
+        "ranks": {
+          "mdm": 683,
+          "income": 742,
+          "employment": 673,
+          "health": 679,
+          "education": 627,
+          "services": 233,
+          "living": 327,
+          "crime": 608
+        }
       },
       "N21000574": {
-        "mdm": 578,
-        "income": 362,
-        "employment": 682,
-        "health": 695,
-        "education": 731,
-        "services": 107,
-        "living": 332,
-        "crime": 800
+        "name": "Bannside_C",
+        "ranks": {
+          "mdm": 578,
+          "income": 362,
+          "employment": 682,
+          "health": 695,
+          "education": 731,
+          "services": 107,
+          "living": 332,
+          "crime": 800
+        }
       },
       "N21000581": {
-        "mdm": 464,
-        "income": 518,
-        "employment": 416,
-        "health": 359,
-        "education": 281,
-        "services": 377,
-        "living": 375,
-        "crime": 314
+        "name": "Ballymena_A",
+        "ranks": {
+          "mdm": 464,
+          "income": 518,
+          "employment": 416,
+          "health": 359,
+          "education": 281,
+          "services": 377,
+          "living": 375,
+          "crime": 314
+        }
       },
       "N21000604": {
-        "mdm": 550,
-        "income": 609,
-        "employment": 411,
-        "health": 387,
-        "education": 380,
-        "services": 357,
-        "living": 529,
-        "crime": 611
+        "name": "Coast_Road_D",
+        "ranks": {
+          "mdm": 550,
+          "income": 609,
+          "employment": 411,
+          "health": 387,
+          "education": 380,
+          "services": 357,
+          "living": 529,
+          "crime": 611
+        }
       },
       "N21000582": {
-        "mdm": 753,
-        "income": 768,
-        "employment": 736,
-        "health": 747,
-        "education": 703,
-        "services": 490,
-        "living": 279,
-        "crime": 567
+        "name": "Ballymena_B",
+        "ranks": {
+          "mdm": 753,
+          "income": 768,
+          "employment": 736,
+          "health": 747,
+          "education": 703,
+          "services": 490,
+          "living": 279,
+          "crime": 567
+        }
       },
       "N21000583": {
-        "mdm": 410,
-        "income": 451,
-        "employment": 342,
-        "health": 343,
-        "education": 283,
-        "services": 464,
-        "living": 352,
-        "crime": 307
+        "name": "Ballymena_C",
+        "ranks": {
+          "mdm": 410,
+          "income": 451,
+          "employment": 342,
+          "health": 343,
+          "education": 283,
+          "services": 464,
+          "living": 352,
+          "crime": 307
+        }
       },
       "N21000584": {
-        "mdm": 432,
-        "income": 465,
-        "employment": 354,
-        "health": 349,
-        "education": 274,
-        "services": 427,
-        "living": 418,
-        "crime": 330
+        "name": "Ballymena_D",
+        "ranks": {
+          "mdm": 432,
+          "income": 465,
+          "employment": 354,
+          "health": 349,
+          "education": 274,
+          "services": 427,
+          "living": 418,
+          "crime": 330
+        }
       },
       "N21000575": {
-        "mdm": 514,
-        "income": 307,
-        "employment": 588,
-        "health": 619,
-        "education": 656,
-        "services": 100,
-        "living": 435,
-        "crime": 811
+        "name": "Bannside_D",
+        "ranks": {
+          "mdm": 514,
+          "income": 307,
+          "employment": 588,
+          "health": 619,
+          "education": 656,
+          "services": 100,
+          "living": 435,
+          "crime": 811
+        }
       },
       "N21000585": {
-        "mdm": 374,
-        "income": 252,
-        "employment": 524,
-        "health": 491,
-        "education": 232,
-        "services": 704,
-        "living": 107,
-        "crime": 215
+        "name": "Ballymena_E",
+        "ranks": {
+          "mdm": 374,
+          "income": 252,
+          "employment": 524,
+          "health": 491,
+          "education": 232,
+          "services": 704,
+          "living": 107,
+          "crime": 215
+        }
       },
       "N21000605": {
-        "mdm": 237,
-        "income": 338,
-        "employment": 161,
-        "health": 220,
-        "education": 216,
-        "services": 420,
-        "living": 316,
-        "crime": 350
+        "name": "Coast_Road_E",
+        "ranks": {
+          "mdm": 237,
+          "income": 338,
+          "employment": 161,
+          "health": 220,
+          "education": 216,
+          "services": 420,
+          "living": 316,
+          "crime": 350
+        }
       },
       "N21000606": {
-        "mdm": 286,
-        "income": 430,
-        "employment": 238,
-        "health": 262,
-        "education": 198,
-        "services": 343,
-        "living": 381,
-        "crime": 342
+        "name": "Coast_Road_F",
+        "ranks": {
+          "mdm": 286,
+          "income": 430,
+          "employment": 238,
+          "health": 262,
+          "education": 198,
+          "services": 343,
+          "living": 381,
+          "crime": 342
+        }
       },
       "N21000586": {
-        "mdm": 763,
-        "income": 747,
-        "employment": 770,
-        "health": 800,
-        "education": 770,
-        "services": 354,
-        "living": 636,
-        "crime": 614
+        "name": "Ballymena_F",
+        "ranks": {
+          "mdm": 763,
+          "income": 747,
+          "employment": 770,
+          "health": 800,
+          "education": 770,
+          "services": 354,
+          "living": 636,
+          "crime": 614
+        }
       },
       "N21000607": {
-        "mdm": 427,
-        "income": 423,
-        "employment": 338,
-        "health": 383,
-        "education": 342,
-        "services": 575,
-        "living": 103,
-        "crime": 455
+        "name": "Coast_Road_G",
+        "ranks": {
+          "mdm": 427,
+          "income": 423,
+          "employment": 338,
+          "health": 383,
+          "education": 342,
+          "services": 575,
+          "living": 103,
+          "crime": 455
+        }
       },
       "N21000610": {
-        "mdm": 333,
-        "income": 383,
-        "employment": 283,
-        "health": 381,
-        "education": 340,
-        "services": 563,
-        "living": 54,
-        "crime": 341
+        "name": "Larne_Lough_A",
+        "ranks": {
+          "mdm": 333,
+          "income": 383,
+          "employment": 283,
+          "health": 381,
+          "education": 340,
+          "services": 563,
+          "living": 54,
+          "crime": 341
+        }
       },
       "N21000608": {
-        "mdm": 210,
-        "income": 403,
-        "employment": 130,
-        "health": 202,
-        "education": 172,
-        "services": 499,
-        "living": 225,
-        "crime": 315
+        "name": "Coast_Road_H",
+        "ranks": {
+          "mdm": 210,
+          "income": 403,
+          "employment": 130,
+          "health": 202,
+          "education": 172,
+          "services": 499,
+          "living": 225,
+          "crime": 315
+        }
       },
       "N21000609": {
-        "mdm": 275,
-        "income": 526,
-        "employment": 162,
-        "health": 249,
-        "education": 304,
-        "services": 587,
-        "living": 71,
-        "crime": 272
+        "name": "Coast_Road_J",
+        "ranks": {
+          "mdm": 275,
+          "income": 526,
+          "employment": 162,
+          "health": 249,
+          "education": 304,
+          "services": 587,
+          "living": 71,
+          "crime": 272
+        }
       },
       "N21000587": {
-        "mdm": 117,
-        "income": 99,
-        "employment": 226,
-        "health": 248,
-        "education": 84,
-        "services": 725,
-        "living": 136,
-        "crime": 37
+        "name": "Ballymena_G",
+        "ranks": {
+          "mdm": 117,
+          "income": 99,
+          "employment": 226,
+          "health": 248,
+          "education": 84,
+          "services": 725,
+          "living": 136,
+          "crime": 37
+        }
       },
       "N21000588": {
-        "mdm": 106,
-        "income": 89,
-        "employment": 126,
-        "health": 152,
-        "education": 107,
-        "services": 480,
-        "living": 759,
-        "crime": 90
+        "name": "Ballymena_H",
+        "ranks": {
+          "mdm": 106,
+          "income": 89,
+          "employment": 126,
+          "health": 152,
+          "education": 107,
+          "services": 480,
+          "living": 759,
+          "crime": 90
+        }
       },
       "N21000589": {
-        "mdm": 103,
-        "income": 86,
-        "employment": 123,
-        "health": 124,
-        "education": 86,
-        "services": 630,
-        "living": 512,
-        "crime": 61
+        "name": "Ballymena_J",
+        "ranks": {
+          "mdm": 103,
+          "income": 86,
+          "employment": 123,
+          "health": 124,
+          "education": 86,
+          "services": 630,
+          "living": 512,
+          "crime": 61
+        }
       },
       "N21000576": {
-        "mdm": 829,
-        "income": 785,
-        "employment": 837,
-        "health": 831,
-        "education": 817,
-        "services": 274,
-        "living": 753,
-        "crime": 805
+        "name": "Bannside_E",
+        "ranks": {
+          "mdm": 829,
+          "income": 785,
+          "employment": 837,
+          "health": 831,
+          "education": 817,
+          "services": 274,
+          "living": 753,
+          "crime": 805
+        }
       },
       "N21000611": {
-        "mdm": 281,
-        "income": 509,
-        "employment": 210,
-        "health": 281,
-        "education": 266,
-        "services": 647,
-        "living": 12,
-        "crime": 142
+        "name": "Larne_Lough_B",
+        "ranks": {
+          "mdm": 281,
+          "income": 509,
+          "employment": 210,
+          "health": 281,
+          "education": 266,
+          "services": 647,
+          "living": 12,
+          "crime": 142
+        }
       },
       "N21000577": {
-        "mdm": 757,
-        "income": 816,
-        "employment": 740,
-        "health": 726,
-        "education": 657,
-        "services": 210,
-        "living": 543,
-        "crime": 780
+        "name": "Bannside_F",
+        "ranks": {
+          "mdm": 757,
+          "income": 816,
+          "employment": 740,
+          "health": 726,
+          "education": 657,
+          "services": 210,
+          "living": 543,
+          "crime": 780
+        }
       },
       "N21000596": {
-        "mdm": 636,
-        "income": 456,
-        "employment": 781,
-        "health": 766,
-        "education": 759,
-        "services": 52,
-        "living": 445,
-        "crime": 693
+        "name": "Braid_F",
+        "ranks": {
+          "mdm": 636,
+          "income": 456,
+          "employment": 781,
+          "health": 766,
+          "education": 759,
+          "services": 52,
+          "living": 445,
+          "crime": 693
+        }
       },
       "N21000612": {
-        "mdm": 346,
-        "income": 353,
-        "employment": 319,
-        "health": 350,
-        "education": 284,
-        "services": 363,
-        "living": 382,
-        "crime": 290
+        "name": "Larne_Lough_C",
+        "ranks": {
+          "mdm": 346,
+          "income": 353,
+          "employment": 319,
+          "health": 350,
+          "education": 284,
+          "services": 363,
+          "living": 382,
+          "crime": 290
+        }
       },
       "N21000597": {
-        "mdm": 156,
-        "income": 146,
-        "employment": 183,
-        "health": 180,
-        "education": 98,
-        "services": 577,
-        "living": 574,
-        "crime": 112
+        "name": "Braid_G",
+        "ranks": {
+          "mdm": 156,
+          "income": 146,
+          "employment": 183,
+          "health": 180,
+          "education": 98,
+          "services": 577,
+          "living": 574,
+          "crime": 112
+        }
       },
       "N21000598": {
-        "mdm": 198,
-        "income": 203,
-        "employment": 211,
-        "health": 222,
-        "education": 174,
-        "services": 370,
-        "living": 702,
-        "crime": 172
+        "name": "Braid_H",
+        "ranks": {
+          "mdm": 198,
+          "income": 203,
+          "employment": 211,
+          "health": 222,
+          "education": 174,
+          "services": 370,
+          "living": 702,
+          "crime": 172
+        }
       },
       "N21000578": {
-        "mdm": 741,
-        "income": 791,
-        "employment": 734,
-        "health": 740,
-        "education": 671,
-        "services": 183,
-        "living": 555,
-        "crime": 768
+        "name": "Bannside_G",
+        "ranks": {
+          "mdm": 741,
+          "income": 791,
+          "employment": 734,
+          "health": 740,
+          "education": 671,
+          "services": 183,
+          "living": 555,
+          "crime": 768
+        }
       },
       "N21000590": {
-        "mdm": 755,
-        "income": 733,
-        "employment": 776,
-        "health": 773,
-        "education": 680,
-        "services": 359,
-        "living": 629,
-        "crime": 485
+        "name": "Ballymena_K",
+        "ranks": {
+          "mdm": 755,
+          "income": 733,
+          "employment": 776,
+          "health": 773,
+          "education": 680,
+          "services": 359,
+          "living": 629,
+          "crime": 485
+        }
       },
       "N21000599": {
-        "mdm": 234,
-        "income": 218,
-        "employment": 273,
-        "health": 273,
-        "education": 136,
-        "services": 561,
-        "living": 449,
-        "crime": 136
+        "name": "Braid_J",
+        "ranks": {
+          "mdm": 234,
+          "income": 218,
+          "employment": 273,
+          "health": 273,
+          "education": 136,
+          "services": 561,
+          "living": 449,
+          "crime": 136
+        }
       },
       "N21000579": {
-        "mdm": 723,
-        "income": 718,
-        "employment": 742,
-        "health": 779,
-        "education": 756,
-        "services": 73,
-        "living": 467,
-        "crime": 845
+        "name": "Bannside_H",
+        "ranks": {
+          "mdm": 723,
+          "income": 718,
+          "employment": 742,
+          "health": 779,
+          "education": 756,
+          "services": 73,
+          "living": 467,
+          "crime": 845
+        }
       },
       "N21000613": {
-        "mdm": 602,
-        "income": 480,
-        "employment": 698,
-        "health": 742,
-        "education": 678,
-        "services": 156,
-        "living": 320,
-        "crime": 572
+        "name": "Larne_Lough_D",
+        "ranks": {
+          "mdm": 602,
+          "income": 480,
+          "employment": 698,
+          "health": 742,
+          "education": 678,
+          "services": 156,
+          "living": 320,
+          "crime": 572
+        }
       },
       "N21000614": {
-        "mdm": 652,
-        "income": 655,
-        "employment": 710,
-        "health": 802,
-        "education": 609,
-        "services": 74,
-        "living": 488,
-        "crime": 773
+        "name": "Larne_Lough_E",
+        "ranks": {
+          "mdm": 652,
+          "income": 655,
+          "employment": 710,
+          "health": 802,
+          "education": 609,
+          "services": 74,
+          "living": 488,
+          "crime": 773
+        }
       },
       "N21000580": {
-        "mdm": 657,
-        "income": 673,
-        "employment": 724,
-        "health": 732,
-        "education": 672,
-        "services": 105,
-        "living": 472,
-        "crime": 791
+        "name": "Bannside_J",
+        "ranks": {
+          "mdm": 657,
+          "income": 673,
+          "employment": 724,
+          "health": 732,
+          "education": 672,
+          "services": 105,
+          "living": 472,
+          "crime": 791
+        }
       },
       "N21000600": {
-        "mdm": 695,
-        "income": 628,
-        "employment": 744,
-        "health": 716,
-        "education": 725,
-        "services": 92,
-        "living": 580,
-        "crime": 746
+        "name": "Braid_K",
+        "ranks": {
+          "mdm": 695,
+          "income": 628,
+          "employment": 744,
+          "health": 716,
+          "education": 725,
+          "services": 92,
+          "living": 580,
+          "crime": 746
+        }
       },
       "N21000615": {
-        "mdm": 621,
-        "income": 583,
-        "employment": 691,
-        "health": 778,
-        "education": 579,
-        "services": 87,
-        "living": 458,
-        "crime": 717
+        "name": "Larne_Lough_F",
+        "ranks": {
+          "mdm": 621,
+          "income": 583,
+          "employment": 691,
+          "health": 778,
+          "education": 579,
+          "services": 87,
+          "living": 458,
+          "crime": 717
+        }
       },
       "N21000616": {
-        "mdm": 632,
-        "income": 605,
-        "employment": 652,
-        "health": 721,
-        "education": 502,
-        "services": 180,
-        "living": 738,
-        "crime": 597
+        "name": "Larne_Lough_G",
+        "ranks": {
+          "mdm": 632,
+          "income": 605,
+          "employment": 652,
+          "health": 721,
+          "education": 502,
+          "services": 180,
+          "living": 738,
+          "crime": 597
+        }
       },
       "N21000617": {
-        "mdm": 650,
-        "income": 601,
-        "employment": 624,
-        "health": 744,
-        "education": 615,
-        "services": 226,
-        "living": 739,
-        "crime": 449
+        "name": "Larne_Lough_H",
+        "ranks": {
+          "mdm": 650,
+          "income": 601,
+          "employment": 624,
+          "health": 744,
+          "education": 615,
+          "services": 226,
+          "living": 739,
+          "crime": 449
+        }
       },
       "N21000619": {
-        "mdm": 772,
-        "income": 751,
-        "employment": 765,
-        "health": 764,
-        "education": 726,
-        "services": 257,
-        "living": 786,
-        "crime": 742
+        "name": "Carrick_Castle_A",
+        "ranks": {
+          "mdm": 772,
+          "income": 751,
+          "employment": 765,
+          "health": 764,
+          "education": 726,
+          "services": 257,
+          "living": 786,
+          "crime": 742
+        }
       },
       "N21000618": {
-        "mdm": 651,
-        "income": 602,
-        "employment": 625,
-        "health": 745,
-        "education": 616,
-        "services": 227,
-        "living": 740,
-        "crime": 450
+        "name": "Larne_Lough_J",
+        "ranks": {
+          "mdm": 651,
+          "income": 602,
+          "employment": 625,
+          "health": 745,
+          "education": 616,
+          "services": 227,
+          "living": 740,
+          "crime": 450
+        }
       },
       "N21000628": {
-        "mdm": 745,
-        "income": 786,
-        "employment": 729,
-        "health": 709,
-        "education": 695,
-        "services": 235,
-        "living": 721,
-        "crime": 713
+        "name": "Knockagh_A",
+        "ranks": {
+          "mdm": 745,
+          "income": 786,
+          "employment": 729,
+          "health": 709,
+          "education": 695,
+          "services": 235,
+          "living": 721,
+          "crime": 713
+        }
       },
       "N21000620": {
-        "mdm": 761,
-        "income": 770,
-        "employment": 735,
-        "health": 713,
-        "education": 629,
-        "services": 307,
-        "living": 720,
-        "crime": 690
+        "name": "Carrick_Castle_B",
+        "ranks": {
+          "mdm": 761,
+          "income": 770,
+          "employment": 735,
+          "health": 713,
+          "education": 629,
+          "services": 307,
+          "living": 720,
+          "crime": 690
+        }
       },
       "N21000621": {
-        "mdm": 790,
-        "income": 767,
-        "employment": 794,
-        "health": 771,
-        "education": 751,
-        "services": 265,
-        "living": 792,
-        "crime": 757
+        "name": "Carrick_Castle_C",
+        "ranks": {
+          "mdm": 790,
+          "income": 767,
+          "employment": 794,
+          "health": 771,
+          "education": 751,
+          "services": 265,
+          "living": 792,
+          "crime": 757
+        }
       },
       "N21000622": {
-        "mdm": 490,
-        "income": 631,
-        "employment": 329,
-        "health": 313,
-        "education": 264,
-        "services": 398,
-        "living": 843,
-        "crime": 479
+        "name": "Carrick_Castle_D",
+        "ranks": {
+          "mdm": 490,
+          "income": 631,
+          "employment": 329,
+          "health": 313,
+          "education": 264,
+          "services": 398,
+          "living": 843,
+          "crime": 479
+        }
       },
       "N21000623": {
-        "mdm": 724,
-        "income": 705,
-        "employment": 697,
-        "health": 667,
-        "education": 491,
-        "services": 301,
-        "living": 824,
-        "crime": 754
+        "name": "Carrick_Castle_E",
+        "ranks": {
+          "mdm": 724,
+          "income": 705,
+          "employment": 697,
+          "health": 667,
+          "education": 491,
+          "services": 301,
+          "living": 824,
+          "crime": 754
+        }
       },
       "N21000629": {
-        "mdm": 760,
-        "income": 840,
-        "employment": 648,
-        "health": 625,
-        "education": 634,
-        "services": 295,
-        "living": 817,
-        "crime": 770
+        "name": "Knockagh_B",
+        "ranks": {
+          "mdm": 760,
+          "income": 840,
+          "employment": 648,
+          "health": 625,
+          "education": 634,
+          "services": 295,
+          "living": 817,
+          "crime": 770
+        }
       },
       "N21000630": {
-        "mdm": 713,
-        "income": 788,
-        "employment": 662,
-        "health": 543,
-        "education": 602,
-        "services": 275,
-        "living": 815,
-        "crime": 677
+        "name": "Knockagh_C",
+        "ranks": {
+          "mdm": 713,
+          "income": 788,
+          "employment": 662,
+          "health": 543,
+          "education": 602,
+          "services": 275,
+          "living": 815,
+          "crime": 677
+        }
       },
       "N21000624": {
-        "mdm": 714,
-        "income": 758,
-        "employment": 684,
-        "health": 645,
-        "education": 440,
-        "services": 334,
-        "living": 763,
-        "crime": 688
+        "name": "Carrick_Castle_F",
+        "ranks": {
+          "mdm": 714,
+          "income": 758,
+          "employment": 684,
+          "health": 645,
+          "education": 440,
+          "services": 334,
+          "living": 763,
+          "crime": 688
+        }
       },
       "N21000631": {
-        "mdm": 145,
-        "income": 261,
-        "employment": 146,
-        "health": 126,
-        "education": 71,
-        "services": 627,
-        "living": 820,
-        "crime": 187
+        "name": "Knockagh_D",
+        "ranks": {
+          "mdm": 145,
+          "income": 261,
+          "employment": 146,
+          "health": 126,
+          "education": 71,
+          "services": 627,
+          "living": 820,
+          "crime": 187
+        }
       },
       "N21000625": {
-        "mdm": 238,
-        "income": 514,
-        "employment": 166,
-        "health": 179,
-        "education": 99,
-        "services": 697,
-        "living": 833,
-        "crime": 180
+        "name": "Carrick_Castle_G",
+        "ranks": {
+          "mdm": 238,
+          "income": 514,
+          "employment": 166,
+          "health": 179,
+          "education": 99,
+          "services": 697,
+          "living": 833,
+          "crime": 180
+        }
       },
       "N21000632": {
-        "mdm": 108,
-        "income": 189,
-        "employment": 127,
-        "health": 103,
-        "education": 30,
-        "services": 585,
-        "living": 806,
-        "crime": 163
+        "name": "Knockagh_E",
+        "ranks": {
+          "mdm": 108,
+          "income": 189,
+          "employment": 127,
+          "health": 103,
+          "education": 30,
+          "services": 585,
+          "living": 806,
+          "crime": 163
+        }
       },
       "N21000626": {
-        "mdm": 200,
-        "income": 461,
-        "employment": 154,
-        "health": 144,
-        "education": 83,
-        "services": 677,
-        "living": 814,
-        "crime": 129
+        "name": "Carrick_Castle_H",
+        "ranks": {
+          "mdm": 200,
+          "income": 461,
+          "employment": 154,
+          "health": 144,
+          "education": 83,
+          "services": 677,
+          "living": 814,
+          "crime": 129
+        }
       },
       "N21000633": {
-        "mdm": 541,
-        "income": 701,
-        "employment": 451,
-        "health": 306,
-        "education": 245,
-        "services": 439,
-        "living": 822,
-        "crime": 358
+        "name": "Knockagh_F",
+        "ranks": {
+          "mdm": 541,
+          "income": 701,
+          "employment": 451,
+          "health": 306,
+          "education": 245,
+          "services": 439,
+          "living": 822,
+          "crime": 358
+        }
       },
       "N21000627": {
-        "mdm": 335,
-        "income": 548,
-        "employment": 257,
-        "health": 243,
-        "education": 176,
-        "services": 604,
-        "living": 826,
-        "crime": 194
+        "name": "Carrick_Castle_J",
+        "ranks": {
+          "mdm": 335,
+          "income": 548,
+          "employment": 257,
+          "health": 243,
+          "education": 176,
+          "services": 604,
+          "living": 826,
+          "crime": 194
+        }
       },
       "N21000634": {
-        "mdm": 673,
-        "income": 691,
-        "employment": 667,
-        "health": 589,
-        "education": 565,
-        "services": 346,
-        "living": 805,
-        "crime": 498
+        "name": "Knockagh_G",
+        "ranks": {
+          "mdm": 673,
+          "income": 691,
+          "employment": 667,
+          "health": 589,
+          "education": 565,
+          "services": 346,
+          "living": 805,
+          "crime": 498
+        }
       },
       "N21000635": {
-        "mdm": 679,
-        "income": 714,
-        "employment": 668,
-        "health": 580,
-        "education": 551,
-        "services": 350,
-        "living": 804,
-        "crime": 517
+        "name": "Knockagh_H",
+        "ranks": {
+          "mdm": 679,
+          "income": 714,
+          "employment": 668,
+          "health": 580,
+          "education": 551,
+          "services": 350,
+          "living": 804,
+          "crime": 517
+        }
       },
       "N21000636": {
-        "mdm": 680,
-        "income": 713,
-        "employment": 671,
-        "health": 585,
-        "education": 552,
-        "services": 372,
-        "living": 774,
-        "crime": 533
+        "name": "Knockagh_J",
+        "ranks": {
+          "mdm": 680,
+          "income": 713,
+          "employment": 671,
+          "health": 585,
+          "education": 552,
+          "services": 372,
+          "living": 774,
+          "crime": 533
+        }
       }
     },
     "population": 139913,

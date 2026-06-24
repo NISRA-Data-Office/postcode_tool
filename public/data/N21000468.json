@@ -1,17 +1,14 @@
 {
   "code": "N21000468",
-  "name": "Erne West A",
-  "comment": "This json includes data for the MDM app",
+  "name": "Erne_West_A",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000006",
-      "name": "Fermanagh and Omagh",
-      "type": "lgd"
+      "name": "Fermanagh and Omagh"
     }
   ],
-  "children": [],
   "bounds": [-7.7891, 54.3465, -8.1775, 54.4776],
   "data": {
     "ranks": {

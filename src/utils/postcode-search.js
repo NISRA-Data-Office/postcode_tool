@@ -1,3 +1,5 @@
+export let postcode_data;
+
 export async function postcodeSearch(id) {
   const input = document.getElementById(id);
   const goButton = document.getElementById("postcode-go");
@@ -11,7 +13,7 @@ export async function postcodeSearch(id) {
   input.setAttribute("spellcheck", "false");
 
   const response = await fetch("public/search_data/postcode.json");
-  const data = await response.json();
+  postcode_data = await response.json();
 
   let selectedIndex = -1;
   let currentMatches = [];
@@ -22,7 +24,7 @@ export async function postcodeSearch(id) {
 
   const postcodes = [];
 
-  Object.entries(data).forEach(([sdzCode, sdz]) => {
+  Object.entries(postcode_data).forEach(([sdzCode, sdz]) => {
     sdz.codes.forEach(postcode => {
       postcodes.push({
         postcode,

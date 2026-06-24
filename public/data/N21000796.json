@@ -1,17 +1,14 @@
 {
   "code": "N21000796",
-  "name": "Holywood and Clandeboye B",
-  "comment": "This json includes data for the MDM app",
+  "name": "Holywood_and_Clandeboye_B",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000011",
-      "name": "Ards and North Down",
-      "type": "lgd"
+      "name": "Ards and North Down"
     }
   ],
-  "children": [],
   "bounds": [-5.6928, 54.6603, -5.715, 54.6684],
   "data": {
     "ranks": {

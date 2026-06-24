@@ -1,4 +1,5 @@
-import { loadShapes } from "./load-shapes.js";
+import { loadShapes, normaliseBounds, moveToBounds, getSdzCode, getSdzName } from "./map-helpers.js";
+import { readData } from "./read-data.js";
 
 export let map;
 
@@ -25,11 +26,9 @@ export async function plotNavMap(elementId, map_data, options = {}) {
         ...feature.properties,
         nisra_code: code,
         nisra_label: getSdzName(feature),
-
-        nisra_fill: code === selectedCode ? "#0078FF" : "#eeeeee",
         nisra_line: code === selectedCode ? "#0078FF" : "#555",
         nisra_width: code === selectedCode ? 4 : 1,
-        nisra_opacity: code === selectedCode ? 0.3 : 0.8
+        hover_opacity: code === selectedCode ? 0 : 0.4
       }
     };
   });
@@ -41,19 +40,25 @@ export async function plotNavMap(elementId, map_data, options = {}) {
 
   if (map) {
     map.getSource("sdz-shapes")?.setData(geojson);
-    moveToBounds(map_data.bounds, animate);
+    moveToBounds(map, map_data.bounds, animate);
     return;
   }
 
+  const ni_data = await readData("N92000002");
+  const niMaxBounds = normaliseBounds(ni_data.bounds);
   
 
   map = new maplibregl.Map({
-    container: elementId,
-    style: "public/map/style-omt.json",
-    center: [-6.7, 54.7],
-    zoom: 7,
-    attributionControl: false
-  });
+  container: elementId,
+  style: "public/map/style-omt.json",
+  center: [-6.7, 54.7],
+  zoom: 7,
+  maxBounds: niMaxBounds,
+  attributionControl: false,
+  cooperativeGestures: true,
+  dragRotate: false,
+  disableRotation: false
+});
 
   map.addControl(
   new maplibregl.NavigationControl({
@@ -73,14 +78,24 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     });
 
     map.addLayer({
-      id: "sdz-fill",
-      type: "fill",
-      source: "sdz-shapes",
-      paint: {
-        "fill-color": ["get", "nisra_fill"],
-        "fill-opacity": ["get", "nisra_opacity"]
-      }
-    });
+  id: "sdz-fill",
+  type: "fill",
+  source: "sdz-shapes",
+  paint: {
+    "fill-color": [
+      "case",
+      ["boolean", ["feature-state", "hover"], false],
+      "#999999",
+      "#fff"
+    ],
+    "fill-opacity": [
+      "case",
+      ["boolean", ["feature-state", "hover"], false],
+      ["get", "hover_opacity"],
+      0
+    ]
+  }
+});
 
      map.addSource("ni-boundary", {
     type: "geojson",
@@ -93,7 +108,7 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   source: "ni-boundary",
   paint: {
     "line-color": "#000",
-    "line-width": 2
+    "line-width": 4
   }
 });
 
@@ -117,9 +132,11 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     features.length > 0 ? "pointer" : "default";
 });
 
-    moveToBounds(map_data.bounds, false);
+  map.setMaxBounds(niMaxBounds);
 
-    addSdzClick(map);
+  moveToBounds(map, map_data.bounds, false);
+
+  addSdzClick(map);
 
     addHoverPopup(map, "sdz-fill", "sdz-shapes", { nameOnly: true });
   });
@@ -153,7 +170,6 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mousemove", layerId, e => {
-    // map.getCanvas().style.cursor = "pointer";
 
     const feature = e.features?.[0];
     if (!feature) return;
@@ -182,7 +198,6 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-    // map.getCanvas().style.cursor = "";
 
     if (hoveredId !== null) {
       map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: false });
@@ -191,31 +206,4 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 
     popup.remove();
   });
-}
-
-
-function moveToBounds(bounds, animate = true) {
-  if (!bounds || bounds.length !== 4) return;
-
-  const [lng1, lat1, lng2, lat2] = bounds;
-
-  const normalisedBounds = [
-    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
-    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
-  ];
-
-  map.fitBounds(normalisedBounds, {
-    padding: 30,
-    duration: animate ? 800 : 0
-  });
-}
-
-function getSdzCode(feature) {
-  return String(feature.properties.SDZ21_code || "");
-}
-
-function getSdzName(feature) {
-  return String(
-    feature.properties.SDZ21_name || getSdzCode(feature)
-  ).replaceAll("_", " ");
 }

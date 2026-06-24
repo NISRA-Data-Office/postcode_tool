@@ -1,17 +1,14 @@
 {
   "code": "N21000127",
-  "name": "Lagan River D",
-  "comment": "This json includes data for the MDM app",
+  "name": "Lagan_River_D",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000002",
-      "name": "Armagh City, Banbridge and Craigavon",
-      "type": "lgd"
+      "name": "Armagh City, Banbridge and Craigavon"
     }
   ],
-  "children": [],
   "bounds": [-6.1303, 54.4131, -6.1484, 54.4209],
   "data": {
     "ranks": {

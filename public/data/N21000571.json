@@ -1,17 +1,14 @@
 {
   "code": "N21000571",
-  "name": "Castlereagh East K",
-  "comment": "This json includes data for the MDM app",
+  "name": "Castlereagh_East_K",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000007",
-      "name": "Lisburn and Castlereagh",
-      "type": "lgd"
+      "name": "Lisburn and Castlereagh"
     }
   ],
-  "children": [],
   "bounds": [-5.8176, 54.5216, -5.8338, 54.5368],
   "data": {
     "ranks": {

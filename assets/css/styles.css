@@ -18,7 +18,7 @@ body {
 
 /* Headings per style guide */
 h1 { font-size: 28px; line-height: 1.285; font-weight: 700; }
-@media (min-width: 992px) { h1 { font-size: 30px; line-height: 1.3; } }
+@media (min-width: 992px) { h1 { font-size: 40px; line-height: 1.3; } }
 
 h2 { font-size: 24px; line-height: 1.333; font-weight: 400; }
 @media (min-width: 992px) { h2 { font-size: 25px; line-height: 1.32; } }
@@ -228,32 +228,6 @@ table tr:not(:has(th)):hover {
   color: #000;
 }
 
-/* Your custom background */
-.navy-bg {
-  background-color: var(--nisra_navy) !important;
-  color: #fff !important;
-}
-
-.nav-btn {
-  background-color: var(--nisra_blue);
-  border: 2px solid var(--nisra_navy);
-}
-
-.nav-btn:hover {
-  background-color: #6B7EA0;
-  cursor: pointer;
-}
-
-.chart-canvas {
-  height: 40vh !important;
-}
-
-@media (max-width: 1200px) { 
-  .chart-canvas {
-    height: 80vh !important;
-  } 
-}
-
 /* Only when expanded (i.e., NOT collapsed) */
 .accordion-button:not(.collapsed) {
   background-color: var(--nisra_navy);
@@ -282,6 +256,10 @@ table tr:not(:has(th)):hover {
     border-left: 2px solid var(--nisra_navy);
     border-right: 2px solid var(--nisra_navy);
   }
+  #lgd-table-container th,
+  #lgd-table-container td {
+    font-size: smaller;
+  }
 }
 
 .info-card-wrap {
@@ -301,51 +279,6 @@ table tr:not(:has(th)):hover {
 .info-card-wrap:has(.accordion-collapse.show){
   grid-template-rows: 1fr;   /* open */
   opacity: 1;
-}
-
-#info-content p {
-  margin-bottom: 1em;
-}
-
-.y-label {
-  position: absolute;
-  left: 2.5em;
-  color: #666666;
-  font-size: 0.75rem
-}
-
-.nisra-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid #0b0c0c;
-  margin-top: 1rem;
-}
-
-.nisra-table caption {
-  caption-side: top;
-  text-align: left;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.nisra-table th,
-.nisra-table td {
-  border: 1px solid #b1b4b6;
-  padding: 0.6rem;
-  vertical-align: top;
-  text-align: left;
-}
-
-.nisra-table thead th {
-  background-color: #f3f2f1;
-}
-
-.nisra-table tbody th {
-  font-weight: 600;
-}
-
-.card-footer {
-  margin-top: auto;
 }
 
 /* Clear, consistent focus style for keyboard users */
@@ -401,12 +334,6 @@ table tr:not(:has(th)):hover {
 
 .tab-pane p {
   margin-bottom: 1em;
-}
-
-#co2-diff {
-  font-size: 0.875em;
-  color: #555555;
-  background-color: #fff;
 }
 
 /* Table Styling */
@@ -488,7 +415,7 @@ thead th {
 }
 
 #lgd-table-container {
-  max-height: 500px;
+  height: calc(45px * 11);
   overflow-y: auto;
 }
 
@@ -499,8 +426,9 @@ thead th {
 
 #lgd-table-container th,
 #lgd-table-container td {
+  height: 45px;
   border: 1px solid #ffffff;
-  padding: 10px;
+  padding: 0 10px;
   text-align: left;
 }
 
@@ -514,11 +442,16 @@ thead th {
   color: #fff;
 }
 
-#lgd-table-container th:first-child,
-#lgd-table-container td:first-child {
-  width: 160px;
-  min-width: 160px;
-  max-width: 160px;
+#lgd-table-container th:nth-child(1),
+#lgd-table-container td:nth-child(1) {
+  width: 20%;
+}
+
+#lgd-table-container th:nth-child(2),
+#lgd-table-container td:nth-child(2),
+#lgd-table-container th:nth-child(3),
+#lgd-table-container td:nth-child(3) {
+  width: 40%;
 }
 
 #lgd-table-container tbody tr:hover td {
@@ -535,16 +468,12 @@ thead th {
   font-weight: bold;
 }
 
-#info-boxes {
-  margin-top: 20px;
-}
-
 #background-map {
   background-image: url("../img/nimdm_sdz_map.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 350px 0 350px 0
+  padding: 150px 0 350px 0
 }
 
 #scroll-btn {
@@ -557,7 +486,7 @@ thead th {
    user-select: none;
    bottom: 0px;
    color: black;
-   background-color: D9D9D9;
+   background-color: #D9D9D9;
    width: 100%;
    text-align: center;
    padding-top: 5px;

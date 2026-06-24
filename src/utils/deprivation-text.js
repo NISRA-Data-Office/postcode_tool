@@ -1,31 +1,52 @@
-export function getHeadline(rank, count) {
-    if (rank.mdm === 1) return " is more deprived than all neighbourhoods in Northern Ireland.";
-    if (rank.mdm >= 2 && rank.mdm <= count * 0.5) return " is more deprived than most neighbourhoods in Northern Ireland.";
-    if (rank.mdm >= count * 0.5 && rank.mdm < count * 0.6) return " is ranked around the middle for deprivation in Northern Ireland.";
-    if (rank.mdm >= count * 0.6 && rank.mdm < count) return " is less deprived than most neighbourhoods in Northern Ireland.";
-    if (rank.mdm === count) return " is less deprived than all neighbourhoods in Northern Ireland.";
+
+
+export function getHeadline(data) {
+
+    const mdm = data.data.ranks.mdm;
+    console.log(data)
+    const count = data.count;
+
+    if (mdm === 1) return " is more deprived than all neighbourhoods in Northern Ireland.";
+    if (mdm >= 2 && mdm <= count * 0.5) return " is more deprived than most neighbourhoods in Northern Ireland.";
+    if (mdm >= count * 0.5 && mdm < count * 0.6) return " is ranked around the middle for deprivation in Northern Ireland.";
+    if (mdm >= count * 0.6 && mdm < count) return " is less deprived than most neighbourhoods in Northern Ireland.";
+    if (mdm === count) return " is less deprived than all neighbourhoods in Northern Ireland.";
 }
 
-export function getParagraph(rank, count, percent, name) {
-    const placeName = `<span style="color:var(--nisra_blue)">${name}</span>`;
+export function getParagraph(data) {
 
-    if (rank.mdm === 1) return `No neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
-    if (rank.mdm >= 2 && rank.mdm < count * 0.015) return `Fewer than 1% of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.1) return `Only ${percent}% of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm< count * 0.2) return `${100 - percent}% of all ${count} neighbourhoods are less deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.3) return `About three quarters of all ${count} neighbourhoods are less deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.4) return `About two thirds of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.5) return `Just under half (${percent}%) of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.6) return `Just over half (${percent}%) of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.7) return `About two thirds of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.8) return `About three quarters of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.9) return `${percent}% of all ${count} neighbourhoods are more deprived than ${placeName}.`;
-    if (rank.mdm < count * 0.99) return `Only ${100 - percent}% of all ${count} neighbourhoods are less deprived than ${placeName}.`;
-    if (rank.mdm < count) return `Fewer than 1% of all ${count} neighbourhoods are less deprived than ${placeName}.`;
-    if (rank.mdm === count) return `All ${count}neighbourhoods are more deprived than ${placeName}.`;
+  const mdm = data.data.ranks.mdm;
+  const count = data.count;
+  const percent = Math.round(data.data.ranks.mdm/data.count * 100);
+  const name = data.name;
+
+  const placeName = `<span style="color:var(--nisra_blue)">${name}</span>`;
+
+    if (mdm === 1) return `No neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+    if (mdm >= 2 && mdm < count * 0.015) return `Fewer than 1% of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.1) return `Only ${percent}% of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm< count * 0.2) return `${100 - percent}% of neighbourhoods are less deprived than ${placeName}.`;
+    if (mdm < count * 0.3) return `About three quarters of neighbourhoods are less deprived than ${placeName}.`;
+    if (mdm < count * 0.4) return `About two thirds of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.5) return `Just under half (${percent}%) of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.6) return `Just over half (${percent}%) of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.7) return `About two thirds of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.8) return `About three quarters of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.9) return `${percent}% of neighbourhoods are more deprived than ${placeName}.`;
+    if (mdm < count * 0.99) return `Only ${100 - percent}% of neighbourhoods are less deprived than ${placeName}.`;
+    if (mdm < count) return `Fewer than 1% of neighbourhoods are less deprived than ${placeName}.`;
+    if (mdm === count) return `All neighbourhoods are more deprived than ${placeName}.`;
   }
 
-export function getDeprivationSummary(rank, count, name, headlineText = "", paragraphText = "") {
+export function getDeprivationSummary(data) {
+
+  const rank = data.data.ranks;
+  const count = data.count;
+  const name = data.name;
+  const headlineText = getHeadline(data);
+  const paragraphText = getParagraph(data)
+
+
   return `
     <h4>
       The overall deprivation rank of 
@@ -103,15 +124,14 @@ export function getDeprivationSummary(rank, count, name, headlineText = "", para
 export function lgdDeprivationSummary(data, type) {
   
   const place = data;
-  const children = place.children || [];
   const deprivation_type = "mdm";
-
-  const enriched = children.map(child => ({
-    name: child.name,
-    rank: place.data?.ranks?.[child.code]?.[deprivation_type]
+  const children = Object.entries(place.data?.ranks || {}).map(([code, item]) => ({
+    code,
+    name: item.name,
+    rank: item.ranks?.[deprivation_type]
   }));
 
-  const sorted = enriched
+  const sorted = children
     .filter(d => d.rank != null)
     .sort((a, b) => a.rank - b.rank);
 

@@ -1,17 +1,14 @@
 {
   "code": "N21000037",
-  "name": "Macedon A",
-  "comment": "This json includes data for the MDM app",
+  "name": "Macedon_A",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000001",
-      "name": "Antrim and Newtownabbey",
-      "type": "lgd"
+      "name": "Antrim and Newtownabbey"
     }
   ],
-  "children": [],
   "bounds": [-5.9168, 54.6716, -5.9499, 54.6884],
   "data": {
     "ranks": {

@@ -1,17 +1,14 @@
 {
   "code": "N21000506",
-  "name": "Mid Tyrone C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Mid_Tyrone_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000006",
-      "name": "Fermanagh and Omagh",
-      "type": "lgd"
+      "name": "Fermanagh and Omagh"
     }
   ],
-  "children": [],
   "bounds": [-7.2572, 54.6072, -7.332, 54.6309],
   "data": {
     "ranks": {

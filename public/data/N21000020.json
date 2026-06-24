@@ -1,17 +1,14 @@
 {
   "code": "N21000020",
-  "name": "Ballyclare B",
-  "comment": "This json includes data for the MDM app",
+  "name": "Ballyclare_B",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000001",
-      "name": "Antrim and Newtownabbey",
-      "type": "lgd"
+      "name": "Antrim and Newtownabbey"
     }
   ],
-  "children": [],
   "bounds": [-5.9904, 54.753, -6.0204, 54.7659],
   "data": {
     "ranks": {

@@ -1,17 +1,14 @@
 {
   "code": "N21000756",
-  "name": "Rowallane E",
-  "comment": "This json includes data for the MDM app",
+  "name": "Rowallane_E",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000010",
-      "name": "Newry, Mourne and Down",
-      "type": "lgd"
+      "name": "Newry, Mourne and Down"
     }
   ],
-  "children": [],
   "bounds": [-5.6981, 54.3764, -5.8332, 54.4671],
   "data": {
     "ranks": {

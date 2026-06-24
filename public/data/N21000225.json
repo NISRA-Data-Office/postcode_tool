@@ -1,17 +1,14 @@
 {
   "code": "N21000225",
-  "name": "Ormiston G",
-  "comment": "This json includes data for the MDM app",
+  "name": "Ormiston_G",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.8539, 54.5903, -5.8674, 54.6],
   "data": {
     "ranks": {

@@ -1,17 +1,14 @@
 {
   "code": "N21000738",
-  "name": "The Mournes J",
-  "comment": "This json includes data for the MDM app",
+  "name": "The_Mournes_J",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000010",
-      "name": "Newry, Mourne and Down",
-      "type": "lgd"
+      "name": "Newry, Mourne and Down"
     }
   ],
-  "children": [],
   "bounds": [-5.9031, 54.0592, -5.9863, 54.122],
   "data": {
     "ranks": {

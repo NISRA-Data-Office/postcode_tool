@@ -1,17 +1,14 @@
 {
   "code": "N21000416",
-  "name": "Ballyarnett E",
-  "comment": "This json includes data for the MDM app",
+  "name": "Ballyarnett_E",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000005",
-      "name": "Derry City and Strabane",
-      "type": "lgd"
+      "name": "Derry City and Strabane"
     }
   ],
-  "children": [],
   "bounds": [-7.3269, 55.0285, -7.3413, 55.0358],
   "data": {
     "ranks": {

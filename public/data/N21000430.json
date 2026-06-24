@@ -1,17 +1,14 @@
 {
   "code": "N21000430",
-  "name": "Waterside H",
-  "comment": "This json includes data for the MDM app",
+  "name": "Waterside_H",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000005",
-      "name": "Derry City and Strabane",
-      "type": "lgd"
+      "name": "Derry City and Strabane"
     }
   ],
-  "children": [],
   "bounds": [-7.2739, 54.9794, -7.2987, 54.9914],
   "data": {
     "ranks": {

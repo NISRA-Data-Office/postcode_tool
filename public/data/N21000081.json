@@ -1,17 +1,14 @@
 {
   "code": "N21000081",
-  "name": "Portadown C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Portadown_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000002",
-      "name": "Armagh City, Banbridge and Craigavon",
-      "type": "lgd"
+      "name": "Armagh City, Banbridge and Craigavon"
     }
   ],
-  "children": [],
   "bounds": [-6.4489, 54.4265, -6.4755, 54.4402],
   "data": {
     "ranks": {

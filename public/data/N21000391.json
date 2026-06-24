@@ -1,17 +1,14 @@
 {
   "code": "N21000391",
-  "name": "Ballymoney F",
-  "comment": "This json includes data for the MDM app",
+  "name": "Ballymoney_F",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000004",
-      "name": "Causeway Coast and Glens",
-      "type": "lgd"
+      "name": "Causeway Coast and Glens"
     }
   ],
-  "children": [],
   "bounds": [-6.5019, 55.0567, -6.5281, 55.0705],
   "data": {
     "ranks": {

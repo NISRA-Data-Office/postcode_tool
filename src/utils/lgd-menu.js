@@ -4,10 +4,10 @@ export async function lgdMenu (id) {
     let lgd_data;
 
     try {
-        const res = await fetch("public/map/LGD2014.geo.json");
+        const res = await fetch("public/data/N92000002.json");
         const data = await res.json();
 
-        lgd_data = data.features;
+        lgd_data = data.data.lgd;
 
     } catch (error) {
         console.error("Failed to load data:", error);
@@ -18,7 +18,7 @@ export async function lgdMenu (id) {
     const current_lgd = params.get("lgd");
 
     const placeholder = document.createElement("option");
-    placeholder.textContent = "Select a council";
+    placeholder.textContent = "Select an area";
     placeholder.value = "";
     placeholder.disabled = true;
     placeholder.selected = !current_lgd;
@@ -36,11 +36,14 @@ export async function lgdMenu (id) {
         lgd_select.appendChild(placeholder);
     }
 
-    for (let i = 0; i < lgd_data.length; i ++) {
+    for (let i = 0; i < Object.keys(lgd_data).length; i ++) {
+
+        const lgd_key = Object.keys(lgd_data)[i];
+        const lgd_name = lgd_data[lgd_key].name;
 
         let option = document.createElement("option");
-        option.value = lgd_data[i].properties.LGDCode;
-        option.textContent = lgd_data[i].properties.LGDNAME;
+        option.value = lgd_key;
+        option.textContent = lgd_name;
 
         let has_option = false;
 

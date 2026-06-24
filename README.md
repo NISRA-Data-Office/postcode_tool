@@ -1,211 +1,280 @@
-# NISRA Dashboard Template
+# Deprivation in Northern Ireland
 
-A reusable template for NISRA statisticians to build interactive static dashboards. Built with HTML, modular JavaScript, and R for data preparation.
+An interactive web application for exploring deprivation across Northern Ireland using the Northern Ireland Multiple Deprivation Measure (NIMDM).
 
----
+The application allows users to:
 
-## 1. Overview
+* Search for a postcode and view deprivation information for its neighbourhood (Super Data Zone).
+* Explore deprivation across Local Government Districts (LGDs).
+* Compare different domains of deprivation.
+* View deprivation rankings on interactive maps.
+* Generate plain-language summaries of deprivation statistics.
 
-This repository is a **template and toolkit** for creating data-driven dashboards. It provides:
-- Reusable helper functions for charts, maps, and layouts
-- A modular JavaScript architecture
-- R scripts for data preprocessing
-- Pre-configured styling and accessibility features
-
-**Recommended workflow**: Fork this repository and build your dashboard in your fork. This allows you to receive updates to the template (new features, accessibility improvements, branding changes) and pull them into your fork as needed.
-
-For a fully worked example, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+The application is built using JavaScript, MapLibre GL and Bootstrap, with data preparation carried out in R.
 
 ---
 
-## 2. Folder Structure
+## Features
+
+### Home page
+
+Users can:
+
+* Search for a postcode.
+* Select a Local Government District.
+* Navigate directly to deprivation profiles.
+
+### Local Government District profiles
+
+Each LGD page includes:
+
+* Interactive deprivation map.
+* Ranked table of neighbourhoods (Super Data Zones).
+* Domain selection for different deprivation measures.
+* Summary information describing deprivation within the council area.
+* Navigation to neighbouring areas and individual neighbourhood profiles.
+
+### Super Data Zone profiles
+
+Each neighbourhood profile includes:
+
+* Overall deprivation rank.
+* Interactive location map.
+* Domain-specific deprivation rankings.
+* Plain-language deprivation summaries.
+* Navigation to surrounding areas.
+* Postcode search functionality.
+
+### About page
+
+Provides:
+
+* Publication information.
+* Data sources.
+* Accessibility information.
+* Links to supporting resources and publications.
+
+---
+
+## Deprivation Measures
+
+The application supports the following measures:
+
+| Measure             | Description                                |
+| ------------------- | ------------------------------------------ |
+| Overall deprivation | Multiple Deprivation Measure               |
+| Income              | Income deprivation                         |
+| Employment          | Employment deprivation                     |
+| Health              | Health and disability deprivation          |
+| Education           | Education, skills and training deprivation |
+| Services            | Access to services deprivation             |
+| Living environment  | Living environment deprivation             |
+| Crime               | Crime and disorder deprivation             |
+
+Rank 1 represents the most deprived area.
+
+---
+
+## Technology Stack
+
+### Front End
+
+* HTML5
+* JavaScript (ES Modules)
+* Bootstrap 5
+* MapLibre GL JS
+
+### Data Processing
+
+* R
+* dplyr
+* readxl
+* jsonlite
+* sf
+* ggplot2
+
+### Mapping
+
+* GeoJSON boundary files
+* OpenMapTiles style configuration
+* MapLibre GL
+
+---
+
+## Project Structure
+
+```text
+.
+├── index.html
+├── lgd.html
+├── sdz.html
+├── about.html
+│
+├── src
+│   ├── config
+│   ├── utils
+│   ├── r
+│   └── assets
+│
+├── public
+│   ├── data
+│   ├── map
+│   └── search_data
+│
+└── assets
 ```
-repo-root/
-├── assets/                # CSS, images, icons
-├── public/                # Data and map styles
-│   ├── data/data.json     # Preprocessed data for charts
-│   └── map/               # GeoJSON and map style
-├── src/                   # JavaScript source
-│   ├── utils/             # Reusable helper functions
-│   ├── *.js               # Page-specific scripts
-│   └── r/                 # R scripts for data preparation
-│       ├── data.R
-│       └── pivot_long.R
-├── *.html                 # Dashboard pages
-└── dashboard-template.Rproj # RStudio project file
+
+### Key JavaScript Files
+
+| File                | Purpose                          |
+| ------------------- | -------------------------------- |
+| index.js            | Home page functionality          |
+| lgd.js              | Local Government District page   |
+| sdz.js              | Super Data Zone page             |
+| postcode-search.js  | Postcode lookup and navigation   |
+| plotScaleMap.js     | LGD deprivation map              |
+| plotNavMap.js       | SDZ location map                 |
+| scale-chart.js      | Deprivation scale visualisations |
+| deprivation-text.js | Summary text generation          |
+
+---
+
+## Data Preparation
+
+Data preparation is carried out using R scripts located in:
+
+```text
+src/r/
+```
+
+### process_data.R
+
+Creates geography JSON files for:
+
+* Local Government Districts
+* Super Data Zones
+
+The script combines:
+
+* Geography hierarchy information
+* Population estimates
+* Area measurements
+* Urban/rural classifications
+* Deprivation rankings
+
+Output:
+
+```text
+public/data/
+```
+
+### search_json.R
+
+Builds postcode lookup data from the Central Postcode Directory.
+
+Output:
+
+```text
+public/search_data/postcode.json
+```
+
+### home_page_graphic.R
+
+Creates the homepage deprivation map image.
+
+Output:
+
+```text
+assets/img/nimdm_sdz_map.png
 ```
 
 ---
 
-## 3. How Modularisation Works
+## JSON Structure
 
-Each HTML page loads a **corresponding JS module**:
-```html
-<script type="module" src="src/page.js"></script>
+### Local Government District
+
+```json
+{
+  "code": "N09000001",
+  "name": "Antrim and Newtownabbey",
+  "type": "lgd",
+  "children": [],
+  "children_count": 890,
+  "bounds": [],
+  "data": {
+    "ranks": {}
+  }
+}
 ```
 
-The JS module:
-- Imports shared helpers from `src/utils/`
-- Fetches data from `public/data/data.json`
-- Builds charts, maps, and interactive elements
-- Wires up event listeners and interactions
+### Super Data Zone
 
-This modular approach keeps your code organized and reusable across multiple pages.
+```json
+{
+  "code": "N21000001",
+  "name": "Example SDZ",
+  "type": "sdz",
+  "parents": [],
+  "bounds": [],
+  "data": {
+    "ranks": {
+      "mdm": 123,
+      "income": 150
+    }
+  }
+}
+```
 
 ---
 
-## 4. Worked Example
+## Running the Application
 
-For a complete, fully-worked example with production-ready implementations, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo). This demonstrates how to:
-- Structure data for different chart types
-- Implement interactive features
-- Customize layouts and branding
-- Apply accessibility standards
+This application loads JSON and GeoJSON files using `fetch()`, so it must be served through a local web server rather than opened directly from the file system.
 
----
+### Recommended: Visual Studio Code Live Server
 
-## 5. Getting Started (Recommended Workflow)
+1. Open the project folder in Visual Studio Code.
+2. Install the **Live Server** extension by Ritwick Dey.
+3. Right-click `index.html`.
+4. Select **Open with Live Server**.
+5. The application will open automatically in your default web browser.
 
-### Step 1: Fork This Repository
-- Go to [NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)
-- Click the **Fork** button (top-right) to create your own copy
-- This allows you to pull future updates from the template while maintaining your own customizations
+Live Server provides automatic page refresh whenever project files are saved, making it ideal for development and testing.
 
-### Step 2: Clone Your Fork in VS Code
-- Open VS Code → `View > Command Palette` → `Git: Clone`
-- Paste your fork's URL:
-```
-https://github.com/YOUR_USERNAME/dashboard-template
-```
-(Replace `YOUR_USERNAME` with your GitHub username)
+### Alternative Local Servers
 
-### Step 3: Install Live Server Extension
-- In VS Code, go to Extensions → Search for **Live Server** → Install
-
-### Step 4: Run the Dashboard
-- Open `index.html` in VS Code
-- Click **Go Live** (bottom-right corner)
-- The site will open in your browser with auto-refresh on changes
-
-### Reference Implementation
-For detailed implementation examples and best practices, explore the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+Any local web server capable of serving static files can be used if preferred.
 
 ---
 
-## 6. Data Preparation (`src/r/`)
-Run in RStudio:
-```r
-source("src/r/data.R")
-source("src/r/pivot_long.R")
-```
-This regenerates `public/data/data.json` from the data sources.
+## Accessibility
+
+The application is designed to:
+
+* Support keyboard navigation.
+* Provide descriptive labels for form controls.
+* Use colour alongside text and rankings.
+* Include plain-language summaries.
+* Link to the NISRA accessibility statement.
 
 ---
 
-## 7. Adding a New Page
+## Data Sources
 
-1. Duplicate an existing HTML file to use as a template
-2. Create a matching JS module in `src/` with the same name
-3. Import utilities as needed:
-```js
-import { readData } from './utils/read-data.js';
-import { createBarChart } from './utils/charts.js';
-import { populateInfoBoxes } from './utils/info-boxes.js';
-```
-4. Link the JS in your HTML:
-```html
-<script type="module" src="src/new-page.js"></script>
-```
+The application uses:
 
-For complete page implementation examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+* Northern Ireland Multiple Deprivation Measure (NIMDM)
+* Central Postcode Directory (CPD)
+* Mid-Year Population Estimates
+* NISRA geography datasets
+* Local Government District geography files
+* Super Data Zone geography files
 
 ---
 
-## 8. Utilities Reference (`src/utils/`)
+## Disclaimer
 
-Each file in `src/utils/` provides reusable helper functions:
+The current version uses dummy deprivation data for development and demonstration purposes.
 
-- **charts.js**: Chart creation and data shaping functions
-- **read-data.js**: Loads preprocessed JSON data
-- **update-years.js**: Updates year spans in DOM
-- **insert-value.js**: Inserts calculated values into elements
-- **info-boxes.js**: Creates accordion-style info boxes
-- **page-layout.js**: Inserts header, footer, and navigation
-- **plot-map.js**: Renders interactive maps
-- **load-shapes.js**: Fetches and loads GeoJSON shapes
-- **download-button.js**: Adds CSV/data download functionality
-- **expand-buttons.js**: Inserts expand/collapse controls
-- **reshape-for-treemap.js**: Reformats data for treemap visualizations
-- **to-title-case.js**: Converts strings to title case
-- **wrap-label.js**: Wraps long chart labels for readability
-- **get-nested.js**: Safely accesses nested object properties
-
-For detailed function signatures and usage examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
-
----
-
-## 9. Accessibility & Best Practices
-- Use **high-contrast colours**.
-- Add **ARIA roles** for interactive elements.
-- Ensure charts have **text alternatives** for screen readers.
-- Test responsiveness on mobile and desktop.
-
----
-
-## 10. How to Add a New Chart or Info Box
-
-### Adding a New Chart
-1. Identify the HTML page where you want the chart
-2. Add a `<canvas>` element inside the appropriate section:
-```html
-<canvas id="my-chart" class="chart-canvas"></canvas>
-```
-3. In the corresponding JS file:
-   - Import chart utilities:
-```js
-import { createBarChart, createLineChart } from "./utils/charts.js";
-import { readData } from "./utils/read-data.js";
-```
-   - Fetch data and prepare chart data:
-```js
-const data = await readData("YourDataKey");
-const chartData = {/* formatted data for chart */};
-```
-   - Render the chart:
-```js
-createBarChart({ chart_data: chartData, canvas_id: "my-chart" });
-```
-
-For complete examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
-
-### Adding a New Info Box
-1. In the HTML page, ensure there is a container for info boxes:
-```html
-<div id="info-boxes"></div>
-```
-2. In the JS file, use `populateInfoBoxes`:
-```js
-import { populateInfoBoxes } from "./utils/info-boxes.js";
-
-populateInfoBoxes([
-  "Title 1", "Title 2"
-], [
-  "<p>Content for box 1</p>",
-  "<p>Content for box 2</p>"
-]);
-```
-This will dynamically create accordion-style info boxes with your content.
-
-### Adding a New Value Using `insertValue`
-1. In the HTML page, create a `<span>` element with a unique ID:
-```html
-<p><span id="my-value"></span> descriptive text</p>
-```
-2. In the JS file, after fetching data, call `insertValue`:
-```js
-import { insertValue } from "./utils/insert-value.js";
-insertValue("my-value", calculatedValue);
-```
-This will insert the value dynamically into the span.
-
----
+Production releases should be populated with official deprivation statistics and accompanying metadata.

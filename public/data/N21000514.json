@@ -1,17 +1,14 @@
 {
   "code": "N21000514",
-  "name": "Downshire West D",
-  "comment": "This json includes data for the MDM app",
+  "name": "Downshire_West_D",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000007",
-      "name": "Lisburn and Castlereagh",
-      "type": "lgd"
+      "name": "Lisburn and Castlereagh"
     }
   ],
-  "children": [],
   "bounds": [-6.2132, 54.4745, -6.2348, 54.4845],
   "data": {
     "ranks": {

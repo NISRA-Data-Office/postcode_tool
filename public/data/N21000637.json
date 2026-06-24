@@ -1,17 +1,14 @@
 {
   "code": "N21000637",
-  "name": "Carntogher A",
-  "comment": "This json includes data for the MDM app",
+  "name": "Carntogher_A",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000009",
-      "name": "Mid Ulster",
-      "type": "lgd"
+      "name": "Mid Ulster"
     }
   ],
-  "children": [],
   "bounds": [-6.4819, 54.8554, -6.6437, 54.952],
   "data": {
     "ranks": {

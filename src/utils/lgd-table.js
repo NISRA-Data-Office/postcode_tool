@@ -1,20 +1,23 @@
-export function createLGDTable(container, place, selectedDeprivation, sdz) {
+import { config } from "../config/config.js";
 
+export function createLGDTable(container, place, selectedDeprivation, sdz) {
   let sortKey = "rank";
   let sortAsc = true;
   let selectedCode = null;
 
   function getSortedNames() {
-    return (place?.children || [])
-      .map(child => ({
-        ...child,
-        rank: place?.data?.ranks?.[child.code]?.[selectedDeprivation]
+    return Object.entries(place?.data?.ranks || {})
+      .map(([code, item]) => ({
+        code,
+        name: item.name,
+        rank: item.ranks?.[selectedDeprivation],
+        lgd: place.data.lgd?.[item.lgd].name
       }))
       .sort((a, b) => {
-        let valA = a[sortKey];
-        let valB = b[sortKey];
+        const valA = a[sortKey];
+        const valB = b[sortKey];
 
-        if (sortKey === "name") {
+        if (sortKey === "name" || sortKey === "lgd") {
           return sortAsc
             ? (valA || "").localeCompare(valB || "")
             : (valB || "").localeCompare(valA || "");
@@ -25,7 +28,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
           : (valB ?? Infinity) - (valA ?? Infinity);
       });
   }
-  
+
   function highlightRow(code) {
     const rows = container.querySelectorAll(".sdz-row");
 
@@ -47,32 +50,55 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
     const names = getSortedNames();
 
     container.innerHTML = `
-    <table class="lgd-table">
-      <thead>
-        <tr>
-          <th data-key="rank" style="cursor:pointer;">
-            Rank (of ${place.children_count})
-            ${sortKey === "rank" ? (sortAsc ? " ▲" : " ▼") : ""}
-          </th>
-          <th data-key="name" style="cursor:pointer;">
-            Neighbourhood or super data zone
-            ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        ${names.map(child => `
-          <tr class="sdz-row" data-code="${child.code}" style="cursor:pointer;" title="See ${child.name} deprivation profile">
-            <td>${child.rank ?? ""}</td>
-            <td>${child.name}</td>
+      <table class="lgd-table">
+        <thead>
+          <tr>
+            <th 
+              data-key="rank" 
+              style="cursor:pointer;"
+              tabindex="0"
+              aria-label="Sort by rank">
+              Rank
+              ${sortKey === "rank" ? (sortAsc ? " ▲" : " ▼") : ""}
+            </th>
+            <th 
+              data-key="name" 
+              style="cursor:pointer;"
+              tabindex="0"
+              aria-label="Sort neighbourhoods alphabetically">
+              Neighbourhood
+              ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
+            </th>
+            ${place.type === "ctry" ? `
+              <th 
+                data-key="lgd" 
+                style="cursor:pointer;" 
+                tabindex="0" 
+                aria-label="Sort councils alphabetically">
+                Council
+                ${sortKey === "lgd" ? (sortAsc ? " ▲" : " ▼") : ""}
+              </th>
+            ` : ""}
           </tr>
-        `).join("")}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          ${names.map(child => `
+            <tr class="sdz-row" 
+                data-code="${child.code}" 
+                style="cursor:pointer;"
+                tabindex="0" 
+                aria-label="View deprivation profile for ${child.name}, ranked ${child.rank ?? "unknown"}">
+              <td>${child.rank ?? ""}</td>
+              <td>${child.name}</td>
+              ${place.type === "ctry" ? `<td>${child.lgd}</td>` : ""}
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
     `;
 
     container.querySelectorAll("th[data-key]").forEach(th => {
-      th.addEventListener("click", () => {
+      const handleSort = () => {
         const key = th.dataset.key;
 
         if (sortKey === key) {
@@ -83,15 +109,43 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
         }
 
         render();
+      };
+
+      th.addEventListener("click", handleSort);
+
+      th.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleSort();
+        }
       });
     });
 
     container.querySelectorAll(".sdz-row").forEach(row => {
+      row.addEventListener("mouseenter", () => {
+        window.dispatchEvent(new CustomEvent("sdzhover", {
+          detail: { code: row.dataset.code }
+        }));
+      });
+
+      row.addEventListener("mouseleave", () => {
+        window.dispatchEvent(new CustomEvent("sdzhover", {
+          detail: { code: null }
+        }));
+      });
+
       row.addEventListener("click", () => {
         const code = row.dataset.code;
 
         if (code) {
           window.location.href = `sdz.html?sdz=${code}`;
+        }
+      });
+
+      row.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          row.click();
         }
       });
     });
@@ -105,8 +159,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
     }
   }
 
-
-  window.addEventListener("sdzselect", (e) => {
+  window.addEventListener("sdzselect", e => {
     selectedCode = e.detail.code;
     highlightRow(selectedCode);
   });

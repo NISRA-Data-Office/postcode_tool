@@ -1,17 +1,14 @@
 {
   "code": "N21000846",
-  "name": "Ards Peninsula H",
-  "comment": "This json includes data for the MDM app",
+  "name": "Ards_Peninsula_H",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000011",
-      "name": "Ards and North Down",
-      "type": "lgd"
+      "name": "Ards and North Down"
     }
   ],
-  "children": [],
   "bounds": [-5.4328, 54.436, -5.558, 54.5042],
   "data": {
     "ranks": {

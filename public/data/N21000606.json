@@ -1,17 +1,14 @@
 {
   "code": "N21000606",
-  "name": "Coast Road F",
-  "comment": "This json includes data for the MDM app",
+  "name": "Coast_Road_F",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000008",
-      "name": "Mid and East Antrim",
-      "type": "lgd"
+      "name": "Mid and East Antrim"
     }
   ],
-  "children": [],
   "bounds": [-5.8382, 54.8543, -5.8579, 54.8667],
   "data": {
     "ranks": {

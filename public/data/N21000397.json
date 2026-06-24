@@ -1,17 +1,14 @@
 {
   "code": "N21000397",
-  "name": "The Moor A",
-  "comment": "This json includes data for the MDM app",
+  "name": "The_Moor_A",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000005",
-      "name": "Derry City and Strabane",
-      "type": "lgd"
+      "name": "Derry City and Strabane"
     }
   ],
-  "children": [],
   "bounds": [-7.3329, 54.9957, -7.3601, 55.0048],
   "data": {
     "ranks": {

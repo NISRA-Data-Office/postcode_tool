@@ -1,17 +1,14 @@
 {
   "code": "N21000298",
-  "name": "Collin P",
-  "comment": "This json includes data for the MDM app",
+  "name": "Collin_P",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-6.008, 54.5465, -6.026, 54.5554],
   "data": {
     "ranks": {

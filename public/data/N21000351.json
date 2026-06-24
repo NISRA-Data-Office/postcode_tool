@@ -1,17 +1,14 @@
 {
   "code": "N21000351",
-  "name": "Bann B",
-  "comment": "This json includes data for the MDM app",
+  "name": "Bann_B",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000004",
-      "name": "Causeway Coast and Glens",
-      "type": "lgd"
+      "name": "Causeway Coast and Glens"
     }
   ],
-  "children": [],
   "bounds": [-6.6747, 55.1019, -6.8705, 55.1719],
   "data": {
     "ranks": {

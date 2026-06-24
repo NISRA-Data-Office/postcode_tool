@@ -1,17 +1,14 @@
 {
   "code": "N21000141",
-  "name": "Banbridge F",
-  "comment": "This json includes data for the MDM app",
+  "name": "Banbridge_F",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000002",
-      "name": "Armagh City, Banbridge and Craigavon",
-      "type": "lgd"
+      "name": "Armagh City, Banbridge and Craigavon"
     }
   ],
-  "children": [],
   "bounds": [-6.2795, 54.3182, -6.3826, 54.3814],
   "data": {
     "ranks": {

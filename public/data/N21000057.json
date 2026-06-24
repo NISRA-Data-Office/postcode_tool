@@ -1,17 +1,14 @@
 {
   "code": "N21000057",
-  "name": "Glengormley Urban K",
-  "comment": "This json includes data for the MDM app",
+  "name": "Glengormley_Urban_K",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000001",
-      "name": "Antrim and Newtownabbey",
-      "type": "lgd"
+      "name": "Antrim and Newtownabbey"
     }
   ],
-  "children": [],
   "bounds": [-5.9505, 54.6618, -5.9644, 54.6728],
   "data": {
     "ranks": {

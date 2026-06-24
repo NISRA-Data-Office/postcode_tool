@@ -1,17 +1,14 @@
 {
   "code": "N21000451",
-  "name": "Sperrin H",
-  "comment": "This json includes data for the MDM app",
+  "name": "Sperrin_H",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000005",
-      "name": "Derry City and Strabane",
-      "type": "lgd"
+      "name": "Derry City and Strabane"
     }
   ],
-  "children": [],
   "bounds": [-7.4642, 54.8108, -7.4808, 54.8247],
   "data": {
     "ranks": {

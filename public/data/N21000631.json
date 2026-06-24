@@ -1,17 +1,14 @@
 {
   "code": "N21000631",
-  "name": "Knockagh D",
-  "comment": "This json includes data for the MDM app",
+  "name": "Knockagh_D",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000008",
-      "name": "Mid and East Antrim",
-      "type": "lgd"
+      "name": "Mid and East Antrim"
     }
   ],
-  "children": [],
   "bounds": [-5.8087, 54.7222, -5.8219, 54.7266],
   "data": {
     "ranks": {

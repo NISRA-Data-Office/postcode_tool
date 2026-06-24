@@ -1,17 +1,14 @@
 {
   "code": "N21000699",
-  "name": "Slieve Gullion F",
-  "comment": "This json includes data for the MDM app",
+  "name": "Slieve_Gullion_F",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000010",
-      "name": "Newry, Mourne and Down",
-      "type": "lgd"
+      "name": "Newry, Mourne and Down"
     }
   ],
-  "children": [],
   "bounds": [-6.3849, 54.0816, -6.5041, 54.2079],
   "data": {
     "ranks": {

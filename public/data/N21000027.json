@@ -1,17 +1,14 @@
 {
   "code": "N21000027",
-  "name": "Three Mile Water A",
-  "comment": "This json includes data for the MDM app",
+  "name": "Three_Mile_Water_A",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000001",
-      "name": "Antrim and Newtownabbey",
-      "type": "lgd"
+      "name": "Antrim and Newtownabbey"
     }
   ],
-  "children": [],
   "bounds": [-5.9457, 54.6886, -6.001, 54.72],
   "data": {
     "ranks": {

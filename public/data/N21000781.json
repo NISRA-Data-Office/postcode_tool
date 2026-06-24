@@ -1,17 +1,14 @@
 {
   "code": "N21000781",
-  "name": "Newtownards C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Newtownards_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000011",
-      "name": "Ards and North Down",
-      "type": "lgd"
+      "name": "Ards and North Down"
     }
   ],
-  "children": [],
   "bounds": [-5.676, 54.5956, -5.6958, 54.6057],
   "data": {
     "ranks": {

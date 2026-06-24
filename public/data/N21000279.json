@@ -1,17 +1,14 @@
 {
   "code": "N21000279",
-  "name": "Balmoral G",
-  "comment": "This json includes data for the MDM app",
+  "name": "Balmoral_G",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.9752, 54.555, -5.9852, 54.5621],
   "data": {
     "ranks": {

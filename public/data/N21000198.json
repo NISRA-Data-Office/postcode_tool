@@ -1,17 +1,14 @@
 {
   "code": "N21000198",
-  "name": "Titanic B",
-  "comment": "This json includes data for the MDM app",
+  "name": "Titanic_B",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.887, 54.5958, -5.9205, 54.6272],
   "data": {
     "ranks": {

@@ -1,17 +1,14 @@
 {
   "code": "N21000684",
-  "name": "Dungannon J",
-  "comment": "This json includes data for the MDM app",
+  "name": "Dungannon_J",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000009",
-      "name": "Mid Ulster",
-      "type": "lgd"
+      "name": "Mid Ulster"
     }
   ],
-  "children": [],
   "bounds": [-6.684, 54.4423, -6.7082, 54.4531],
   "data": {
     "ranks": {

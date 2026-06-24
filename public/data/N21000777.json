@@ -1,17 +1,14 @@
 {
   "code": "N21000777",
-  "name": "Comber G",
-  "comment": "This json includes data for the MDM app",
+  "name": "Comber_G",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000011",
-      "name": "Ards and North Down",
-      "type": "lgd"
+      "name": "Ards and North Down"
     }
   ],
-  "children": [],
   "bounds": [-5.7781, 54.4961, -5.8025, 54.5081],
   "data": {
     "ranks": {

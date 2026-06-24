@@ -1,17 +1,14 @@
 {
   "code": "N21000122",
-  "name": "Lurgan S",
-  "comment": "This json includes data for the MDM app",
+  "name": "Lurgan_S",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000002",
-      "name": "Armagh City, Banbridge and Craigavon",
-      "type": "lgd"
+      "name": "Armagh City, Banbridge and Craigavon"
     }
   ],
-  "children": [],
   "bounds": [-6.3137, 54.4442, -6.3307, 54.4579],
   "data": {
     "ranks": {

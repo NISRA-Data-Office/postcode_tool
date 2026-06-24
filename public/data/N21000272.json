@@ -1,17 +1,14 @@
 {
   "code": "N21000272",
-  "name": "Botanic Z",
-  "comment": "This json includes data for the MDM app",
+  "name": "Botanic_Z",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.9253, 54.5575, -5.9514, 54.5705],
   "data": {
     "ranks": {

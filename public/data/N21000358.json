@@ -1,17 +1,14 @@
 {
   "code": "N21000358",
-  "name": "Coleraine A",
-  "comment": "This json includes data for the MDM app",
+  "name": "Coleraine_A",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000004",
-      "name": "Causeway Coast and Glens",
-      "type": "lgd"
+      "name": "Causeway Coast and Glens"
     }
   ],
-  "children": [],
   "bounds": [-6.6546, 55.1381, -6.667, 55.1561],
   "data": {
     "ranks": {

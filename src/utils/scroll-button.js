@@ -1,6 +1,6 @@
 let buttonVisibleOnPX = 200;
 
-export const goStart = () => {
+const goStart = () => {
     document.body.scrollIntoView();
 }
 
@@ -17,6 +17,8 @@ export const handleOnScroll = () => {
     } else {
         scroll_btn.classList.add("hidden");
     }
+
+    scroll_btn.addEventListener("click", goStart);
 };
 
 window.addEventListener("scroll", handleOnScroll);

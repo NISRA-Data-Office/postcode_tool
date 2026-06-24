@@ -1,17 +1,14 @@
 {
   "code": "N21000003",
-  "name": "Dunsilly C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Dunsilly_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000001",
-      "name": "Antrim and Newtownabbey",
-      "type": "lgd"
+      "name": "Antrim and Newtownabbey"
     }
   ],
-  "children": [],
   "bounds": [-6.3785, 54.7232, -6.4803, 54.7894],
   "data": {
     "ranks": {

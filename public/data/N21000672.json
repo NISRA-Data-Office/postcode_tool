@@ -1,17 +1,14 @@
 {
   "code": "N21000672",
-  "name": "Torrent E",
-  "comment": "This json includes data for the MDM app",
+  "name": "Torrent_E",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000009",
-      "name": "Mid Ulster",
-      "type": "lgd"
+      "name": "Mid Ulster"
     }
   ],
-  "children": [],
   "bounds": [-6.7943, 54.526, -6.9886, 54.582],
   "data": {
     "ranks": {

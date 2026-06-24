@@ -1,17 +1,14 @@
 {
   "code": "N21000237",
-  "name": "Lisnasharragh B",
-  "comment": "This json includes data for the MDM app",
+  "name": "Lisnasharragh_B",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.8677, 54.578, -5.8908, 54.591],
   "data": {
     "ranks": {

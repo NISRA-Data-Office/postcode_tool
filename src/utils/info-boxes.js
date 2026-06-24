@@ -1,5 +1,6 @@
 export function populateInfoBoxes(labels, content) {
   const info_boxes = document.getElementById("info-boxes");
+  info_boxes.classList.add("mt-4");
 
   let buttons = "";
   for (let i = 0; i < labels.length; i++) {

@@ -1,17 +1,14 @@
 {
   "code": "N21000181",
-  "name": "Castle C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Castle_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.9196, 54.6382, -5.9364, 54.6494],
   "data": {
     "ranks": {

@@ -8,45 +8,26 @@ export function insertHeader () {
     banner.classList.add("navbar");
     banner.classList.add("p-0");
     banner.style.backgroundColor = "var(--nisra_navy)";
-    banner.innerHTML = `<div class="container-fluid d-flex flex-column align-items-stretch p-0">
-    <!-- Banner row (full width) -->
-    <div aria-label="Feedback" class="w-100" style="background-color:var(--nisra_blue);">
-        <div class="text-white text-center py-2 px-3">
-            We welcome feedback from users through our 
-                <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer">short survey</a>
-            
-        </div>
-    </div>
-  <!-- Main navbar row -->
-<div role="banner" class="d-flex row align-items-center justify-content-between w-100 py-3 px-2">
 
-  <!-- Left: NISRA logo -->
-  <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-start">
-    <a class="navbar-brand ps-2 d-flex align-items-center h1" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
+banner.innerHTML = `
+  <div class="container-fluid blue-bg align-items-center justify-content-center py-2">
+    <p class="m-0">We welcome feedback from users through our <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer">short survey</a></p>
+  </div>
+  <div class="container-fluid align-items-center justify-content-center" role="banner">
+    <div class="container row py-2">
+      <div class="col-12 col-xl-6 justify-content-center p-0">
+      <a class="navbar-brand ps-2 d-flex align-items-center h1" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
       <img src="assets/img/logo/nisra-only-white.svg"
-           alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
-    </a>
-  </div>
-
-  <!-- Center: Page title -->
-  <div class="col-12 col-xl-4 d-flex justify-content-center">
-    <h1 class="mb-0 text-white fs-2 app-title text-center display-1">${config.title}</h1>
-  </div>
-
-  <!-- Right: Department logo -->
-  <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-end">
-    <a class="navbar-brand pe-2 d-flex align-items-center" href="${departments[config.department].url}" target="_blank" rel="noopener noreferrer">
-      <img id="banner-logo" src="assets/img/logo/dep_white/${config.department}.svg"
-           alt="${departments[config.department].name} logo" height="60" class="ms-3" title="${departments[config.department].name} Website (opens in new tab)" role="img">
-    </a>
-  </div>
-
+            alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
+     </a></div>
+      <div class="col-12 col-xl-6 d-flex align-items-center justify-content-center justify-content-xl-end text-white p-0">
+    <h1 class="mb-0">${config.title}</h1>
 </div>
-
-<div class="w-100 text-center current-page py-2 green-bg">
-    Latest deprivation statistics, built using dummy data
-</div>
-
+    </div>
+  </div>
+  <div class="container-fluid align-items-center justify-content-center green-bg py-2" role="banner">
+    Dummy statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM)
+    </div>
 `
 }
 
@@ -78,7 +59,8 @@ export function insertFooter () {
     footer.classList.add("text-nisra");
     footer.classList.add("pb-5");
     
-    footer.innerHTML = `<div class="container">
+    footer.innerHTML = `
+    <div class="container">
       <!-- 3 column section -->
       <div class="row mb-3">
         <div class="col-md-4">
@@ -141,15 +123,8 @@ export function insertFooter () {
         <li class="list-inline-item">|</li>
         <li class="list-inline-item"><a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html">Accessibility Statement</a></li>
       </ul>
-    </div>`
-    
-    function adjustFooterMargin() {
-      const margin_needed = (window.innerHeight - document.getElementById("banner").clientHeight - document.getElementById("nav").clientHeight - document.getElementsByTagName("main")[0].clientHeight - footer.clientHeight);
-      footer.style.marginTop = (margin_needed) > 0 ? `${margin_needed}px` : "0px";
-    }
-
-    adjustFooterMargin();
-    window.addEventListener("resize", adjustFooterMargin); 
+    </div>
+    `
 
 }
 
@@ -196,5 +171,3 @@ export async function insertHead(title) {
   document.body.removeAttribute("style");
 
 }
-
-

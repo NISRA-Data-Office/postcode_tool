@@ -1,17 +1,14 @@
 {
   "code": "N21000812",
-  "name": "Bangor West G",
-  "comment": "This json includes data for the MDM app",
+  "name": "Bangor_West_G",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000011",
-      "name": "Ards and North Down",
-      "type": "lgd"
+      "name": "Ards and North Down"
     }
   ],
-  "children": [],
   "bounds": [-5.6755, 54.6454, -5.6897, 54.6541],
   "data": {
     "ranks": {

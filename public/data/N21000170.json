@@ -1,17 +1,14 @@
 {
   "code": "N21000170",
-  "name": "Oldpark K",
-  "comment": "This json includes data for the MDM app",
+  "name": "Oldpark_K",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000003",
-      "name": "Belfast",
-      "type": "lgd"
+      "name": "Belfast"
     }
   ],
-  "children": [],
   "bounds": [-5.9617, 54.6135, -5.9751, 54.623],
   "data": {
     "ranks": {

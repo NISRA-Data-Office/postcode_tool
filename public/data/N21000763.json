@@ -1,17 +1,14 @@
 {
   "code": "N21000763",
-  "name": "Downpatrick C",
-  "comment": "This json includes data for the MDM app",
+  "name": "Downpatrick_C",
   "type": "sdz",
   "count": 850,
   "parents": [
     {
       "code": "N09000010",
-      "name": "Newry, Mourne and Down",
-      "type": "lgd"
+      "name": "Newry, Mourne and Down"
     }
   ],
-  "children": [],
   "bounds": [-5.6852, 54.3314, -5.7227, 54.3454],
   "data": {
     "ranks": {
