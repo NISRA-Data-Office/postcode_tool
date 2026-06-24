@@ -2,7 +2,7 @@ import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./util
 import { readData } from "./utils/read-data.js";
 import { insertValue } from "./utils/insert-value.js";
 import { config } from "./config/config.js";
-import { postcodeSearch } from "./utils/postcode-search.js";
+import { postcodeSearch, postcode_data } from "./utils/postcode-search.js";
 import { getDeprivationSummary, getHeadline, getParagraph } from "./utils/deprivation-text.js";
 import { scaleChart } from "./utils/scale-chart.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     await insertHead("Super Data Zone");
     insertHeader();
     insertFooter();
-    postcodeSearch("postcode-search");
+    await postcodeSearch("postcode-search");
 
     populateInfoBoxes(
         [
@@ -49,11 +49,18 @@ async function update_sdz({ animate = true } = {}) {
       const sdz = params.get("sdz");
       const postcode = params?.get("postcode");
       const data = await readData(sdz);
+      if (!data) {
+        window.location.pathname = "/";
+        window.location.search = "";
+        return;
+      }
 
       const headline = document.getElementById("headline");
       const page_title = document.getElementsByTagName("title")[0];
 
-      if (postcode) {
+      const valid_postcode = postcode_data[sdz].codes.includes(postcode);
+
+      if (valid_postcode) {
         headline.innerHTML =`${postcode} is in <span class="blue-text">${data.name}</span>`;
         page_title.textContent = `Deprivation in ${postcode}`;
       } else {

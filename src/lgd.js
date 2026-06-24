@@ -56,6 +56,11 @@ async function update_lgd({ animate = true } = {}) {
   const lgd = params.get("lgd");
   const sdz = params?.get("sdz");
   const data = await readData(lgd);
+  if (!data) {
+    window.location.pathname = "/";
+    window.location.search = "";
+    return;
+  }
   document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
 
   insertNavButtons(data);
