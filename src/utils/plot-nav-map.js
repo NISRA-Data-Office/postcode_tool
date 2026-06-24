@@ -1,4 +1,4 @@
-import { loadShapes } from "./load-shapes.js";
+import { loadShapes, normaliseBounds, moveToBounds, getSdzCode, getSdzName } from "./map-helpers.js";
 import { readData } from "./read-data.js";
 
 export let map;
@@ -40,7 +40,7 @@ export async function plotNavMap(elementId, map_data, options = {}) {
 
   if (map) {
     map.getSource("sdz-shapes")?.setData(geojson);
-    moveToBounds(map_data.bounds, animate);
+    moveToBounds(map, map_data.bounds, animate);
     return;
   }
 
@@ -54,7 +54,8 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   center: [-6.7, 54.7],
   zoom: 7,
   maxBounds: niMaxBounds,
-  attributionControl: false
+  attributionControl: false,
+  cooperativeGestures: true
 });
 
   map.addControl(
@@ -131,7 +132,7 @@ export async function plotNavMap(elementId, map_data, options = {}) {
 
   map.setMaxBounds(niMaxBounds);
 
-  moveToBounds(map_data.bounds, false);
+  moveToBounds(map, map_data.bounds, false);
 
   addSdzClick(map);
 
@@ -203,42 +204,4 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 
     popup.remove();
   });
-}
-
-
-function moveToBounds(bounds, animate = true) {
-  if (!bounds || bounds.length !== 4) return;
-
-  const [lng1, lat1, lng2, lat2] = bounds;
-
-  const normalisedBounds = [
-    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
-    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
-  ];
-
-  map.fitBounds(normalisedBounds, {
-    padding: 30,
-    duration: animate ? 800 : 0
-  });
-}
-
-function normaliseBounds(bounds) {
-  if (!bounds || bounds.length !== 4) return null;
-
-  const [lng1, lat1, lng2, lat2] = bounds;
-
-  return [
-    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
-    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
-  ];
-}
-
-function getSdzCode(feature) {
-  return String(feature.properties.SDZ21_code || "");
-}
-
-function getSdzName(feature) {
-  return String(
-    feature.properties.SDZ21_name || getSdzCode(feature)
-  );
 }

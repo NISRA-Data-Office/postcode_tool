@@ -1,4 +1,4 @@
-import { loadShapes } from "./load-shapes.js";
+import { loadShapes, normaliseBounds, moveToBounds, getSdzCode, getSdzName, clearFeatureState, getPopupHtml } from "./map-helpers.js";
 import { readData } from "./read-data.js";
 import { config } from "../config/config.js";
 
@@ -82,7 +82,7 @@ export async function plotScaleMap(
     currentLgdBounds = mapState.isCountryMap ? null : map_data.bounds;
 
     if (!preserveView) {
-      moveToBounds(mapBounds, animate);
+      moveToBounds(map, mapBounds, animate);
     }
 
     return;
@@ -92,14 +92,15 @@ export async function plotScaleMap(
   const niMaxBounds = normaliseBounds(niData.bounds);
 
   map = new maplibregl.Map({
-    container: elementId,
-    style: "public/map/style-omt.json",
-    center: [-6.7, 54.7],
-    zoom: window.innerWidth < 1200 ? 6 : 7.5,
-    maxBounds: niMaxBounds,
-    attributionControl: false,
-    preserveDrawingBuffer: true
-  });
+  container: elementId,
+  style: "public/map/style-omt.json",
+  center: [-6.7, 54.7],
+  zoom: window.innerWidth < 1200 ? 6 : 7.5,
+  maxBounds: niMaxBounds,
+  attributionControl: false,
+  preserveDrawingBuffer: true,
+  cooperativeGestures: true
+});
 
   map.addControl(
     new maplibregl.NavigationControl({
@@ -132,7 +133,7 @@ export async function plotScaleMap(
 
     addCursorPointer();
 
-    moveToBounds(mapBounds, false);
+    moveToBounds(map, mapBounds, false);
 
     map.setMinZoom(map.getZoom() - 3);
     map.setMaxZoom(map.getZoom() + 4);
@@ -320,6 +321,7 @@ function addTableHoverListener() {
     if (!map?.getSource("sdz-shapes")) return;
 
     tableHoveredSdzId = clearFeatureState(
+      map,
       "sdz-shapes",
       tableHoveredSdzId,
       "hover"
@@ -356,7 +358,7 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     const feature = e.features?.[0];
     if (!feature) return;
 
-    hoveredId = clearFeatureState(sourceId, hoveredId, "hover");
+    hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
 
     hoveredId = feature.id;
 
@@ -372,22 +374,9 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-    hoveredId = clearFeatureState(sourceId, hoveredId, "hover");
+    hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
     popup.remove();
   });
-}
-
-function getPopupHtml(props, options = {}) {
-  if (options.nameOnly) {
-    return `<div><strong>${props.nisra_label}</strong></div>`;
-  }
-
-  const value =
-    props.nisra_value == null
-      ? "Not available"
-      : Number(props.nisra_value).toLocaleString("en-GB");
-
-  return `<div><strong>${props.nisra_label}</strong>: <strong>${value}</strong></div>`;
 }
 
 function addLgdClick(map) {
@@ -424,6 +413,7 @@ function addSdzClick(map) {
     if (!feature) return;
 
     selectedSdzId = clearFeatureState(
+      map,
       "sdz-shapes",
       selectedSdzId,
       "selected"
@@ -450,7 +440,7 @@ function addSdzClick(map) {
     );
 
     if (currentLgdBounds) {
-      moveToBounds(currentLgdBounds);
+      moveToBounds(map, currentLgdBounds);
     }
 
     window.dispatchEvent(
@@ -481,48 +471,18 @@ function removeStaticSdzHighlight() {
 
 function clearCurrentFeatureStates() {
   selectedSdzId = clearFeatureState(
+    map,
     "sdz-shapes",
     selectedSdzId,
     "selected"
   );
 
   tableHoveredSdzId = clearFeatureState(
+    map,
     "sdz-shapes",
     tableHoveredSdzId,
     "hover"
   );
-}
-
-function clearFeatureState(source, id, stateName) {
-  if (id === null || !map?.getSource(source)) return null;
-
-  map.setFeatureState(
-    { source, id },
-    { [stateName]: false }
-  );
-
-  return null;
-}
-
-function moveToBounds(bounds, animate = true) {
-  if (!Array.isArray(bounds) || bounds.length !== 4) return;
-
-  map.resize();
-
-  map.fitBounds(normaliseBounds(bounds), {
-    padding: 30,
-    duration: animate ? 800 : 0,
-    essential: true
-  });
-}
-
-function normaliseBounds(bounds) {
-  const [lng1, lat1, lng2, lat2] = bounds;
-
-  return [
-    [Math.min(lng1, lng2), Math.min(lat1, lat2)],
-    [Math.max(lng1, lng2), Math.max(lat1, lat2)]
-  ];
 }
 
 function animateSourceColours(sourceId, newGeojson, duration = 500) {
@@ -581,7 +541,9 @@ function interpolateColour(from, to, t) {
   const start = hexToRgb(from);
   const end = hexToRgb(to);
 
-  if (!start || !end) return to;
+  if (!start || !end) {
+    return to;
+  }
 
   return rgbToHex([
     lerp(start[0], end[0], t),
@@ -612,9 +574,14 @@ function hexToRgb(hex) {
 }
 
 function rgbToHex([r, g, b]) {
-  return `#${Math.round(r).toString(16).padStart(2, "0")}${Math.round(g)
+  const clamp = value =>
+    Math.max(0, Math.min(255, Math.round(value)));
+
+  return `#${clamp(r).toString(16).padStart(2, "0")}${clamp(g)
     .toString(16)
-    .padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
+    .padStart(2, "0")}${clamp(b)
+    .toString(16)
+    .padStart(2, "0")}`;
 }
 
 function getColour(norm) {
@@ -660,12 +627,4 @@ function getLgdName(feature) {
       feature.properties.name ||
       ""
   );
-}
-
-function getSdzCode(feature) {
-  return String(feature.properties.SDZ21_code || "");
-}
-
-function getSdzName(feature) {
-  return String(feature.properties.SDZ21_name || getSdzCode(feature));
 }
