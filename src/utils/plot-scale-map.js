@@ -99,11 +99,10 @@ export async function plotScaleMap(
   maxBounds: niMaxBounds,
   attributionControl: false,
   preserveDrawingBuffer: true,
-  cooperativeGestures: true
+  cooperativeGestures: true,
+  dragRotate: false,
+  touchZoomRotate: false
 });
-
-  map.dragRotate.disable();
-  map.touchZoomRotate.disableRotation();
 
   map.addControl(
     new maplibregl.NavigationControl({

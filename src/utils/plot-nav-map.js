@@ -55,11 +55,10 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   zoom: 7,
   maxBounds: niMaxBounds,
   attributionControl: false,
-  cooperativeGestures: true
+  cooperativeGestures: true,
+  dragRotate: false,
+  disableRotation: false
 });
-
-  map.dragRotate.disable();
-  map.touchZoomRotate.disableRotation();
 
   map.addControl(
   new maplibregl.NavigationControl({
