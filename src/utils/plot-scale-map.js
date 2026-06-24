@@ -146,8 +146,11 @@ export async function plotScaleMap(
     });
 
     addHoverPopup(map, "sdz-fill", "sdz-shapes", {
-      enabled: () => true
-    });
+      enabled: () => true,
+      enableComparison: true,
+      highlightSdz,
+      selectedValue: map_data.data?.ranks?.[highlightSdz]?.ranks?.[deprivation_type]
+  });
 
     addLgdClick(map);
     addSdzClick(map);
@@ -344,6 +347,13 @@ function addTableHoverListener() {
 function addHoverPopup(map, layerId, sourceId, options = {}) {
   let hoveredId = null;
 
+  const {
+    enableComparison = false,
+    highlightSdz = null,
+    selectedValue = null
+  } = options;
+
+
   const popup = new maplibregl.Popup({
     closeButton: false,
     closeOnClick: false,
@@ -359,6 +369,30 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 
     const feature = e.features?.[0];
     if (!feature) return;
+
+    const props = feature.properties;
+
+  if (
+    enableComparison &&
+    sourceId === "sdz-shapes" &&
+    props.nisra_code !== highlightSdz &&
+    props.nisra_value != null &&
+    selectedValue != null
+  ) {
+    window.dispatchEvent(new CustomEvent("sdzhovercompare", {
+      detail: {
+        hovered: {
+          code: props.nisra_code,
+          value: Number(props.nisra_value),
+          name: props.nisra_label
+        },
+        selected: {
+          code: highlightSdz,
+          value: Number(selectedValue)
+        }
+      }
+    }));
+  }
 
     hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
 
@@ -376,6 +410,9 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
+    if (enableComparison) {
+      window.dispatchEvent(new Event("sdzhoverout"));
+    }
     hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
     popup.remove();
   });
