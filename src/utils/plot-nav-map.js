@@ -58,6 +58,9 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   cooperativeGestures: true
 });
 
+  map.dragRotate.disable();
+  map.touchZoomRotate.disableRotation();
+
   map.addControl(
   new maplibregl.NavigationControl({
     showCompass: false,

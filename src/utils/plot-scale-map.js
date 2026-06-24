@@ -102,6 +102,9 @@ export async function plotScaleMap(
   cooperativeGestures: true
 });
 
+  map.dragRotate.disable();
+  map.touchZoomRotate.disableRotation();
+
   map.addControl(
     new maplibregl.NavigationControl({
       showZoom: true,
