@@ -88,7 +88,7 @@ async function update_sdz({ animate = true } = {}) {
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     
-    await plotNavMap("scale-map", data, { animate });
+    await plotNavMap("nav-map", data, { animate });
 
     document.getElementById("deprivation-headline").innerHTML = getHeadline(data);
 

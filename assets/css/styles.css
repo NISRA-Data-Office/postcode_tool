@@ -52,11 +52,12 @@ main a[target="_blank"]::after {
 }
 
 .map {
-  /* height: 100%;         mobile default */
+  height: 100%;         
   width: 100%;
   position: relative;
   z-index: 0;
   margin-bottom: 2px;
+  min-height: 20vh;
 }
 
 /* ===========================
