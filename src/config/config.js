@@ -2,8 +2,9 @@ export const config = {
     // Dashboard title
     "title": "Deprivation in Northern Ireland",
 
-    // Departmental abbreviations. See departments.js for available options
-    "department": "DoF",
+    // Deprivation year, eg 2026
+    // Set to null to display dummy data message
+    "year": null,
 
     "rateit": "link-to-rateit",
 

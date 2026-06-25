@@ -25,7 +25,7 @@ banner.innerHTML = `
     </div>
   </div>
   <div class="container-fluid align-items-center justify-content-center green-bg py-2" role="banner">
-    Dummy statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM)
+    ${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM)
     </div>
 `
 }

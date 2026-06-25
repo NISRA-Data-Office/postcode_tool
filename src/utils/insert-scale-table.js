@@ -24,7 +24,7 @@ export function insertScaleTable (id, data) {
         parent.innerHTML += `
         <div class="row ${i == 0 ? "border-bottom": ""}">
                 <div class="col-12 col-xl-4 text-xl-end d-flex flex-column justify-content-center">
-                    <p id="${types[i]}-i-button" class="mb-0 blue-text i-button" tabindex="0">${config.deprivation_types[types[i]]}: <img src="assets/img/logo/i-button.svg" width="18"></p>
+                    <p id="${types[i]}-i-button" class="mb-0 blue-text i-button">${config.deprivation_types[types[i]]}: <img src="assets/img/logo/i-button.svg" width="18" tabindex="0"></p>
                     <p>rank ${data.data.ranks[types[i]]}</p>
                 </div>
                 <div id="${types[i] == "mdm" ? "overall" : types[i]}-scale-chart" class="col-12 col-xl-8"></div>
@@ -48,7 +48,7 @@ export function insertScaleTable (id, data) {
 
         document.getElementById(`${types[i]}-i-button`).addEventListener("keydown", (event) => {
             if (event.key == "Enter") {
-                document.getElementById(`${types[i]}-i-text`).classList.toggle("d-none")
+                document.getElementById(`${types[i]}-i-button`).click();    
             } 
         })
         
