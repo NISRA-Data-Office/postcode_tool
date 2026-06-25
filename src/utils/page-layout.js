@@ -1,5 +1,4 @@
 import { config } from "../config/config.js";
-import { departments } from "../config/departments.js";
 
 export function insertHeader () {
 
@@ -15,8 +14,8 @@ banner.innerHTML = `
   </div>
   <div class="container-fluid align-items-center justify-content-center" role="banner">
     <div class="container row py-2">
-      <div class="col-12 col-xl-6 justify-content-center p-0">
-      <a class="navbar-brand ps-2 d-flex align-items-center h1" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
+      <div class="col-12 col-xl-6 d-flex align-items-center justify-content-center justify-content-xl-start p-0">
+      <a class="navbar-brand ps-2" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
       <img src="assets/img/logo/nisra-only-white.svg"
             alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
      </a></div>

@@ -12,8 +12,34 @@ export async function postcodeSearch(id) {
   input.setAttribute("autocapitalize", "off");
   input.setAttribute("spellcheck", "false");
 
-  const response = await fetch("public/search_data/postcode.json");
-  postcode_data = await response.json();
+  try {
+
+    let data_cached = localStorage.getItem("postcode");
+
+    const parsed_data = data_cached ? JSON.parse(data_cached): null;
+    let ts = parsed_data?.ts;
+    postcode_data = parsed_data?.postcode_data;
+
+    if (Date.now() - ts > 60 * 60 * 1000) {
+        localStorage.removeItem("postcode");
+        data_cached = null;
+    }
+
+    if (!data_cached) {
+
+      const response = await fetch("public/search_data/postcode.json");
+      postcode_data = await response.json();
+        
+      localStorage.setItem("postcode", JSON.stringify({ ts: Date.now(), postcode_data }))
+        
+    }
+
+  } catch (error) {
+    console.error("Failed to load postcode lookup data:", error);
+    return; 
+  }
+
+  
 
   let selectedIndex = -1;
   let currentMatches = [];
