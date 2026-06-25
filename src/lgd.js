@@ -1,7 +1,7 @@
 import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
 import { readData } from "./utils/read-data.js";
 import { config } from "./config/config.js";
-import { lgdMenu } from "./utils/lgd-menu.js";
+import { lgdMenu, lgd_codes } from "./utils/lgd-menu.js";
 import { postcodeSearch } from "./utils/postcode-search.js";
 import { typeSelect } from "./utils/type-select.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
@@ -51,16 +51,24 @@ async function update_lgd({ animate = true } = {}) {
     return;
   }
 
-  lgdMenu("lgd-select");
+  await lgdMenu("lgd-select");
 
   const lgd = params.get("lgd");
-  const sdz = params?.get("sdz");
-  const data = await readData(lgd);
-  if (!data) {
+
+   if (!lgd_codes.includes(lgd)) {
     window.location.pathname = "/";
     window.location.search = "";
     return;
   }
+
+  const sdz = params?.get("sdz");
+  const data = await readData(lgd);
+
+
+  if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
+    window.location.search = `lgd=${lgd}`;
+  }
+ 
   document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
 
   insertNavButtons(data);

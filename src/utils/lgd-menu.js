@@ -1,3 +1,5 @@
+export let lgd_codes;
+
 export async function lgdMenu (id) {
     
     const lgd_select = document.getElementById(id);
@@ -8,6 +10,7 @@ export async function lgdMenu (id) {
         const data = await res.json();
 
         lgd_data = data.data.lgd;
+        lgd_codes = Object.keys(lgd_data);
 
     } catch (error) {
         console.error("Failed to load data:", error);
@@ -36,9 +39,9 @@ export async function lgdMenu (id) {
         lgd_select.appendChild(placeholder);
     }
 
-    for (let i = 0; i < Object.keys(lgd_data).length; i ++) {
+    for (let i = 0; i < lgd_codes.length; i ++) {
 
-        const lgd_key = Object.keys(lgd_data)[i];
+        const lgd_key = lgd_codes[i];
         const lgd_name = lgd_data[lgd_key].name;
 
         let option = document.createElement("option");

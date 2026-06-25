@@ -1,7 +1,7 @@
 export async function loadShapes(filename) {
   const url = `public/map/${filename}`;
 
-  const res = await fetch(url, { cache: "force-cache" });
+  const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to load ${url}`);
 
   const data = await res.json();

@@ -20,10 +20,13 @@ import { populateNextStepBoxes } from "./utils/next-steps.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
+  
     await insertHead("Super Data Zone");
+    await postcodeSearch("postcode-search");
+    await update_sdz({ animate: false });
     insertHeader();
     insertFooter();
-    await postcodeSearch("postcode-search");
+    
 
     populateInfoBoxes(
         [
@@ -39,7 +42,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     ) 
     handleOnScroll();
     
-    await update_sdz({ animate: false });
+    
 
 })
 
@@ -69,6 +72,11 @@ async function update_sdz({ animate = true } = {}) {
         headline.innerHTML =`${postcode} is in <span class="blue-text">${data.name}</span>`;
         page_title.textContent = `Deprivation in ${postcode}`;
       } else {
+        window.history.replaceState(
+          {},
+          "",
+          `sdz.html?sdz=${encodeURIComponent(sdz)}`
+        )
         headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
         page_title.textContent = `Deprivation in ${data.name}`;
       }
