@@ -36,12 +36,12 @@ export function insertNavButtons(data) {
   nav.innerHTML = `
     <ol class="breadcrumb mb-0 mt-2 mb-2 text-secondary">
       <li class="breadcrumb-item">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="p-1" >Home</a>
       </li>
       <li class="breadcrumb-item">
-        ${data.type == "sdz" ? `<a href="lgd.html?lgd=${data.parents[0].code}">${data.parents[0].name}</a>` : data.name }
+        ${data.type == "sdz" ? `<a href="lgd.html?lgd=${data.parents[0].code}" class="p-1">${data.parents[0].name}</a>` : data.name }
       </li>
-      ${data.type == "sdz" ? `<li class="breadcrumb-item">${data.name}</li>`: ""}
+      ${data.type == "sdz" ? `<li class="breadcrumb-item" class="p-1">${data.name}</li>`: ""}
     </ol>
   `
   
