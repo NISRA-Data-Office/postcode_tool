@@ -137,7 +137,7 @@ async function update_sdz({ animate = true } = {}) {
 
 }
 
-function updateComparisonText(diff, hoveredName, clickedSdz = false) {
+function updateComparisonText(diff, hoveredName, clickedSdz = false, onMouseLeave = false) {
   const el = document.getElementById("comparison-text");
   if (!el) return;
   
@@ -146,7 +146,7 @@ function updateComparisonText(diff, hoveredName, clickedSdz = false) {
 
   let text;
 
-  if (clickedSdz == true) {
+  if (clickedSdz == true || onMouseLeave == true) {
     text = `Hover over on an area to compare deprivation`;
     el.innerHTML = text;
     return;
@@ -180,7 +180,8 @@ document.addEventListener("click", (e) => {
   }
 
 });
- window.addEventListener("sdzhovercompare", (e) => {
+ 
+window.addEventListener("sdzhovercompare", (e) => {
 
   const { hovered, selected } = e.detail;
 
@@ -204,3 +205,22 @@ document.addEventListener("click", (e) => {
   }
 );
 });
+
+window.addEventListener("sdzhoverout", (e) => {
+  updateComparisonText(0, currentSelectedName, false, true)
+
+  scaleChart("comparison-scale-chart",
+  {
+    data: { ranks: { mdm: currentSelectedValue } },
+    count: currentLgdData.sdz_count
+  },
+  "mdm",
+  {
+    labels: "below",
+    marker: true,
+    comparisonScale: true,
+    compareValue: null
+  }
+);
+
+})

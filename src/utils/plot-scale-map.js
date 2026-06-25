@@ -280,6 +280,8 @@ function addOutlineLayer(id, source, lineWidth) {
         "#D4351C",
         ["boolean", ["feature-state", "selected"], false],
         "#D4351C",
+        ["boolean", ["feature-state", "compareHover"], false],
+        "#F59E0B",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
         "#555555"
@@ -290,6 +292,8 @@ function addOutlineLayer(id, source, lineWidth) {
         3,
         ["boolean", ["feature-state", "selected"], false],
         3,
+        ["boolean", ["feature-state", "compareHover"], false],
+        lineWidth + 2,
         ["boolean", ["feature-state", "hover"], false],
         lineWidth + 1,
         lineWidth
@@ -394,13 +398,17 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     }));
   }
 
+    hoveredId = clearFeatureState(map, sourceId, hoveredId, "compareHover");
     hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
+    hoveredId = null;
 
     hoveredId = feature.id;
 
     map.setFeatureState(
-      { source: sourceId, id: hoveredId },
-      { hover: true }
+    { source: sourceId, id: hoveredId },
+      enableComparison
+        ? { hover: true, compareHover: true }
+        : { hover: true }
     );
 
     popup
@@ -410,12 +418,16 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   });
 
   map.on("mouseleave", layerId, () => {
-    if (enableComparison) {
-      window.dispatchEvent(new Event("sdzhoverout"));
-    }
-    hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
-    popup.remove();
-  });
+  clearFeatureState(map, sourceId, hoveredId, "compareHover");
+  clearFeatureState(map, sourceId, hoveredId, "hover");
+  hoveredId = null;
+
+  if (enableComparison) {
+    window.dispatchEvent(new Event("sdzhoverout"));
+  }
+
+  popup.remove();
+});
 }
 
 function addLgdClick(map) {
