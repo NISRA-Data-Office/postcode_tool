@@ -127,6 +127,8 @@ async function update_sdz({ animate = true } = {}) {
       annotation: true
     });
 
+    updateComparisonText(0, currentSelectedName, true)
+
     insertScaleTable("deprivation-scales", data);
 
     populateNextStepBoxes(data);
@@ -135,7 +137,7 @@ async function update_sdz({ animate = true } = {}) {
 
 }
 
-function updateComparisonText(diff, hoveredName) {
+function updateComparisonText(diff, hoveredName, clickedSdz = false) {
   const el = document.getElementById("comparison-text");
   if (!el) return;
   
@@ -143,6 +145,12 @@ function updateComparisonText(diff, hoveredName) {
   const selectedStyled = `<span style="color:#D4351C;"><strong>${currentSelectedName}</strong></span>`;
 
   let text;
+
+  if (clickedSdz == true) {
+    text = `Hover over on an area to compare deprivation`;
+    el.innerHTML = text;
+    return;
+  }
 
   if (diff === 0) {
     text = `${hoveredStyled} has a similar deprivation ranking`;
@@ -170,6 +178,7 @@ document.addEventListener("click", (e) => {
     input.scrollIntoView({ behavior: "smooth", block: "center" });
     input.focus({ preventScroll: true });
   }
+
 });
  window.addEventListener("sdzhovercompare", (e) => {
 
