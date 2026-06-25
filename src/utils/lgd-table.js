@@ -86,7 +86,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
             <tr class="sdz-row" 
                 data-code="${child.code}" 
                 style="cursor:pointer;"
-                tabindex="0" 
+                tabindex="-1" 
                 aria-label="View deprivation profile for ${child.name}, ranked ${child.rank ?? "unknown"}">
               <td>${child.rank ?? ""}</td>
               <td>${child.name}</td>
@@ -96,6 +96,19 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
         </tbody>
       </table>
     `;
+    
+    const rows = container.querySelectorAll(".sdz-row");
+    
+    if (rows.length) {
+      const initialRow =
+      selectedCode
+      ? Array.from(rows).find(r => r.dataset.code === selectedCode)
+      : rows[0];
+      
+      if (initialRow) {
+        initialRow.setAttribute("tabindex", "0");
+      }
+    }
 
     container.querySelectorAll("th[data-key]").forEach(th => {
       const handleSort = () => {
@@ -143,6 +156,30 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
       });
 
       row.addEventListener("keydown", e => {
+        const rows = Array.from(container.querySelectorAll(".sdz-row"));
+        const index = rows.indexOf(row);
+        
+        let nextIndex = index;
+        
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          nextIndex = Math.min(index + 1, rows.length - 1);
+        }
+
+        if (e.key === "ArrowUp") {
+          e.preventDefault();
+          nextIndex = Math.max(index - 1, 0);
+        }
+
+        if (nextIndex !== index) {
+          const nextRow = rows[nextIndex];
+
+          row.setAttribute("tabindex", "-1");
+          nextRow.setAttribute("tabindex", "0");
+
+          nextRow.focus();
+        }
+
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           row.click();
