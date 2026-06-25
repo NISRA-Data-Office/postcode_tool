@@ -13,7 +13,8 @@ let tableHoveredSdzId = null;
 let tableHoverListenerAdded = false;
 
 const mapState = {
-  isCountryMap: false
+  isCountryMap: false,
+  enableComparison: false
 };
 
 export async function plotScaleMap(
@@ -25,13 +26,15 @@ export async function plotScaleMap(
   const {
     animate = true,
     highlightSdz = null,
-    preserveView = false
+    preserveView = false,
+    enableComparison = false
   } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
 
   mapState.isCountryMap = map_data.type === "ctry";
+  mapState.enableComparison = enableComparison;
 
   const selectedLgdCode = map_data.code;
   const selectedLgdName = map_data.name;
@@ -69,6 +72,10 @@ export async function plotScaleMap(
   let mapBounds = await getTargetBounds(map_data, highlightSdz);
 
   if (map) {
+
+    map.removeFeatureState({ source: "sdz-shapes" });
+    map.removeFeatureState({ source: "lgd-shapes" });
+
     clearCurrentFeatureStates();
 
     map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
@@ -147,7 +154,7 @@ export async function plotScaleMap(
 
     addHoverPopup(map, "sdz-fill", "sdz-shapes", {
       enabled: () => true,
-      enableComparison: true,
+      enableComparison: mapState.enableComparison,
       highlightSdz,
       selectedValue: map_data.data?.ranks?.[highlightSdz]?.ranks?.[deprivation_type]
   });
@@ -280,7 +287,10 @@ function addOutlineLayer(id, source, lineWidth) {
         "#D4351C",
         ["boolean", ["feature-state", "selected"], false],
         "#D4351C",
-        ["boolean", ["feature-state", "compareHover"], false],
+       ["all",
+          ["boolean", ["feature-state", "compareHover"], false],
+          ["literal", mapState.enableComparison]
+        ],
         "#F59E0B",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
@@ -316,8 +326,12 @@ function addCursorPointer() {
 
     const features = map.queryRenderedFeatures(e.point, { layers });
 
-    map.getCanvas().style.cursor =
-      features.length > 0 ? "pointer" : "default";
+   if (mapState.enableComparison) {
+    map.getCanvas().style.cursor = "default";
+    } else {
+      map.getCanvas().style.cursor =
+        features.length > 0 ? "pointer" : "default";
+    }
   });
 }
 
@@ -432,6 +446,8 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 
 function addLgdClick(map) {
   map.on("click", e => {
+
+    if (mapState.enableComparison) return;
     if (mapState.isCountryMap) return;
 
     const features = map.queryRenderedFeatures(e.point, {
@@ -460,6 +476,9 @@ function addLgdClick(map) {
 
 function addSdzClick(map) {
   map.on("click", "sdz-fill", e => {
+
+    if (mapState.enableComparison) return;
+
     const feature = e.features?.[0];
     if (!feature) return;
 

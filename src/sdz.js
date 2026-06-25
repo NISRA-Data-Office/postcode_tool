@@ -147,7 +147,7 @@ function updateComparisonText(diff, hoveredName, clickedSdz = false, onMouseLeav
   let text;
 
   if (clickedSdz == true || onMouseLeave == true) {
-    text = `Hover over on an area to compare deprivation`;
+    text = `Hover over on an area to compare deprivation with ${selectedStyled}`;
     el.innerHTML = text;
     return;
   }

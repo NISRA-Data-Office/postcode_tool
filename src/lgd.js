@@ -72,7 +72,8 @@ async function update_lgd({ animate = true } = {}) {
   );
 
   await plotScaleMap("scale-map", data, type_select.value, { animate,
-    highlightSdz: sdz
+    highlightSdz: sdz,
+    enableComparison: false
    });
 
   insertValue("place-name", data.name)
