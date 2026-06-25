@@ -415,7 +415,7 @@ thead th {
 }
 
 #lgd-table-container {
-  height: calc(45px * 11);
+  height: calc(45px * 11 + 5px);
   overflow-y: auto;
 }
 
