@@ -22,15 +22,19 @@ export function insertScaleTable (id, data) {
 
     for (let i = 0; i < types.length; i ++) {
         parent.innerHTML += `
-        <div class="row ${i == 0 ? "border-bottom": ""}">
+        <div class="row ${i == 0 ? "border-bottom border-dark mb-3": ""}">
                 <div class="col-12 col-xl-4 text-xl-end d-flex flex-column justify-content-center">
                     <p id="${types[i]}-i-button" class="mb-0 blue-text i-button fs-5">${config.deprivation_types[types[i]]}: <img src="assets/img/logo/i-button.svg" width="18" tabindex="0"></p>
                     <p>rank ${data.data.ranks[types[i]]}</p>
                 </div>
                 <div id="${types[i] == "mdm" ? "overall" : types[i]}-scale-chart" class="col-12 col-xl-8"></div>
-                <div id="${types[i]}-i-text" class="card d-none my-2"><div class="card-body">${i_text[types[i]]}</div></div>
+                <div id="${types[i]}-i-text" class="i-text-panel black-border ">
+                    <div class="d-flex flex-row align-items-start p-2">
+                        <img src="assets/img/logo/i-button.svg" width="18" class="me-2 mt-1">
+                        <p class="mb-0">${i_text[types[i]]}</p>
+                    </div>
+                </div>
             </div>
-            <div id="${types[i]}-i-text" class="card d-none my-2"><div class="card-body">${i_text[types[i]]}</div></div>
         `
     }
 
@@ -43,7 +47,7 @@ export function insertScaleTable (id, data) {
         )
 
         document.getElementById(`${types[i]}-i-button`).addEventListener("click", () => {
-            document.getElementById(`${types[i]}-i-text`).classList.toggle("d-none")
+            document.getElementById(`${types[i]}-i-text`).classList.toggle("is-open");
         })
 
         document.getElementById(`${types[i]}-i-button`).addEventListener("keydown", (event) => {

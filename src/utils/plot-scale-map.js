@@ -439,7 +439,7 @@ function addLgdClick(map) {
 
     if (!lgdCode) return;
 
-    document.getElementById("in-focus").classList.add("d-none");
+    document.getElementById("in-focus").classList.remove("is-open");
 
     window.history.pushState(
       {},
@@ -469,7 +469,7 @@ function addSdzClick(map) {
   
     insertValue("sdz-name", sdzName);
 
-    document.getElementById("in-focus").classList.remove("d-none");
+    document.getElementById("in-focus").classList.add("is-open");
     document.getElementById("focus-link").href = `/sdz.html?sdz=${sdzCode}`;
       
  

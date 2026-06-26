@@ -76,7 +76,7 @@ async function update_lgd({ animate = true } = {}) {
   if (sdz) {
     insertValue("sdz-name", data.data.ranks[sdz].name);
 
-    document.getElementById("in-focus").classList.toggle("d-none");
+    document.getElementById("in-focus").classList.add("is-open");
     document.getElementById("focus-link").href = `/sdz.html?sdz=${sdz}`;
   
   }
@@ -143,7 +143,7 @@ window.clearSdzFocus = async function () {
   await update_lgd({ animate: true });
 
   // Hide the clear button (or its parent)
-  document.querySelector("#in-focus").classList.add("d-none");
+  document.querySelector("#in-focus").classList.remove("is-open");
 
   // Notify the rest of the app
   window.dispatchEvent(new CustomEvent("sdzselect", {

@@ -546,3 +546,38 @@ thead th {
 .accordion-button::after {
   margin-left: 1em;
 }
+
+.i-text-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    max-height 250ms ease,
+    opacity 200ms ease,
+    transform 250ms ease;
+}
+
+.i-text-panel.is-open {
+  max-height: 300px; /* larger than expected content height */
+  opacity: 1;
+  transform: translateY(0);
+  margin-bottom: 1em;
+}
+
+#in-focus {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    max-height 500ms ease,
+    opacity 400ms ease,
+    transform 500ms ease;
+}
+
+#in-focus.is-open {
+  max-height: 300px; /* larger than expected content height */
+  opacity: 1;
+  transform: translateY(0);
+}
