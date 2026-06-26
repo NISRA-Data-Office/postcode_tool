@@ -398,7 +398,7 @@ function addSdzClick(map) {
     insertValue("sdz-name", sdzName);
 
     document.getElementById("in-focus").classList.add("is-open");
-    document.getElementById("focus-link").href = `/sdz.html?sdz=${sdzCode}`;
+    document.getElementById("focus-link").href = `sdz.html?sdz=${sdzCode}`;
       
  
 
