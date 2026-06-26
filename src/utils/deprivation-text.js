@@ -1,5 +1,3 @@
-
-
 export function getHeadline(data) {
 
     const mdm = data.data.ranks.mdm;
@@ -130,12 +128,15 @@ export function lgdDeprivationSummary(data, type) {
     rank: item.ranks?.[deprivation_type]
   }));
 
-  const sorted = children
-    .filter(d => d.rank != null)
-    .sort((a, b) => a.rank - b.rank);
+  const valid = children.filter(d => d.rank != null);
+  const sorted = valid.sort((a, b) => a.rank - b.rank);
 
   const mostDeprived = sorted[0];
   const leastDeprived = sorted[sorted.length - 1];
+  
+  const maxRank = Math.max(...valid.map(d => d.rank));
+  const topMostCount = valid.filter(d => d.rank <= 100).length;
+  const topLeastCount = valid.filter(d => d.rank > maxRank - 100).length;
 
   return `
     <div class="summary">
@@ -147,11 +148,11 @@ export function lgdDeprivationSummary(data, type) {
       </p>
 
       <p style="margin-top: 15px; line-height: 1.5em;">
-        ${place.name} contains X out of the Y most deprived neighbourhoods in Northern Ireland.
+        ${place.name} contains ${topMostCount} out of the 100 most deprived neighbourhoods in Northern Ireland.
       </p>
 
       <p style="margin-top: 15px; line-height: 1.5em;">
-        ${place.name} contains X out of the Y least deprived neighbourhoods in Northern Ireland.
+        ${place.name} contains ${topLeastCount} out of the 100 least deprived neighbourhoods in Northern Ireland.
       </p>
     </div>
   `;
