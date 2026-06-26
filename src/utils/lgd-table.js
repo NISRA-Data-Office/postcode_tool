@@ -169,7 +169,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
           `${url.pathname}${url.search}${url.hash}`
         );
 
-        document.getElementById("in-focus").classList.remove("d-none");
+        document.getElementById("in-focus").classList.add("is-open");
         document.getElementById("focus-link").href = `/sdz.html?sdz=${selectedCode}`;
         document.getElementById("focus-link").textContent = row.getElementsByTagName("td")[1].textContent;
 
