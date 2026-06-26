@@ -20,10 +20,6 @@
                <p class="h4 my-3">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
                <p>Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
                <p>Using the map or table, click on a neighbourhood to focus on that area. Click a neighbouring council on the map to explore deprivation in that area.</p>
-               <div id="in-focus" class="d-none grey-bg p-2 w-75 black-border">
-                  <p class="fs-4">View deprivation profile for: <a id="focus-link" class="sdz-name blue-text"></a></p>
-                  <div><button class="btn btn-primary col purple-bg rounded-0" aria-label="Clear focus from map and table below" onclick="clearSdzFocus()">Clear focus</button></div>
-               </div>
             </div>
             <div class="col-12 col-xl-4">
                <div class="postcode-search">
@@ -62,6 +58,15 @@
              
             </div>
             </div>
+
+         <div class="row mb-4">
+            <div class="col-12 col-xl-6">
+               <div id="in-focus" class="d-none grey-bg p-2 black-border">
+                  <p class="fs-4">View deprivation profile for: <a id="focus-link" class="sdz-name blue-text"></a></p>
+                  <div><button class="btn btn-primary col purple-bg rounded-0" aria-label="Clear focus from map and table below" onclick="clearSdzFocus()">Clear focus</button></div>
+               </div>
+            </div>
+         </div>   
 
          <div class="row">
             <div class="col-12 col-xl-6 mb-3">

@@ -93,7 +93,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
                 data-code="${child.code}" 
                 style="cursor:pointer;"
                 tabindex="-1" 
-                aria-label="View deprivation profile for ${child.name}, ranked ${child.rank ?? "unknown"}">
+                aria-label="Focus map on ${child.name}, ranked ${child.rank ?? "unknown"}">
               <td>${child.rank ?? ""}</td>
               <td>${child.name}</td>
               ${place.type === "ctry" ? `<td>${child.lgd}</td>` : ""}
