@@ -128,8 +128,15 @@ export async function plotNavMap(elementId, map_data, options = {}) {
     layers: ["sdz-fill"]
   });
 
-  map.getCanvas().style.cursor =
-    features.length > 0 ? "pointer" : "default";
+  if (features.length > 0) {
+    const props = features[0].properties;
+    const isSelected = props.nisra_width === 4;
+
+    map.getCanvas().style.cursor = 
+    isSelected ? "default" : "pointer";
+  } else {
+    map.getCanvas().style.cursor = "default";
+  }
 });
 
   map.setMaxBounds(niMaxBounds);
@@ -182,14 +189,11 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     map.setFeatureState({ source: sourceId, id: hoveredId }, { hover: true });
 
     const props = feature.properties;
+    const isSelected = props.nisra_width === 4;
 
     const html = options.nameOnly
-      ? `<div><strong>${props.nisra_label}</strong></div>`
-      : `<div><strong>${props.nisra_label}</strong>: <strong>${
-          props.nisra_value == null
-            ? "Not available"
-            : Number(props.nisra_value).toLocaleString("en-GB")
-        }</strong></div>`;
+        ? `<div><strong>${isSelected ? props.nisra_label : `View: ${props.nisra_label}`}</strong></div>`
+        : `<div><strong>${props.nisra_value == null ? "Not available" : Number(props.nisra_value).toLocaleString("en-GB")}</strong></div>`;
 
     popup
       .setLngLat(e.lngLat)
