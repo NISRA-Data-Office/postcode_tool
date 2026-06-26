@@ -37,10 +37,15 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
       if (row.dataset.code === code) {
         row.classList.add("selected");
 
-        row.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
+        const scrollContainer = container; // or container.parentElement if that's the scrolling element
+
+        scrollContainer.scrollTo({
+        top:
+          row.offsetTop -
+          scrollContainer.clientHeight / 2 +
+          row.clientHeight / 2,
+        behavior: "smooth"
+      });
       } else {
         row.classList.remove("selected");
       }
