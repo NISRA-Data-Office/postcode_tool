@@ -278,6 +278,7 @@ function addFillLayer(id, source) {
 }
 
 function addOutlineLayer(id, source, lineWidth) {
+  // Base outline layer
   map.addLayer({
     id,
     type: "line",
@@ -285,36 +286,68 @@ function addOutlineLayer(id, source, lineWidth) {
     paint: {
       "line-color": [
         "case",
-        ["boolean", ["get", "nisra_highlight"], false],
-        "#D4351C",
-        ["boolean", ["feature-state", "selected"], false],
-        "#D4351C",
-       ["all",
-          ["boolean", ["feature-state", "compareHover"], false],
-          ["literal", mapState.enableComparison]
-        ],
-        "#732777",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
         "#555555"
       ],
       "line-width": [
         "case",
-        ["boolean", ["get", "nisra_highlight"], false],
-        3,
-        ["boolean", ["feature-state", "selected"], false],
-        3,
-        ["boolean", ["feature-state", "compareHover"], false],
-        lineWidth + 2,
         ["boolean", ["feature-state", "hover"], false],
         lineWidth + 1,
         lineWidth
       ],
+      "line-opacity": 0.9
+    }
+  });
+
+  // Red selected / highlighted outline, above normal map lines
+  map.addLayer({
+    id: `${id}-selected`,
+    type: "line",
+    source,
+    paint: {
+      "line-color": "#D4351C",
+      "line-width": [
+        "case",
+        [
+          "any",
+          ["boolean", ["get", "nisra_highlight"], false],
+          ["boolean", ["feature-state", "selected"], false]
+        ],
+        lineWidth + 5,
+        0
+      ],
       "line-opacity": [
         "case",
-        ["boolean", ["get", "nisra_highlight"], false],
+        [
+          "any",
+          ["boolean", ["get", "nisra_highlight"], false],
+          ["boolean", ["feature-state", "selected"], false]
+        ],
         1,
-        0.9
+        0
+      ]
+    }
+  });
+
+  // Lilac comparison hover outline, above everything else
+  map.addLayer({
+    id: `${id}-compare-hover`,
+    type: "line",
+    source,
+    paint: {
+      "line-color": "#ce70d2",
+      "line-width": [
+        "case",
+        ["boolean", ["feature-state", "compareHover"], false],
+        lineWidth + 5,
+        0
+      ],
+      "line-opacity": [
+        "case",
+        ["boolean", ["feature-state", "compareHover"], false],
+        1,
+        0
       ]
     }
   });

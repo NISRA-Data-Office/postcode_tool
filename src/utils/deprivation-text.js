@@ -1,7 +1,6 @@
 export function getHeadline(data) {
 
     const mdm = data.data.ranks.mdm;
-    console.log(data)
     const count = data.count;
 
     if (mdm === 1) return " is more deprived than all neighbourhoods in Northern Ireland.";

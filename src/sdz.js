@@ -149,7 +149,7 @@ function updateComparisonText(diff, hoveredName, clickedSdz = false, onMouseLeav
   const el = document.getElementById("comparison-text");
   if (!el) return;
   
-  const hoveredStyled = `<span style="color:#732777;"><strong>${hoveredName}</strong></span>`;
+  const hoveredStyled = `<span style="color:#ce70d2;"><strong>${hoveredName}</strong></span>`;
   const selectedStyled = `<span style="color:#D4351C;"><strong>${currentSelectedName}</strong></span>`;
 
   let text;
