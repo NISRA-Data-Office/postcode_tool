@@ -293,7 +293,7 @@ function addOutlineLayer(id, source, lineWidth) {
           ["boolean", ["feature-state", "compareHover"], false],
           ["literal", mapState.enableComparison]
         ],
-        "#F59E0B",
+        "#732777",
         ["boolean", ["feature-state", "hover"], false],
         "#222222",
         "#555555"
