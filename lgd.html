@@ -17,9 +17,13 @@
          <div class="row mb-4">
             <div class="col-12 col-xl-8">
                <h2 id="headline" class="h1">Deprivation in <span class="blue-text place-name"></span></h2>
-               <p class="h4 mb-2">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
-               <p class="mb-0">Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
-               <p>Click on a neighbourhood to see its deprivation rank or click a neighbouring council to explore its deprivation profile.</p>
+               <p class="h4 my-3">Currently viewing <span class="deprivation-type blue-text">overall deprivation</span>.</p>  
+               <p>Use the dropdowns <span class="d-none d-xl-inline">on the right</span><span class="d-xl-none">below</span> to change council area or deprivation measure.</p>
+               <p>Using the map or table, click on a neighbourhood to focus on that area. Click a neighbouring council on the map to explore deprivation in that area.</p>
+               <div id="in-focus" class="d-none grey-bg p-2 w-75 black-border">
+                  <p class="fs-4">View deprivation profile for: <a id="focus-link" class="sdz-name blue-text"></a></p>
+                  <div><button class="btn btn-primary col purple-bg rounded-0" aria-label="Clear focus from map and table below" onclick="clearSdzFocus()">Clear focus</button></div>
+               </div>
             </div>
             <div class="col-12 col-xl-4">
                <div class="postcode-search">
@@ -66,7 +70,6 @@
             </div>
          <div class="col-12 col-xl-6 mb-3">
             <div id="lgd-table-container"></div>
-            <p style="margin-top: 30px; margin-left: 20px;">Click on a neighbourhood name in the table to view its deprivation profile.</p>
          </div>
 
          </div>

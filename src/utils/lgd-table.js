@@ -1,4 +1,5 @@
 import { config } from "../config/config.js";
+import { insertValue } from "./insert-value.js";
 
 export function createLGDTable(container, place, selectedDeprivation, sdz) {
   let sortKey = "rank";
@@ -149,10 +150,29 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
       row.addEventListener("click", () => {
         const code = row.dataset.code;
+        if (!code) return;
 
-        if (code) {
-          window.location.href = `sdz.html?sdz=${code}`;
-        }
+        selectedCode = code;
+        highlightRow(selectedCode);
+
+        const url = new URL(window.location);
+        url.searchParams.set("sdz", code);
+
+        window.history.replaceState(
+          {},
+          "",
+          `${url.pathname}${url.search}${url.hash}`
+        );
+
+        document.getElementById("in-focus").classList.remove("d-none");
+        document.getElementById("focus-link").href = `/sdz.html?sdz=${selectedCode}`;
+        document.getElementById("focus-link").textContent = row.getElementsByTagName("td")[1].textContent;
+
+        window.dispatchEvent(
+          new CustomEvent("sdzselect", {
+            detail: { code }
+          })
+        );
       });
 
       row.addEventListener("keydown", e => {

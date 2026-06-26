@@ -64,7 +64,6 @@ async function update_lgd({ animate = true } = {}) {
   const sdz = params?.get("sdz");
   const data = await readData(lgd);
 
-
   if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
     window.location.search = `lgd=${lgd}`;
   }
@@ -73,6 +72,14 @@ async function update_lgd({ animate = true } = {}) {
 
   insertNavButtons(data);
   insertValue("place-name", data.name);
+
+  if (sdz) {
+    insertValue("sdz-name", data.data.ranks[sdz].name);
+
+    document.getElementById("in-focus").classList.toggle("d-none");
+    document.getElementById("focus-link").href = `/sdz.html?sdz=${sdz}`;
+  
+  }
 
   insertValue(
     "deprivation-type",
@@ -119,3 +126,26 @@ async function update_lgd({ animate = true } = {}) {
 
 window.addEventListener("popstate", () => update_lgd({ animate: true }));
 window.addEventListener("lgdchange", () => update_lgd({ animate: true }));
+
+window.clearSdzFocus = async function () {
+  
+  // Remove the SDZ query parameter
+  const url = new URL(window.location);
+  url.searchParams.delete("sdz");
+
+  window.history.replaceState(
+    {},
+    "",
+    `${url.pathname}${url.search}${url.hash}`
+  );
+
+  await update_lgd({ animate: true });
+
+  // Hide the clear button (or its parent)
+  document.querySelector("#in-focus").classList.add("d-none");
+
+  // Notify the rest of the app
+  window.dispatchEvent(new CustomEvent("sdzselect", {
+    detail: { code: null }
+  }));
+};
