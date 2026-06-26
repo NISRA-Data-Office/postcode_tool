@@ -47,20 +47,20 @@
                
                <div class="col-12 col-xl-4 mb-3">
                
-                  <div class="grey-bg black-border pt-2 px-3 h-100">
+                  <div class="grey-bg black-border pt-2 px-3 h-100 d-flex flex-column">
 
                      <div>
-                        <h3 class="fw-bold fs-3">Overall deprivation rank</h3>
+                        <h3 class="fw-bold fs-3 text-center">Overall deprivation rank</h3>
                      </div>
 
                      <div class="d-flex flex-column justify-content-center align-items-center mb-3">
-                        <p class="overall-rank display-1 mb-1 fw-bold" style="color: var(--nisra_blue);"></p>
+                        <p class="overall-rank display-1 mb-1 fw-bold mt-5" style="color: var(--nisra_blue);"></p>
                         <p class="fw-bold fs-3" style="color: var(--nisra_blue);">out of <span class="place-count"></span></p>
                      </div>
 
-                     <div>
-                        <p class="text-centre mt-3 mb-0">Rank 1 is the most deprived</p>
-                        <p class="text-centre"><span class="place-count"></span> is the least deprived.</p>
+                     <div class="mt-auto">
+                        <p class="text-center mt-3 mb-0">Rank 1 is the most deprived</p>
+                        <p class="text-center mb-2"><span class="place-count"></span> is the least deprived.</p>
                      </div>
                  
                   </div>
@@ -68,19 +68,15 @@
                </div>
 
                <div class="col-12 col-xl-4 mb-3">
-                  <div class="grey-bg black-border h-100 px-3 pt-2">
+                  <div class="grey-bg black-border h-100 px-3 pt-2 d-flex flex-column">
                      <h3 class="fw-bold fs-3">About <span class="place-name"></span></h3>
-                     <div id="geo-description"></div>
+                     <div id="geo-description" class="fs-5"></div>
                   </div>
                </div>
 
         
                <div class="col-12 col-xl-4 mb-3 d-flex flex-column">
-
-               <div id="nav-map" class="map flex-grow-1 black-border" tabindex="0"></div>
-
-                  
-
+                  <div id="nav-map" class="map flex-grow-1 black-border" tabindex="0"></div>
                </div>
             </div>
 

@@ -1,4 +1,5 @@
 import { config } from "../config/config.js";
+import { insertValue } from "./insert-value.js";
 
 export function createLGDTable(container, place, selectedDeprivation, sdz) {
   let sortKey = "rank";
@@ -36,10 +37,15 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
       if (row.dataset.code === code) {
         row.classList.add("selected");
 
-        row.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
+        const scrollContainer = container; // or container.parentElement if that's the scrolling element
+
+        scrollContainer.scrollTo({
+        top:
+          row.offsetTop -
+          scrollContainer.clientHeight / 2 +
+          row.clientHeight / 2,
+        behavior: "smooth"
+      });
       } else {
         row.classList.remove("selected");
       }
@@ -149,10 +155,29 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
       row.addEventListener("click", () => {
         const code = row.dataset.code;
+        if (!code) return;
 
-        if (code) {
-          window.location.href = `sdz.html?sdz=${code}`;
-        }
+        selectedCode = code;
+        highlightRow(selectedCode);
+
+        const url = new URL(window.location);
+        url.searchParams.set("sdz", code);
+
+        window.history.replaceState(
+          {},
+          "",
+          `${url.pathname}${url.search}${url.hash}`
+        );
+
+        document.getElementById("in-focus").classList.remove("d-none");
+        document.getElementById("focus-link").href = `/sdz.html?sdz=${selectedCode}`;
+        document.getElementById("focus-link").textContent = row.getElementsByTagName("td")[1].textContent;
+
+        window.dispatchEvent(
+          new CustomEvent("sdzselect", {
+            detail: { code }
+          })
+        );
       });
 
       row.addEventListener("keydown", e => {

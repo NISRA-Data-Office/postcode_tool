@@ -1,6 +1,7 @@
 import { loadShapes, normaliseBounds, moveToBounds, getSdzCode, getSdzName, clearFeatureState, getPopupHtml } from "./map-helpers.js";
 import { readData } from "./read-data.js";
 import { config } from "../config/config.js";
+import { insertValue } from "./insert-value.js";
 
 export let map;
 
@@ -9,8 +10,6 @@ let sdzGeojsonData;
 
 let currentLgdBounds = null;
 let selectedSdzId = null;
-let tableHoveredSdzId = null;
-let tableHoverListenerAdded = false;
 
 const mapState = {
   isCountryMap: false,
@@ -161,7 +160,10 @@ export async function plotScaleMap(
 
     addLgdClick(map);
     addSdzClick(map);
-    addTableHoverListener();
+
+    window.addEventListener("sdzselect", e => {
+      selectSdzByCode(e.detail?.code);
+    });
   });
 }
 
@@ -335,33 +337,6 @@ function addCursorPointer() {
   });
 }
 
-function addTableHoverListener() {
-  if (tableHoverListenerAdded) return;
-
-  tableHoverListenerAdded = true;
-
-  window.addEventListener("sdzhover", e => {
-    if (!map?.getSource("sdz-shapes")) return;
-
-    tableHoveredSdzId = clearFeatureState(
-      map,
-      "sdz-shapes",
-      tableHoveredSdzId,
-      "hover"
-    );
-
-    const code = e.detail?.code;
-    if (!code) return;
-
-    tableHoveredSdzId = code;
-
-    map.setFeatureState(
-      { source: "sdz-shapes", id: code },
-      { hover: true }
-    );
-  });
-}
-
 function addHoverPopup(map, layerId, sourceId, options = {}) {
   let hoveredId = null;
 
@@ -464,6 +439,8 @@ function addLgdClick(map) {
 
     if (!lgdCode) return;
 
+    document.getElementById("in-focus").classList.add("d-none");
+
     window.history.pushState(
       {},
       "",
@@ -482,36 +459,26 @@ function addSdzClick(map) {
     const feature = e.features?.[0];
     if (!feature) return;
 
-    selectedSdzId = clearFeatureState(
-      map,
-      "sdz-shapes",
-      selectedSdzId,
-      "selected"
-    );
-
-    selectedSdzId = feature.id;
-
-    map.setFeatureState(
-      { source: "sdz-shapes", id: selectedSdzId },
-      { selected: true }
-    );
-
     const sdzCode = feature.properties?.nisra_code;
-
-    removeStaticSdzHighlight();
+    const sdzName = feature.properties?.nisra_label;
+    if (!sdzCode) return;
 
     const url = new URL(window.location);
     url.searchParams.set("sdz", sdzCode);
+
+  
+    insertValue("sdz-name", sdzName);
+
+    document.getElementById("in-focus").classList.remove("d-none");
+    document.getElementById("focus-link").href = `/sdz.html?sdz=${sdzCode}`;
+      
+ 
 
     window.history.replaceState(
       {},
       "",
       `${url.pathname}${url.search}${url.hash}`
     );
-
-    if (currentLgdBounds) {
-      moveToBounds(map, currentLgdBounds);
-    }
 
     window.dispatchEvent(
       new CustomEvent("sdzselect", {
@@ -545,13 +512,6 @@ function clearCurrentFeatureStates() {
     "sdz-shapes",
     selectedSdzId,
     "selected"
-  );
-
-  tableHoveredSdzId = clearFeatureState(
-    map,
-    "sdz-shapes",
-    tableHoveredSdzId,
-    "hover"
   );
 }
 
@@ -715,4 +675,35 @@ function getLgdName(feature) {
       feature.properties.name ||
       ""
   );
+}
+
+async function selectSdzByCode(code, options = {}) {
+  const { moveToSdz = true } = options;
+
+  if (!code || !map?.getSource("sdz-shapes")) return;
+
+  selectedSdzId = clearFeatureState(
+    map,
+    "sdz-shapes",
+    selectedSdzId,
+    "selected"
+  );
+
+  selectedSdzId = code;
+
+  map.setFeatureState(
+    { source: "sdz-shapes", id: selectedSdzId },
+    { selected: true }
+  );
+
+  removeStaticSdzHighlight();
+
+  if (moveToSdz) {
+    const sdzBounds = await getTargetBounds(
+      { bounds: currentLgdBounds },
+      code
+    );
+
+    moveToBounds(map, sdzBounds, true);
+  }
 }

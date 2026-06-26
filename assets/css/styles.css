@@ -173,7 +173,7 @@ table tr:not(:has(th)):hover {
 }
 
 .blue-text {
-  color: var(--nisra_blue);
+  color: var(--nisra_blue) !important;
 }
 
 .i-button {
@@ -565,4 +565,8 @@ thead th {
     break-inside: avoid;
   }
 
+}
+
+.accordion-button::after {
+  margin-left: 1em;
 }
