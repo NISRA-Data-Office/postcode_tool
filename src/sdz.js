@@ -84,16 +84,16 @@ async function update_sdz({ animate = true } = {}) {
       const geo_description = document.getElementById("geo-description");
 
       geo_description.innerHTML = `
-        <p class="mb-0"><span class="blue-text">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
-        <p class="mb-0">Deprivation is calculated for these Super Data Zones.</p>
-        <p><span class="blue-text">${data.name}</span> is classified as <span class="blue-text">${data.data.urban_rural}</span> and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}">${data.parents[0].name}</a>.</p>`
+        <p><span class="blue-text">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
+        <p>Deprivation is calculated for these neighbourhoods.</p>
+        <p><span class="blue-text">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
     
     insertNavButtons(data);
     insertValue("place-name", data.name);
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     
-    await plotNavMap("scale-map", data, { animate });
+    await plotNavMap("nav-map", data, { animate });
 
       const lgdCode = data.parents[0].code;
       const lgdData = await readData(lgdCode);

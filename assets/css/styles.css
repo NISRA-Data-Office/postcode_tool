@@ -52,11 +52,17 @@ main a[target="_blank"]::after {
 }
 
 .map {
-  /* height: 100%;         mobile default */
+  height: 100%;         
   width: 100%;
   position: relative;
   z-index: 0;
   margin-bottom: 2px;
+  min-height: 25vh;
+}
+
+.maplibregl-ctrl button:focus-visible {
+  outline: 3px solid #D4351C;
+  outline-offset: 2px;
 }
 
 .map-container {
@@ -179,7 +185,7 @@ table tr:not(:has(th)):hover {
 }
 
 .grey-bg {
-  background-color: #D9D9D9;
+  background-color: #e5e5e5;
 }
 
 .grey-bg a {
@@ -205,6 +211,13 @@ table tr:not(:has(th)):hover {
 .purple-bg:hover, .purple-bg:active {
   background-color: #5e1f62 !important;
   border: 2px solid #000 !important;
+}
+
+.purple-bg:focus-visible {
+  background-color: var(--nisra_purple);
+  border: 2px solid #000;
+  outline: 3px solid #D4351C;
+  outline-offset: 1px;
 }
 
 .purple-border {
@@ -317,10 +330,14 @@ table tr:not(:has(th)):hover {
 .btn:focus-visible,
 .form-control:focus,
 .form-control:focus-visible,
-.form-select:focus,
-.form-select:focus-visible {
+.form-select:focus {
   box-shadow: none;
   border-color: #000;
+}
+
+.form-select:focus-visible {
+  outline: 3px solid #D4351C;
+  outline-offset: 1px;
 }
 
 /* Nav buttons: draw focus inside the element so it can't be hidden */
@@ -362,6 +379,11 @@ thead th {
   position: relative;
 }
 
+.form-control:focus-visible {
+  outline: 3px solid #D4351C;
+  outline-offset: 1px;
+}
+
 #postcode-go {
   border-left: 2px solid #000;
 }
@@ -369,6 +391,12 @@ thead th {
 #postcode-go:hover {
   background-color: #2f66a8;
   border: 2px solid #000;
+}
+
+#postcode-go:focus-visible {
+  outline: 3px solid #D4351C;
+  outline-offset: 1px;
+  background-color: #2f66a8;
 }
 
 .postcode-dropdown {
@@ -417,6 +445,17 @@ thead th {
 #lgd-table-container {
   height: calc(45px * 11 + 5px);
   overflow-y: auto;
+}
+
+.lgd-table th:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px #D4351C;
+}
+
+.sdz-row:focus-visible {
+  position: relative;
+  border: 2px solid #D4351C;
+  outline-offset: 0;
 }
 
 #lgd-table-container .lgd-table {
@@ -504,6 +543,11 @@ thead th {
 
 #scroll-btn:hover {
   color:var(--nisra_blue)
+}
+
+#scroll-btn:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px #D4351C;
 }
 
 @media print {
