@@ -17,7 +17,7 @@
                         <input
                            id="postcode-search"
                            type="search"
-                           class="form-control rounded-0 black-border"
+                           class="form-control rounded-0 border-secondary"
                            placeholder="Enter another postcode"
                            aria-label="Enter postcode"
                            autocomplete="off"
@@ -26,7 +26,7 @@
                            spellcheck="false">
                         <button
                            id="postcode-go"
-                           class="btn btn-primary rounded-0 black-border"
+                           class="btn btn-primary rounded-0 border-secondary"
                            type="button">
                         Go
                         </button>
@@ -34,9 +34,9 @@
                      <div id="postcode-dropdown" class="postcode-dropdown"></div>
                   </div>
                   <div class="row mt-2 gap-1 gx-1">
-                     <button class="btn btn-primary col purple-bg rounded-0" aria-label="About this app (opens About page)" onclick="window.location.href='about.html'">About</button>
-                     <button class="btn btn-primary col purple-bg rounded-0" aria-label="Download this page as a PDF" onclick="window.print(); return false;">Download</button>
-                     <button class="btn btn-primary col purple-bg rounded-0" aria-label="Share this page" onclick="sharePage()">Share</button>
+                     <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="About this app (opens About page)" onclick="window.location.href='about.html'">About</button>
+                     <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="Download this page as a PDF" onclick="window.print(); return false;">Download</button>
+                     <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="Share this page" onclick="sharePage()">Share</button>
                   </div>
                </div>
             </div>
@@ -47,7 +47,7 @@
                
                <div class="col-12 col-xl-4 mb-3">
                
-                  <div class="grey-bg black-border pt-2 px-3 h-100 d-flex flex-column">
+                  <div class="grey-bg border border-secondary pt-2 px-3 h-100 d-flex flex-column">
 
                      <div>
                         <h3 class="fw-bold fs-3 text-center">Overall deprivation rank</h3>
@@ -68,7 +68,7 @@
                </div>
 
                <div class="col-12 col-xl-4 mb-3">
-                  <div class="grey-bg black-border h-100 px-3 pt-2 d-flex flex-column">
+                  <div class="grey-bg border border-secondary h-100 px-3 pt-2 d-flex flex-column">
                      <h3 class="fw-bold fs-3 text-break">About <span class="place-name"></span></h3>
                      <div id="geo-description" class="fs-5"></div>
                   </div>
@@ -76,7 +76,7 @@
 
         
                <div class="col-12 col-xl-4 mb-3 d-flex flex-column">
-                  <div id="nav-map" class="map flex-grow-1 black-border" tabindex="0"></div>
+                  <div id="nav-map" class="map flex-grow-1 border border-secondary" tabindex="0"></div>
                </div>
             </div>
 
@@ -138,20 +138,25 @@
                </div>
             </div>
 
-            <h3 class="h2 mt-4">Deprivation summary for <span class="blue-text place-name"></span></h3>
-            <div class="mt-3" id="deprivation-summary"></div>
-            <div class="row">
-               <div class="col">
-                  <button class="btn btn-primary purple-bg mt-3 mb-4 rounded-0" id="copy-summary">Copy summary</button>
-               </div>
+            
+            
+            <div class="grey-bg border border-secondary p-3 mt-4">
+               <h3 class="h2">Deprivation summary for <span class="blue-text place-name"></span></h3>
+               <div class="bg-white p-2 border border-secondary" id="deprivation-summary"></div>
+               <button class="btn btn-primary purple-bg border-secondary my-3 rounded-0" id="copy-summary">Copy summary</button>
             </div>
+            <!-- <div class="row">
+               <div class="col"> -->
+                  
+               <!-- </div>
+            </div> -->
             <h3 class="h2 mt-4">Next steps</h3>
             <div id="next-steps" class="row g-4 mb-5"></div>
          </div>
 
       </main>      
 
-      <button id="scroll-btn">Back to top</button>
+      <button id="scroll-btn" class="border-0 border-top border-secondary">Back to top</button>
       <footer id = "footer"></footer>
 
       <script type = "module" src="src/sdz.js"></script>

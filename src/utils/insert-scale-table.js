@@ -28,7 +28,7 @@ export function insertScaleTable (id, data) {
                     <p>rank ${data.data.ranks[types[i]]}</p>
                 </div>
                 <div id="${types[i] == "mdm" ? "overall" : types[i]}-scale-chart" class="col-12 col-xl-8"></div>
-                <div id="${types[i]}-i-text" class="i-text-panel black-border ">
+                <div id="${types[i]}-i-text" class="i-text-panel border border-secondary">
                     <div class="d-flex flex-row align-items-start p-2">
                         <img src="assets/img/logo/i-button.svg" width="18" class="me-2 mt-1">
                         <p class="mb-0">${i_text[types[i]]}</p>
