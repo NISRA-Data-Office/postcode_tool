@@ -144,10 +144,6 @@ table tr:not(:has(th)):hover {
   cursor: pointer;
 }
 
-.black-border {
-  border: 2px solid #000;
-}
-
 .grey-bg {
   background-color: #e5e5e5;
 }
@@ -169,12 +165,10 @@ table tr:not(:has(th)):hover {
 .purple-bg {
   background-color: var(--nisra_purple);
   color: #fff;
-  border: 2px solid #000;
 }
 
 .purple-bg:hover, .purple-bg:active {
   background-color: #5e1f62 !important;
-  border: 2px solid #000 !important;
 }
 
 .purple-bg:focus-visible {
@@ -497,8 +491,6 @@ thead th {
    font-weight: 700;
    cursor: pointer;
    overflow: auto;
-   border: none;
-   border-top: 1px solid black
 }
 
 #scroll-btn.hidden {

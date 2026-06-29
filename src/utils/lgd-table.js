@@ -94,9 +94,9 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
                 style="cursor:pointer;"
                 tabindex="-1" 
                 aria-label="Focus map on ${child.name}, ranked ${child.rank ?? "unknown"}">
-              <td>${child.rank ?? ""}</td>
-              <td>${child.name}</td>
-              ${place.type === "ctry" ? `<td>${child.lgd}</td>` : ""}
+              <td class="border-secondary">${child.rank ?? ""}</td>
+              <td class="border-secondary">${child.name}</td>
+              ${place.type === "ctry" ? `<td class="border-secondary">${child.lgd}</td>` : ""}
             </tr>
           `).join("")}
         </tbody>
