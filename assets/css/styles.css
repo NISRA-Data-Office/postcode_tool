@@ -333,10 +333,6 @@ thead th {
   border-bottom: 2px solid #e5e7eb;
 }
 
-.postcode-search {
-  position: relative;
-}
-
 .form-control:focus-visible {
   outline: 3px solid #D4351C;
   outline-offset: 1px;

@@ -11,7 +11,7 @@ export function populateNextStepBoxes(data) {
     },
     {
       text: `Back to top and enter another postcode`,
-      link: "postcode-search"
+      link: "postcode-input"
     },
     {
       text: `View other deprivation resources. Reports, detailed tables and background information`,

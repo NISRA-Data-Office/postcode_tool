@@ -13,11 +13,11 @@ export function copySummary(data) {
     const text = summary.innerText;
 
     navigator.clipboard.writeText(text).then(() => {
-      const originalText = button.textContent;
-      button.textContent = "Summary copied";
+      const text_copied = document.getElementById("text-copied");
+      text_copied.classList.remove("d-none");
 
       setTimeout(() => {
-        button.textContent = originalText;
+        text_copied.classList.add("d-none");
       }, 2000);
     });
   });
