@@ -35,7 +35,7 @@ export function populateInfoBoxes(labels, content) {
         </div>
 
         <div class="info-card-wrap">
-          <div id="info-card" class="card my-3 rounded-0">
+          <div id="info-card" class="card my-3 rounded-0 border border-secondary">
 
             <div id="infoCollapse" class="accordion-collapse collapse" data-active-index="">
               <div class="accordion-body">

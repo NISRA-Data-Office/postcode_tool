@@ -24,7 +24,7 @@ banner.innerHTML = `
 </div>
     </div>
   </div>
-  <div class="container-fluid align-items-center justify-content-center green-bg py-2" role="banner">
+  <div class="container-fluid align-items-center justify-content-center bg-green py-2" role="banner">
     ${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM)
     </div>
 `

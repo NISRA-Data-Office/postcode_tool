@@ -63,7 +63,7 @@ async function update_sdz({ animate = true } = {}) {
       const valid_postcode = postcode_data[sdz].codes.includes(postcode);
 
       if (valid_postcode) {
-        headline.innerHTML =`${postcode} is in <span class="blue-text">${data.name}</span>`;
+        headline.innerHTML =`${postcode} is in <span class="text-blue">${data.name}</span>`;
         page_title.textContent = `Deprivation in ${postcode}`;
       } else {
         window.history.replaceState(
@@ -71,16 +71,16 @@ async function update_sdz({ animate = true } = {}) {
           "",
           `sdz.html?sdz=${encodeURIComponent(sdz)}`
         )
-        headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
+        headline.innerHTML = `Deprivation in <span class="text-blue">${data.name}</span>`;
         page_title.textContent = `Deprivation in ${data.name}`;
       }
 
       const geo_description = document.getElementById("geo-description");
 
       geo_description.innerHTML = `
-        <p><span class="blue-text">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
+        <p><span class="text-blue">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
         <p class="mt-auto">Deprivation is calculated for these neighbourhoods.</p>
-        <p class="mt-auto"><span class="blue-text">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
+        <p class="mt-auto"><span class="text-blue">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
     
     insertNavButtons(data);
     insertValue("place-name", data.name);
