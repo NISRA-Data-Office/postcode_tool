@@ -210,4 +210,11 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 
     popup.remove();
   });
+  
+  const container = map.getContainer();
+  const canvas = container.querySelector("canvas");
+  
+  if (canvas) {
+    canvas.setAttribute("tabindex", "0");
+  }
 }

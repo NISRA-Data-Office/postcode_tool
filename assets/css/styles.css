@@ -65,6 +65,11 @@ main a[target="_blank"]::after {
   outline-offset: 2px;
 }
 
+.map:has(canvas:focus-visible) {
+  outline: 3px solid #D4351C;
+  outline-offset: 3px;
+}
+
 /* ===========================
    Brand & misc.
    =========================== */
