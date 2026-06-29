@@ -1,7 +1,32 @@
 export let postcode_data;
 
-export async function postcodeSearch(id) {
-  const input = document.getElementById(id);
+export async function postcodeSearch(id, placeholder = "Search for a postcode") {
+
+  document.getElementById(id).innerHTML = `
+  <div class="input-group">
+    <input
+    id="postcode-input"
+    type="search"
+    class="form-control rounded-0 border-secondary"
+    placeholder="${placeholder}"
+    aria-label="${placeholder}"
+    autocomplete="off"
+    autocorrect="off"
+    autocapitalize="off"
+    spellcheck="false">
+
+    <button
+    id="postcode-go"
+    class="btn btn-primary rounded-0 border-secondary"
+    type="button">
+    Go
+    </button>
+  </div>
+
+  <div id="postcode-dropdown" class="postcode-dropdown"></div>
+  `
+
+  const input = document.getElementById("postcode-input");
   const goButton = document.getElementById("postcode-go");
   const dropdown = document.getElementById("postcode-dropdown");
 

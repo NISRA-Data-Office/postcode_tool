@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   
     await insertHead("Super Data Zone");
-    await postcodeSearch("postcode-search");
+    await postcodeSearch("postcode-search", "Enter another postcode");
     await update_sdz({ animate: false });
     insertHeader();
     insertFooter();
@@ -50,7 +50,7 @@ async function update_sdz({ animate = true } = {}) {
       const params = new URLSearchParams(window.location.search);
     
       if (params.size === 0) {
-        window.location.pathname = "/";
+        window.location.replace("./");
         return;
       }
     
@@ -58,8 +58,7 @@ async function update_sdz({ animate = true } = {}) {
       const postcode = params?.get("postcode");
       const data = await readData(sdz);
       if (!data) {
-        window.location.pathname = "/";
-        window.location.search = "";
+        window.location.replace("./");
         return;
       }
 

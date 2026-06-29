@@ -12,27 +12,7 @@
                <h2 id="headline" class="h1 mt-3"></h2>
                </div>
                <div class="col-12 col-xl-4">
-                  <div class="postcode-search">
-                     <div class="input-group">
-                        <input
-                           id="postcode-search"
-                           type="search"
-                           class="form-control rounded-0 border-secondary"
-                           placeholder="Enter another postcode"
-                           aria-label="Enter postcode"
-                           autocomplete="off"
-                           autocorrect="off"
-                           autocapitalize="off"
-                           spellcheck="false">
-                        <button
-                           id="postcode-go"
-                           class="btn btn-primary rounded-0 border-secondary"
-                           type="button">
-                        Go
-                        </button>
-                     </div>
-                     <div id="postcode-dropdown" class="postcode-dropdown"></div>
-                  </div>
+                  <div id="postcode-search" class="position-relative"></div>
                   <div class="row mt-2 gap-1 gx-1">
                      <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="About this app (opens About page)" onclick="window.location.href='about.html'">About</button>
                      <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="Download this page as a PDF" onclick="window.print(); return false;">Download</button>
@@ -131,13 +111,19 @@
             <div class="grey-bg border border-secondary p-3 mt-4">
                <h3 class="h2">Deprivation summary for <span class="blue-text place-name"></span></h3>
                <div class="bg-white p-2 border border-secondary" id="deprivation-summary"></div>
-               <button class="btn btn-primary purple-bg border-secondary my-3 rounded-0" id="copy-summary">Copy summary</button>
+               <div class="d-flex align-items-center gap-3 my-3">
+                  <button
+                     class="btn btn-primary purple-bg border-secondary rounded-0"
+                     id="copy-summary">
+                     Copy summary
+                  </button>
+
+                  <span id="text-copied" class="fw-bold d-none">
+                     Summary copied to clipboard
+                  </span>
+               </div>
             </div>
-            <!-- <div class="row">
-               <div class="col"> -->
-                  
-               <!-- </div>
-            </div> -->
+
             <h3 class="h2 mt-4">Next steps</h3>
             <div id="next-steps" class="row g-4 mb-5"></div>
          </div>

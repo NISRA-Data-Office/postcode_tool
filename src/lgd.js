@@ -47,7 +47,7 @@ async function update_lgd({ animate = true } = {}) {
   const params = new URLSearchParams(window.location.search);
 
   if (params.size === 0) {
-    window.location.pathname = "/";
+    window.location.replace("./");
     return;
   }
 
@@ -56,8 +56,7 @@ async function update_lgd({ animate = true } = {}) {
   const lgd = params.get("lgd");
 
    if (!lgd_codes.includes(lgd)) {
-    window.location.pathname = "/";
-    window.location.search = "";
+    window.location.replace("./");
     return;
   }
 

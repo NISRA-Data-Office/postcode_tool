@@ -4,8 +4,6 @@
 <body style="display:none;" class="d-flex flex-column min-vh-100">
 
    <banner id="banner"></banner>
-   <!-- Top Navbar -->
-
 
    <!-- Main Content -->
    <main class="flex-grow-1">
@@ -22,34 +20,12 @@
                <p>Using the map or table, click on a neighbourhood to focus on that area. Click a neighbouring council on the map to explore deprivation in that area.</p>
             </div>
             <div class="col-12 col-xl-4">
-               <div class="postcode-search">
-                  <div class="input-group">
-                     <input
-                        id="postcode-search"
-                        type="search"
-                        class="form-control rounded-0 border-secondary"
-                        placeholder="Enter postcode"
-                        aria-label="Enter postcode"
-                        autocomplete="off"
-                        autocorrect="off"
-                        autocapitalize="off"
-                        spellcheck="false"/>
-                        <button
-                           id="postcode-go"
-                           class="btn btn-primary rounded-0 border-secondary"
-                           type="button">
-                           Go
-                        </button>
-                     </div>
-                     <div id="postcode-dropdown" class="postcode-dropdown"></div>
-                  </div>
+               <div id="postcode-search" class="position-relative"></div>
                   <div class="row mt-2 gap-1 gx-1">
                      <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="About this app (opens About page)" onclick="window.location.href='about.html'">About</button>
                      <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="Download this page as a PDF" onclick="window.print(); return false;">Download</button>
                      <button class="btn btn-primary col purple-bg rounded-0 border-secondary" aria-label="Share this page" onclick="sharePage()">Share</button>
                   </div>
-                  <div id="postcode-dropdown" class="postcode-dropdown"></div>
-               
 
                <p class="mt-3 mb-1">Select another area:</p>
                <select id="lgd-select" class="form-select rounded-0 border-secondary" aria-label="Select a council area"></select>
@@ -84,12 +60,21 @@
          <div class="grey-bg border border-secondary p-3 my-4">
                <h3 class="h2">Deprivation summary for <span class="blue-text place-name"></span></h3>
                <div class="bg-white p-2 border border-secondary" id="summary"></div>
-               <button class="btn btn-primary purple-bg border-secondary my-3 rounded-0" id="copy-summary">Copy summary</button>
+               <div class="d-flex align-items-center gap-3 my-3">
+                  <button
+                     class="btn btn-primary purple-bg border-secondary rounded-0"
+                     id="copy-summary">
+                     Copy summary
+                  </button>
+
+                  <span id="text-copied" class="fw-bold d-none">
+                     Summary copied to clipboard
+                  </span>
+               </div>
             </div>
   
          </div>
       </div>
-
 
       <div class="grey-bg h5 text-end mt-1 mb-0 border">
          <div class="container py-1">
@@ -106,6 +91,5 @@
    <footer id = "footer"></footer>
 
    <script type = "module" src="src/lgd.js"></script>
-
 
 </body>
