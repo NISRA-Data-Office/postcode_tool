@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   await updateLGD({ animate: false });
 
   handleOnScroll();
-  clearSdzFocus(type_select);
+  clearSdzFocus();
 
 });
 
