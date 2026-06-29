@@ -1,4 +1,18 @@
-export function populateInfoBoxes(labels, content) {
+const labels = [
+  `What is the multiple deprivation measure and when do I use it?`,
+  `What are the types of deprivation and when do I use them?`,
+  `What is a 'neighbourhood' or super data zone?`
+];
+
+const content = [
+  ``,
+
+  ``,
+
+  `Neighbourhoods are small areas called Super Data Zones (SDZ).They have an average population of 2,270 people.`
+];
+
+export function populateInfoBoxes() {
   const info_boxes = document.getElementById("info-boxes");
   info_boxes.classList.add("mt-4");
 

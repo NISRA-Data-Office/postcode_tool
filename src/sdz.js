@@ -22,22 +22,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertHeader();
     insertFooter();
     
-
-    populateInfoBoxes(
-        [
-            "What is the multiple deprivation measure and when do I use it?",
-            "What are the types of deprivation and when do I use them?",
-            "What is a ‘neighbourhood’ or super data zone?"
-        ],
-        [
-            "",
-            "",
-            "Neighbourhoods are small areas called Super Data Zones (SDZ).They have an average population of 2,270 people."
-        ]
-    ) 
-    handleOnScroll();
-    
-    
+    populateInfoBoxes() 
+    handleOnScroll();   
 
 })
 
