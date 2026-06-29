@@ -8,7 +8,6 @@ import { handleOnScroll } from "./utils/scroll-button.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
-  
     await insertHead();
     await postcodeSearch("postcode-search", "Enter another postcode");
     await updateSDZ({ animate: false });
@@ -16,7 +15,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertFooter();
     
     populateInfoBoxes() 
-    handleOnScroll();   
+    handleOnScroll();
 
 })
 
