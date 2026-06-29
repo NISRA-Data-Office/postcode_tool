@@ -127,7 +127,7 @@ export function insertFooter () {
 
 }
 
-export async function insertHead(title) {
+export async function insertHead(title = "") {
   const head = document.head;
 
   // Clear existing head safely if you really need to
