@@ -77,7 +77,7 @@ async function update_lgd({ animate = true } = {}) {
     insertValue("sdz-name", data.data.ranks[sdz].name);
 
     document.getElementById("in-focus").classList.add("is-open");
-    document.getElementById("focus-link").href = `/sdz.html?sdz=${sdz}`;
+    document.getElementById("focus-link").href = `sdz.html?sdz=${sdz}`;
   
   }
 
