@@ -20,5 +20,5 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 })
 
-window.addEventListener("popstate", () => update_sdz({ animate: true }));
-window.addEventListener("sdzchange", () => update_sdz({ animate: true }));
+window.addEventListener("popstate", () => updateSDZ({ animate: true }));
+window.addEventListener("sdzchange", () => updateSDZ({ animate: true }));
