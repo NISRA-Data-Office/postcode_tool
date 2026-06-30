@@ -19,7 +19,7 @@ export function insertHeader () {
         <img src="assets/img/logo/nisra-only-white.svg"
               alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
       </a></div>
-        <div class="col-12 col-xl-6 d-flex align-items-center justify-content-center justify-content-xl-end text-white p-0">
+        <div class="col-12 col-xl-6 d-flex text-center align-items-center justify-content-center justify-content-xl-end text-white p-0">
       <h1 class="mb-0">${config.title}</h1>
   </div>
       </div>
