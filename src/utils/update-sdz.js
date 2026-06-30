@@ -32,30 +32,30 @@ export async function updateSDZ({ animate = true } = {}) {
     const valid_postcode = postcode_data[sdz].codes.includes(postcode);
 
     if (valid_postcode) {
-    headline.innerHTML =`How deprived is ${postcode}?`;
-    page_title.textContent = `Deprivation in ${postcode}`;
+        headline.innerHTML =`How deprived is ${postcode}?`;
+        page_title.textContent = `Deprivation in ${postcode}`;
     } else {
-    window.history.replaceState(
-        {},
-        "",
-        `sdz.html?sdz=${encodeURIComponent(sdz)}`
-    )
-    headline.innerHTML = `How deprived is ${data.name}?`;
-    page_title.textContent = `Deprivation in ${data.name}?`;
+        window.history.replaceState(
+            {},
+            "",
+            `sdz.html?sdz=${encodeURIComponent(sdz)}`
+        )
+        headline.innerHTML = `How deprived is ${data.name}?`;
+        page_title.textContent = `Deprivation in ${data.name}`;
     }
 
     const geo_description = document.getElementById("geo-description");
 
-    geo_description.innerHTML = `<p>This is a small area called a Super Data Zone (SDZ) in <a style="color: var(--nisra_blue); "href="area.html?code=${data.parents[0].code} "title="View deprivation profile for ${data.parents[0].name}"> ${data.parents[0].name}</a>.</p>
-    <p>SDZs - referred to here as "neighbourhoods; have an average population of 2,240 people."`
+    geo_description.innerHTML = `
+        <p>${valid_postcode ? `<strong>${postcode}</strong> is in ${data.name}, ` : `${data.name} is` } a small area${valid_postcode ? "": ","} called a Super Data Zone, in <a style="color: var(--nisra_blue); "href="area.html?code=${data.parents[0].code} "title="View deprivation profile for ${data.parents[0].name}"> ${data.parents[0].name}</a>.</p>
+        <p>Super Data Zones - referred to here as 'neighbourhoods' - have an average population of 2,240 people.
+    `
  
     insertNavButtons(data);
-    if (valid_postcode) {
-    insertValue("place-name", `${postcode} is part of ${data.name}`)
-    } else {
+    
     insertValue("place-name", data.name);
-    }
-    insertValue("deprivation-place-name", data.name)
+    
+    // insertValue("deprivation-place-name", data.name)
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     
