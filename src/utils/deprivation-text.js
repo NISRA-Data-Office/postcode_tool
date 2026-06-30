@@ -168,8 +168,8 @@ export function updateComparisonText(diff, currentSelectedName, hoveredName, cli
     return;
   }
 
-  if (Math.abs(diff) <= 100) {
-    text = `${hoveredStyled} has a similar deprivation ranking`;
+  if (Math.abs(diff) <= 85) {
+    text = `${hoveredStyled} has a similar deprivation ranking to ${selectedStyled}`;
   } 
   else if (diff > 0) {
     text = `${hoveredStyled} is less deprived than ${selectedStyled}`;

@@ -13,7 +13,9 @@ let selectedSdzId = null;
 
 const mapState = {
   isCountryMap: false,
-  enableComparison: false
+  enableComparison: false,
+  selectedSdz: null,
+  selectedValue: null
 };
 
 export async function plotScaleMap(
@@ -34,6 +36,8 @@ export async function plotScaleMap(
 
   mapState.isCountryMap = map_data.type === "ctry";
   mapState.enableComparison = enableComparison;
+  mapState.selectedSdz = highlightSdz;
+  mapState.selectedValue = map_data.data?.ranks?.[highlightSdz]?.ranks?.[deprivation_type];
 
   const selectedLgdCode = map_data.code;
   const selectedLgdName = map_data.name;
@@ -154,8 +158,8 @@ export async function plotScaleMap(
     addHoverPopup(map, "sdz-fill", "sdz-shapes", {
       enabled: () => true,
       enableComparison: mapState.enableComparison,
-      highlightSdz,
-      selectedValue: map_data.data?.ranks?.[highlightSdz]?.ranks?.[deprivation_type]
+      highlightSdz: mapState.selectedSdz,
+      selectedValue: mapState.selectedValue
   });
 
     addLgdClick(map);
@@ -401,10 +405,11 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
   if (
     enableComparison &&
     sourceId === "sdz-shapes" &&
-    props.nisra_code !== highlightSdz &&
+    props.nisra_code !== mapState.selectedSdz &&
     props.nisra_value != null &&
-    selectedValue != null
+    mapState.selectedValue != null
   ) {
+
     window.dispatchEvent(new CustomEvent("sdzhovercompare", {
       detail: {
         hovered: {
@@ -413,8 +418,8 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
           name: props.nisra_label
         },
         selected: {
-          code: highlightSdz,
-          value: Number(selectedValue)
+          code: mapState.selectedSdz,
+          value: Number(mapState.selectedValue)
         }
       }
     }));
