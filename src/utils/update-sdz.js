@@ -46,13 +46,16 @@ export async function updateSDZ({ animate = true } = {}) {
 
     const geo_description = document.getElementById("geo-description");
 
-    geo_description.innerHTML = `
-    <p><span class="text-blue">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
-    <p class="mt-auto">Deprivation is calculated for these neighbourhoods.</p>
-    <p class="mt-auto"><span class="text-blue">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="area.html?code=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
-    
+    geo_description.innerHTML = `<p>This is a small area called a Super Data Zone (SDZ) in <a style="color: var(--nisra_blue); "href="area.html?code=${data.parents[0].code} "title="View deprivation profile for ${data.parents[0].name}"> ${data.parents[0].name}</a>.</p>
+    <p>SDZs - referred to here as "neighbourhoods; have an average population of 2,240 people."`
+ 
     insertNavButtons(data);
+    if (valid_postcode) {
+    insertValue("place-name", `${postcode} is part of ${data.name}`)
+    } else {
     insertValue("place-name", data.name);
+    }
+    insertValue("deprivation-place-name", data.name)
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     
