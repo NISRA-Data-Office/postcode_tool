@@ -24,8 +24,9 @@ banner.innerHTML = `
 </div>
     </div>
   </div>
-  <div class="container-fluid align-items-center justify-content-center green-bg py-2" role="banner">
-    ${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM)
+  <div class="container-fluid align-items-center justify-content-center bg-green py-2" role="banner">
+    <p class="m-0">${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM).</p>
+    <p class="m-0">Deprivation refers to people's unmet needs, a lack of access to opportunities and resources which we might expect in our society.</p>
     </div>
 `
 }
@@ -127,7 +128,7 @@ export function insertFooter () {
 
 }
 
-export async function insertHead(title) {
+export async function insertHead(title = "") {
   const head = document.head;
 
   // Clear existing head safely if you really need to

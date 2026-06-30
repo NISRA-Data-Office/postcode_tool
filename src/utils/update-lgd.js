@@ -1,0 +1,91 @@
+import { lgdMenu, lgd_codes } from "./lgd-menu.js";
+import { readData } from "./read-data.js";
+import { insertNavButtons } from "./page-layout.js";
+import { insertValue } from "./insert-value.js";
+import { config } from "../config/config.js";
+import { plotScaleMap } from "./plot-scale-map.js";
+import { scaleChart } from "./scale-chart.js";
+import { createLGDTable } from "./lgd-table.js";
+import { lgdDeprivationSummary } from "./deprivation-text.js";
+import { copySummary } from "./copy-summary.js";
+
+export async function updateLGD({ animate = true } = {}) {
+  const params = new URLSearchParams(window.location.search);
+  const type_select = document.getElementById("type-select");
+
+  if (params.size === 0) {
+    window.location.replace("./");
+    return;
+  }
+
+  await lgdMenu("lgd-select");
+
+  const lgd = params.get("lgd");
+
+   if (!lgd_codes.includes(lgd)) {
+    window.location.replace("./");
+    return;
+  }
+
+  const sdz = params?.get("sdz");
+  const data = await readData(lgd);
+
+  if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
+    window.location.search = `lgd=${lgd}`;
+  }
+ 
+  document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
+
+  insertNavButtons(data);
+  insertValue("place-name", data.name);
+
+  if (sdz) {
+    insertValue("sdz-name", data.data.ranks[sdz].name);
+
+    document.getElementById("in-focus").classList.add("is-open");
+    document.getElementById("focus-link").href = `sdz.html?sdz=${sdz}`;
+  
+  }
+
+  insertValue(
+    "deprivation-type",
+    config.deprivation_types[type_select.value].toLowerCase()
+  );
+
+  await plotScaleMap("scale-map", data, type_select.value, { animate,
+    highlightSdz: sdz
+   });
+
+  insertValue("place-name", data.name)
+    
+  scaleChart("lgd-scale-chart", data, type_select.value, {
+    labels: "below",
+    marker: false
+  });
+
+    const lgdTableContainer = document.getElementById("lgd-table-container");
+    createLGDTable(lgdTableContainer, data, type_select.value, sdz);
+
+    type_select.addEventListener("change", () => {
+      const params = new URLSearchParams(window.location.search);
+      const sdz = params.get("sdz");
+
+        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
+        plotScaleMap("scale-map", data, type_select.value, {
+          highlightSdz: sdz,
+          preserveView: true
+        })
+        scaleChart("lgd-scale-chart", data, type_select.value, {
+          labels: "below",
+          marker: false
+        });
+        createLGDTable(lgdTableContainer, data, type_select.value, sdz)
+    });
+  
+    const summaryContainer = document.getElementById("summary");
+
+    summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
+
+    copySummary(data);
+
+}

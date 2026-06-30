@@ -23,7 +23,7 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
     </button>
   </div>
 
-  <div id="postcode-dropdown" class="postcode-dropdown"></div>
+  <div id="postcode-dropdown" class="postcode-dropdown border border-secondary position-absolute d-none"></div>
   `
 
   const input = document.getElementById("postcode-input");
@@ -93,7 +93,8 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
 
   function hideDropdown() {
     dropdown.innerHTML = "";
-    dropdown.style.display = "none";
+    dropdown.classList.add("d-none");
+    dropdown.classList.remove("d-block");
     selectedIndex = -1;
     currentMatches = [];
   }
@@ -179,6 +180,12 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
       const option = document.createElement("button");
       option.type = "button";
       option.className = "postcode-dropdown__item";
+      option.classList.add("d-block");
+      option.classList.add("w-100");
+      option.classList.add("p-2");
+      option.classList.add("border-0");
+      option.classList.add("border-bottom");
+      option.classList.add("text-start");
       option.setAttribute("role", "option");
       option.setAttribute("aria-selected", "false");
 
@@ -199,7 +206,8 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
       dropdown.appendChild(option);
     });
 
-    dropdown.style.display = "block";
+    dropdown.classList.add("d-block");
+    dropdown.classList.remove("d-none");
   }
 
   input.addEventListener("input", showMatches);

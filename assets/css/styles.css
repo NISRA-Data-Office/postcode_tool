@@ -76,10 +76,14 @@ main a[target="_blank"]::after {
 }
 
 
+.map:has(canvas:focus-visible) {
+  outline: 3px solid #D4351C;
+  outline-offset: 3px;
+}
+
 /* ===========================
    Brand & misc.
    =========================== */
-.app-title { font-weight: 700; letter-spacing: 0.2px; }
 .img-50 { width: 50px; height: 50px; }
 
 /* ===========================
@@ -124,14 +128,6 @@ table tr:not(:has(th)):hover {
   background-color: #f2f2f2;
 }
 
-.maplibregl-export-control {
-  display: none !important;
-}
-
-.btn-primary {
-  background-color: var(--nisra_blue);
-}
-
 .current-page {
   background-color: #d9d9d9;
   color: #000;
@@ -147,7 +143,7 @@ table tr:not(:has(th)):hover {
   color: #fff;
 }
 
-.blue-text {
+.text-blue {
   color: var(--nisra_blue) !important;
 }
 
@@ -169,44 +165,31 @@ table tr:not(:has(th)):hover {
   border: 2px solid var(--nisra_navy);
 }
 
-.blue-bg a, .purple-bg a {
+.blue-bg a, .bg-purple a {
   color: #fff;
 }
 
-.purple-bg {
+.bg-purple {
   background-color: var(--nisra_purple);
   color: #fff;
 }
 
-.purple-bg:hover, .purple-bg:active {
+.bg-purple:hover, .bg-purple:active {
   background-color: #5e1f62 !important;
 }
 
-.purple-bg:focus-visible {
+.bg-purple:focus-visible {
   background-color: var(--nisra_purple);
   border: 2px solid #000;
   outline: 3px solid #D4351C;
   outline-offset: 1px;
 }
 
-.purple-border {
-  border: 2px solid var(--nisra_purple);
-}
-
-.green-border {
-  border: 2px solid #68A41E;
-}
-
-.light-purple-bg {
-  background-color: #CE70D2;
-  /* color: #fff; */
-}
-
-.green-bg {
+.bg-green {
   background-color: #68A41E;
 }
 
-.green-bg a {
+.bg-green a {
   color: #000;
 }
 
@@ -227,10 +210,6 @@ table tr:not(:has(th)):hover {
   border-bottom: 2px solid var(--nisra_navy);
   color: var(--nisra_navy);
   font-size: 0.75em;
-}
-
-#info-card {
-  border: 2px solid var(--nisra_navy);
 }
 
 @media (max-width: 575px) {
@@ -318,44 +297,9 @@ table tr:not(:has(th)):hover {
   border-radius: 0.25rem; /* optional, if you want */
 }
 
-.tab-pane p {
-  margin-bottom: 1em;
-}
-
-/* Table Styling */
-td {
-  padding: 6px 12px;  
-  border-radius: 6px;
-}
-
-.change-cell {
-  text-align: right;
-}
-
-tbody td {
-  border-bottom: 2px solid #e5e7eb; /* light, clean line */
-}
-
-th, td {
-  padding: 6px 12px;
-}
-
-thead th {
-  border-bottom: 2px solid #e5e7eb;
-}
-
 .form-control:focus-visible {
   outline: 3px solid #D4351C;
   outline-offset: 1px;
-}
-
-#postcode-go {
-  border-left: 2px solid #000;
-}
-
-#postcode-go:hover {
-  background-color: #2f66a8;
-  border: 2px solid #000;
 }
 
 #postcode-go:focus-visible {
@@ -365,43 +309,25 @@ thead th {
 }
 
 .postcode-dropdown {
-  position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 1000;
-  display: none;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-top: 0;
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
 .postcode-dropdown__item {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  text-align: left;
   background: #fff;
-  border: 0;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
 }
 
 .postcode-dropdown__item:hover,
 .postcode-dropdown__item:focus {
   background: #f5f5f5;
-  outline: none;
 }
 
-.postcode-dropdown__item--selected,
-.postcode-dropdown__item:hover,
-.postcode-dropdown__item:focus {
-  background: #e9ecef;
-  outline: none;
-}
+
 
 .breadcrumb-item a {
   color: var(--nisra_blue);
@@ -481,27 +407,11 @@ thead th {
 }
 
 #scroll-btn {
-   opacity: 1;
+   opacity: 0.8;
    transition: opacity 0.5s, visibility 0.5s;
-   position: fixed;
    z-index: 99;
-   right: 0px;
    -webkit-user-select: none;
    user-select: none;
-   bottom: 0px;
-   color: black;
-   background-color: #D9D9D9;
-   width: 100%;
-   text-align: center;
-   padding-top: 5px;
-   padding-bottom: 5px;
-   font-weight: 700;
-   cursor: pointer;
-   overflow: auto;
-}
-
-#scroll-btn.hidden {
-  display:none;
 }
 
 #scroll-btn:hover {

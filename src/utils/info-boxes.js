@@ -1,4 +1,31 @@
-export function populateInfoBoxes(labels, content) {
+const labels = [
+  `What you can use the rankings for?`,
+  `What you should not use the rankings for?`,
+  `Comparing the Multiple Deprivation Measures with the individual domains`
+];
+
+const content = [
+  `You can use the rankings to:<br><br>
+   &#10004; Compare areas to see which are more or less deprived<br>
+   &#10004; Find the most and least deprived areas<br>
+   &#10004; Look at patterns across places to see where deprivation is highest or lowest<br>
+   &#10004; See how areas change over time, including which areas move in or out of the most deprived group<br><br>
+   You can do this for Northern Ireland as a whole, for each Local Government District, or for other large areas.`,
+
+  `You should not use the rankings to:<br><br>
+   &#10007; Identify deprived people or groups &ndash; they describe areas, not individuals<br>
+   &#10007; Measure how deprived an area is in absolute terms &ndash; they only rank areas against each other<br>
+   &#10007; Say how much more deprived one area is than another &ndash; they only show order, not size of difference<br>
+   &#10007; Track changes in absolute deprivation over time &ndash; they show a point in time, not change in level<br>
+   &#10007; Measure wealth or affluence &ndash; not being deprived does not always mean being well off<br>
+   &#10007; Compare with other UK countries &ndash; each country uses different data and methods`,
+
+  `The seven types of deprivation each make up part of the overall measure. They are combined using set weights.<br><br>
+   The overall measure gives a single summary for each area. However, it can hide important differences between the types of deprivation.<br><br>
+   NISRA encourages you to look at both the overall measure and the individual types. This is especially helpful when focusing on a specific issue or when choosing ways to improve deprivation.`
+];
+
+export function populateInfoBoxes() {
   const info_boxes = document.getElementById("info-boxes");
   info_boxes.classList.add("mt-4");
 
@@ -35,7 +62,7 @@ export function populateInfoBoxes(labels, content) {
         </div>
 
         <div class="info-card-wrap">
-          <div id="info-card" class="card my-3 rounded-0">
+          <div id="info-card" class="card my-3 rounded-0 border border-secondary">
 
             <div id="infoCollapse" class="accordion-collapse collapse" data-active-index="">
               <div class="accordion-body">

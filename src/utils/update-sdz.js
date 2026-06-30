@@ -1,0 +1,171 @@
+import { readData } from "./read-data.js";
+import { postcode_data } from "./postcode-search.js";
+import { insertNavButtons } from "./page-layout.js";
+import { insertValue } from "./insert-value.js";
+import { plotNavMap } from "./plot-nav-map.js";
+import { plotScaleMap } from "./plot-scale-map.js";
+import { getHeadline, getParagraph, getDeprivationSummary, updateComparisonText } from "./deprivation-text.js";
+import { scaleChart } from "./scale-chart.js";
+import { insertScaleTable } from "./insert-scale-table.js";
+import { populateNextStepBoxes } from "./next-steps.js";
+import { copySummary } from "./copy-summary.js";
+
+let currentSelectedName = "";
+let currentSelectedValue = null;
+let currentLgdData = null;
+
+export async function updateSDZ({ animate = true } = {}) {
+      const params = new URLSearchParams(window.location.search);
+    
+      if (params.size === 0) {
+        window.location.replace("./");
+        return;
+      }
+    
+      const sdz = params.get("sdz");
+      const postcode = params?.get("postcode");
+      const data = await readData(sdz);
+      if (!data) {
+        window.location.replace("./");
+        return;
+      }
+
+      const headline = document.getElementById("headline");
+      const page_title = document.getElementsByTagName("title")[0];
+
+      const valid_postcode = postcode_data[sdz].codes.includes(postcode);
+
+      if (valid_postcode) {
+        headline.innerHTML =`${postcode} is in <span class="blue-text">${data.name}</span>`;
+        page_title.textContent = `Deprivation in ${postcode}`;
+      } else {
+        window.history.replaceState(
+          {},
+          "",
+          `sdz.html?sdz=${encodeURIComponent(sdz)}`
+        )
+        headline.innerHTML = `Deprivation in <span class="blue-text">${data.name}</span>`;
+        page_title.textContent = `Deprivation in ${data.name}`;
+      }
+
+      const geo_description = document.getElementById("geo-description");
+
+      geo_description.innerHTML = `
+        <p><span class="blue-text">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
+        <p>Deprivation is calculated for these neighbourhoods.</p>
+        <p><span class="blue-text">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
+    
+    insertNavButtons(data);
+    insertValue("place-name", data.name);
+    insertValue("overall-rank", data.data.ranks.mdm)
+    insertValue("place-count", data.count)
+    
+    await plotNavMap("nav-map", data, { animate });
+
+      const lgdCode = data.parents[0].code;
+      const lgdData = await readData(lgdCode);
+
+      currentSelectedName = data.name;
+      currentSelectedValue = data.data.ranks.mdm;
+      currentLgdData = lgdData;
+
+      await plotScaleMap("comparison-map", lgdData, "mdm", {
+        animate,
+        highlightSdz: data.code,
+        forceLgdView: true,
+        enableComparison: true   
+      });
+
+   scaleChart("comparison-scale-chart",
+  {
+    data: { ranks: { mdm: currentSelectedValue } },
+    count: currentLgdData.sdz_count
+  },
+  "mdm",
+  {
+    labels: "below",
+    marker: true,
+    comparisonScale: true
+  }
+);
+
+    const deprivation_headline = document.getElementById("deprivation-headline");
+    deprivation_headline.innerHTML = getHeadline(data, data.count)
+    document.getElementById("deprivation-headline").innerHTML = getHeadline(data);
+
+    document.getElementById("deprivation-paragraph").innerHTML = getParagraph(data)
+
+    document.getElementById("deprivation-summary").innerHTML = getDeprivationSummary(data);
+
+    scaleChart("mdm-scale-chart", data, "mdm", {
+      labels: "below",
+      annotation: true
+    });
+
+    updateComparisonText(0, currentSelectedName, currentSelectedName, true)
+
+    insertScaleTable("deprivation-scales", data);
+
+    populateNextStepBoxes(data);
+
+    copySummary(data);
+
+    document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".next-step-btn");
+  if (!btn) return;
+
+  const targetId = btn.dataset.target;
+  const input = document.getElementById(targetId);
+
+  if (input) {
+    input.scrollIntoView({ behavior: "smooth", block: "center" });
+    input.focus({ preventScroll: true });
+  }
+
+});
+ 
+window.addEventListener("sdzhovercompare", (e) => {
+
+  const { hovered, selected } = e.detail;
+
+  if (!hovered?.value || !selected?.value) return;
+
+  const diff = hovered.value - selected.value;
+
+  updateComparisonText(diff, currentSelectedName, hovered.name);
+
+  scaleChart("comparison-scale-chart",
+  {
+    data: { ranks: { mdm: currentSelectedValue } },
+    count: currentLgdData.sdz_count
+  },
+  "mdm",
+  {
+    labels: "below",
+    marker: true,
+    compareValue: hovered.value,
+    comparisonScale: true
+  }
+);
+});
+
+window.addEventListener("sdzhoverout", (e) => {
+  updateComparisonText(0, currentSelectedName, currentSelectedName, false, true)
+
+  scaleChart("comparison-scale-chart",
+  {
+    data: { ranks: { mdm: currentSelectedValue } },
+    count: currentLgdData.sdz_count
+  },
+  "mdm",
+  {
+    labels: "below",
+    marker: true,
+    comparisonScale: true,
+    compareValue: null
+  }
+);
+
+})
+
+}

@@ -136,7 +136,6 @@ export function lgdDeprivationSummary(data, type) {
   
   const maxRank = Math.max(...valid.map(d => d.rank));
   const topMostCount = valid.filter(d => d.rank <= 100).length;
-  const topLeastCount = valid.filter(d => d.rank > maxRank - 100).length;
 
   return `
     <div class="summary">
@@ -148,12 +147,36 @@ export function lgdDeprivationSummary(data, type) {
       </p>
 
       <p style="margin-top: 15px; line-height: 1.5em;">
-        ${place.name} contains ${topMostCount} out of the 100 most deprived neighbourhoods in Northern Ireland.
-      </p>
-
-      <p style="margin-top: 15px; line-height: 1.5em;">
-        ${place.name} contains ${topLeastCount} out of the 100 least deprived neighbourhoods in Northern Ireland.
+        ${place.name} contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland.
       </p>
     </div>
   `;
+}
+
+export function updateComparisonText(diff, currentSelectedName, hoveredName, clickedSdz = false, onMouseLeave = false) {
+  const el = document.getElementById("comparison-text");
+  if (!el) return;
+  
+  const hoveredStyled = `<span style="color:#BA3CBE;"><strong>${hoveredName}</strong></span>`;
+  const selectedStyled = `<span style="color:#D4351C;"><strong>${currentSelectedName}</strong></span>`;
+
+  let text;
+
+  if (clickedSdz == true || onMouseLeave == true) {
+    text = `Hover over on an area to compare deprivation with ${selectedStyled}`;
+    el.innerHTML = text;
+    return;
+  }
+
+  if (diff === 0) {
+    text = `${hoveredStyled} has a similar deprivation ranking`;
+  } 
+  else if (diff > 0) {
+    text = `${hoveredStyled} is less deprived than ${selectedStyled}`;
+  } 
+  else {
+    text = `${hoveredStyled} is more deprived than ${selectedStyled}`;
+  }
+
+  el.innerHTML = text;
 }
