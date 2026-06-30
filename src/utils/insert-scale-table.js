@@ -1,17 +1,6 @@
 import { scaleChart } from "./scale-chart.js";
 import { config } from "../config/config.js";
 
-const i_text = {
-    "mdm": "This is an overall measure called the Multiple Deprivation Measure. It combines different types of deprivation in this area.",
-    "income": "This shows how many people live in low income households. These households earn less than 60% of the Northern Ireland average.",
-    "employment": "This shows how many working age people are not in work.",
-    "health": "This shows how many people have poor health or a disability that affects their daily life.",
-    "education": "",
-    "services" : "This shows how easy it is for people to get to key services, both in person and online.",
-    "living": "This shows problems with housing, access to suitable homes, and the local environment.",
-    "crime": "This shows levels of crime and disorder in the area."
-}
-
 export function insertScaleTable (id, data) {
 
     const parent = document.getElementById(id);
@@ -31,7 +20,7 @@ export function insertScaleTable (id, data) {
                 <div id="${types[i]}-i-text" class="i-text-panel border border-secondary">
                     <div class="d-flex flex-row align-items-start p-2">
                         <img src="assets/img/logo/i-button.svg" width="18" class="me-2 mt-1">
-                        <p class="mb-0">${i_text[types[i]]}</p>
+                        <p class="mb-0">${config.i_text[types[i]]}</p>
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@ export function populateInfoBoxes() {
 
     buttons += `
       <div class="col-12 col-sm p-0">
-        <h2 class="accordion-header h-100" role="heading">
+        <h3 class="accordion-header h-100" role="heading">
           <button
             class="accordion-button collapsed h-100 info-tab-btn"
             type="button"
@@ -54,7 +54,7 @@ export function populateInfoBoxes() {
           >
             ${labels[i]}
           </button>
-        </h2>
+        </h3>
       </div>
     `;
   }
@@ -71,7 +71,7 @@ export function populateInfoBoxes() {
 
             <div id="infoCollapse" class="accordion-collapse collapse" data-active-index="">
               <div class="accordion-body">
-                <h2 id="infoTitle" style="color:var(--nisra_navy);"></h2>
+                <h3 id="infoTitle" style="color:var(--nisra_navy);"></h3>
                 <div id="infoBody"></div>
               </div>
             </div>

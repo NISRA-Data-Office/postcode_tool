@@ -68,29 +68,31 @@ export async function updateLGD({ animate = true } = {}) {
     marker: false
   });
 
-    const lgdTableContainer = document.getElementById("lgd-table-container");
-    createLGDTable(lgdTableContainer, data, type_select.value, sdz);
+  const lgdTableContainer = document.getElementById("lgd-table-container");
+  createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
-    type_select.addEventListener("change", () => {
-      const params = new URLSearchParams(window.location.search);
-      const sdz = params.get("sdz");
+  document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
 
-        insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
-        plotScaleMap("scale-map", data, type_select.value, {
-          highlightSdz: sdz,
-          preserveView: true
-        })
-        scaleChart("lgd-scale-chart", data, type_select.value, {
-          labels: "below",
-          marker: false
-        });
-        createLGDTable(lgdTableContainer, data, type_select.value, sdz)
-    });
-  
-    const summaryContainer = document.getElementById("summary");
+  type_select.addEventListener("change", () => {
+    const params = new URLSearchParams(window.location.search);
+    const sdz = params.get("sdz");
 
-    summaryContainer.innerHTML = lgdDeprivationSummary(data, type_select.value);
+      insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
+      plotScaleMap("scale-map", data, type_select.value, {
+        highlightSdz: sdz,
+        preserveView: true
+      })
+      scaleChart("lgd-scale-chart", data, type_select.value, {
+        labels: "below",
+        marker: false
+      });
+      createLGDTable(lgdTableContainer, data, type_select.value, sdz)
 
-    copySummary(data);
+      document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
+  });
+
+  lgdDeprivationSummary("summary", data, type_select.value);
+
+  copySummary(data);
 
 }
