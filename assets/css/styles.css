@@ -362,18 +362,6 @@ table tr:not(:has(th)):hover {
   color: #fff;
 }
 
-#lgd-table-container th:nth-child(1),
-#lgd-table-container td:nth-child(1) {
-  width: 20%;
-}
-
-#lgd-table-container th:nth-child(2),
-#lgd-table-container td:nth-child(2),
-#lgd-table-container th:nth-child(3),
-#lgd-table-container td:nth-child(3) {
-  width: 40%;
-}
-
 #lgd-table-container tbody tr:hover td {
   background-color: #e6e6e6;
 }

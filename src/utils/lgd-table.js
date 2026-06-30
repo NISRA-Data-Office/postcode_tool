@@ -7,27 +7,44 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
   let selectedCode = null;
 
   function getSortedNames() {
-    return Object.entries(place?.data?.ranks || {})
-      .map(([code, item]) => ({
-        code,
-        name: item.name,
-        rank: item.ranks?.[selectedDeprivation],
-        lgd: place.data.lgd?.[item.lgd].name
-      }))
-      .sort((a, b) => {
-        const valA = a[sortKey];
-        const valB = b[sortKey];
-
-        if (sortKey === "name" || sortKey === "lgd") {
-          return sortAsc
-            ? (valA || "").localeCompare(valB || "")
-            : (valB || "").localeCompare(valA || "");
-        }
-
-        return sortAsc
-          ? (valA ?? Infinity) - (valB ?? Infinity)
-          : (valB ?? Infinity) - (valA ?? Infinity);
+    const rows = Object.entries(place?.data?.ranks || {})
+    .map(([code, item]) => ({
+      code,
+      name: item.name,
+      niRank: item.ranks?.[selectedDeprivation],
+      lgd: item.lgd,
+      lgdName: place.data.lgd?.[item.lgd]?.name
+    }));
+    
+    const groups = {};
+    rows.forEach(row => {
+      if (!groups[row.lgd]) groups[row.lgd] = [];
+      groups[row.lgd].push(row);
+    });
+    
+    Object.values(groups).forEach(group => {
+      group.sort((a, b) => (a.niRank ?? Infinity) - (b.niRank ?? Infinity))
+      .forEach((row, i) => {
+        row.lgdRank = i + 1;
       });
+    });
+    
+    const result = Object.values(groups).flat();
+    
+    return result.sort((a, b) => {
+      const valA = a[sortKey];
+      const valB = b[sortKey];
+      
+      if (sortKey === "name" || sortKey === "lgdName") {
+        return sortAsc
+        ? (valA || "").localeCompare(valB || "")
+        : (valB || "").localeCompare(valA || "");
+      }
+      
+      return sortAsc
+      ? (valA ?? Infinity) - (valB ?? Infinity)
+      : (valB ?? Infinity) - (valA ?? Infinity);
+    });
   }
 
   function highlightRow(code) {
@@ -60,21 +77,41 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
         <thead>
           <tr>
             <th 
-              data-key="rank" 
-              style="cursor:pointer;"
+              data-key="niRank" 
+              style="cursor:pointer;width:25%;"
               tabindex="0"
-              aria-label="Sort by rank">
-              Rank
-              ${sortKey === "rank" ? (sortAsc ? " ▲" : " ▼") : ""}
+              aria-label="Sort by NI rank">
+              NI Rank
+              ${sortKey === "niRank" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
-            <th 
-              data-key="name" 
-              style="cursor:pointer;"
+            ${place.type === "lgd" ? `
+            <th
+              data-key="lgdRank",
+              style="cursor:pointer;width:30%;"
               tabindex="0"
-              aria-label="Sort neighbourhoods alphabetically">
-              Neighbourhood
-              ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
+              aria-label="Sort by LGD rank">
+              LGD Rank
+              ${sortKey === "lgdRank" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
+             ` : ""}
+            ${place.type === "ctry" ? `
+              <th 
+                data-key="lgd" 
+                style="cursor:pointer;width:30%;" 
+                tabindex="0" 
+                aria-label="Sort councils alphabetically">
+                Council
+                ${sortKey === "lgd" ? (sortAsc ? " ▲" : " ▼") : ""}
+              </th>
+            ` : ""}
+              <th 
+                data-key="name" 
+                style="cursor:pointer;width:45%;"
+                tabindex="0"
+                aria-label="Sort neighbourhoods alphabetically">
+                Neighbourhood
+                ${sortKey === "name" ? (sortAsc ? " ▲" : " ▼") : ""}
+              </th>
           </tr>
         </thead>
         <tbody>
@@ -84,8 +121,10 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
                 style="cursor:pointer;"
                 tabindex="-1" 
                 aria-label="Focus map on ${child.name}, ranked ${child.rank ?? "unknown"}">
-              <td class="border-secondary">${child.rank ?? ""}</td>
-              <td class="border-secondary">${child.name}</td>
+              <td class="border-secondary">${child.niRank ?? ""}</td>
+              ${place.type === "lgd" ? `<td class="border-secondary">${child.lgdRank}</td>` : ""}
+              ${place.type === "ctry" ? `<td class="border-secondary">${child.lgdName}</td>` : ""}
+              <td class="border-secondary text-break">${child.name}</td>
             </tr>
           `).join("")}
         </tbody>
@@ -160,7 +199,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
         document.getElementById("in-focus").classList.add("is-open");
         document.getElementById("focus-link").href = `sdz.html?sdz=${selectedCode}`;
-        document.getElementById("focus-link").textContent = row.getElementsByTagName("td")[1].textContent;
+        document.getElementById("focus-link").textContent = row.getElementsByTagName("td")[2].textContent;
 
         window.dispatchEvent(
           new CustomEvent("sdzselect", {
