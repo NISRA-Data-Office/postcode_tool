@@ -6,7 +6,7 @@ export function populateNextStepBoxes(data) {
 
     const info = [
     {
-      text: `Explore deprivation in areas surrounding ${data.name} using maps and tables`,
+      text: `Explore deprivation in areas surrounding ${data.name}`,
       link: `area.html?code=${data.parents[0].code}&sdz=${data.code}`
     },
     {
@@ -14,7 +14,7 @@ export function populateNextStepBoxes(data) {
       link: "postcode-input"
     },
     {
-      text: `View other deprivation resources. Reports, detailed tables and background information`,
+      text: `View more deprivation resources and information`,
       link: `https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty`
     }
   ]
