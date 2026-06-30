@@ -21,7 +21,7 @@ export async function lgdMenu (id) {
     const current_lgd = params.get("lgd");
 
     const placeholder = document.createElement("option");
-    placeholder.textContent = "Select an area";
+    placeholder.textContent = "Select a Council area";
     placeholder.value = "";
     placeholder.disabled = true;
     placeholder.selected = !current_lgd;
@@ -68,16 +68,16 @@ export async function lgdMenu (id) {
 
     lgd_select.addEventListener("change", (e) => {
         const lgd = e.target.value;
-        if (window.location.pathname == "/lgd.html") {
+        if (window.location.pathname == "/area.html") {
             window.history.pushState(
                 {},
                 '',
-                `lgd.html?lgd=${encodeURIComponent(lgd)}`
+                `area.html?code=${encodeURIComponent(lgd)}`
             );
 
             window.dispatchEvent(new Event("lgdchange"));
         } else {
-            window.location.href = `lgd.html?lgd=${encodeURIComponent(lgd)}`;
+            window.location.href = `area.html?code=${encodeURIComponent(lgd)}`;
         }
         
     });

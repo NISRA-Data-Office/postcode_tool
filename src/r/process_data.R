@@ -95,7 +95,7 @@ lgd_mye <- data.frame(
 
 ## NI JSON ####
 
-ni_bounds <- map_bounds %>% 
+ni_bounds <- map_bounds %>%
   filter(geog == "CTRY")
 
 ni_children <- list()
@@ -113,8 +113,8 @@ for (i in 1:nrow(child_rows)) {
 
 lgd_names <- list()
 
-lgd_rows <- children %>% 
-  filter(type %in% c("ctry", "lgd")) %>% 
+lgd_rows <- children %>%
+  filter(type == "lgd") %>%
   arrange(type, code)
 
 for (i in 1:nrow(lgd_rows)) {
@@ -293,4 +293,3 @@ write_json(ni_data,
            pretty = TRUE)
 
 cat("Writing data for Northern Ireland...")
-

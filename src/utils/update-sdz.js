@@ -49,7 +49,7 @@ export async function updateSDZ({ animate = true } = {}) {
     geo_description.innerHTML = `
     <p><span class="text-blue">${data.name}</span> is a Super Data Zone or 'neighbourhood'.</p>
     <p class="mt-auto">Deprivation is calculated for these neighbourhoods.</p>
-    <p class="mt-auto"><span class="text-blue">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="lgd.html?lgd=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
+    <p class="mt-auto"><span class="text-blue">${data.name}</span> is classified as ${data.data.urban_rural} and is in <a style="color: var(--nisra_blue);" href="area.html?code=${data.parents[0].code}" title="View deprivation profile for ${data.parents[0].name}">${data.parents[0].name}</a>.</p>`
     
     insertNavButtons(data);
     insertValue("place-name", data.name);

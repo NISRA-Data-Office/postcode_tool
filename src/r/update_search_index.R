@@ -19,13 +19,13 @@ search_json <- list()
 
 for (sdz in SDZs) {
 
-  sdz_name <- cpd %>% 
-    filter(SDZ2021 == sdz) %>% 
-    first() %>% 
+  sdz_name <- cpd %>%
+    filter(SDZ2021 == sdz) %>%
+    first() %>%
     pull(SDZ2021_name)
-  
-  postcodes <- cpd %>% 
-    filter(SDZ2021 == sdz) %>% 
+
+  postcodes <- cpd %>%
+    filter(SDZ2021 == sdz) %>%
     pull(postcode)
 
   search_json[[sdz]] <- list(
