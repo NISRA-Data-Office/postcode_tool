@@ -32,7 +32,7 @@ export async function updateSDZ({ animate = true } = {}) {
     const valid_postcode = postcode_data[sdz].codes.includes(postcode);
 
     if (valid_postcode) {
-    headline.innerHTML =`${postcode} is in <span class="text-blue">${data.name}</span>`;
+    headline.innerHTML =`How deprived is ${postcode}?`;
     page_title.textContent = `Deprivation in ${postcode}`;
     } else {
     window.history.replaceState(
@@ -40,8 +40,8 @@ export async function updateSDZ({ animate = true } = {}) {
         "",
         `sdz.html?sdz=${encodeURIComponent(sdz)}`
     )
-    headline.innerHTML = `Deprivation in <span class="text-blue">${data.name}</span>`;
-    page_title.textContent = `Deprivation in ${data.name}`;
+    headline.innerHTML = `How deprived is ${data.name}?`;
+    page_title.textContent = `Deprivation in ${data.name}?`;
     }
 
     const geo_description = document.getElementById("geo-description");
