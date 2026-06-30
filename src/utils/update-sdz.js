@@ -65,7 +65,7 @@ export async function updateSDZ({ animate = true } = {}) {
 
     document.getElementById("deprivation-paragraph").innerHTML = getParagraph(data)
 
-    document.getElementById("deprivation-summary").innerHTML = getDeprivationSummary(data);
+    getDeprivationSummary("deprivation-summary", data);
 
     scaleChart("mdm-scale-chart", data, "mdm", {
       labels: "below",

@@ -94,16 +94,6 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
               ${sortKey === "lgdRank" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
              ` : ""}
-            ${place.type === "ctry" ? `
-              <th 
-                data-key="lgd" 
-                style="cursor:pointer;width:30%;" 
-                tabindex="0" 
-                aria-label="Sort councils alphabetically">
-                Council
-                ${sortKey === "lgd" ? (sortAsc ? " ▲" : " ▼") : ""}
-              </th>
-            ` : ""}
               <th 
                 data-key="name" 
                 style="cursor:pointer;width:45%;"
@@ -123,7 +113,6 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
                 aria-label="Focus map on ${child.name}, ranked ${child.rank ?? "unknown"}">
               <td class="border-secondary">${child.niRank ?? ""}</td>
               ${place.type === "lgd" ? `<td class="border-secondary">${child.lgdRank}</td>` : ""}
-              ${place.type === "ctry" ? `<td class="border-secondary">${child.lgdName}</td>` : ""}
               <td class="border-secondary text-break">${child.name}</td>
             </tr>
           `).join("")}

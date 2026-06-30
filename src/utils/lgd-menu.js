@@ -21,7 +21,7 @@ export async function lgdMenu (id) {
     const current_lgd = params.get("lgd");
 
     const placeholder = document.createElement("option");
-    placeholder.textContent = "Select a Council area";
+    placeholder.textContent = "Select a council area";
     placeholder.value = "";
     placeholder.disabled = true;
     placeholder.selected = !current_lgd;
