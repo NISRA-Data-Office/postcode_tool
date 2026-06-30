@@ -107,13 +107,13 @@ export function lgdDeprivationSummary(id, data, type) {
   document.getElementById(id).innerHTML = `
       <p>
         Levels of deprivation and disadvantage vary widely across councils and across Northern Ireland. 
-        There are ${children.length} super data zones in ${place.name}. 
-        The most deprived neighbourhood is ${mostDeprived?.name}
-        and the least deprived is ${leastDeprived?.name}.
+        There are ${children.length} super data zones in <span class="text-purple fw-bold">${place.name}</span>. 
+        The most deprived neighbourhood is <span class="text-purple fw-bold">${mostDeprived?.name}</span>
+        and the least deprived is <span class="text-purple fw-bold">${leastDeprived?.name}</span>.
       </p>
 
       <p>
-        ${place.name} contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland.
+        <span class="text-purple fw-bold">${place.name}</span> contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland.
       </p>
   `;
 }
