@@ -7,7 +7,7 @@ export function populateNextStepBoxes(data) {
     const info = [
     {
       text: `Explore deprivation in areas surrounding ${data.name} using maps and tables`,
-      link: `lgd.html?lgd=${data.parents[0].code}&sdz=${data.code}`
+      link: `area.html?code=${data.parents[0].code}&sdz=${data.code}`
     },
     {
       text: `Back to top and enter another postcode`,

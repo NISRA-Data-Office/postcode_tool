@@ -20,18 +20,23 @@ export async function updateLGD({ animate = true } = {}) {
 
   await lgdMenu("lgd-select");
 
-  const lgd = params.get("lgd");
+  const lgd = params.get("code");
 
-   if (!lgd_codes.includes(lgd)) {
+   if (!lgd_codes.includes(lgd) & lgd != "N92000002") {
     window.location.replace("./");
     return;
+  }
+
+  if (lgd == "N92000002") {
+    document.getElementById("lgd-select-group").classList.add("d-none");
+    document.getElementById("deprivation-summary-group").classList.add("d-none");
   }
 
   const sdz = params?.get("sdz");
   const data = await readData(lgd);
 
   if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
-    window.location.search = `lgd=${lgd}`;
+    window.location.search = `code=${lgd}`;
   }
  
   document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;

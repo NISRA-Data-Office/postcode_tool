@@ -2,14 +2,14 @@ import { scaleChart } from "./scale-chart.js";
 import { config } from "../config/config.js";
 
 const i_text = {
-    "mdm": "This is an overall measure, called the Index of Multiple Deprivation. It is calculated by combining different types of deprivation in this neighbourhood.",
-    "income": "This type of deprivation identifies the proportion of the population living in households whose equivalised income is below 60% of the NI median.",
-    "employment": "This type of deprivation identifies the proportion of the working age population excluded from work.",
-    "health": "This type of deprivation identifies proportions of the population whose quality of life is impaired by poor health or disability.",
-    "education": "This type of deprivation identifies the prevalence of poor educational outcomes for children and low levels of qualifications for working age adults.        ",
-    "services" : "This type of deprivation measures the extent to which people have poor physical and online access to key services.",
-    "living": "This type of deprivation identifies the prevalence of shortcomings in the quality of housing, access to suitable housing, and the outdoor physical environment.",
-    "crime": "This type of deprivation identifies rates of crime and disorder."
+    "mdm": "This is an overall measure called the Multiple Deprivation Measure. It combines different types of deprivation in this area.",
+    "income": "This shows how many people live in low income households. These households earn less than 60% of the Northern Ireland average.",
+    "employment": "This shows how many working age people are not in work.",
+    "health": "This shows how many people have poor health or a disability that affects their daily life.",
+    "education": "",
+    "services" : "This shows how easy it is for people to get to key services, both in person and online.",
+    "living": "This shows problems with housing, access to suitable homes, and the local environment.",
+    "crime": "This shows levels of crime and disorder in the area."
 }
 
 export function insertScaleTable (id, data) {

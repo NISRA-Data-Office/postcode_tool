@@ -7,6 +7,7 @@
 	--nisra_navy: #00205b;
 	--nisra_purple: #732777;
   --nisra_slate: #3b3b3b;
+  --nisra_green: #68A41E;
 }
 
 body {
@@ -372,18 +373,6 @@ table tr:not(:has(th)):hover {
   color: #fff;
 }
 
-#lgd-table-container th:nth-child(1),
-#lgd-table-container td:nth-child(1) {
-  width: 20%;
-}
-
-#lgd-table-container th:nth-child(2),
-#lgd-table-container td:nth-child(2),
-#lgd-table-container th:nth-child(3),
-#lgd-table-container td:nth-child(3) {
-  width: 40%;
-}
-
 #lgd-table-container tbody tr:hover td {
   background-color: #e6e6e6;
 }
@@ -477,4 +466,20 @@ table tr:not(:has(th)):hover {
   max-height: 300px; /* larger than expected content height */
   opacity: 1;
   transform: translateY(0);
+}
+
+
+
+ul.tick-list li::marker {
+  content: "✓ ";
+  color: var(--nisra_green);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+ul.x-list li::marker {
+  content: "✗ ";
+  color: #D4351C;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
