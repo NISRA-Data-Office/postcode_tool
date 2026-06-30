@@ -375,7 +375,7 @@ function addLgdClick(map) {
     window.history.pushState(
       {},
       "",
-      `lgd.html?lgd=${encodeURIComponent(lgdCode)}`
+      `area.html?code=${encodeURIComponent(lgdCode)}`
     );
 
     window.dispatchEvent(new Event("lgdchange"));

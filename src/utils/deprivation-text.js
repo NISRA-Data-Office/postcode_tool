@@ -136,7 +136,6 @@ export function lgdDeprivationSummary(data, type) {
   
   const maxRank = Math.max(...valid.map(d => d.rank));
   const topMostCount = valid.filter(d => d.rank <= 100).length;
-  const topLeastCount = valid.filter(d => d.rank > maxRank - 100).length;
 
   return `
     <div class="summary">
@@ -148,11 +147,7 @@ export function lgdDeprivationSummary(data, type) {
       </p>
 
       <p style="margin-top: 15px; line-height: 1.5em;">
-        ${place.name} contains ${topMostCount} out of the 100 most deprived neighbourhoods in Northern Ireland.
-      </p>
-
-      <p style="margin-top: 15px; line-height: 1.5em;">
-        ${place.name} contains ${topLeastCount} out of the 100 least deprived neighbourhoods in Northern Ireland.
+        ${place.name} contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland.
       </p>
     </div>
   `;

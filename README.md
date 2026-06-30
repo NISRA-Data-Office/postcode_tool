@@ -106,7 +106,7 @@ Rank 1 represents the most deprived area.
 ```text
 .
 ├── index.html
-├── lgd.html
+├── area.html
 ├── sdz.html
 ├── about.html
 │
