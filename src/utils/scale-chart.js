@@ -88,7 +88,7 @@ export function scaleChart(id, data, type, options = {}) {
 
   if (annotation && marker) {
     const placeName = data.name;
-    const boxLabel = `rank: ${value}`;
+    const boxLabel = `Rank: ${value}`;
 
     const BOX_HEIGHT = 14;
     const BOX_Y = -9;
@@ -134,11 +134,22 @@ export function scaleChart(id, data, type, options = {}) {
   <text
     x="${boxX + 0.8}"
     y="${BOX_Y + 1.5}"
+    fill="var(--nisra_purple)"
+    font-size="5"
+    font-family="sans-serif"
+    dominant-baseline="hanging"
+    font-weight="bold">
+    <tspan x="${boxX + 0.8}" dy="0">${placeName}</tspan>
+  </text>
+
+  <text
+    x="${boxX + 0.8}"
+    y="${BOX_Y + 1.5}"
     fill="var(--nisra_blue)"
     font-size="5"
     font-family="sans-serif"
-    dominant-baseline="hanging">
-    <tspan x="${boxX + 0.8}" dy="0">${placeName}</tspan>
+    dominant-baseline="hanging"
+    >
     <tspan x="${boxX + 0.8}" dy="6">${boxLabel}</tspan>
   </text>
 

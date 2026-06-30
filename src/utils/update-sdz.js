@@ -40,14 +40,14 @@ export async function updateSDZ({ animate = true } = {}) {
             "",
             `sdz.html?sdz=${encodeURIComponent(sdz)}`
         )
-        headline.innerHTML = `How deprived is ${data.name}?`;
+        headline.innerHTML = `How deprived is <span class="text-purple">${data.name}</span>?`;
         page_title.textContent = `Deprivation in ${data.name}`;
     }
 
     const geo_description = document.getElementById("geo-description");
 
     geo_description.innerHTML = `
-        <p>${valid_postcode ? `<strong>${postcode}</strong> is in ${data.name}, ` : `${data.name} is` } a small area${valid_postcode ? "": ","} called a Super Data Zone, in <a style="color: var(--nisra_blue); "href="area.html?code=${data.parents[0].code} "title="View deprivation profile for ${data.parents[0].name}"> ${data.parents[0].name}</a>.</p>
+        <p>${valid_postcode ? `<strong>${postcode}</strong> is in ${data.name}, ` : `<span class="text-purple fw-bold">${data.name}</span> is` } a small area${valid_postcode ? "": ","} called a Super Data Zone, in <a style="color: var(--nisra_blue); "href="area.html?code=${data.parents[0].code} "title="View deprivation profile for ${data.parents[0].name}"> ${data.parents[0].name}</a>.</p>
         <p>Super Data Zones - referred to here as 'neighbourhoods' - have an average population of 2,240 people.
     `
  

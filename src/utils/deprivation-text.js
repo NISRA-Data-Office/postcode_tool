@@ -19,7 +19,7 @@ export function getParagraph(data) {
   const percent = Math.round(data.data.ranks.mdm/data.count * 100);
   const name = data.name;
 
-  const placeName = `<span class="text-blue">${name}</span>`;
+  const placeName = `<span class="text-purple fw-bold">${name}</span>`;
 
   if (mdm === 1) return `No neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
   if (mdm >= 2 && mdm < count * 0.015) return `Fewer than 1% of neighbourhoods are more deprived than ${placeName}.`;
@@ -48,7 +48,7 @@ export function getDeprivationSummary(id, data) {
   let summary_text = `
     <h4>
       The overall deprivation rank of 
-      <span class="text-blue">
+      <span class="text-purple fw-bold">
         ${name}
       </span>
       is 
@@ -59,7 +59,7 @@ export function getDeprivationSummary(id, data) {
     </h4>
 
     
-    <p class="mb-0"><span class="text-blue">${name}</span>${headlineText}</p>
+    <p class="mb-0"><span class="text-purple fw-bold">${name}</span>${headlineText}</p>
 
     <p>${paragraphText}</p>
     
@@ -73,7 +73,7 @@ export function getDeprivationSummary(id, data) {
     summary_text += `
       <li>
         <strong>${config.deprivation_types[rank_keys[i]]}:</strong> 
-        <span class="text-blue">${name}</span> is ranked 
+        <span class="text-purple fw-bold">${name}</span> is ranked 
         <strong>${ranks[rank_keys[i]]}</strong> out of ${count} neighbourhoods.
       </li>
     `

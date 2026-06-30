@@ -71,6 +71,8 @@ export async function updateLGD({ animate = true } = {}) {
   const lgdTableContainer = document.getElementById("lgd-table-container");
   createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
+  document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
+
   type_select.addEventListener("change", () => {
     const params = new URLSearchParams(window.location.search);
     const sdz = params.get("sdz");
@@ -85,6 +87,8 @@ export async function updateLGD({ animate = true } = {}) {
         marker: false
       });
       createLGDTable(lgdTableContainer, data, type_select.value, sdz)
+
+      document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
   });
 
   lgdDeprivationSummary("summary", data, type_select.value);
