@@ -17,7 +17,7 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
 
     <button
     id="postcode-go"
-    class="btn btn-primary rounded-0 border-secondary bg-purple"
+    class="btn rounded-0 border-secondary bg-purple"
     type="button">
     Go
     </button>

@@ -47,9 +47,12 @@ main a[target="_blank"]::after {
    Map & Legend
    =========================== */
 
-#scale-map {
-  width: 100%;
-  height: 500px;
+.scale-map {
+  height: 500px !important;
+}
+
+.ni-map {
+  height: 607px !important;
 }
 
 .map {
@@ -148,6 +151,10 @@ table tr:not(:has(th)):hover {
   color: var(--nisra_blue) !important;
 }
 
+.text-purple {
+  color: var(--nisra_purple) !important;
+}
+
 .i-button {
   cursor: pointer;
 }
@@ -177,13 +184,14 @@ table tr:not(:has(th)):hover {
 
 .bg-purple:hover, .bg-purple:active {
   background-color: #5e1f62 !important;
+  color: #fff;
 }
 
 .bg-purple:focus-visible {
   background-color: var(--nisra_purple);
-  border: 2px solid #000;
   outline: 3px solid #D4351C;
   outline-offset: 1px;
+  color: #fff;
 }
 
 .bg-green {
@@ -303,12 +311,6 @@ table tr:not(:has(th)):hover {
   outline-offset: 1px;
 }
 
-#postcode-go:focus-visible {
-  outline: 3px solid #D4351C;
-  outline-offset: 1px;
-  background-color: #2f66a8;
-}
-
 .postcode-dropdown {
   top: 100%;
   left: 0;
@@ -327,8 +329,6 @@ table tr:not(:has(th)):hover {
 .postcode-dropdown__item:focus {
   background: #f5f5f5;
 }
-
-
 
 .breadcrumb-item a {
   color: var(--nisra_blue);
