@@ -30,6 +30,9 @@ export async function updateLGD({ animate = true } = {}) {
   if (lgd == "N92000002") {
     document.getElementById("lgd-select-group").classList.add("d-none");
     document.getElementById("deprivation-summary-group").classList.add("d-none");
+    document.getElementById("scale-map").classList.add("ni-map");
+    document.getElementById("lgd-table-container").classList.add("ni-map");
+    document.getElementById("scale-map").classList.remove("scale-map");
   }
 
   const sdz = params?.get("sdz");
