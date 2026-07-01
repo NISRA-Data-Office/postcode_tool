@@ -567,7 +567,7 @@ function animateSourceColours(sourceId, newGeojson, duration = 2000) {
   }
 
   const params = new URLSearchParams(window.location.search);
-  const lgd = params.get("lgd");
+  const lgd = params.get("code");
 
   const oldFeaturesForCurrentLgd = oldGeojson_raw.features.filter(
     feature => feature.properties.LGD_code === lgd
