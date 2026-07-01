@@ -14,7 +14,6 @@ export function copySummary(data) {
 
   if (!navigator.clipboard) {
     console.error("Clipboard API not available.");
-    return;
   }
 
   try {
