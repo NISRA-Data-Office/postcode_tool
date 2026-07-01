@@ -25,7 +25,7 @@ export function insertHeader () {
       </div>
     </div>
     <div class="container-fluid bg-green py-2 d-flex flex-column" role="banner">
-      <p class="m-0">${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM).</p>
+      <p class="m-0">${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure.</p>
       <p class="m-0">Deprivation refers to people's unmet needs, a lack of access to opportunities and resources which we might expect in our society.</p>
     </div>
   `
