@@ -94,7 +94,7 @@ export async function updateLGD({ animate = true } = {}) {
       document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
   });
 
-  lgdDeprivationSummary("summary", data, type_select.value);
+  lgdDeprivationSummary("deprivation-summary", data, type_select.value);
 
   copySummary(data);
 

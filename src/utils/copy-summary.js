@@ -10,7 +10,7 @@ export function copySummary(data) {
   if (!button || !summary) return;
 
   button.addEventListener("click", async () => {
-  const text = summary.innerText;
+  const text = `${summary.innerText}\n\nSource: NISRA`;
 
   if (!navigator.clipboard) {
     console.error("Clipboard API not available.");

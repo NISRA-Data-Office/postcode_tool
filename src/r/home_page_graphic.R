@@ -40,13 +40,16 @@ p <- ggplot(map_data) +
   ) +
   theme_void() +
   theme(
-    legend.position = "none"
-  )
+    legend.position = "none",
+    plot.margin = margin(0, 0, 0, 0)
+  ) +
+  coord_sf(expand = FALSE)
 
 ggsave(
   "assets/img/nimdm_sdz_map.png",
   plot = p,
-  width = 1600,
+  width = 2560,
+  height = 2083,
   units = "px",
   dpi = 300
 )
