@@ -112,6 +112,8 @@ export async function plotScaleMap(
     "top-right"
   );
 
+  map.addControl(new maplibregl.FullscreenControl());
+
   map.on("load", () => {
     map.setRenderWorldCopies(false);
 
