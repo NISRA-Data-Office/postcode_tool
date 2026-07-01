@@ -1,6 +1,6 @@
 export function copySummary(data) {
   const button = document.getElementById("copy-summary");
-  const summary = document.getElementById("summary") || document.getElementById("deprivation-summary");
+  const summary = document.getElementById("deprivation-summary");
 
   button.setAttribute(
     "aria-label",
@@ -9,16 +9,45 @@ export function copySummary(data) {
 
   if (!button || !summary) return;
 
-  button.addEventListener("click", () => {
-    const text = summary.innerText;
+  button.addEventListener("click", async () => {
+  const text = summary.innerText;
 
-    navigator.clipboard.writeText(text).then(() => {
-      const text_copied = document.getElementById("text-copied");
-      text_copied.classList.remove("d-none");
+  if (!navigator.clipboard) {
+    console.error("Clipboard API not available.");
+    return;
+  }
 
-      setTimeout(() => {
-        text_copied.classList.add("d-none");
-      }, 2000);
-    });
-  });
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      fallbackCopy(text);
+    }
+
+    const textCopied = document.getElementById("text-copied");
+    textCopied.classList.remove("d-none");
+
+    setTimeout(() => {
+      textCopied.classList.add("d-none");
+    }, 2000);
+  } catch (err) {
+    console.error("Failed to copy:", err);
+  }
+});
+}
+
+function fallbackCopy(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    document.execCommand("copy");
+  } finally {
+    document.body.removeChild(textarea);
+  }
 }
