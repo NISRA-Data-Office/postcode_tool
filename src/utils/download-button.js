@@ -21,9 +21,10 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
     menu.className = "dropdown-menu";
 
     menu.innerHTML = `
-        <li><a class="dropdown-item" href="#">data (in CSV format)</a></li>
-        <li><a class="dropdown-item" href="#">data (in Excel format)</a></li>
+        <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
+        <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
         <li><a class="dropdown-item" href="#" id="download-${capture_id}">${plot_type} (as image)</a></li>
+        <li><a class="dropdown-item" href="#" onclick="window.print(); return false;">page (as PDF)</a></li>
     `;
 
     menu.style.maxWidth = "50%";
@@ -87,9 +88,38 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
 
                 });
     }
-
     
+    document.getElementById(`download-csv-${capture_id}`)
+    ?.addEventListener("click", (e) => {
+      e.preventDefault();
 
+      const data = extractLGDTableData();
+      if (!data.length) return;
+
+      const fileName = rawText
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-");
+
+      downloadCSV(data, `${fileName}.csv`);
+    });
+    
+    document.getElementById(`download-xlsx-${capture_id}`)
+    ?.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const data = extractLGDTableData();
+      if (!data.length) return;
+
+      const fileName = rawText
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-");
+
+      downloadExcel(data, `${fileName}.xlsx`);
+  });
 }
 
 async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
@@ -266,4 +296,41 @@ async function waitForMapReady(map) {
   });
 }
 
+function extractLGDTableData() {
+    const table = document.querySelector("#lgd-table-container table");
+    if (!table) return [];
 
+    const rows = table.querySelectorAll("tr");
+
+    return Array.from(rows).map(row =>
+        Array.from(row.querySelectorAll("th, td")).map(cell =>
+            cell.textContent
+            .replace(/[▲▼]/g, "")
+            .trim()
+        )
+    );
+}
+
+function downloadCSV(data, filename) {
+    const csv = data
+        .map(row => row.map(val => `"${val}"`).join(","))
+        .join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+
+    link.click();
+}
+
+function downloadExcel(data, filename) {
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    const sheetName = filename.replace(/\.xlsx$/i, "");
+
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+
+    XLSX.writeFile(wb, filename);
+}
