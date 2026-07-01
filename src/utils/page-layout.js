@@ -19,15 +19,15 @@ export function insertHeader () {
         <img src="assets/img/logo/nisra-only-white.svg"
               alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
       </a></div>
-        <div class="col-12 col-xl-6 d-flex align-items-center justify-content-center justify-content-xl-end text-white p-0">
+        <div class="col-12 col-xl-6 d-flex text-center align-items-center justify-content-center justify-content-xl-end text-white p-0">
       <h1 class="mb-0">${config.title}</h1>
   </div>
       </div>
     </div>
-    <div class="container-fluid align-items-center justify-content-center bg-green py-2" role="banner">
+    <div class="container-fluid bg-green py-2 d-flex flex-column" role="banner">
       <p class="m-0">${config.year ? `The ${config.year}` : "Dummy"} statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM).</p>
       <p class="m-0">Deprivation refers to people's unmet needs, a lack of access to opportunities and resources which we might expect in our society.</p>
-      </div>
+    </div>
   `
 }
 
