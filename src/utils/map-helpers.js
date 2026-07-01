@@ -40,7 +40,7 @@ export function getSdzCode(feature) {
 }
 
 export function getSdzName(feature) {
-  return String(feature.properties.SDZ21_name || getSdzCode(feature));
+  return String(feature.properties.SDZ21_name.replaceAll("_", " ") || getSdzCode(feature));
 }
 
 export function clearFeatureState(map, source, id, stateName) {

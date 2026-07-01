@@ -6,6 +6,7 @@ import { handleOnScroll } from "./utils/scroll-button.js";
 import { sharePage } from "./utils/share-page.js";
 import { updateLGD } from "./utils/update-lgd.js";
 import { clearSdzFocus } from "./utils/clear-sdz-focus.js";
+import { downloadButton } from "./utils/download-button.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
   await insertHead("Local Government District");
@@ -22,6 +23,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   handleOnScroll();
   clearSdzFocus();
 
+  downloadButton("download-btn", "map-capture");
 });
 
 window.addEventListener("popstate", () => updateLGD({ animate: true }));

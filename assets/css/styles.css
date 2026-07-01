@@ -182,9 +182,9 @@ table tr:not(:has(th)):hover {
   color: #fff;
 }
 
-.bg-purple:hover, .bg-purple:active {
+.bg-purple:hover, .bg-purple:active, .bg-purple.show {
   background-color: #5e1f62 !important;
-  color: #fff;
+  color: #fff !important;
 }
 
 .bg-purple:focus-visible {
@@ -309,6 +309,10 @@ table tr:not(:has(th)):hover {
 .form-control:focus-visible {
   outline: 3px solid #D4351C;
   outline-offset: 1px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.5rem;
 }
 
 .postcode-dropdown {

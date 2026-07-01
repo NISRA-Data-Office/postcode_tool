@@ -7,7 +7,7 @@
   "data": {
     "ranks": {
       "N21000504": {
-        "name": "Mid_Tyrone_A",
+        "name": "Mid Tyrone A",
         "ranks": {
           "mdm": 288,
           "income": 176,
@@ -20,7 +20,7 @@
         }
       },
       "N21000505": {
-        "name": "Mid_Tyrone_B",
+        "name": "Mid Tyrone B",
         "ranks": {
           "mdm": 472,
           "income": 389,
@@ -33,7 +33,7 @@
         }
       },
       "N21000489": {
-        "name": "West_Tyrone_A",
+        "name": "West Tyrone A",
         "ranks": {
           "mdm": 260,
           "income": 319,
@@ -46,7 +46,7 @@
         }
       },
       "N21000506": {
-        "name": "Mid_Tyrone_C",
+        "name": "Mid Tyrone C",
         "ranks": {
           "mdm": 294,
           "income": 340,
@@ -59,7 +59,7 @@
         }
       },
       "N21000496": {
-        "name": "Omagh_A",
+        "name": "Omagh A",
         "ranks": {
           "mdm": 314,
           "income": 436,
@@ -72,7 +72,7 @@
         }
       },
       "N21000497": {
-        "name": "Omagh_B",
+        "name": "Omagh B",
         "ranks": {
           "mdm": 114,
           "income": 170,
@@ -85,7 +85,7 @@
         }
       },
       "N21000490": {
-        "name": "West_Tyrone_B",
+        "name": "West Tyrone B",
         "ranks": {
           "mdm": 389,
           "income": 386,
@@ -98,7 +98,7 @@
         }
       },
       "N21000507": {
-        "name": "Mid_Tyrone_D",
+        "name": "Mid Tyrone D",
         "ranks": {
           "mdm": 351,
           "income": 450,
@@ -111,7 +111,7 @@
         }
       },
       "N21000498": {
-        "name": "Omagh_C",
+        "name": "Omagh C",
         "ranks": {
           "mdm": 147,
           "income": 256,
@@ -124,7 +124,7 @@
         }
       },
       "N21000499": {
-        "name": "Omagh_D",
+        "name": "Omagh D",
         "ranks": {
           "mdm": 182,
           "income": 347,
@@ -137,7 +137,7 @@
         }
       },
       "N21000500": {
-        "name": "Omagh_E",
+        "name": "Omagh E",
         "ranks": {
           "mdm": 299,
           "income": 534,
@@ -150,7 +150,7 @@
         }
       },
       "N21000501": {
-        "name": "Omagh_F",
+        "name": "Omagh F",
         "ranks": {
           "mdm": 239,
           "income": 325,
@@ -163,7 +163,7 @@
         }
       },
       "N21000502": {
-        "name": "Omagh_G",
+        "name": "Omagh G",
         "ranks": {
           "mdm": 385,
           "income": 562,
@@ -176,7 +176,7 @@
         }
       },
       "N21000503": {
-        "name": "Omagh_H",
+        "name": "Omagh H",
         "ranks": {
           "mdm": 319,
           "income": 400,
@@ -189,7 +189,7 @@
         }
       },
       "N21000508": {
-        "name": "Mid_Tyrone_E",
+        "name": "Mid Tyrone E",
         "ranks": {
           "mdm": 197,
           "income": 169,
@@ -202,7 +202,7 @@
         }
       },
       "N21000509": {
-        "name": "Mid_Tyrone_F",
+        "name": "Mid Tyrone F",
         "ranks": {
           "mdm": 442,
           "income": 546,
@@ -215,7 +215,7 @@
         }
       },
       "N21000482": {
-        "name": "Erne_North_A",
+        "name": "Erne North A",
         "ranks": {
           "mdm": 218,
           "income": 76,
@@ -228,7 +228,7 @@
         }
       },
       "N21000510": {
-        "name": "Mid_Tyrone_G",
+        "name": "Mid Tyrone G",
         "ranks": {
           "mdm": 406,
           "income": 496,
@@ -241,7 +241,7 @@
         }
       },
       "N21000483": {
-        "name": "Erne_North_B",
+        "name": "Erne North B",
         "ranks": {
           "mdm": 189,
           "income": 70,
@@ -254,7 +254,7 @@
         }
       },
       "N21000491": {
-        "name": "West_Tyrone_C",
+        "name": "West Tyrone C",
         "ranks": {
           "mdm": 248,
           "income": 365,
@@ -267,7 +267,7 @@
         }
       },
       "N21000484": {
-        "name": "Erne_North_C",
+        "name": "Erne North C",
         "ranks": {
           "mdm": 245,
           "income": 150,
@@ -280,7 +280,7 @@
         }
       },
       "N21000492": {
-        "name": "West_Tyrone_D",
+        "name": "West Tyrone D",
         "ranks": {
           "mdm": 230,
           "income": 185,
@@ -293,7 +293,7 @@
         }
       },
       "N21000493": {
-        "name": "West_Tyrone_E",
+        "name": "West Tyrone E",
         "ranks": {
           "mdm": 382,
           "income": 525,
@@ -306,7 +306,7 @@
         }
       },
       "N21000494": {
-        "name": "West_Tyrone_F",
+        "name": "West Tyrone F",
         "ranks": {
           "mdm": 269,
           "income": 264,
@@ -319,7 +319,7 @@
         }
       },
       "N21000485": {
-        "name": "Erne_North_D",
+        "name": "Erne North D",
         "ranks": {
           "mdm": 268,
           "income": 135,
@@ -332,7 +332,7 @@
         }
       },
       "N21000495": {
-        "name": "West_Tyrone_G",
+        "name": "West Tyrone G",
         "ranks": {
           "mdm": 368,
           "income": 497,
@@ -345,7 +345,7 @@
         }
       },
       "N21000474": {
-        "name": "Enniskillen_A",
+        "name": "Enniskillen A",
         "ranks": {
           "mdm": 316,
           "income": 191,
@@ -358,7 +358,7 @@
         }
       },
       "N21000486": {
-        "name": "Erne_North_E",
+        "name": "Erne North E",
         "ranks": {
           "mdm": 355,
           "income": 280,
@@ -371,7 +371,7 @@
         }
       },
       "N21000487": {
-        "name": "Erne_North_F",
+        "name": "Erne North F",
         "ranks": {
           "mdm": 404,
           "income": 284,
@@ -384,7 +384,7 @@
         }
       },
       "N21000468": {
-        "name": "Erne_West_A",
+        "name": "Erne West A",
         "ranks": {
           "mdm": 180,
           "income": 44,
@@ -397,7 +397,7 @@
         }
       },
       "N21000488": {
-        "name": "Erne_North_G",
+        "name": "Erne North G",
         "ranks": {
           "mdm": 517,
           "income": 471,
@@ -410,7 +410,7 @@
         }
       },
       "N21000469": {
-        "name": "Erne_West_B",
+        "name": "Erne West B",
         "ranks": {
           "mdm": 393,
           "income": 180,
@@ -423,7 +423,7 @@
         }
       },
       "N21000475": {
-        "name": "Enniskillen_B",
+        "name": "Enniskillen B",
         "ranks": {
           "mdm": 104,
           "income": 92,
@@ -436,7 +436,7 @@
         }
       },
       "N21000476": {
-        "name": "Enniskillen_C",
+        "name": "Enniskillen C",
         "ranks": {
           "mdm": 412,
           "income": 370,
@@ -449,7 +449,7 @@
         }
       },
       "N21000477": {
-        "name": "Enniskillen_D",
+        "name": "Enniskillen D",
         "ranks": {
           "mdm": 174,
           "income": 134,
@@ -462,7 +462,7 @@
         }
       },
       "N21000470": {
-        "name": "Erne_West_C",
+        "name": "Erne West C",
         "ranks": {
           "mdm": 362,
           "income": 296,
@@ -475,7 +475,7 @@
         }
       },
       "N21000478": {
-        "name": "Enniskillen_E",
+        "name": "Enniskillen E",
         "ranks": {
           "mdm": 113,
           "income": 95,
@@ -488,7 +488,7 @@
         }
       },
       "N21000479": {
-        "name": "Enniskillen_F",
+        "name": "Enniskillen F",
         "ranks": {
           "mdm": 293,
           "income": 263,
@@ -501,7 +501,7 @@
         }
       },
       "N21000480": {
-        "name": "Enniskillen_G",
+        "name": "Enniskillen G",
         "ranks": {
           "mdm": 616,
           "income": 552,
@@ -514,7 +514,7 @@
         }
       },
       "N21000481": {
-        "name": "Enniskillen_H",
+        "name": "Enniskillen H",
         "ranks": {
           "mdm": 195,
           "income": 87,
@@ -527,7 +527,7 @@
         }
       },
       "N21000462": {
-        "name": "Erne_East_A",
+        "name": "Erne East A",
         "ranks": {
           "mdm": 452,
           "income": 327,
@@ -540,7 +540,7 @@
         }
       },
       "N21000471": {
-        "name": "Erne_West_D",
+        "name": "Erne West D",
         "ranks": {
           "mdm": 421,
           "income": 290,
@@ -553,7 +553,7 @@
         }
       },
       "N21000463": {
-        "name": "Erne_East_B",
+        "name": "Erne East B",
         "ranks": {
           "mdm": 176,
           "income": 25,
@@ -566,7 +566,7 @@
         }
       },
       "N21000464": {
-        "name": "Erne_East_C",
+        "name": "Erne East C",
         "ranks": {
           "mdm": 221,
           "income": 77,
@@ -579,7 +579,7 @@
         }
       },
       "N21000472": {
-        "name": "Erne_West_E",
+        "name": "Erne West E",
         "ranks": {
           "mdm": 377,
           "income": 111,
@@ -592,7 +592,7 @@
         }
       },
       "N21000465": {
-        "name": "Erne_East_D",
+        "name": "Erne East D",
         "ranks": {
           "mdm": 175,
           "income": 39,
@@ -605,7 +605,7 @@
         }
       },
       "N21000466": {
-        "name": "Erne_East_E",
+        "name": "Erne East E",
         "ranks": {
           "mdm": 132,
           "income": 10,
@@ -618,7 +618,7 @@
         }
       },
       "N21000473": {
-        "name": "Erne_West_F",
+        "name": "Erne West F",
         "ranks": {
           "mdm": 295,
           "income": 48,
@@ -631,7 +631,7 @@
         }
       },
       "N21000467": {
-        "name": "Erne_East_F",
+        "name": "Erne East F",
         "ranks": {
           "mdm": 143,
           "income": 17,
