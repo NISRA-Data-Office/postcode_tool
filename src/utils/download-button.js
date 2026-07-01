@@ -1,70 +1,41 @@
 import { config } from "../config/config.js";
-import { map } from "./plot-map.js";
+import { map } from "./plot-scale-map.js";
 import { readData } from "./read-data.js";
 
-export async function downloadButton (capture_id, matrix, update_date, query, plot_type = "chart") {
+export async function downloadButton (button_id, capture_id, plot_type = "map") {
 
+    const button = document.getElementById(button_id);
     const capture = document.getElementById(capture_id);
-    const footer = capture.parentElement.querySelector(".card-footer");
 
-    if (footer.getElementsByClassName("dropdown").length > 0) {
-        footer.removeChild(footer.querySelector(".dropdown"));
-    };
+    const placeName = document.querySelector(".place-name");
+    const rawText = placeName ? placeName.textContent : "map";
+    
+    button.classList.add("dropdown-toggle");
+    button.setAttribute("data-bs-toggle", "dropdown");
+    button.setAttribute("aria-expanded", "false");
 
-    let footerContent = document.createElement("div");
-    footerContent.classList.add("dropdown");
+    const wrapper = button.parentElement;
+    wrapper.classList.add("dropdown");
 
-    let query_long = [];
-    for (let i = 0; i < Object.keys(query).length; i ++) {
-      query_long.push({
-        "code": Object.keys(query)[i],
-        "selection": {
-          "filter": "item",
-          "values": Array.isArray(Object.values(query)[i]) ? Object.values(query)[i] : [Object.values(query)[i]]
-        }
-      })
-    }
+    const menu = document.createElement("ul");
+    menu.className = "dropdown-menu";
 
-    const csv_query_string = encodeURIComponent(JSON.stringify({
-      "query": query_long,
-      "response": {
-        "format": "csv",
-        "pivot": null,
-        "codes": false
-      }
-    }));
-
-    const matrix_data = await readData(matrix);
-
-    const xl_query_string = csv_query_string.replace("csv", "xlsx");
-
-    footerContent.innerHTML = `
-        <strong>Data last updated:</strong> ${update_date}.
-        <div>
-            <button class="btn btn-secondary dropdown-toggle btn-primary mt-2" type="button" id="${capture_id}-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                Download
-            </button>
-            
-            <ul class="dropdown-menu" aria-labelledby="${capture_id}-dropdown">
-                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_data.subject}/${matrix_data.product}/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
-                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_data.subject}/${matrix_data.product}/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
-                <li><a class="dropdown-item" href="#" id="download-${capture_id}">${plot_type} (as image)</a></li>
-            </ul>
-            </div>
-        
+    menu.innerHTML = `
+        <li><a class="dropdown-item" href="#">data (in CSV format)</a></li>
+        <li><a class="dropdown-item" href="#">data (in Excel format)</a></li>
+        <li><a class="dropdown-item" href="#" id="download-${capture_id}">${plot_type} (as image)</a></li>
     `;
 
-    footer.appendChild(footerContent);
+    menu.style.maxWidth = "50%";
 
+    wrapper.appendChild(menu);
 
     if (plot_type == "map") {
         document.getElementById(`download-${capture_id}`).addEventListener("click", async (e) => {
         e.preventDefault();
 
         const cardEl = document.getElementById(capture_id);
-        const mapContainerEl = document.getElementById("map-container");
-
-        const rawText = document.getElementById("map-title").textContent;
+        const mapContainerEl = document.getElementById("scale-map");
 
         const fileName = rawText
                     .toLowerCase()
@@ -127,6 +98,13 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
 
   // Snapshot the WebGL canvas
   const mapCanvas = map.getCanvas();
+
+  if (map.triggerRepaint) {
+    map.triggerRepaint();
+  }
+
+  await new Promise(requestAnimationFrame);
+
   let dataUrl;
   try {
     dataUrl = mapCanvas.toDataURL("image/png");
@@ -153,6 +131,26 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
 
     if (!clonedCard || !clonedMapContainer) return;
 
+    const pageTitle = document.querySelector("h2");
+
+    if (pageTitle) {
+        const title = clonedDoc.createElement("div");
+
+        title.textContent = pageTitle.textContent;
+
+        title.style.fontSize = "22px";
+        title.style.fontWeight = "bold";
+        title.style.marginBottom = "5px";
+        title.style.marginTop = "16px";
+        title.style.marginLeft = "5px";
+
+        const clonedCard = clonedDoc.getElementById(cardEl.id);
+
+        if (clonedCard) {
+            clonedCard.prepend(title);
+        }
+    }
+
     // ✅ Remove/hide footer in the CLONE so it doesn't appear in the export
     const clonedFooter = clonedCard.querySelector(".card-footer");
     if (clonedFooter) clonedFooter.remove(); // or: clonedFooter.style.display = "none";
@@ -174,6 +172,7 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
 
     // Lock cloned card width
     clonedCard.style.width = `${cardEl.getBoundingClientRect().width}px`;
+    clonedCard.style.paddingLeft = "1px";
   }
 
   });
