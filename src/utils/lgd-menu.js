@@ -18,7 +18,7 @@ export async function lgdMenu (id) {
     }
 
     const params = new URLSearchParams(window.location.search);
-    const current_lgd = params.get("lgd");
+    const current_lgd = params.get("code");
 
     const placeholder = document.createElement("option");
     placeholder.textContent = "Select a council area";
