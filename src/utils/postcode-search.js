@@ -24,12 +24,16 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
   </div>
 
   <div id="postcode-dropdown" class="postcode-dropdown border border-secondary position-absolute d-none"></div>
+
+  <div id="postcode-invalid" class="text-danger d-none mt-1 position-absolute border border-secondary bg-white p-1">
+    No results found. Please check your postcode and try again.
+  </div>
   `
 
   const input = document.getElementById("postcode-input");
   const goButton = document.getElementById("postcode-go");
   const dropdown = document.getElementById("postcode-dropdown");
-
+  const invalid = document.getElementById("postcode-invalid");
   if (!input || !dropdown) return;
 
   input.setAttribute("autocomplete", "off");
@@ -99,6 +103,16 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
     currentMatches = [];
   }
 
+  function showInvalid() {
+    invalid.classList.remove("d-none");
+  }
+
+  function hideInvalid() {
+    invalid.classList.add("d-none");
+  }
+
+
+
   function updateSelection() {
     const options = dropdown.querySelectorAll(".postcode-dropdown__item");
 
@@ -164,6 +178,7 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
 
     if (search.length < 3) {
       hideDropdown();
+      hideInvalid();
       return;
     }
 
@@ -173,7 +188,10 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
 
     if (currentMatches.length === 0) {
       hideDropdown();
+      showInvalid();
       return;
+    } else {
+      hideInvalid();
     }
 
     currentMatches.forEach((item, index) => {
