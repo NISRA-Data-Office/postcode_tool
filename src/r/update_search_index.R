@@ -4,11 +4,14 @@ source("src/r/config.R")
 
 cpd <- read.csv(paste0(data_dir, latest_cpd_file)) %>%
   filter(SDZ2021 != "000000000" & X != 666666 & Y != 666666) %>%
-  mutate(postcode = paste0(
-    substr(PC5, 1, nchar(PC5) - 3),
-    " ",
-    substr(PC5, nchar(PC5) - 2, nchar(PC5))
-  ))
+  mutate(
+    postcode = paste0(
+      substr(PC5, 1, nchar(PC5) - 3),
+      " ",
+      substr(PC5, nchar(PC5) - 2, nchar(PC5))
+    ),
+    SDZ2021_name = gsub("_", " ", SDZ2021_name)
+  )
 
 # Create search data json ####
 

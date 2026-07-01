@@ -7,7 +7,7 @@
   "data": {
     "ranks": {
       "N21000412": {
-        "name": "Ballyarnett_A",
+        "name": "Ballyarnett A",
         "ranks": {
           "mdm": 564,
           "income": 553,
@@ -20,7 +20,7 @@
         }
       },
       "N21000413": {
-        "name": "Ballyarnett_B",
+        "name": "Ballyarnett B",
         "ranks": {
           "mdm": 32,
           "income": 49,
@@ -33,7 +33,7 @@
         }
       },
       "N21000414": {
-        "name": "Ballyarnett_C",
+        "name": "Ballyarnett C",
         "ranks": {
           "mdm": 565,
           "income": 554,
@@ -46,7 +46,7 @@
         }
       },
       "N21000415": {
-        "name": "Ballyarnett_D",
+        "name": "Ballyarnett D",
         "ranks": {
           "mdm": 159,
           "income": 205,
@@ -59,7 +59,7 @@
         }
       },
       "N21000436": {
-        "name": "Faughan_A",
+        "name": "Faughan A",
         "ranks": {
           "mdm": 639,
           "income": 618,
@@ -72,7 +72,7 @@
         }
       },
       "N21000416": {
-        "name": "Ballyarnett_E",
+        "name": "Ballyarnett E",
         "ranks": {
           "mdm": 51,
           "income": 93,
@@ -85,7 +85,7 @@
         }
       },
       "N21000417": {
-        "name": "Ballyarnett_F",
+        "name": "Ballyarnett F",
         "ranks": {
           "mdm": 25,
           "income": 55,
@@ -98,7 +98,7 @@
         }
       },
       "N21000418": {
-        "name": "Ballyarnett_G",
+        "name": "Ballyarnett G",
         "ranks": {
           "mdm": 34,
           "income": 59,
@@ -111,7 +111,7 @@
         }
       },
       "N21000419": {
-        "name": "Ballyarnett_H",
+        "name": "Ballyarnett H",
         "ranks": {
           "mdm": 434,
           "income": 434,
@@ -124,7 +124,7 @@
         }
       },
       "N21000437": {
-        "name": "Faughan_B",
+        "name": "Faughan B",
         "ranks": {
           "mdm": 496,
           "income": 360,
@@ -137,7 +137,7 @@
         }
       },
       "N21000420": {
-        "name": "Ballyarnett_J",
+        "name": "Ballyarnett J",
         "ranks": {
           "mdm": 172,
           "income": 251,
@@ -150,7 +150,7 @@
         }
       },
       "N21000421": {
-        "name": "Ballyarnett_K",
+        "name": "Ballyarnett K",
         "ranks": {
           "mdm": 204,
           "income": 193,
@@ -163,7 +163,7 @@
         }
       },
       "N21000422": {
-        "name": "Ballyarnett_L",
+        "name": "Ballyarnett L",
         "ranks": {
           "mdm": 168,
           "income": 272,
@@ -176,7 +176,7 @@
         }
       },
       "N21000438": {
-        "name": "Faughan_C",
+        "name": "Faughan C",
         "ranks": {
           "mdm": 497,
           "income": 361,
@@ -189,7 +189,7 @@
         }
       },
       "N21000405": {
-        "name": "Foyleside_A",
+        "name": "Foyleside A",
         "ranks": {
           "mdm": 173,
           "income": 230,
@@ -202,7 +202,7 @@
         }
       },
       "N21000439": {
-        "name": "Faughan_D",
+        "name": "Faughan D",
         "ranks": {
           "mdm": 381,
           "income": 245,
@@ -215,7 +215,7 @@
         }
       },
       "N21000406": {
-        "name": "Foyleside_B",
+        "name": "Foyleside B",
         "ranks": {
           "mdm": 558,
           "income": 625,
@@ -228,7 +228,7 @@
         }
       },
       "N21000407": {
-        "name": "Foyleside_C",
+        "name": "Foyleside C",
         "ranks": {
           "mdm": 201,
           "income": 219,
@@ -241,7 +241,7 @@
         }
       },
       "N21000408": {
-        "name": "Foyleside_D",
+        "name": "Foyleside D",
         "ranks": {
           "mdm": 164,
           "income": 121,
@@ -254,7 +254,7 @@
         }
       },
       "N21000409": {
-        "name": "Foyleside_E",
+        "name": "Foyleside E",
         "ranks": {
           "mdm": 507,
           "income": 578,
@@ -267,7 +267,7 @@
         }
       },
       "N21000423": {
-        "name": "Waterside_A",
+        "name": "Waterside A",
         "ranks": {
           "mdm": 302,
           "income": 320,
@@ -280,7 +280,7 @@
         }
       },
       "N21000410": {
-        "name": "Foyleside_F",
+        "name": "Foyleside F",
         "ranks": {
           "mdm": 92,
           "income": 108,
@@ -293,7 +293,7 @@
         }
       },
       "N21000411": {
-        "name": "Foyleside_G",
+        "name": "Foyleside G",
         "ranks": {
           "mdm": 133,
           "income": 194,
@@ -306,7 +306,7 @@
         }
       },
       "N21000424": {
-        "name": "Waterside_B",
+        "name": "Waterside B",
         "ranks": {
           "mdm": 371,
           "income": 402,
@@ -319,7 +319,7 @@
         }
       },
       "N21000397": {
-        "name": "The_Moor_A",
+        "name": "The Moor A",
         "ranks": {
           "mdm": 75,
           "income": 109,
@@ -332,7 +332,7 @@
         }
       },
       "N21000398": {
-        "name": "The_Moor_B",
+        "name": "The Moor B",
         "ranks": {
           "mdm": 69,
           "income": 131,
@@ -345,7 +345,7 @@
         }
       },
       "N21000425": {
-        "name": "Waterside_C",
+        "name": "Waterside C",
         "ranks": {
           "mdm": 342,
           "income": 416,
@@ -358,7 +358,7 @@
         }
       },
       "N21000426": {
-        "name": "Waterside_D",
+        "name": "Waterside D",
         "ranks": {
           "mdm": 469,
           "income": 516,
@@ -371,7 +371,7 @@
         }
       },
       "N21000399": {
-        "name": "The_Moor_C",
+        "name": "The Moor C",
         "ranks": {
           "mdm": 45,
           "income": 53,
@@ -384,7 +384,7 @@
         }
       },
       "N21000427": {
-        "name": "Waterside_E",
+        "name": "Waterside E",
         "ranks": {
           "mdm": 120,
           "income": 66,
@@ -397,7 +397,7 @@
         }
       },
       "N21000428": {
-        "name": "Waterside_F",
+        "name": "Waterside F",
         "ranks": {
           "mdm": 512,
           "income": 487,
@@ -410,7 +410,7 @@
         }
       },
       "N21000400": {
-        "name": "The_Moor_D",
+        "name": "The Moor D",
         "ranks": {
           "mdm": 27,
           "income": 27,
@@ -423,7 +423,7 @@
         }
       },
       "N21000401": {
-        "name": "The_Moor_E",
+        "name": "The Moor E",
         "ranks": {
           "mdm": 28,
           "income": 35,
@@ -436,7 +436,7 @@
         }
       },
       "N21000402": {
-        "name": "The_Moor_F",
+        "name": "The Moor F",
         "ranks": {
           "mdm": 20,
           "income": 15,
@@ -449,7 +449,7 @@
         }
       },
       "N21000429": {
-        "name": "Waterside_G",
+        "name": "Waterside G",
         "ranks": {
           "mdm": 163,
           "income": 206,
@@ -462,7 +462,7 @@
         }
       },
       "N21000403": {
-        "name": "The_Moor_G",
+        "name": "The Moor G",
         "ranks": {
           "mdm": 22,
           "income": 12,
@@ -475,7 +475,7 @@
         }
       },
       "N21000430": {
-        "name": "Waterside_H",
+        "name": "Waterside H",
         "ranks": {
           "mdm": 610,
           "income": 642,
@@ -488,7 +488,7 @@
         }
       },
       "N21000431": {
-        "name": "Waterside_J",
+        "name": "Waterside J",
         "ranks": {
           "mdm": 350,
           "income": 600,
@@ -501,7 +501,7 @@
         }
       },
       "N21000404": {
-        "name": "The_Moor_H",
+        "name": "The Moor H",
         "ranks": {
           "mdm": 42,
           "income": 43,
@@ -514,7 +514,7 @@
         }
       },
       "N21000432": {
-        "name": "Waterside_K",
+        "name": "Waterside K",
         "ranks": {
           "mdm": 467,
           "income": 425,
@@ -527,7 +527,7 @@
         }
       },
       "N21000433": {
-        "name": "Waterside_L",
+        "name": "Waterside L",
         "ranks": {
           "mdm": 46,
           "income": 60,
@@ -540,7 +540,7 @@
         }
       },
       "N21000434": {
-        "name": "Waterside_N",
+        "name": "Waterside N",
         "ranks": {
           "mdm": 122,
           "income": 312,
@@ -553,7 +553,7 @@
         }
       },
       "N21000435": {
-        "name": "Waterside_P",
+        "name": "Waterside P",
         "ranks": {
           "mdm": 456,
           "income": 539,
@@ -566,7 +566,7 @@
         }
       },
       "N21000440": {
-        "name": "Faughan_E",
+        "name": "Faughan E",
         "ranks": {
           "mdm": 373,
           "income": 266,
@@ -579,7 +579,7 @@
         }
       },
       "N21000441": {
-        "name": "Faughan_F",
+        "name": "Faughan F",
         "ranks": {
           "mdm": 475,
           "income": 427,
@@ -592,7 +592,7 @@
         }
       },
       "N21000442": {
-        "name": "Faughan_G",
+        "name": "Faughan G",
         "ranks": {
           "mdm": 532,
           "income": 498,
@@ -605,7 +605,7 @@
         }
       },
       "N21000443": {
-        "name": "Faughan_H",
+        "name": "Faughan H",
         "ranks": {
           "mdm": 259,
           "income": 226,
@@ -618,7 +618,7 @@
         }
       },
       "N21000444": {
-        "name": "Sperrin_A",
+        "name": "Sperrin A",
         "ranks": {
           "mdm": 252,
           "income": 162,
@@ -631,7 +631,7 @@
         }
       },
       "N21000445": {
-        "name": "Sperrin_B",
+        "name": "Sperrin B",
         "ranks": {
           "mdm": 249,
           "income": 132,
@@ -644,7 +644,7 @@
         }
       },
       "N21000446": {
-        "name": "Sperrin_C",
+        "name": "Sperrin C",
         "ranks": {
           "mdm": 155,
           "income": 72,
@@ -657,7 +657,7 @@
         }
       },
       "N21000447": {
-        "name": "Sperrin_D",
+        "name": "Sperrin D",
         "ranks": {
           "mdm": 36,
           "income": 14,
@@ -670,7 +670,7 @@
         }
       },
       "N21000448": {
-        "name": "Sperrin_E",
+        "name": "Sperrin E",
         "ranks": {
           "mdm": 41,
           "income": 21,
@@ -683,7 +683,7 @@
         }
       },
       "N21000449": {
-        "name": "Sperrin_F",
+        "name": "Sperrin F",
         "ranks": {
           "mdm": 209,
           "income": 143,
@@ -696,7 +696,7 @@
         }
       },
       "N21000450": {
-        "name": "Sperrin_G",
+        "name": "Sperrin G",
         "ranks": {
           "mdm": 48,
           "income": 24,
@@ -709,7 +709,7 @@
         }
       },
       "N21000451": {
-        "name": "Sperrin_H",
+        "name": "Sperrin H",
         "ranks": {
           "mdm": 96,
           "income": 141,
@@ -722,7 +722,7 @@
         }
       },
       "N21000454": {
-        "name": "Derg_A",
+        "name": "Derg A",
         "ranks": {
           "mdm": 149,
           "income": 262,
@@ -735,7 +735,7 @@
         }
       },
       "N21000452": {
-        "name": "Sperrin_J",
+        "name": "Sperrin J",
         "ranks": {
           "mdm": 115,
           "income": 210,
@@ -748,7 +748,7 @@
         }
       },
       "N21000455": {
-        "name": "Derg_B",
+        "name": "Derg B",
         "ranks": {
           "mdm": 158,
           "income": 225,
@@ -761,7 +761,7 @@
         }
       },
       "N21000456": {
-        "name": "Derg_C",
+        "name": "Derg C",
         "ranks": {
           "mdm": 142,
           "income": 268,
@@ -774,7 +774,7 @@
         }
       },
       "N21000453": {
-        "name": "Sperrin_K",
+        "name": "Sperrin K",
         "ranks": {
           "mdm": 139,
           "income": 155,
@@ -787,7 +787,7 @@
         }
       },
       "N21000457": {
-        "name": "Derg_D",
+        "name": "Derg D",
         "ranks": {
           "mdm": 152,
           "income": 215,
@@ -800,7 +800,7 @@
         }
       },
       "N21000458": {
-        "name": "Derg_E",
+        "name": "Derg E",
         "ranks": {
           "mdm": 266,
           "income": 381,
@@ -813,7 +813,7 @@
         }
       },
       "N21000459": {
-        "name": "Derg_F",
+        "name": "Derg F",
         "ranks": {
           "mdm": 141,
           "income": 184,
@@ -826,7 +826,7 @@
         }
       },
       "N21000460": {
-        "name": "Derg_G",
+        "name": "Derg G",
         "ranks": {
           "mdm": 178,
           "income": 229,
@@ -839,7 +839,7 @@
         }
       },
       "N21000461": {
-        "name": "Derg_H",
+        "name": "Derg H",
         "ranks": {
           "mdm": 123,
           "income": 165,

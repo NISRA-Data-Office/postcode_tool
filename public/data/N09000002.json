@@ -7,7 +7,7 @@
   "data": {
     "ranks": {
       "N21000107": {
-        "name": "Lurgan_A",
+        "name": "Lurgan A",
         "ranks": {
           "mdm": 721,
           "income": 680,
@@ -20,7 +20,7 @@
         }
       },
       "N21000108": {
-        "name": "Lurgan_B",
+        "name": "Lurgan B",
         "ranks": {
           "mdm": 483,
           "income": 568,
@@ -33,7 +33,7 @@
         }
       },
       "N21000079": {
-        "name": "Portadown_A",
+        "name": "Portadown A",
         "ranks": {
           "mdm": 520,
           "income": 401,
@@ -46,7 +46,7 @@
         }
       },
       "N21000094": {
-        "name": "Craigavon_A",
+        "name": "Craigavon A",
         "ranks": {
           "mdm": 709,
           "income": 669,
@@ -59,7 +59,7 @@
         }
       },
       "N21000109": {
-        "name": "Lurgan_C",
+        "name": "Lurgan C",
         "ranks": {
           "mdm": 400,
           "income": 462,
@@ -72,7 +72,7 @@
         }
       },
       "N21000110": {
-        "name": "Lurgan_D",
+        "name": "Lurgan D",
         "ranks": {
           "mdm": 340,
           "income": 505,
@@ -85,7 +85,7 @@
         }
       },
       "N21000111": {
-        "name": "Lurgan_E",
+        "name": "Lurgan E",
         "ranks": {
           "mdm": 236,
           "income": 359,
@@ -98,7 +98,7 @@
         }
       },
       "N21000080": {
-        "name": "Portadown_B",
+        "name": "Portadown B",
         "ranks": {
           "mdm": 551,
           "income": 390,
@@ -111,7 +111,7 @@
         }
       },
       "N21000112": {
-        "name": "Lurgan_F",
+        "name": "Lurgan F",
         "ranks": {
           "mdm": 118,
           "income": 304,
@@ -124,7 +124,7 @@
         }
       },
       "N21000113": {
-        "name": "Lurgan_G",
+        "name": "Lurgan G",
         "ranks": {
           "mdm": 68,
           "income": 68,
@@ -137,7 +137,7 @@
         }
       },
       "N21000095": {
-        "name": "Craigavon_B",
+        "name": "Craigavon B",
         "ranks": {
           "mdm": 473,
           "income": 599,
@@ -150,7 +150,7 @@
         }
       },
       "N21000114": {
-        "name": "Lurgan_H",
+        "name": "Lurgan H",
         "ranks": {
           "mdm": 744,
           "income": 732,
@@ -163,7 +163,7 @@
         }
       },
       "N21000115": {
-        "name": "Lurgan_J",
+        "name": "Lurgan J",
         "ranks": {
           "mdm": 681,
           "income": 611,
@@ -176,7 +176,7 @@
         }
       },
       "N21000116": {
-        "name": "Lurgan_K",
+        "name": "Lurgan K",
         "ranks": {
           "mdm": 85,
           "income": 52,
@@ -189,7 +189,7 @@
         }
       },
       "N21000117": {
-        "name": "Lurgan_L",
+        "name": "Lurgan L",
         "ranks": {
           "mdm": 63,
           "income": 182,
@@ -202,7 +202,7 @@
         }
       },
       "N21000118": {
-        "name": "Lurgan_N",
+        "name": "Lurgan N",
         "ranks": {
           "mdm": 140,
           "income": 564,
@@ -215,7 +215,7 @@
         }
       },
       "N21000119": {
-        "name": "Lurgan_P",
+        "name": "Lurgan P",
         "ranks": {
           "mdm": 534,
           "income": 543,
@@ -228,7 +228,7 @@
         }
       },
       "N21000120": {
-        "name": "Lurgan_Q",
+        "name": "Lurgan Q",
         "ranks": {
           "mdm": 167,
           "income": 119,
@@ -241,7 +241,7 @@
         }
       },
       "N21000121": {
-        "name": "Lurgan_R",
+        "name": "Lurgan R",
         "ranks": {
           "mdm": 137,
           "income": 442,
@@ -254,7 +254,7 @@
         }
       },
       "N21000122": {
-        "name": "Lurgan_S",
+        "name": "Lurgan S",
         "ranks": {
           "mdm": 561,
           "income": 598,
@@ -267,7 +267,7 @@
         }
       },
       "N21000123": {
-        "name": "Lurgan_T",
+        "name": "Lurgan T",
         "ranks": {
           "mdm": 222,
           "income": 278,
@@ -280,7 +280,7 @@
         }
       },
       "N21000096": {
-        "name": "Craigavon_C",
+        "name": "Craigavon C",
         "ranks": {
           "mdm": 264,
           "income": 378,
@@ -293,7 +293,7 @@
         }
       },
       "N21000097": {
-        "name": "Craigavon_D",
+        "name": "Craigavon D",
         "ranks": {
           "mdm": 93,
           "income": 186,
@@ -306,7 +306,7 @@
         }
       },
       "N21000098": {
-        "name": "Craigavon_E",
+        "name": "Craigavon E",
         "ranks": {
           "mdm": 88,
           "income": 269,
@@ -319,7 +319,7 @@
         }
       },
       "N21000099": {
-        "name": "Craigavon_F",
+        "name": "Craigavon F",
         "ranks": {
           "mdm": 508,
           "income": 490,
@@ -332,7 +332,7 @@
         }
       },
       "N21000124": {
-        "name": "Lagan_River_A",
+        "name": "Lagan River A",
         "ranks": {
           "mdm": 789,
           "income": 746,
@@ -345,7 +345,7 @@
         }
       },
       "N21000100": {
-        "name": "Craigavon_G",
+        "name": "Craigavon G",
         "ranks": {
           "mdm": 78,
           "income": 237,
@@ -358,7 +358,7 @@
         }
       },
       "N21000101": {
-        "name": "Craigavon_H",
+        "name": "Craigavon H",
         "ranks": {
           "mdm": 612,
           "income": 508,
@@ -371,7 +371,7 @@
         }
       },
       "N21000102": {
-        "name": "Craigavon_J",
+        "name": "Craigavon J",
         "ranks": {
           "mdm": 661,
           "income": 556,
@@ -384,7 +384,7 @@
         }
       },
       "N21000125": {
-        "name": "Lagan_River_B",
+        "name": "Lagan River B",
         "ranks": {
           "mdm": 782,
           "income": 692,
@@ -397,7 +397,7 @@
         }
       },
       "N21000081": {
-        "name": "Portadown_C",
+        "name": "Portadown C",
         "ranks": {
           "mdm": 99,
           "income": 101,
@@ -410,7 +410,7 @@
         }
       },
       "N21000126": {
-        "name": "Lagan_River_C",
+        "name": "Lagan River C",
         "ranks": {
           "mdm": 726,
           "income": 591,
@@ -423,7 +423,7 @@
         }
       },
       "N21000082": {
-        "name": "Portadown_D",
+        "name": "Portadown D",
         "ranks": {
           "mdm": 97,
           "income": 67,
@@ -436,7 +436,7 @@
         }
       },
       "N21000083": {
-        "name": "Portadown_E",
+        "name": "Portadown E",
         "ranks": {
           "mdm": 71,
           "income": 42,
@@ -449,7 +449,7 @@
         }
       },
       "N21000084": {
-        "name": "Portadown_F",
+        "name": "Portadown F",
         "ranks": {
           "mdm": 327,
           "income": 315,
@@ -462,7 +462,7 @@
         }
       },
       "N21000103": {
-        "name": "Craigavon_K",
+        "name": "Craigavon K",
         "ranks": {
           "mdm": 585,
           "income": 558,
@@ -475,7 +475,7 @@
         }
       },
       "N21000085": {
-        "name": "Portadown_G",
+        "name": "Portadown G",
         "ranks": {
           "mdm": 80,
           "income": 41,
@@ -488,7 +488,7 @@
         }
       },
       "N21000086": {
-        "name": "Portadown_H",
+        "name": "Portadown H",
         "ranks": {
           "mdm": 590,
           "income": 588,
@@ -501,7 +501,7 @@
         }
       },
       "N21000104": {
-        "name": "Craigavon_L",
+        "name": "Craigavon L",
         "ranks": {
           "mdm": 511,
           "income": 650,
@@ -514,7 +514,7 @@
         }
       },
       "N21000105": {
-        "name": "Craigavon_N",
+        "name": "Craigavon N",
         "ranks": {
           "mdm": 630,
           "income": 606,
@@ -527,7 +527,7 @@
         }
       },
       "N21000087": {
-        "name": "Portadown_J",
+        "name": "Portadown J",
         "ranks": {
           "mdm": 559,
           "income": 342,
@@ -540,7 +540,7 @@
         }
       },
       "N21000127": {
-        "name": "Lagan_River_D",
+        "name": "Lagan River D",
         "ranks": {
           "mdm": 736,
           "income": 584,
@@ -553,7 +553,7 @@
         }
       },
       "N21000128": {
-        "name": "Lagan_River_E",
+        "name": "Lagan River E",
         "ranks": {
           "mdm": 702,
           "income": 531,
@@ -566,7 +566,7 @@
         }
       },
       "N21000088": {
-        "name": "Portadown_K",
+        "name": "Portadown K",
         "ranks": {
           "mdm": 82,
           "income": 32,
@@ -579,7 +579,7 @@
         }
       },
       "N21000129": {
-        "name": "Lagan_River_F",
+        "name": "Lagan River F",
         "ranks": {
           "mdm": 719,
           "income": 576,
@@ -592,7 +592,7 @@
         }
       },
       "N21000130": {
-        "name": "Lagan_River_G",
+        "name": "Lagan River G",
         "ranks": {
           "mdm": 733,
           "income": 610,
@@ -605,7 +605,7 @@
         }
       },
       "N21000106": {
-        "name": "Craigavon_P",
+        "name": "Craigavon P",
         "ranks": {
           "mdm": 674,
           "income": 661,
@@ -618,7 +618,7 @@
         }
       },
       "N21000089": {
-        "name": "Portadown_L",
+        "name": "Portadown L",
         "ranks": {
           "mdm": 134,
           "income": 38,
@@ -631,7 +631,7 @@
         }
       },
       "N21000090": {
-        "name": "Portadown_N",
+        "name": "Portadown N",
         "ranks": {
           "mdm": 214,
           "income": 84,
@@ -644,7 +644,7 @@
         }
       },
       "N21000091": {
-        "name": "Portadown_P",
+        "name": "Portadown P",
         "ranks": {
           "mdm": 343,
           "income": 238,
@@ -657,7 +657,7 @@
         }
       },
       "N21000131": {
-        "name": "Lagan_River_H",
+        "name": "Lagan River H",
         "ranks": {
           "mdm": 720,
           "income": 577,
@@ -670,7 +670,7 @@
         }
       },
       "N21000068": {
-        "name": "Armagh_A",
+        "name": "Armagh A",
         "ranks": {
           "mdm": 570,
           "income": 457,
@@ -683,7 +683,7 @@
         }
       },
       "N21000092": {
-        "name": "Portadown_Q",
+        "name": "Portadown Q",
         "ranks": {
           "mdm": 516,
           "income": 329,
@@ -696,7 +696,7 @@
         }
       },
       "N21000093": {
-        "name": "Portadown_R",
+        "name": "Portadown R",
         "ranks": {
           "mdm": 296,
           "income": 271,
@@ -709,7 +709,7 @@
         }
       },
       "N21000132": {
-        "name": "Lagan_River_J",
+        "name": "Lagan River J",
         "ranks": {
           "mdm": 703,
           "income": 585,
@@ -722,7 +722,7 @@
         }
       },
       "N21000133": {
-        "name": "Lagan_River_K",
+        "name": "Lagan River K",
         "ranks": {
           "mdm": 747,
           "income": 619,
@@ -735,7 +735,7 @@
         }
       },
       "N21000136": {
-        "name": "Banbridge_A",
+        "name": "Banbridge A",
         "ranks": {
           "mdm": 579,
           "income": 533,
@@ -748,7 +748,7 @@
         }
       },
       "N21000134": {
-        "name": "Lagan_River_L",
+        "name": "Lagan River L",
         "ranks": {
           "mdm": 685,
           "income": 604,
@@ -761,7 +761,7 @@
         }
       },
       "N21000137": {
-        "name": "Banbridge_B",
+        "name": "Banbridge B",
         "ranks": {
           "mdm": 540,
           "income": 409,
@@ -774,7 +774,7 @@
         }
       },
       "N21000150": {
-        "name": "Cusher_A",
+        "name": "Cusher A",
         "ranks": {
           "mdm": 675,
           "income": 615,
@@ -787,7 +787,7 @@
         }
       },
       "N21000151": {
-        "name": "Cusher_B",
+        "name": "Cusher B",
         "ranks": {
           "mdm": 731,
           "income": 729,
@@ -800,7 +800,7 @@
         }
       },
       "N21000138": {
-        "name": "Banbridge_C",
+        "name": "Banbridge C",
         "ranks": {
           "mdm": 409,
           "income": 424,
@@ -813,7 +813,7 @@
         }
       },
       "N21000139": {
-        "name": "Banbridge_D",
+        "name": "Banbridge D",
         "ranks": {
           "mdm": 251,
           "income": 502,
@@ -826,7 +826,7 @@
         }
       },
       "N21000152": {
-        "name": "Cusher_C",
+        "name": "Cusher C",
         "ranks": {
           "mdm": 554,
           "income": 432,
@@ -839,7 +839,7 @@
         }
       },
       "N21000153": {
-        "name": "Cusher_D",
+        "name": "Cusher D",
         "ranks": {
           "mdm": 633,
           "income": 571,
@@ -852,7 +852,7 @@
         }
       },
       "N21000154": {
-        "name": "Cusher_E",
+        "name": "Cusher E",
         "ranks": {
           "mdm": 732,
           "income": 730,
@@ -865,7 +865,7 @@
         }
       },
       "N21000155": {
-        "name": "Cusher_F",
+        "name": "Cusher F",
         "ranks": {
           "mdm": 555,
           "income": 433,
@@ -878,7 +878,7 @@
         }
       },
       "N21000069": {
-        "name": "Armagh_B",
+        "name": "Armagh B",
         "ranks": {
           "mdm": 431,
           "income": 255,
@@ -891,7 +891,7 @@
         }
       },
       "N21000140": {
-        "name": "Banbridge_E",
+        "name": "Banbridge E",
         "ranks": {
           "mdm": 272,
           "income": 392,
@@ -904,7 +904,7 @@
         }
       },
       "N21000070": {
-        "name": "Armagh_C",
+        "name": "Armagh C",
         "ranks": {
           "mdm": 289,
           "income": 204,
@@ -917,7 +917,7 @@
         }
       },
       "N21000141": {
-        "name": "Banbridge_F",
+        "name": "Banbridge F",
         "ranks": {
           "mdm": 607,
           "income": 510,
@@ -930,7 +930,7 @@
         }
       },
       "N21000071": {
-        "name": "Armagh_D",
+        "name": "Armagh D",
         "ranks": {
           "mdm": 131,
           "income": 81,
@@ -943,7 +943,7 @@
         }
       },
       "N21000142": {
-        "name": "Banbridge_G",
+        "name": "Banbridge G",
         "ranks": {
           "mdm": 220,
           "income": 393,
@@ -956,7 +956,7 @@
         }
       },
       "N21000143": {
-        "name": "Banbridge_H",
+        "name": "Banbridge H",
         "ranks": {
           "mdm": 390,
           "income": 532,
@@ -969,7 +969,7 @@
         }
       },
       "N21000144": {
-        "name": "Banbridge_J",
+        "name": "Banbridge J",
         "ranks": {
           "mdm": 488,
           "income": 417,
@@ -982,7 +982,7 @@
         }
       },
       "N21000072": {
-        "name": "Armagh_E",
+        "name": "Armagh E",
         "ranks": {
           "mdm": 477,
           "income": 306,
@@ -995,7 +995,7 @@
         }
       },
       "N21000073": {
-        "name": "Armagh_F",
+        "name": "Armagh F",
         "ranks": {
           "mdm": 211,
           "income": 171,
@@ -1008,7 +1008,7 @@
         }
       },
       "N21000135": {
-        "name": "Lagan_River_N",
+        "name": "Lagan River N",
         "ranks": {
           "mdm": 547,
           "income": 343,
@@ -1021,7 +1021,7 @@
         }
       },
       "N21000145": {
-        "name": "Banbridge_K",
+        "name": "Banbridge K",
         "ranks": {
           "mdm": 493,
           "income": 596,
@@ -1034,7 +1034,7 @@
         }
       },
       "N21000074": {
-        "name": "Armagh_G",
+        "name": "Armagh G",
         "ranks": {
           "mdm": 366,
           "income": 276,
@@ -1047,7 +1047,7 @@
         }
       },
       "N21000075": {
-        "name": "Armagh_H",
+        "name": "Armagh H",
         "ranks": {
           "mdm": 595,
           "income": 501,
@@ -1060,7 +1060,7 @@
         }
       },
       "N21000156": {
-        "name": "Cusher_G",
+        "name": "Cusher G",
         "ranks": {
           "mdm": 573,
           "income": 503,
@@ -1073,7 +1073,7 @@
         }
       },
       "N21000076": {
-        "name": "Armagh_J",
+        "name": "Armagh J",
         "ranks": {
           "mdm": 438,
           "income": 257,
@@ -1086,7 +1086,7 @@
         }
       },
       "N21000146": {
-        "name": "Banbridge_L",
+        "name": "Banbridge L",
         "ranks": {
           "mdm": 618,
           "income": 522,
@@ -1099,7 +1099,7 @@
         }
       },
       "N21000147": {
-        "name": "Banbridge_N",
+        "name": "Banbridge N",
         "ranks": {
           "mdm": 563,
           "income": 420,
@@ -1112,7 +1112,7 @@
         }
       },
       "N21000157": {
-        "name": "Cusher_H",
+        "name": "Cusher H",
         "ranks": {
           "mdm": 326,
           "income": 94,
@@ -1125,7 +1125,7 @@
         }
       },
       "N21000158": {
-        "name": "Cusher_J",
+        "name": "Cusher J",
         "ranks": {
           "mdm": 330,
           "income": 105,
@@ -1138,7 +1138,7 @@
         }
       },
       "N21000148": {
-        "name": "Banbridge_P",
+        "name": "Banbridge P",
         "ranks": {
           "mdm": 391,
           "income": 175,
@@ -1151,7 +1151,7 @@
         }
       },
       "N21000159": {
-        "name": "Cusher_K",
+        "name": "Cusher K",
         "ranks": {
           "mdm": 361,
           "income": 102,
@@ -1164,7 +1164,7 @@
         }
       },
       "N21000077": {
-        "name": "Armagh_K",
+        "name": "Armagh K",
         "ranks": {
           "mdm": 177,
           "income": 23,
@@ -1177,7 +1177,7 @@
         }
       },
       "N21000078": {
-        "name": "Armagh_L",
+        "name": "Armagh L",
         "ranks": {
           "mdm": 192,
           "income": 26,
@@ -1190,7 +1190,7 @@
         }
       },
       "N21000160": {
-        "name": "Cusher_L",
+        "name": "Cusher L",
         "ranks": {
           "mdm": 183,
           "income": 18,
@@ -1203,7 +1203,7 @@
         }
       },
       "N21000149": {
-        "name": "Banbridge_Q",
+        "name": "Banbridge Q",
         "ranks": {
           "mdm": 380,
           "income": 139,

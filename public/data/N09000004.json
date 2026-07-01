@@ -7,7 +7,7 @@
   "data": {
     "ranks": {
       "N21000368": {
-        "name": "Causeway_A",
+        "name": "Causeway A",
         "ranks": {
           "mdm": 339,
           "income": 98,
@@ -20,7 +20,7 @@
         }
       },
       "N21000379": {
-        "name": "The_Glens_A",
+        "name": "The Glens A",
         "ranks": {
           "mdm": 261,
           "income": 106,
@@ -33,7 +33,7 @@
         }
       },
       "N21000380": {
-        "name": "The_Glens_B",
+        "name": "The Glens B",
         "ranks": {
           "mdm": 262,
           "income": 107,
@@ -46,7 +46,7 @@
         }
       },
       "N21000369": {
-        "name": "Causeway_B",
+        "name": "Causeway B",
         "ranks": {
           "mdm": 337,
           "income": 118,
@@ -59,7 +59,7 @@
         }
       },
       "N21000370": {
-        "name": "Causeway_C",
+        "name": "Causeway C",
         "ranks": {
           "mdm": 386,
           "income": 120,
@@ -72,7 +72,7 @@
         }
       },
       "N21000371": {
-        "name": "Causeway_D",
+        "name": "Causeway D",
         "ranks": {
           "mdm": 353,
           "income": 115,
@@ -85,7 +85,7 @@
         }
       },
       "N21000372": {
-        "name": "Causeway_E",
+        "name": "Causeway E",
         "ranks": {
           "mdm": 354,
           "income": 116,
@@ -98,7 +98,7 @@
         }
       },
       "N21000373": {
-        "name": "Causeway_F",
+        "name": "Causeway F",
         "ranks": {
           "mdm": 543,
           "income": 412,
@@ -111,7 +111,7 @@
         }
       },
       "N21000374": {
-        "name": "Causeway_G",
+        "name": "Causeway G",
         "ranks": {
           "mdm": 576,
           "income": 464,
@@ -124,7 +124,7 @@
         }
       },
       "N21000381": {
-        "name": "The_Glens_C",
+        "name": "The Glens C",
         "ranks": {
           "mdm": 217,
           "income": 82,
@@ -137,7 +137,7 @@
         }
       },
       "N21000375": {
-        "name": "Causeway_H",
+        "name": "Causeway H",
         "ranks": {
           "mdm": 647,
           "income": 524,
@@ -150,7 +150,7 @@
         }
       },
       "N21000350": {
-        "name": "Bann_A",
+        "name": "Bann A",
         "ranks": {
           "mdm": 635,
           "income": 350,
@@ -163,7 +163,7 @@
         }
       },
       "N21000376": {
-        "name": "Causeway_J",
+        "name": "Causeway J",
         "ranks": {
           "mdm": 443,
           "income": 199,
@@ -176,7 +176,7 @@
         }
       },
       "N21000358": {
-        "name": "Coleraine_A",
+        "name": "Coleraine A",
         "ranks": {
           "mdm": 121,
           "income": 58,
@@ -189,7 +189,7 @@
         }
       },
       "N21000359": {
-        "name": "Coleraine_B",
+        "name": "Coleraine B",
         "ranks": {
           "mdm": 255,
           "income": 128,
@@ -202,7 +202,7 @@
         }
       },
       "N21000377": {
-        "name": "Causeway_K",
+        "name": "Causeway K",
         "ranks": {
           "mdm": 116,
           "income": 50,
@@ -215,7 +215,7 @@
         }
       },
       "N21000360": {
-        "name": "Coleraine_C",
+        "name": "Coleraine C",
         "ranks": {
           "mdm": 100,
           "income": 54,
@@ -228,7 +228,7 @@
         }
       },
       "N21000351": {
-        "name": "Bann_B",
+        "name": "Bann B",
         "ranks": {
           "mdm": 670,
           "income": 421,
@@ -241,7 +241,7 @@
         }
       },
       "N21000382": {
-        "name": "The_Glens_D",
+        "name": "The Glens D",
         "ranks": {
           "mdm": 267,
           "income": 97,
@@ -254,7 +254,7 @@
         }
       },
       "N21000361": {
-        "name": "Coleraine_D",
+        "name": "Coleraine D",
         "ranks": {
           "mdm": 165,
           "income": 79,
@@ -267,7 +267,7 @@
         }
       },
       "N21000362": {
-        "name": "Coleraine_E",
+        "name": "Coleraine E",
         "ranks": {
           "mdm": 112,
           "income": 63,
@@ -280,7 +280,7 @@
         }
       },
       "N21000363": {
-        "name": "Coleraine_F",
+        "name": "Coleraine F",
         "ranks": {
           "mdm": 256,
           "income": 207,
@@ -293,7 +293,7 @@
         }
       },
       "N21000364": {
-        "name": "Coleraine_G",
+        "name": "Coleraine G",
         "ranks": {
           "mdm": 196,
           "income": 127,
@@ -306,7 +306,7 @@
         }
       },
       "N21000383": {
-        "name": "The_Glens_E",
+        "name": "The Glens E",
         "ranks": {
           "mdm": 489,
           "income": 351,
@@ -319,7 +319,7 @@
         }
       },
       "N21000378": {
-        "name": "Causeway_L",
+        "name": "Causeway L",
         "ranks": {
           "mdm": 416,
           "income": 287,
@@ -332,7 +332,7 @@
         }
       },
       "N21000343": {
-        "name": "Limavady_A",
+        "name": "Limavady A",
         "ranks": {
           "mdm": 376,
           "income": 367,
@@ -345,7 +345,7 @@
         }
       },
       "N21000365": {
-        "name": "Coleraine_H",
+        "name": "Coleraine H",
         "ranks": {
           "mdm": 619,
           "income": 331,
@@ -358,7 +358,7 @@
         }
       },
       "N21000366": {
-        "name": "Coleraine_J",
+        "name": "Coleraine J",
         "ranks": {
           "mdm": 451,
           "income": 297,
@@ -371,7 +371,7 @@
         }
       },
       "N21000367": {
-        "name": "Coleraine_K",
+        "name": "Coleraine K",
         "ranks": {
           "mdm": 606,
           "income": 330,
@@ -384,7 +384,7 @@
         }
       },
       "N21000352": {
-        "name": "Bann_C",
+        "name": "Bann C",
         "ranks": {
           "mdm": 513,
           "income": 460,
@@ -397,7 +397,7 @@
         }
       },
       "N21000386": {
-        "name": "Ballymoney_A",
+        "name": "Ballymoney A",
         "ranks": {
           "mdm": 437,
           "income": 366,
@@ -410,7 +410,7 @@
         }
       },
       "N21000387": {
-        "name": "Ballymoney_B",
+        "name": "Ballymoney B",
         "ranks": {
           "mdm": 358,
           "income": 373,
@@ -423,7 +423,7 @@
         }
       },
       "N21000384": {
-        "name": "The_Glens_F",
+        "name": "The Glens F",
         "ranks": {
           "mdm": 492,
           "income": 428,
@@ -436,7 +436,7 @@
         }
       },
       "N21000388": {
-        "name": "Ballymoney_C",
+        "name": "Ballymoney C",
         "ranks": {
           "mdm": 304,
           "income": 301,
@@ -449,7 +449,7 @@
         }
       },
       "N21000389": {
-        "name": "Ballymoney_D",
+        "name": "Ballymoney D",
         "ranks": {
           "mdm": 284,
           "income": 324,
@@ -462,7 +462,7 @@
         }
       },
       "N21000390": {
-        "name": "Ballymoney_E",
+        "name": "Ballymoney E",
         "ranks": {
           "mdm": 303,
           "income": 377,
@@ -475,7 +475,7 @@
         }
       },
       "N21000391": {
-        "name": "Ballymoney_F",
+        "name": "Ballymoney F",
         "ranks": {
           "mdm": 384,
           "income": 500,
@@ -488,7 +488,7 @@
         }
       },
       "N21000344": {
-        "name": "Limavady_B",
+        "name": "Limavady B",
         "ranks": {
           "mdm": 125,
           "income": 220,
@@ -501,7 +501,7 @@
         }
       },
       "N21000353": {
-        "name": "Bann_D",
+        "name": "Bann D",
         "ranks": {
           "mdm": 449,
           "income": 232,
@@ -514,7 +514,7 @@
         }
       },
       "N21000336": {
-        "name": "Benbradagh_A",
+        "name": "Benbradagh A",
         "ranks": {
           "mdm": 244,
           "income": 375,
@@ -527,7 +527,7 @@
         }
       },
       "N21000345": {
-        "name": "Limavady_C",
+        "name": "Limavady C",
         "ranks": {
           "mdm": 232,
           "income": 236,
@@ -540,7 +540,7 @@
         }
       },
       "N21000346": {
-        "name": "Limavady_D",
+        "name": "Limavady D",
         "ranks": {
           "mdm": 418,
           "income": 385,
@@ -553,7 +553,7 @@
         }
       },
       "N21000392": {
-        "name": "Ballymoney_G",
+        "name": "Ballymoney G",
         "ranks": {
           "mdm": 539,
           "income": 511,
@@ -566,7 +566,7 @@
         }
       },
       "N21000385": {
-        "name": "The_Glens_G",
+        "name": "The Glens G",
         "ranks": {
           "mdm": 474,
           "income": 363,
@@ -579,7 +579,7 @@
         }
       },
       "N21000337": {
-        "name": "Benbradagh_B",
+        "name": "Benbradagh B",
         "ranks": {
           "mdm": 102,
           "income": 151,
@@ -592,7 +592,7 @@
         }
       },
       "N21000347": {
-        "name": "Limavady_E",
+        "name": "Limavady E",
         "ranks": {
           "mdm": 59,
           "income": 91,
@@ -605,7 +605,7 @@
         }
       },
       "N21000348": {
-        "name": "Limavady_F",
+        "name": "Limavady F",
         "ranks": {
           "mdm": 468,
           "income": 439,
@@ -618,7 +618,7 @@
         }
       },
       "N21000349": {
-        "name": "Limavady_G",
+        "name": "Limavady G",
         "ranks": {
           "mdm": 227,
           "income": 234,
@@ -631,7 +631,7 @@
         }
       },
       "N21000338": {
-        "name": "Benbradagh_C",
+        "name": "Benbradagh C",
         "ranks": {
           "mdm": 411,
           "income": 374,
@@ -644,7 +644,7 @@
         }
       },
       "N21000393": {
-        "name": "Ballymoney_H",
+        "name": "Ballymoney H",
         "ranks": {
           "mdm": 622,
           "income": 660,
@@ -657,7 +657,7 @@
         }
       },
       "N21000394": {
-        "name": "Ballymoney_J",
+        "name": "Ballymoney J",
         "ranks": {
           "mdm": 528,
           "income": 418,
@@ -670,7 +670,7 @@
         }
       },
       "N21000354": {
-        "name": "Bann_E",
+        "name": "Bann E",
         "ranks": {
           "mdm": 397,
           "income": 216,
@@ -683,7 +683,7 @@
         }
       },
       "N21000395": {
-        "name": "Ballymoney_K",
+        "name": "Ballymoney K",
         "ranks": {
           "mdm": 457,
           "income": 354,
@@ -696,7 +696,7 @@
         }
       },
       "N21000339": {
-        "name": "Benbradagh_D",
+        "name": "Benbradagh D",
         "ranks": {
           "mdm": 263,
           "income": 246,
@@ -709,7 +709,7 @@
         }
       },
       "N21000355": {
-        "name": "Bann_F",
+        "name": "Bann F",
         "ranks": {
           "mdm": 352,
           "income": 104,
@@ -722,7 +722,7 @@
         }
       },
       "N21000356": {
-        "name": "Bann_G",
+        "name": "Bann G",
         "ranks": {
           "mdm": 444,
           "income": 164,
@@ -735,7 +735,7 @@
         }
       },
       "N21000357": {
-        "name": "Bann_H",
+        "name": "Bann H",
         "ranks": {
           "mdm": 479,
           "income": 253,
@@ -748,7 +748,7 @@
         }
       },
       "N21000340": {
-        "name": "Benbradagh_E",
+        "name": "Benbradagh E",
         "ranks": {
           "mdm": 199,
           "income": 57,
@@ -761,7 +761,7 @@
         }
       },
       "N21000396": {
-        "name": "Ballymoney_L",
+        "name": "Ballymoney L",
         "ranks": {
           "mdm": 419,
           "income": 279,
@@ -774,7 +774,7 @@
         }
       },
       "N21000341": {
-        "name": "Benbradagh_F",
+        "name": "Benbradagh F",
         "ranks": {
           "mdm": 223,
           "income": 45,
@@ -787,7 +787,7 @@
         }
       },
       "N21000342": {
-        "name": "Benbradagh_G",
+        "name": "Benbradagh G",
         "ranks": {
           "mdm": 224,
           "income": 46,

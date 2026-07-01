@@ -9,7 +9,7 @@ children <- read_excel(paste0(data_dir, geog_file),
                        sheet = "ParentChild") %>%
   mutate(ChildName = case_when(
     !grepl("_", ChildName) ~ gsub(" And "," and ", str_to_title(ChildName)),
-    TRUE ~ ChildName
+    TRUE ~ gsub("_", " ", ChildName)
   )) %>%
   rename(code = ChildCode,
          name = ChildName,
