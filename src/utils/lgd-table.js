@@ -2,7 +2,7 @@ import { config } from "../config/config.js";
 import { insertValue } from "./insert-value.js";
 
 export function createLGDTable(container, place, selectedDeprivation, sdz) {
-  let sortKey = "rank";
+  let sortKey = "niRank";
   let sortAsc = true;
   let selectedCode = null;
 
@@ -35,7 +35,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
       const valA = a[sortKey];
       const valB = b[sortKey];
       
-      if (sortKey === "name" || sortKey === "lgdName") {
+      if (sortKey === "name") {
         return sortAsc
         ? (valA || "").localeCompare(valB || "")
         : (valB || "").localeCompare(valA || "");
