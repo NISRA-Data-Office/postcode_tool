@@ -9,7 +9,7 @@ import { handleOnScroll } from "./utils/scroll-button.js";
 window.addEventListener("DOMContentLoaded", async () => {
 
     await insertHead();
-    await postcodeSearch("postcode-search", "Enter another postcode");
+    await postcodeSearch("postcode-search");
     await updateSDZ({ animate: false });
     insertHeader();
     insertFooter();

@@ -1,6 +1,6 @@
 export let postcode_data;
 
-export async function postcodeSearch(id, placeholder = "Search for a postcode") {
+export async function postcodeSearch(id, placeholder = "Search for a postcode or neighbourhood") {
 
   document.getElementById(id).innerHTML = `
   <div class="input-group">
@@ -26,7 +26,7 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
   <div id="postcode-dropdown" class="postcode-dropdown border border-secondary position-absolute d-none"></div>
 
   <div id="postcode-invalid" class="text-danger d-none mt-1 position-absolute border border-secondary bg-white p-1">
-    No results found. Please check your postcode and try again.
+    No results found. Please check your postcode or area name and try again.
   </div>
   `
 
@@ -73,17 +73,28 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
   let selectedIndex = -1;
   let currentMatches = [];
 
-  function normalisePostcode(value) {
+  function normaliseSearchValue(value) {
     return value.replace(/\s+/g, "").toUpperCase();
   }
 
   const postcodes = [];
+  const sdzs = [];
 
   Object.entries(postcode_data).forEach(([sdzCode, sdz]) => {
+    const normalisedName = normaliseSearchValue(sdz.name);
+
+    sdzs.push({
+      sdzCode,
+      sdzName: sdz.name,
+      searchableName: normalisedName,
+      postcode: null
+    });
+
     sdz.codes.forEach(postcode => {
       postcodes.push({
         postcode,
-        searchablePostcode: normalisePostcode(postcode),
+        searchablePostcode: normaliseSearchValue(postcode),
+        searchableName: normalisedName,
         sdzCode,
         sdzName: sdz.name
       });
@@ -91,8 +102,13 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
   });
 
   function goToPostcode(item) {
-    window.location.href =
-      `sdz.html?sdz=${encodeURIComponent(item.sdzCode)}&postcode=${encodeURIComponent(item.postcode)}`;
+    const params = new URLSearchParams({ sdz: item.sdzCode });
+
+    if (item.postcode) {
+      params.set("postcode", item.postcode);
+    }
+
+    window.location.href = `sdz.html?${params.toString()}`;
   }
 
   function hideDropdown() {
@@ -134,24 +150,45 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
     }
   }
 
-  function findExactMatch() {
-    const search = normalisePostcode(input.value);
+  function isPostcodeSearch(search) {
+    return search.startsWith("BT");
+  }
 
-    return postcodes.find(
-      item => item.searchablePostcode === search
+  function matchesSearch(item, search) {
+    if (!isPostcodeSearch(search)) {
+      return false;
+    }
+
+    return (
+      item.searchablePostcode === search ||
+      item.searchablePostcode.startsWith(search)
     );
+  }
+
+  function findExactMatch() {
+    const search = normaliseSearchValue(input.value);
+
+    return postcodes.find(item => matchesSearch(item, search));
   }
 
   function findFirstPartialMatch() {
-    const search = normalisePostcode(input.value);
+    const search = normaliseSearchValue(input.value);
 
-    return postcodes.find(
-      item => item.searchablePostcode.startsWith(search)
-    );
+    const nameMatch = sdzs.find(item => item.searchableName === search || item.searchableName.startsWith(search));
+
+    if (nameMatch) {
+      return {
+        sdzCode: nameMatch.sdzCode,
+        sdzName: nameMatch.sdzName,
+        postcode: null
+      };
+    }
+
+    return postcodes.find(item => matchesSearch(item, search));
   }
 
   function runSearch() {
-    const search = normalisePostcode(input.value);
+    const search = normaliseSearchValue(input.value);
 
     if (!search) return;
 
@@ -170,7 +207,7 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
   }
 
   function showMatches() {
-    const search = normalisePostcode(input.value);
+    const search = normaliseSearchValue(input.value);
 
     dropdown.innerHTML = "";
     selectedIndex = -1;
@@ -182,9 +219,20 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
       return;
     }
 
-    currentMatches = postcodes
-      .filter(item => item.searchablePostcode.startsWith(search))
-      .slice(0, 20);
+    const nameMatches = sdzs.filter(item => item.searchableName === search || item.searchableName.startsWith(search));
+    const postcodeMatches = isPostcodeSearch(search)
+      ? postcodes.filter(item => matchesSearch(item, search)).slice(0, 20)
+      : [];
+
+    currentMatches = [
+      ...nameMatches.map(item => ({
+        sdzCode: item.sdzCode,
+        sdzName: item.sdzName,
+        postcode: null,
+        isNameMatch: true
+      })),
+      ...postcodeMatches
+    ].slice(0, 20);
 
     if (currentMatches.length === 0) {
       hideDropdown();
@@ -207,10 +255,12 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
       option.setAttribute("role", "option");
       option.setAttribute("aria-selected", "false");
 
-      option.innerHTML = `
-        <strong>${item.postcode}</strong>
-        View: <strong>${item.sdzName}</strong> super data zone
-      `;
+      option.innerHTML = item.isNameMatch
+        ? `View: <strong>${item.sdzName}</strong> neighbourhood`
+        : `
+          <strong>${item.postcode}</strong>
+          View: <strong>${item.sdzName}</strong> neighbourhood
+        `;
 
       option.addEventListener("click", () => {
         goToPostcode(item);
