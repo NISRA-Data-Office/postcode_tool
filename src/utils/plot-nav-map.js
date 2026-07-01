@@ -76,6 +76,8 @@ export async function plotNavMap(elementId, map_data, options = {}) {
   "top-right"
 );
 
+map.addControl(new maplibregl.FullscreenControl());
+
   map.on("load", () => {
     map.setRenderWorldCopies(false);
 
