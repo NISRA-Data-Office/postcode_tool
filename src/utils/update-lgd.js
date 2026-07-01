@@ -33,6 +33,12 @@ export async function updateLGD({ animate = true } = {}) {
     document.getElementById("scale-map").classList.add("ni-map");
     document.getElementById("lgd-table-container").classList.add("ni-map");
     document.getElementById("scale-map").classList.remove("scale-map");
+    document.getElementById("map-col").classList.add("col-xl-8");
+    document.getElementById("map-col").classList.remove("col-xl-7");
+    document.getElementById("table-col").classList.add("col-xl-4");
+    document.getElementById("table-col").classList.remove("col-xl-5");
+    document.getElementById("in-focus-col").classList.add("col-xl-8");
+    document.getElementById("in-focus-col").classList.remove("col-xl-7");
   }
 
   const sdz = params?.get("sdz");
