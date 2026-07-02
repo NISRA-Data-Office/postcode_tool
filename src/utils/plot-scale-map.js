@@ -386,7 +386,6 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     selectedValue = null
   } = options;
 
-
   const popup = new maplibregl.Popup({
     closeButton: false,
     closeOnClick: false,
@@ -394,48 +393,63 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     className: "nisra-popup"
   });
 
+  const clearHoverState = ({ emitOut = false } = {}) => {
+    if (hoveredId === null) return;
+
+    clearFeatureState(map, sourceId, hoveredId, "compareHover");
+    clearFeatureState(map, sourceId, hoveredId, "hover");
+    hoveredId = null;
+
+    if (emitOut && enableComparison) {
+      window.dispatchEvent(new Event("sdzhoverout"));
+    }
+
+    popup.remove();
+  };
+
   map.on("mousemove", layerId, e => {
     if (options.enabled && !options.enabled()) {
+      clearHoverState({ emitOut: false });
       popup.remove();
       return;
     }
 
     const feature = e.features?.[0];
-    if (!feature) return;
+    if (!feature) {
+      clearHoverState({ emitOut: false });
+      return;
+    }
 
     const props = feature.properties;
 
-  if (
-    enableComparison &&
-    sourceId === "sdz-shapes" &&
-    props.nisra_code !== mapState.selectedSdz &&
-    props.nisra_value != null &&
-    mapState.selectedValue != null
-  ) {
-
-    window.dispatchEvent(new CustomEvent("sdzhovercompare", {
-      detail: {
-        hovered: {
-          code: props.nisra_code,
-          value: Number(props.nisra_value),
-          name: props.nisra_label
-        },
-        selected: {
-          code: mapState.selectedSdz,
-          value: Number(mapState.selectedValue)
+    if (
+      enableComparison &&
+      sourceId === "sdz-shapes" &&
+      props.nisra_code !== mapState.selectedSdz &&
+      props.nisra_value != null &&
+      mapState.selectedValue != null
+    ) {
+      window.dispatchEvent(new CustomEvent("sdzhovercompare", {
+        detail: {
+          hovered: {
+            code: props.nisra_code,
+            value: Number(props.nisra_value),
+            name: props.nisra_label
+          },
+          selected: {
+            code: mapState.selectedSdz,
+            value: Number(mapState.selectedValue)
+          }
         }
-      }
-    }));
-  }
+      }));
+    }
 
-    hoveredId = clearFeatureState(map, sourceId, hoveredId, "compareHover");
-    hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
-    hoveredId = null;
+    clearHoverState({ emitOut: false });
 
     hoveredId = feature.id;
 
     map.setFeatureState(
-    { source: sourceId, id: hoveredId },
+      { source: sourceId, id: hoveredId },
       enableComparison
         ? { hover: true, compareHover: true }
         : { hover: true }
@@ -447,17 +461,8 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
       .addTo(map);
   });
 
-  map.on("mouseleave", layerId, () => {
-  clearFeatureState(map, sourceId, hoveredId, "compareHover");
-  clearFeatureState(map, sourceId, hoveredId, "hover");
-  hoveredId = null;
-
-  if (enableComparison) {
-    window.dispatchEvent(new Event("sdzhoverout"));
-  }
-
-  popup.remove();
-});
+  map.on("mouseleave", layerId, () => clearHoverState({ emitOut: true }));
+  map.on("mouseleave", () => clearHoverState({ emitOut: true }));
 }
 
 function addLgdClick(map) {
