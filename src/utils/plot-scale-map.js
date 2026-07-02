@@ -230,7 +230,7 @@ function buildSdzFeatures({
           nisra_fill_hover: darkenColour(fill),
           nisra_hasValue: rawValue != null,
           nisra_highlight: highlightSdz && sdzCode === highlightSdz,
-          nisra_opacity: 0.5
+          nisra_opacity: 0.75
         }
       };
     });
