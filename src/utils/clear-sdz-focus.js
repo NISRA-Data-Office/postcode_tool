@@ -1,4 +1,5 @@
 import { updateLGD } from "./update-lgd.js";
+import { insertValue } from "./insert-value.js";
 
 export function clearSdzFocus() {
 
@@ -23,6 +24,11 @@ export function clearSdzFocus() {
         window.dispatchEvent(new CustomEvent("sdzselect", {
             detail: { code: null }
         }));
+
+        insertValue(
+            "lgd-scale-caption",
+            ``
+        );
     })
 
 }

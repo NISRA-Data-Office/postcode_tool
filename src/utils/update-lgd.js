@@ -54,6 +54,9 @@ export async function updateLGD({ animate = true } = {}) {
   insertNavButtons(data);
   insertValue("place-name", data.name);
 
+  const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
+  const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
+
   if (sdz) {
     insertValue("sdz-name", data.data.ranks[sdz].name);
 
@@ -61,15 +64,17 @@ export async function updateLGD({ animate = true } = {}) {
     document.getElementById("focus-link").href = `sdz.html?sdz=${sdz}`;
 
     sdz_data = await readData(sdz);
+
+    insertValue(
+      "lgd-scale-caption",
+      `<span class="text-purple fw-bold">${sdz_data.name}</span> is ranked ${sdz_data.data.ranks[type_select.value]} out of ${sdz_data.count} for <strong>${deprivation_type_text}</strong>.`
+    );
   
-  }
-
-
-  const deprivation_type = config.deprivation_types[type_select.value];
+  } 
 
   insertValue(
     "deprivation-type",
-    deprivation_type == "Overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`
+    deprivation_type_text
   );
 
   await plotScaleMap("scale-map", data, type_select.value, { animate,
@@ -93,20 +98,23 @@ export async function updateLGD({ animate = true } = {}) {
 
   document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
 
-  type_select.addEventListener("change", () => {
+  type_select.addEventListener("change", async () => {
     const params = new URLSearchParams(window.location.search);
     const sdz = params.get("sdz");
 
-    const deprivation_type = config.deprivation_types[type_select.value];
+    const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
+    const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
 
     insertValue(
       "deprivation-type",
-      deprivation_type == "Overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`
+      deprivation_type_text
     );
       plotScaleMap("scale-map", data, type_select.value, {
         highlightSdz: sdz,
         preserveView: true
       })
+
+      sdz_data = await readData(sdz);
 
       scaleChart(
         "lgd-scale-chart",
@@ -120,6 +128,11 @@ export async function updateLGD({ animate = true } = {}) {
       createLGDTable(lgdTableContainer, data, type_select.value, sdz)
 
       document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
+
+      insertValue(
+      "lgd-scale-caption",
+      `<span class="text-purple fw-bold">${sdz_data.name}</span> is ranked ${sdz_data.data.ranks[type_select.value]} out of ${sdz_data.count} for <strong>${deprivation_type_text}</strong>.`
+    );
   });
 
   lgdDeprivationSummary("deprivation-summary", data, type_select.value);

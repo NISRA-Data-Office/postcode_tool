@@ -26,7 +26,7 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
         <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
         <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
         ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
-        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">scale chart (as image)</a></li>` : ""}
+        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">charts (as image)</a></li>` : ""}
         <li><a class="dropdown-item" href="#" onclick="window.print(); return false;">page (as PDF)</a></li>
     `;
 
@@ -48,7 +48,7 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
                     .replace(/\s+/g, "-")           // spaces → hyphens
                     .replace(/-+/g, "-");           // collapse multiple hyphens
 
-        await exportCardWithMap(cardEl, map, mapContainerEl, `${fileName}.png`);
+        await exportCardWithMap(cardEl, map, mapContainerEl, `deprivation-in-${fileName}.png`);
       });
     }
     
@@ -75,7 +75,7 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
           .replace(/\s+/g, "-")
           .replace(/-+/g, "-");
           
-          downloadCSV(data, `${fileName}.csv`);
+          downloadCSV(data, `deprivation-in-${fileName}.csv`);
 });
 
 document.getElementById(`download-xlsx-${capture_id}`)
@@ -101,7 +101,8 @@ document.getElementById(`download-xlsx-${capture_id}`)
         .replace(/\s+/g, "-")
         .replace(/-+/g, "-");
         
-        downloadExcel(data, `${fileName}.xlsx`);
+        
+        downloadExcel(data, `deprivation-in-${fileName}.xlsx`);
   });
   
   document.getElementById(`download-scale-${capture_id}`)?.addEventListener("click", async (e) => {
@@ -155,7 +156,7 @@ document.getElementById(`download-xlsx-${capture_id}`)
         .replace(/-+/g, "-");
 
     const link = document.createElement("a");
-    link.download = `${fileName}-scale-chart.png`;
+    link.download = `deprivation-in-${fileName}.png`;
     link.href = finalCanvas.toDataURL("image/png");
     link.click();
   });
