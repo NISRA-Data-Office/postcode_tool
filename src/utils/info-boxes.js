@@ -36,18 +36,17 @@ export function populateInfoBoxes() {
 
   let buttons = "";
   for (let i = 0; i < labels.length; i++) {
-    let button_style = "";
-    if (i === labels.length - 1) {
-      button_style += "border-right: 2px solid var(--nisra_navy);";
+    let button_class = "";
+    if (i !== labels.length - 1) {
+      button_class += "border-end-0";
     }
 
     buttons += `
       <div class="col-12 col-sm p-0">
         <h3 class="accordion-header h-100" role="heading">
           <button
-            class="accordion-button collapsed h-100 info-tab-btn"
+            class="accordion-button collapsed h-100 info-tab-btn text-navy border ${button_class} fs-5 border-navy"
             type="button"
-            style="${button_style}"
             data-index="${i}"
             aria-expanded="false"
             aria-controls="infoCollapse"
@@ -71,7 +70,7 @@ export function populateInfoBoxes() {
 
             <div id="infoCollapse" class="accordion-collapse collapse" data-active-index="">
               <div class="accordion-body">
-                <h3 id="infoTitle" style="color:var(--nisra_navy);"></h3>
+                <h3 id="infoTitle" class="text-navy""></h3>
                 <div id="infoBody"></div>
               </div>
             </div>
@@ -96,6 +95,7 @@ export function populateInfoBoxes() {
     btns.forEach((b, idx) => {
       const isActive = idx === activeIdx;
       b.classList.toggle("collapsed", !isActive);
+      b.classList.toggle("text-navy", !isActive);
       b.setAttribute("aria-expanded", String(isActive));
     });
   }
@@ -152,4 +152,18 @@ export function populateInfoBoxes() {
     
     accordion.appendChild(cardWrap);
   });
+
+  function addRightBorder() {
+    if (window.innerWidth < 576) {
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].classList.remove("border-end-0");
+      }
+    }
+  }
+
+  addRightBorder();
+
+  window.addEventListener("resize", () => {
+    addRightBorder();
+  })
 }

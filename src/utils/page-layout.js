@@ -6,10 +6,10 @@ export function insertHeader () {
 
   banner.classList.add("navbar");
   banner.classList.add("p-0");
-  banner.style.backgroundColor = "var(--nisra_navy)";
+  banner.classList.add("bg-navy");
 
   banner.innerHTML = `
-    <div class="container-fluid blue-bg align-items-center justify-content-center py-2">
+    <div class="container-fluid bg-blue align-items-center justify-content-center py-2">
       <p class="m-0">We welcome feedback from users through our <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer">short survey</a></p>
     </div>
     <div class="container-fluid align-items-center justify-content-center" role="banner">
