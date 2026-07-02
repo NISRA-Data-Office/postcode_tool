@@ -9,6 +9,8 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
 
     const placeName = document.querySelector(".place-name");
     const rawText = placeName ? placeName.textContent : "map";
+
+    const isSdzPage = window.location.pathname.includes("sdz");
     
     button.classList.add("dropdown-toggle");
     button.setAttribute("data-bs-toggle", "dropdown");
@@ -23,7 +25,8 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
     menu.innerHTML = `
         <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
         <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
-        <li><a class="dropdown-item" href="#" id="download-${capture_id}">${plot_type} (as image)</a></li>
+        ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
+        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">scale chart (as image)</a></li>` : ""}
         <li><a class="dropdown-item" href="#" onclick="window.print(); return false;">page (as PDF)</a></li>
     `;
 
@@ -32,7 +35,7 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
     wrapper.appendChild(menu);
 
     if (plot_type == "map") {
-        document.getElementById(`download-${capture_id}`).addEventListener("click", async (e) => {
+        document.getElementById(`download-${capture_id}`)?.addEventListener("click", async (e) => {
         e.preventDefault();
 
         const cardEl = document.getElementById(capture_id);
@@ -46,79 +49,115 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
                     .replace(/-+/g, "-");           // collapse multiple hyphens
 
         await exportCardWithMap(cardEl, map, mapContainerEl, `${fileName}.png`);
-        });
-    } else {
-        document
-            .getElementById(`download-${capture_id}`)
-                .addEventListener("click", function (e) {
-                    e.preventDefault();
-                    
-                    const header = capture.querySelector(".card-header");
-
-                    // Generate filename from header text
-                    const rawText = header.innerText || header.textContent;
-
-                    const fileName = rawText
-                    .toLowerCase()
-                    .trim()
-                    .replace(/[^a-z0-9\s-]/g, "")   // remove special characters
-                    .replace(/\s+/g, "-")           // spaces → hyphens
-                    .replace(/-+/g, "-");           // collapse multiple hyphens
-
-                    html2canvas(capture, {
-                        backgroundColor: "#ffffff",
-                        scale: 2,
-                        useCORS: true
-                    }).then(async (canvas) => {
-
-                        const finalCanvas = await addLogoUnderCanvas(
-                            canvas,
-                            "assets/img/logo/nisra-only-colour.png",
-                            {
-                            logoHeight: 70,
-                            padding: 24
-                            }
-                        );
-
-                        const link = document.createElement("a");
-                        link.download = `${fileName}.png`;
-                        link.href = finalCanvas.toDataURL("image/png");
-                        link.click();
-                    });
-
-                });
+      });
     }
     
     document.getElementById(`download-csv-${capture_id}`)
-    ?.addEventListener("click", (e) => {
+    ?.addEventListener("click", async (e) => {
       e.preventDefault();
 
-      const data = extractLGDTableData();
-      if (!data.length) return;
+      let data;
+      
+      if (window.location.pathname.includes("sdz")) {
+        
+        const sdz = new URLSearchParams(window.location.search).get("sdz");
+        const sdzData = await readData(sdz);
+        data = extractSDZData(sdzData);
+    } else {
+      data = extractLGDTableData();
+    }
 
-      const fileName = rawText
+    if (!data.length) return;
+
+    const fileName = rawText
           .toLowerCase()
           .replace(/[^a-z0-9\s-]/g, "")
           .replace(/\s+/g, "-")
           .replace(/-+/g, "-");
+          
+          downloadCSV(data, `${fileName}.csv`);
+});
 
-      downloadCSV(data, `${fileName}.csv`);
+document.getElementById(`download-xlsx-${capture_id}`)
+?.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  let data;
+
+  if (window.location.pathname.includes("sdz")) {
+    const sdz = new URLSearchParams(window.location.search).get("sdz");
+    const sdzData = await readData(sdz);
+    data = extractSDZData(sdzData);
+
+    } else {
+      data = extractLGDTableData();
+    }
+
+    if (!data.length) return;
+
+    const fileName = rawText
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+        
+        downloadExcel(data, `${fileName}.xlsx`);
+  });
+  
+  document.getElementById(`download-scale-${capture_id}`)?.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    if (!window.location.pathname.includes("sdz")) return;
+
+    const chartEl = document.getElementById("chart-capture");
+
+    const canvas = await html2canvas(chartEl, {
+      backgroundColor: "#ffffff",
+      scale: 2,
+      useCORS: true,
+
+      onclone: (clonedDoc) => {
+        const clonedCard = clonedDoc.getElementById(chartEl.id);
+
+        if (!clonedCard) return;
+
+        const pageTitle = document.querySelector("h2");
+
+        if (pageTitle) {
+          const title = clonedDoc.createElement("div");
+
+          title.textContent = pageTitle.textContent;
+
+          title.style.fontSize = "22px";
+          title.style.fontWeight = "bold";
+          title.style.marginBottom = "5px";
+          title.style.marginTop = "16px";
+          title.style.marginLeft = "5px";
+
+          clonedCard.prepend(title);
+        }
+      }
     });
-    
-    document.getElementById(`download-xlsx-${capture_id}`)
-    ?.addEventListener("click", (e) => {
-      e.preventDefault();
 
-      const data = extractLGDTableData();
-      if (!data.length) return;
+    const finalCanvas = await addLogoUnderCanvas(
+        canvas,
+        "assets/img/logo/nisra-only-colour.png",
+        {
+            logoHeight: 70,
+            padding: 24
+        }
+    );
 
-      const fileName = rawText
-          .toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, "")
-          .replace(/\s+/g, "-")
-          .replace(/-+/g, "-");
+    const fileName = rawText
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
 
-      downloadExcel(data, `${fileName}.xlsx`);
+    const link = document.createElement("a");
+    link.download = `${fileName}-scale-chart.png`;
+    link.href = finalCanvas.toDataURL("image/png");
+    link.click();
   });
 }
 
@@ -257,10 +296,8 @@ async function addLogoUnderCanvas(originalCanvas, logoSrc, options = {}) {
   ctx.drawImage(originalCanvas, 0, 0);
 
   // Bottom-right position
-  const x =
-    newCanvas.width - logoWidth - padding;
-  const y =
-    originalCanvas.height + padding;
+  const x = newCanvas.width - logoWidth - padding;
+  const y = originalCanvas.height + padding;
 
   ctx.drawImage(
     logo,
@@ -309,6 +346,26 @@ function extractLGDTableData() {
             .trim()
         )
     );
+}
+
+function extractSDZData(sdzData) {
+    const rows = [];
+    
+    rows.push(["Measure", "Rank"]);
+
+    const ranks = sdzData?.data?.ranks || {};
+    const types = config.deprivation_types;
+
+    Object.entries(types).forEach(([key, label]) => {
+        const value = ranks[key];
+
+        rows.push([
+            label,
+            value ?? ""
+        ]);
+    });
+
+    return rows;
 }
 
 function downloadCSV(data, filename) {

@@ -5,6 +5,7 @@ import { sharePage } from "./utils/share-page.js";
 import { updateSDZ } from "./utils/update-sdz.js"
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { handleOnScroll } from "./utils/scroll-button.js";
+import { downloadButton } from "./utils/download-button.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -17,6 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     populateInfoBoxes() 
     handleOnScroll();
 
+    downloadButton("download-btn", "chart-capture", "map");
 })
 
 window.addEventListener("popstate", () => updateSDZ({ animate: true }));
