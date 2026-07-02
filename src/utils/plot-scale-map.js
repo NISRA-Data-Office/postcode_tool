@@ -2,6 +2,7 @@ import { loadShapes, normaliseBounds, moveToBounds, getSdzCode, getSdzName, clea
 import { readData } from "./read-data.js";
 import { config } from "../config/config.js";
 import { insertValue } from "./insert-value.js";
+import { scaleChart } from "./scale-chart.js";
 
 export let map;
 
@@ -744,6 +745,20 @@ async function selectSdzByCode(code, options = {}) {
       code
     );
 
+    const sdz_data = await readData(code);
+    const type_select = document.getElementById("type-select");
+
+    scaleChart(
+      "lgd-scale-chart",
+      sdz_data,
+      type_select.value,
+      {
+        labels: "below",
+        marker: true
+      }
+    );
+
     moveToBounds(map, sdzBounds, true);
+    
   }
 }

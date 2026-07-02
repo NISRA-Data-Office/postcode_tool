@@ -6,7 +6,7 @@ export const config = {
     // Set to null to display dummy data message
     "year": null,
 
-    "rateit": "link-to-rateit",
+    "rateit": "NI_Deprivation_tool",
 
     "deprivation_types": {
         "mdm": "Overall deprivation",
