@@ -68,7 +68,9 @@ export async function lgdMenu (id) {
 
     lgd_select.addEventListener("change", (e) => {
         const lgd = e.target.value;
-        if (window.location.pathname == "/area.html") {
+
+        
+        if (window.location.pathname.includes("area.html")) {
             window.history.pushState(
                 {},
                 '',
