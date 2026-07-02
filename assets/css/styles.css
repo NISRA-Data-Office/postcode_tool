@@ -434,11 +434,14 @@ table tr:not(:has(th)):hover {
     margin: 2mm;
   }
 
-  #scale-map, #footer {
+  #scale-map, #footer, #nav-map {
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
+  #postcode-search, .btn.bg-purple, .dropdown-menu.show {
+    display: none;
+  }
 }
 
 .accordion-button::after {
