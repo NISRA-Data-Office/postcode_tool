@@ -26,7 +26,8 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
         <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
         <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
         ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
-        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">scale chart (as image)</a></li>` : ""}
+        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>
+        <li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">scale chart (as image)</a></li>` : ""}
         <li><a class="dropdown-item" href="#" onclick="window.print(); return false;">page (as PDF)</a></li>
     `;
 
@@ -48,7 +49,7 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
                     .replace(/\s+/g, "-")           // spaces → hyphens
                     .replace(/-+/g, "-");           // collapse multiple hyphens
 
-        await exportCardWithMap(cardEl, map, mapContainerEl, `${fileName}.png`);
+        await exportCardWithMap(cardEl, map, mapContainerEl, `${fileName}.png`, placeName);
       });
     }
     
@@ -102,6 +103,29 @@ document.getElementById(`download-xlsx-${capture_id}`)
         .replace(/-+/g, "-");
         
         downloadExcel(data, `${fileName}.xlsx`);
+  });
+  
+  document.getElementById(`download-map-${capture_id}`)?.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    if (!isSdzPage) return;
+
+    const cardEl = document.getElementById("map-capture");
+    const mapContainerEl = document.getElementById("comparison-map");
+
+    if (!cardEl || !mapContainerEl) {
+        console.error("Comparison map elements not found");
+        return;
+    }
+
+    const fileName = rawText
+              .toLowerCase()
+              .trim()
+              .replace(/[^a-z0-9\s-]/g, "")
+              .replace(/\s+/g, "-")
+              .replace(/-+/g, "-");
+
+    await exportCardWithMap(cardEl, map, mapContainerEl,`${fileName}-comparison-map.png`, placeName);
   });
   
   document.getElementById(`download-scale-${capture_id}`)?.addEventListener("click", async (e) => {
@@ -161,7 +185,7 @@ document.getElementById(`download-xlsx-${capture_id}`)
   });
 }
 
-async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
+async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null) {
   // Wait until map is fully rendered
   await waitForMapReady(map);
 
@@ -205,7 +229,16 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
     if (pageTitle) {
         const title = clonedDoc.createElement("div");
 
-        title.textContent = pageTitle.textContent;
+        title.textContent = mapContainerEl.id === "comparison-map" ? `Deprivation in ${placeName.textContent} and nearby areas`
+        : pageTitle.textContent;
+
+        if (mapContainerEl.id === "comparison-map") {
+            const comparisonText = clonedDoc.getElementById("comparison-text");
+
+            if (comparisonText) {
+                comparisonText.style.display = "none";
+            }
+        }
 
         title.style.fontSize = "22px";
         title.style.fontWeight = "bold";
@@ -213,11 +246,7 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
         title.style.marginTop = "16px";
         title.style.marginLeft = "5px";
 
-        const clonedCard = clonedDoc.getElementById(cardEl.id);
-
-        if (clonedCard) {
-            clonedCard.prepend(title);
-        }
+        clonedCard.prepend(title); 
     }
 
     // ✅ Remove/hide footer in the CLONE so it doesn't appear in the export
