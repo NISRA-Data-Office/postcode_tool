@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   handleOnScroll();
   clearSdzFocus();
 
-  downloadButton("download-btn", "map-capture");
+  downloadButton("download-btn", "map-capture", "map");
 });
 
 window.addEventListener("popstate", () => updateLGD({ animate: true }));
