@@ -194,6 +194,7 @@ table tr:not(:has(th)):hover {
 
 .bg-green {
   background-color: #68A41E;
+  color: #000;
 }
 
 .bg-green a {

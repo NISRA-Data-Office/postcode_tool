@@ -61,9 +61,12 @@ export async function updateLGD({ animate = true } = {}) {
   
   }
 
+
+  const deprivation_type = config.deprivation_types[type_select.value];
+
   insertValue(
     "deprivation-type",
-    config.deprivation_types[type_select.value].toLowerCase()
+    deprivation_type == "Overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`
   );
 
   await plotScaleMap("scale-map", data, type_select.value, { animate,
@@ -86,7 +89,12 @@ export async function updateLGD({ animate = true } = {}) {
     const params = new URLSearchParams(window.location.search);
     const sdz = params.get("sdz");
 
-      insertValue("deprivation-type", config.deprivation_types[type_select.value].toLowerCase());
+    const deprivation_type = config.deprivation_types[type_select.value];
+
+    insertValue(
+      "deprivation-type",
+      deprivation_type == "Overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`
+    );
       plotScaleMap("scale-map", data, type_select.value, {
         highlightSdz: sdz,
         preserveView: true
