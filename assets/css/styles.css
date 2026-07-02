@@ -477,14 +477,14 @@ table tr:not(:has(th)):hover {
 
 
 ul.tick-list li::marker {
-  content: "✓ ";
+  content: "\2713\0020";
   color: var(--nisra_green);
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 ul.x-list li::marker {
-  content: "✗ ";
+  content: "\2717\0020";
   color: #D4351C;
   font-size: 1.5rem;
   font-weight: bold;
