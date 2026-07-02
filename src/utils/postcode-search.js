@@ -25,7 +25,7 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode or
 
   <div id="postcode-dropdown" class="postcode-dropdown border border-secondary position-absolute d-none"></div>
 
-  <div id="postcode-invalid" class="text-danger d-none mt-1 position-absolute border border-secondary bg-white p-1">
+  <div id="postcode-invalid" class="postcode-invalid text-danger d-none mt-1 position-absolute border border-secondary bg-white p-1">
     No results found. Please check your postcode or area name and try again.
   </div>
   `
@@ -126,8 +126,6 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode or
   function hideInvalid() {
     invalid.classList.add("d-none");
   }
-
-
 
   function updateSelection() {
     const options = dropdown.querySelectorAll(".postcode-dropdown__item");
