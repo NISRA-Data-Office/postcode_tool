@@ -316,6 +316,14 @@ table tr:not(:has(th)):hover {
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
+.postcode-invalid {
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
 .postcode-dropdown__item {
   background: #fff;
 }
