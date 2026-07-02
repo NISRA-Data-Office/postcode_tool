@@ -129,11 +129,11 @@ export async function plotScaleMap(
       promoteId: "nisra_code"
     });
 
-    addFillLayer("lgd-fill", "lgd-shapes");
-    addFillLayer("sdz-fill", "sdz-shapes");
+    addFillLayer("lgd-fill", "lgd-shapes", "water_name");
+    addFillLayer("sdz-fill", "sdz-shapes", "water_name");
 
-    addOutlineLayer("lgd-outline", "lgd-shapes", 2);
-    addOutlineLayer("sdz-outline", "sdz-shapes", 1);
+    addOutlineLayer("lgd-outline", "lgd-shapes", 2, "water_name");
+    addOutlineLayer("sdz-outline", "sdz-shapes", 1, "water_name");
 
     addCursorPointer();
 
@@ -230,7 +230,7 @@ function buildSdzFeatures({
           nisra_fill_hover: darkenColour(fill),
           nisra_hasValue: rawValue != null,
           nisra_highlight: highlightSdz && sdzCode === highlightSdz,
-          nisra_opacity: 0.75
+          nisra_opacity: 1
         }
       };
     });
@@ -253,7 +253,7 @@ async function getTargetBounds(map_data, highlightSdz) {
   ];
 }
 
-function addFillLayer(id, source) {
+function addFillLayer(id, source, beforeId) {
   map.addLayer({
     id,
     type: "fill",
@@ -267,10 +267,11 @@ function addFillLayer(id, source) {
       ],
       "fill-opacity": ["get", "nisra_opacity"]
     }
-  });
+  },
+  beforeId);
 }
 
-function addOutlineLayer(id, source, lineWidth) {
+function addOutlineLayer(id, source, lineWidth, beforeId) {
   map.addLayer({
     id,
     type: "line",
@@ -299,7 +300,8 @@ function addOutlineLayer(id, source, lineWidth) {
         0.9
       ]
     }
-  });
+  },
+  beforeId);
 }
 
 function addCursorPointer() {
