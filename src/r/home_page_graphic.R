@@ -30,7 +30,7 @@ p <- ggplot(map_data) +
   ) +
   geom_sf(
     aes(fill = decile),
-    colour = "white",
+    colour = "#949494",
     linewidth = 0.15,
     alpha = 0.6
   ) +

@@ -239,7 +239,7 @@ export function scaleChart(id, data, type, options = {}) {
 
     g10.innerHTML += `
       <rect
-        style="fill:${colour};fill-opacity:1;stroke:#ffffff;stroke-width:0.4"
+        style="fill:${colour};fill-opacity:1;stroke:#949494;stroke-width:0.4"
         id="rect${i + 1}-${chartId}"
         width="${RECT_WIDTH}"
         height="${RECT_HEIGHT}"

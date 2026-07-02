@@ -142,8 +142,8 @@ export async function plotScaleMap(
       promoteId: "nisra_code"
     });
 
-    addFillLayer("lgd-fill", "lgd-shapes");
-    addFillLayer("sdz-fill", "sdz-shapes");
+    addFillLayer("lgd-fill", "lgd-shapes", "water_name");
+    addFillLayer("sdz-fill", "sdz-shapes", "water_name");
 
     addOutlineLayer("lgd-outline", "lgd-shapes", 2);
     addOutlineLayer("sdz-outline", "sdz-shapes", 1);
@@ -246,7 +246,7 @@ function buildSdzFeatures({
           nisra_fill_hover: darkenColour(fill),
           nisra_hasValue: rawValue != null,
           nisra_highlight: highlightSdz && sdzCode === highlightSdz,
-          nisra_opacity: 0.5
+          nisra_opacity: 1
         }
       };
     });
@@ -269,7 +269,7 @@ async function getTargetBounds(map_data, highlightSdz) {
   ];
 }
 
-function addFillLayer(id, source) {
+function addFillLayer(id, source, beforeId) {
   map.addLayer({
     id,
     type: "fill",
@@ -283,7 +283,8 @@ function addFillLayer(id, source) {
       ],
       "fill-opacity": ["get", "nisra_opacity"]
     }
-  });
+  },
+  beforeId);
 }
 
 function addOutlineLayer(id, source, lineWidth) {
@@ -755,8 +756,8 @@ async function selectSdzByCode(code, options = {}) {
     const sdz_data = await readData(code);
     const type_select = document.getElementById("type-select");
 
-    const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
-    const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
+    const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
+    const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
     scaleChart(
       "lgd-scale-chart",

@@ -89,8 +89,8 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
               data-key="lgdRank",
               class="cursor-pointer w-30"
               tabindex="0"
-              aria-label="Sort by LGD rank">
-              LGD Rank
+              aria-label="Sort by Council rank">
+              Council Rank
               ${sortKey === "lgdRank" ? (sortAsc ? " ▲" : " ▼") : ""}
             </th>
              ` : ""}

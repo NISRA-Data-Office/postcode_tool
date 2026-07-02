@@ -72,7 +72,7 @@ export function getDeprivationSummary(id, data) {
   for (let i = 0; i < rank_keys.length; i ++) {
     summary_text += `
       <li>
-        <strong>${config.deprivation_types[rank_keys[i]]}:</strong> 
+        <strong>${config.deprivation_types[rank_keys[i]].title}:</strong> 
         <span class="text-purple fw-bold">${name}</span> is ranked 
         <strong>${ranks[rank_keys[i]]}</strong> out of ${count} neighbourhoods.
       </li>
@@ -146,7 +146,7 @@ export function updateComparisonText(diff, currentSelectedName, hoveredName, cli
   }
 
   if (type != "mdm") {
-    text += ` in ${config.deprivation_types[type].toLowerCase()}.`;
+    text += ` in ${config.deprivation_types[type].title.toLowerCase()}.`;
   }
   
 

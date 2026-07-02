@@ -66,6 +66,12 @@ export async function updateSDZ({ animate = true } = {}) {
     
     await plotNavMap("nav-map", data, { animate });
 
+    document.getElementById("deprivation-headline").innerHTML = getHeadline(data);
+
+    document.getElementById("deprivation-paragraph").innerHTML = getParagraph(data)
+
+    getDeprivationSummary("deprivation-summary", data);
+
       const lgdCode = data.parents[0].code;
       const lgdData = await readData(lgdCode);
 
