@@ -78,7 +78,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
           <tr>
             <th 
               data-key="niRank" 
-              style="cursor:pointer;width:25%;"
+              class="cursor-pointer w-25"
               tabindex="0"
               aria-label="Sort by NI rank">
               NI Rank
@@ -87,7 +87,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
             ${place.type === "lgd" ? `
             <th
               data-key="lgdRank",
-              style="cursor:pointer;width:30%;"
+              class="cursor-pointer w-30"
               tabindex="0"
               aria-label="Sort by LGD rank">
               LGD Rank
@@ -96,7 +96,7 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
              ` : ""}
               <th 
                 data-key="name" 
-                style="cursor:pointer;width:45%;"
+                class="cursor-pointer w-45"
                 tabindex="0"
                 aria-label="Sort neighbourhoods alphabetically">
                 Neighbourhood
@@ -106,9 +106,8 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
         </thead>
         <tbody>
           ${names.map(child => `
-            <tr class="sdz-row" 
+            <tr class="sdz-row cursor-pointer" 
                 data-code="${child.code}" 
-                style="cursor:pointer;"
                 tabindex="-1" 
                 aria-label="Focus map on ${child.name}, ranked ${child.rank ?? "unknown"}">
               <td class="border-secondary">${child.niRank ?? ""}</td>

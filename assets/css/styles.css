@@ -142,7 +142,7 @@ table tr:not(:has(th)):hover {
   line-height: normal;
 }
 
-.blue-bg {
+.bg-blue {
   background-color: var(--nisra_blue);
   color: #fff;
 }
@@ -155,15 +155,24 @@ table tr:not(:has(th)):hover {
   color: var(--nisra_purple) !important;
 }
 
-.i-button {
-  cursor: pointer;
-}
-
-.grey-bg {
+.bg-grey {
   background-color: #e5e5e5;
 }
 
-.grey-bg a {
+.bg-navy {
+  background-color: var(--nisra_navy);
+  color: #fff;
+}
+
+.text-navy {
+  color: var(--nisra_navy) !important;
+}
+
+.border-navy {
+  border-color: var(--nisra_navy) !important;
+}
+
+.bg-grey a {
   color: #000;
 }
 
@@ -173,7 +182,7 @@ table tr:not(:has(th)):hover {
   border: 2px solid var(--nisra_navy);
 }
 
-.blue-bg a, .bg-purple a {
+.bg-blue a, .bg-purple a {
   color: #fff;
 }
 
@@ -196,6 +205,7 @@ table tr:not(:has(th)):hover {
 
 .bg-green {
   background-color: #68A41E;
+  color: #000;
 }
 
 .bg-green a {
@@ -211,14 +221,6 @@ table tr:not(:has(th)):hover {
 /* optional: keep the little chevron readable */
 .accordion-button:not(.collapsed)::after {
   filter: brightness(0) invert(1);
-}
-
-.accordion-button {
-  border-left: 2px solid var(--nisra_navy);
-  border-top: 2px solid var(--nisra_navy);
-  border-bottom: 2px solid var(--nisra_navy);
-  color: var(--nisra_navy);
-  font-size: 0.75em;
 }
 
 @media (max-width: 575px) {
@@ -486,4 +488,16 @@ ul.x-list li::marker {
   color: #D4351C;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.w-45 {
+  width: 45% !important;
 }
