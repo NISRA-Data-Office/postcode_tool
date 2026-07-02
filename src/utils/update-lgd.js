@@ -54,8 +54,8 @@ export async function updateLGD({ animate = true } = {}) {
   insertNavButtons(data);
   insertValue("place-name", data.name);
 
-  const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
-  const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
+  const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
+  const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
   if (sdz) {
     insertValue("sdz-name", data.data.ranks[sdz].name);
@@ -96,14 +96,14 @@ export async function updateLGD({ animate = true } = {}) {
   const lgdTableContainer = document.getElementById("lgd-table-container");
   createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
-  document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
+  document.getElementById("type-description").innerHTML = config.deprivation_types[type_select.value].description;
 
   type_select.addEventListener("change", async () => {
     const params = new URLSearchParams(window.location.search);
     const sdz = params.get("sdz");
 
-    const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
-    const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
+    const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
+    const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
     insertValue(
       "deprivation-type",
@@ -127,7 +127,7 @@ export async function updateLGD({ animate = true } = {}) {
       );
       createLGDTable(lgdTableContainer, data, type_select.value, sdz)
 
-      document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
+      document.getElementById("type-description").innerHTML = config.deprivation_types[type_select.value].description;
 
       insertValue(
       "lgd-scale-caption",

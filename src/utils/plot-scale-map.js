@@ -132,8 +132,8 @@ export async function plotScaleMap(
     addFillLayer("lgd-fill", "lgd-shapes", "water_name");
     addFillLayer("sdz-fill", "sdz-shapes", "water_name");
 
-    addOutlineLayer("lgd-outline", "lgd-shapes", 2, "water_name");
-    addOutlineLayer("sdz-outline", "sdz-shapes", 1, "water_name");
+    addOutlineLayer("lgd-outline", "lgd-shapes", 2);
+    addOutlineLayer("sdz-outline", "sdz-shapes", 1);
 
     addCursorPointer();
 
@@ -271,7 +271,7 @@ function addFillLayer(id, source, beforeId) {
   beforeId);
 }
 
-function addOutlineLayer(id, source, lineWidth, beforeId) {
+function addOutlineLayer(id, source, lineWidth) {
   map.addLayer({
     id,
     type: "line",
@@ -300,8 +300,7 @@ function addOutlineLayer(id, source, lineWidth, beforeId) {
         0.9
       ]
     }
-  },
-  beforeId);
+  });
 }
 
 function addCursorPointer() {
@@ -640,8 +639,8 @@ async function selectSdzByCode(code, options = {}) {
     const sdz_data = await readData(code);
     const type_select = document.getElementById("type-select");
 
-    const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
-    const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
+    const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
+    const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
     scaleChart(
       "lgd-scale-chart",

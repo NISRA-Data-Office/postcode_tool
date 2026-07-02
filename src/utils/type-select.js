@@ -8,7 +8,7 @@ export function typeSelect (id) {
     for (let i = 0; i < types.length; i ++) {
         let option = document.createElement("option");
         option.value = types[i];
-        option.textContent = config.deprivation_types[types[i]];
+        option.textContent = config.deprivation_types[types[i]].title;
         type_select.appendChild(option)
     }
 }

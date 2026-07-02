@@ -9,26 +9,40 @@ export const config = {
     "rateit": "NI_Deprivation_tool",
 
     "deprivation_types": {
-        "mdm": "Overall deprivation",
-        "income": "Income",
-        "employment": "Employment",
-        "health": "Health and disability",
-        "education": "Education, skills and training",
-        "services" : "Access to services",
-        "living": "Living environment",
-        "crime": "Crime and disorder"
+        "mdm": {
+            "title": "Overall MDM",
+            "description": "<p>This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation in this neighbourhood.</p>"
+        },
+        "income": {
+            "title": "Income",
+            "description": `<p>This shows how many people have a low income. It includes people who are not in work and people who have a job but do not earn very much.</p><p>This makes up 25% of a neighbourhood's overall MDM deprivation score.</p>`
+        },
+        "employment": {
+            "title": "Employment",
+            "description": `<p>This shows how many working-age people are not in work when they would like to be. This may be because of illness, disability, or caring for someone else.</p><p>This makes up 25% of a neighbourhood's overall MDM deprivation score.</p>`
+        },
+        "health": {
+            "title": "Health and disability",
+            "description": `<p>This shows where people are affected by poor health. It includes the risk of dying earlier than expected and having a lower quality of life because of physical or mental health problems.</p><p>This makes up 15% of a neighbourhood's overall MDM deprivation score.</p>`
+        },
+        "education": {
+            "title": "Education, skills and training",
+            "description": `<p>This shows where people may have fewer chances to learn and build skills. It looks at children, young people, and adults.</p><p>This makes up 15% of a neighbourhood's overall MDM deprivation score.</p>`
+        },
+        "services": {
+            "title": "Access to services",
+            "description": `<p>This shows how easy it is for people to use important services. This includes getting to services in person and using services online.</p><p>This makes up 10% of a neighbourhood's overall MDM deprivation score.</p>`
+        },
+        "living": {
+            "title": "Living environment",
+            "description": `<p>This shows problems with homes and the local area. It includes whether people can get suitable homes and whether the local environment is good to live in.</p><p>This makes up 5% of a neighbourhood's overall MDM deprivation score.</p>`
+        },
+        "crime": {
+            "title": "Crime and disorder",
+            "description": `<p>This shows the risk of crime and disorder in an area. It includes crimes against people and crimes involving property.</p><p>This makes up 5% of a neighbourhood's overall MDM deprivation score.</p>`
+        }
     },
 
-    "i_text": {
-        "mdm": "This is an overall measure called the Multiple Deprivation Measure. It combines different types of deprivation in this area.",
-        "income": "This shows how many people live in low income households. These households earn less than 60% of the Northern Ireland average.",
-        "employment": "This shows how many working age people are not in work.",
-        "health": "This shows how many people have poor health or a disability that affects their daily life.",
-        "education": "",
-        "services" : "This shows how easy it is for people to get to key services, both in person and online.",
-        "living": "This shows problems with housing, access to suitable homes, and the local environment.",
-        "crime": "This shows levels of crime and disorder in the area."
-    },
 
     scale_colours: [
         "#00205B",
