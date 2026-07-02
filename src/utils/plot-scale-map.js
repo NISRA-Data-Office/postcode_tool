@@ -748,6 +748,9 @@ async function selectSdzByCode(code, options = {}) {
     const sdz_data = await readData(code);
     const type_select = document.getElementById("type-select");
 
+    const deprivation_type = config.deprivation_types[type_select.value].toLowerCase();
+    const deprivation_type_text = deprivation_type == "overall deprivation" ? deprivation_type : `${deprivation_type} deprivation`;
+
     scaleChart(
       "lgd-scale-chart",
       sdz_data,
@@ -756,6 +759,11 @@ async function selectSdzByCode(code, options = {}) {
         labels: "below",
         marker: true
       }
+    );
+
+    insertValue(
+      "lgd-scale-caption",
+      `<span class="text-purple fw-bold">${sdz_data.name}</span> is ranked ${sdz_data.data.ranks[type_select.value]} out of ${sdz_data.count} for <strong>${deprivation_type_text}</strong>.`
     );
 
     moveToBounds(map, sdzBounds, true);
