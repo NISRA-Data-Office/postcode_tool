@@ -43,6 +43,7 @@ export async function updateLGD({ animate = true } = {}) {
 
   const sdz = params?.get("sdz");
   const data = await readData(lgd);
+  let sdz_data;
 
   if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
     window.location.search = `code=${lgd}`;
@@ -58,6 +59,8 @@ export async function updateLGD({ animate = true } = {}) {
 
     document.getElementById("in-focus").classList.add("is-open");
     document.getElementById("focus-link").href = `sdz.html?sdz=${sdz}`;
+
+    sdz_data = await readData(sdz);
   
   }
 
@@ -75,10 +78,15 @@ export async function updateLGD({ animate = true } = {}) {
 
   insertValue("place-name", data.name)
     
-  scaleChart("lgd-scale-chart", data, type_select.value, {
-    labels: "below",
-    marker: false
-  });
+  scaleChart(
+    "lgd-scale-chart",
+    sdz ? sdz_data : data,
+    type_select.value,
+    {
+      labels: "below",
+      marker: sdz ? true : false
+    }
+  );
 
   const lgdTableContainer = document.getElementById("lgd-table-container");
   createLGDTable(lgdTableContainer, data, type_select.value, sdz);
@@ -99,10 +107,16 @@ export async function updateLGD({ animate = true } = {}) {
         highlightSdz: sdz,
         preserveView: true
       })
-      scaleChart("lgd-scale-chart", data, type_select.value, {
-        labels: "below",
-        marker: false
-      });
+
+      scaleChart(
+        "lgd-scale-chart",
+        sdz ? sdz_data : data,
+        type_select.value,
+        {
+          labels: "below",
+          marker: sdz ? true : false
+        }
+      );
       createLGDTable(lgdTableContainer, data, type_select.value, sdz)
 
       document.getElementById("type-description").innerHTML = config.i_text[type_select.value];
