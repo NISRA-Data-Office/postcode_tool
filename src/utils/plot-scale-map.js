@@ -323,7 +323,7 @@ function addOutlineLayer(id, source, lineWidth) {
           ["boolean", ["get", "nisra_highlight"], false],
           ["boolean", ["feature-state", "selected"], false]
         ],
-        lineWidth + 5,
+        lineWidth + 4,
         0
       ],
       "line-opacity": [
@@ -349,7 +349,7 @@ function addOutlineLayer(id, source, lineWidth) {
       "line-width": [
         "case",
         ["boolean", ["feature-state", "compareHover"], false],
-        lineWidth + 5,
+        lineWidth + 4,
         0
       ],
       "line-opacity": [
