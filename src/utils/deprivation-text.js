@@ -120,7 +120,7 @@ export function lgdDeprivationSummary(id, data, type) {
   `;
 }
 
-export function updateComparisonText(diff, currentSelectedName, hoveredName, clickedSdz = false, onMouseLeave = false) {
+export function updateComparisonText(diff, currentSelectedName, hoveredName, clickedSdz = false, onMouseLeave = false, type) {
   const el = document.getElementById("comparison-text");
   if (!el) return;
   
@@ -144,6 +144,11 @@ export function updateComparisonText(diff, currentSelectedName, hoveredName, cli
   else {
     text = `${hoveredStyled} is more deprived than ${selectedStyled}`;
   }
+
+  if (type != "mdm") {
+    text += ` in ${config.deprivation_types[type].toLowerCase()}.`;
+  }
+  
 
   el.innerHTML = text;
 }

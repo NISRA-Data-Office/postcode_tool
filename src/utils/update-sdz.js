@@ -9,29 +9,31 @@ import { scaleChart } from "./scale-chart.js";
 import { insertScaleTable } from "./insert-scale-table.js";
 import { populateNextStepBoxes } from "./next-steps.js";
 import { copySummary } from "./copy-summary.js";
+import { config } from "../config/config.js";
 
 let currentSelectedName = "";
 let currentSelectedValue = null;
 let currentLgdData = null;
 
 export async function updateSDZ({ animate = true } = {}) {
-      const params = new URLSearchParams(window.location.search);
-    
-      if (params.size === 0) {
-        window.location.replace("./");
-        return;
-      }
-    
-      const sdz = params.get("sdz");
-      const postcode = params?.get("postcode");
-      const data = await readData(sdz);
-      if (!data) {
-        window.location.replace("./");
-        return;
-      }
+    const params = new URLSearchParams(window.location.search);
+    const type_select = document.getElementById("type-select");
+  
+    if (params.size === 0) {
+      window.location.replace("./");
+      return;
+    }
+  
+    const sdz = params.get("sdz");
+    const postcode = params?.get("postcode");
+    const data = await readData(sdz);
+    if (!data) {
+      window.location.replace("./");
+      return;
+    }
 
-      const headline = document.getElementById("headline");
-      const page_title = document.getElementsByTagName("title")[0];
+    const headline = document.getElementById("headline");
+    const page_title = document.getElementsByTagName("title")[0];
 
     const valid_postcode = postcode_data[sdz].codes.includes(postcode);
 
@@ -59,7 +61,6 @@ export async function updateSDZ({ animate = true } = {}) {
     
     insertValue("place-name", data.name);
     
-    // insertValue("deprivation-place-name", data.name)
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     
@@ -69,43 +70,38 @@ export async function updateSDZ({ animate = true } = {}) {
       const lgdData = await readData(lgdCode);
 
       currentSelectedName = data.name;
-      currentSelectedValue = data.data.ranks.mdm;
+      const selectedType = type_select.value || "mdm";
+      currentSelectedValue = data.data.ranks[selectedType];
       currentLgdData = lgdData;
 
-      await plotScaleMap("comparison-map", lgdData, "mdm", {
+      await plotScaleMap("comparison-map",
+        lgdData,
+        selectedType,
+        {
         animate,
         highlightSdz: data.code,
         forceLgdView: true,
         enableComparison: true   
       });
 
-   scaleChart("comparison-scale-chart",
-  {
-    data: { ranks: { mdm: currentSelectedValue } },
-    count: currentLgdData.sdz_count
-  },
-  "mdm",
-  {
-    labels: "below",
-    marker: true,
-    comparisonScale: true
-  }
-);
-
-    const deprivation_headline = document.getElementById("deprivation-headline");
-    deprivation_headline.innerHTML = getHeadline(data, data.count)
-    document.getElementById("deprivation-headline").innerHTML = getHeadline(data);
-
-    document.getElementById("deprivation-paragraph").innerHTML = getParagraph(data)
-
-    getDeprivationSummary("deprivation-summary", data);
+    scaleChart("comparison-scale-chart",
+      {
+        data: { ranks: { [selectedType]: currentSelectedValue } },
+        count: currentLgdData.sdz_count
+      },
+      selectedType,
+      {
+        labels: "below",
+        marker: true,
+        comparisonScale: true
+      });
 
     scaleChart("mdm-scale-chart", data, "mdm", {
       labels: "below",
       annotation: true
     });
 
-    updateComparisonText(0, currentSelectedName, currentSelectedName, true)
+    updateComparisonText(0, currentSelectedName, currentSelectedName, true, false, type_select.value);
 
     insertScaleTable("deprivation-scales", data);
 
@@ -135,14 +131,14 @@ window.addEventListener("sdzhovercompare", (e) => {
 
   const diff = hovered.value - selected.value;
 
-  updateComparisonText(diff, currentSelectedName, hovered.name);
+  updateComparisonText(diff, currentSelectedName, hovered.name, false, false, type_select.value);
 
   scaleChart("comparison-scale-chart",
   {
-    data: { ranks: { mdm: currentSelectedValue } },
+    data: { ranks: { [selectedType]: currentSelectedValue } },
     count: currentLgdData.sdz_count
   },
-  "mdm",
+  selectedType,
   {
     labels: "below",
     marker: true,
@@ -153,14 +149,16 @@ window.addEventListener("sdzhovercompare", (e) => {
 });
 
 window.addEventListener("sdzhoverout", (e) => {
-  updateComparisonText(0, currentSelectedName, currentSelectedName, false, true)
+  updateComparisonText(0, currentSelectedName, currentSelectedName, false, true, type_select.value);
+
+  const selectedType = type_select.value || "mdm";
 
   scaleChart("comparison-scale-chart",
   {
-    data: { ranks: { mdm: currentSelectedValue } },
+    data: { ranks: { [selectedType]: currentSelectedValue } },
     count: currentLgdData.sdz_count
   },
-  "mdm",
+  selectedType,
   {
     labels: "below",
     marker: true,
@@ -169,6 +167,29 @@ window.addEventListener("sdzhoverout", (e) => {
   }
 );
 
-})
+});
+
+  type_select.addEventListener("change", async () => {
+    const selectedType = type_select.value || "mdm";
+    currentSelectedValue = data.data.ranks[selectedType];
+
+    await plotScaleMap("comparison-map", lgdData, selectedType, {
+      animate,
+      highlightSdz: data.code,
+      forceLgdView: true,
+      enableComparison: true   
+    });
+
+    scaleChart(
+      "comparison-scale-chart",
+      lgdData,
+      selectedType,
+      {
+        labels: "below",
+        comparisonScale: true
+      }
+    );
+
+  });
 
 }

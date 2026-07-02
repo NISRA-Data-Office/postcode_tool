@@ -38,13 +38,15 @@ export async function plotScaleMap(
   mapState.isCountryMap = map_data.type === "ctry";
   mapState.enableComparison = enableComparison;
   mapState.selectedSdz = highlightSdz;
-  mapState.selectedValue = map_data.data?.ranks?.[highlightSdz]?.ranks?.[deprivation_type];
+  const effectiveType = deprivation_type || "mdm";
+  mapState.selectedValue = map_data.data?.ranks?.[highlightSdz]?.ranks?.[effectiveType];
 
   const selectedLgdCode = map_data.code;
   const selectedLgdName = map_data.name;
 
   const ranks = map_data.data?.ranks || {};
   const sdzCodes = new Set(Object.keys(ranks));
+  const typeForColour = deprivation_type || "mdm";
 
   const rangeMin = 1;
   const rangeMax = map_data.sdz_count || sdzCodes.size;
@@ -64,7 +66,7 @@ export async function plotScaleMap(
     features: buildSdzFeatures({
       sdzCodes,
       ranks,
-      deprivation_type,
+      deprivation_type: typeForColour,
       selectedLgdCode,
       isCountryMap: mapState.isCountryMap,
       rangeMin,

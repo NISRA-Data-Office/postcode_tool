@@ -9,8 +9,8 @@ export function scaleChart(id, data, type, options = {}) {
     comparisonScale = false
   } = options;
 
-  const value = marker ? data.data.ranks[type] : 0;
   const count = data.sdz_count ?? data.count;
+  const value = marker && data?.data?.ranks?.[type] != null ? data.data.ranks[type] : null;
 
   const SCALE_WIDTH = 151.9;
   const VIEWBOX_X = -4;
@@ -27,7 +27,7 @@ export function scaleChart(id, data, type, options = {}) {
 
   const MARKER_RADIUS = 3.3;
   const MARKER_STROKE = 0.5;
-  const MARKER_X = value / count * SCALE_WIDTH;
+  const MARKER_X = value != null ? (value / count) * SCALE_WIDTH : 0;
   const MARKER_Y = RECT_Y + SCALE_GROUP_Y + RECT_HEIGHT / 2;
   const MARKER_TOP_Y = MARKER_Y - MARKER_RADIUS;
   const COMPARE_X = compareValue != null
@@ -180,7 +180,7 @@ export function scaleChart(id, data, type, options = {}) {
   }
 
   const markerSvg =
-    marker
+    marker && value != null
       ? `
   <circle
     cx="${MARKER_X}"
