@@ -3,7 +3,7 @@ export const config = {
     "title": "Deprivation in Northern Ireland",
 
     // Deprivation year, eg 2026
-    // Set to null to display dummy data message
+    // Set to null to display test data message
     "year": null,
 
     "rateit": "NI_Deprivation_tool",

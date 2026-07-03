@@ -275,6 +275,6 @@ The application uses:
 
 ## Disclaimer
 
-The current version uses dummy deprivation data for development and demonstration purposes.
+The current version uses test deprivation data for development and demonstration purposes.
 
 Production releases should be populated with official deprivation statistics and accompanying metadata.
