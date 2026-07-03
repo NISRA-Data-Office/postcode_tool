@@ -95,7 +95,6 @@ export async function plotScaleMap(
   container: elementId,
   style: "public/map/style-omt.json",
   center: [-6.7, 54.7],
-  zoom: window.innerWidth < 1200 ? 6 : 7.5,
   maxBounds: niMaxBounds,
   attributionControl: false,
   preserveDrawingBuffer: true,
@@ -138,9 +137,6 @@ export async function plotScaleMap(
     addCursorPointer();
 
     moveToBounds(map, mapBounds, false);
-
-    map.setMinZoom(map.getZoom() - 3);
-    map.setMaxZoom(map.getZoom() + 4);
 
     addHoverPopup(map, "lgd-fill", "lgd-shapes", {
       nameOnly: true,
