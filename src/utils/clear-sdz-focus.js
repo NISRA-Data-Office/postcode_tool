@@ -29,6 +29,9 @@ export function clearSdzFocus() {
             "lgd-scale-caption",
             ``
         );
+
+        document.getElementById("comparison-text").innerHTML = ``;
+        
     })
 
 }

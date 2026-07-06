@@ -145,7 +145,7 @@ export function updateComparisonText(data, hovered, clickedSdz = false, onMouseL
   const selected_decile = Math.ceil(selected_value / (data.count / 10));
   const hovered_decile = Math.ceil(hovered_value / (data.count / 10));
 
-  text = `<p>`
+  text = `<p class="mb-0">`
 
   if (selected_decile === hovered_decile) {
     text += `${hoveredStyled} has a similar deprivation ranking to ${selectedStyled}`;
@@ -164,5 +164,5 @@ export function updateComparisonText(data, hovered, clickedSdz = false, onMouseL
   }
   
 
-  el.innerHTML = `${text}</p>`;
+  el.innerHTML = `${text}</p><p class="mb-0">Click on an area to focus on it.</p>`;
 }

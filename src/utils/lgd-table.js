@@ -1,5 +1,7 @@
 import { config } from "../config/config.js";
+import { updateComparisonText } from "./deprivation-text.js";
 import { insertValue } from "./insert-value.js";
+import { readData } from "./read-data.js";
 
 export function createLGDTable(container, place, selectedDeprivation, sdz) {
   let sortKey = "niRank";
@@ -237,9 +239,11 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
     }
   }
 
-  window.addEventListener("sdzselect", e => {
+  window.addEventListener("sdzselect", async e => {
     selectedCode = e.detail.code;
     highlightRow(selectedCode);
+    const data = await readData(selectedCode);
+    updateComparisonText(data, data, false, true, selectedDeprivation);
   });
 
   render();
