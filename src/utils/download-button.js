@@ -390,10 +390,12 @@ function extractSDZData(sdzData) {
         const value = ranks[key];
 
         rows.push([
-            label,
+            label.title,
             value ?? ""
         ]);
     });
+
+    console.log(rows)
 
     return rows;
 }
