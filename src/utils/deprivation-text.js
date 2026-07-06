@@ -35,7 +35,7 @@ export function getParagraph(data) {
   if (mdm < count * 0.99) return `Only ${100 - percent}% of neighbourhoods are less deprived than ${placeName}.`;
   if (mdm < count) return `Fewer than 1% of neighbourhoods are less deprived than ${placeName}.`;
   if (mdm === count) return `All neighbourhoods are more deprived than ${placeName}.`;
-  }
+}
 
 export function getDeprivationSummary(id, data) {
 
@@ -58,10 +58,11 @@ export function getDeprivationSummary(id, data) {
       out of ${count} neighbourhoods.
     </h4>
 
+    <p class="mb-0">Rank 1 is the most deprived neighbourhood and rank 850 is the least deprived.</p>
     
     <p class="mb-0"><span class="text-purple fw-bold">${name}</span>${headlineText}</p>
 
-    <p>${paragraphText}</p>
+    <p class="mb-0">${paragraphText}</p>
     
     <ul class="deprivation-headline">
   `
