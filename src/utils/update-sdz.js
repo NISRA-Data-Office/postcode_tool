@@ -87,7 +87,8 @@ export async function updateSDZ({ animate = true } = {}) {
         animate,
         highlightSdz: data.code,
         forceLgdView: true,
-        enableComparison: true   
+        enableComparison: true,
+        enableSdzClick: false   
       });
 
     scaleChart("comparison-scale-chart",
@@ -107,7 +108,7 @@ export async function updateSDZ({ animate = true } = {}) {
       annotation: true
     });
 
-    updateComparisonText(0, currentSelectedName, currentSelectedName, true, false, type_select.value);
+    updateComparisonText(data, data, true, false, type_select.value);
 
     insertScaleTable("deprivation-scales", data);
 
@@ -116,64 +117,64 @@ export async function updateSDZ({ animate = true } = {}) {
     copySummary(data);
 
     document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".next-step-btn");
-  if (!btn) return;
+        const btn = e.target.closest(".next-step-btn");
+        if (!btn) return;
 
-  const targetId = btn.dataset.target;
-  const input = document.getElementById(targetId);
+        const targetId = btn.dataset.target;
+        const input = document.getElementById(targetId);
 
-  if (input) {
-    input.scrollIntoView({ behavior: "smooth", block: "center" });
-    input.focus({ preventScroll: true });
-  }
-
-});
+        if (input) {
+            input.scrollIntoView({ behavior: "smooth", block: "center" });
+            input.focus({ preventScroll: true });
+        }
+    });
  
-window.addEventListener("sdzhovercompare", (e) => {
+    window.addEventListener("sdzhovercompare", (e) => {
 
-  const { hovered, selected } = e.detail;
+    const { hovered, selected } = e.detail;
 
-  if (!hovered?.value || !selected?.value) return;
+    if (!hovered?.value || !selected?.value) return;
 
-  const diff = hovered.value - selected.value;
+    const diff = hovered.value - selected.value;
 
-  updateComparisonText(diff, currentSelectedName, hovered.name, false, false, type_select.value);
+    updateComparisonText(data, hovered, false, false, type_select.value);
+    
 
-  scaleChart("comparison-scale-chart",
-  {
-    data: { ranks: { [selectedType]: currentSelectedValue } },
-    count: currentLgdData.sdz_count
-  },
-  selectedType,
-  {
-    labels: "below",
-    marker: true,
-    compareValue: hovered.value,
-    comparisonScale: true
-  }
-);
-});
+    scaleChart("comparison-scale-chart",
+    {
+        data: { ranks: { [selectedType]: currentSelectedValue } },
+        count: currentLgdData.sdz_count
+    },
+    selectedType,
+    {
+        labels: "below",
+        marker: true,
+        compareValue: hovered.value,
+        comparisonScale: true
+    }
+    );
+    });
 
-window.addEventListener("sdzhoverout", (e) => {
-  updateComparisonText(0, currentSelectedName, currentSelectedName, false, true, type_select.value);
+    window.addEventListener("sdzhoverout", (e) => {
+    updateComparisonText(data, data, true, false, type_select.value);
 
-  const selectedType = type_select.value || "mdm";
+    const selectedType = type_select.value || "mdm";
 
-  scaleChart("comparison-scale-chart",
-  {
-    data: { ranks: { [selectedType]: currentSelectedValue } },
-    count: currentLgdData.sdz_count
-  },
-  selectedType,
-  {
-    labels: "below",
-    marker: true,
-    comparisonScale: true,
-    compareValue: null
-  }
-);
+    scaleChart("comparison-scale-chart",
+    {
+        data: { ranks: { [selectedType]: currentSelectedValue } },
+        count: currentLgdData.sdz_count
+    },
+    selectedType,
+    {
+        labels: "below",
+        marker: true,
+        comparisonScale: true,
+        compareValue: null
+    }
+    );
 
-});
+    });
 
   type_select.addEventListener("change", async () => {
     const selectedType = type_select.value || "mdm";
@@ -183,7 +184,8 @@ window.addEventListener("sdzhoverout", (e) => {
       animate,
       highlightSdz: data.code,
       forceLgdView: true,
-      enableComparison: true   
+      enableComparison: true,
+      enableSdzClick: false   
     });
 
     scaleChart(
@@ -195,6 +197,8 @@ window.addEventListener("sdzhoverout", (e) => {
         comparisonScale: true
       }
     );
+
+    updateComparisonText(sdz_data, sdz_data, true, false, type_select.value);
 
   });
 

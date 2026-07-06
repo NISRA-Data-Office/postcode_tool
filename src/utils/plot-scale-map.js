@@ -15,6 +15,7 @@ let selectedSdzId = null;
 const mapState = {
   isCountryMap: false,
   enableComparison: false,
+  enableSdzClick: false,
   selectedSdz: null,
   selectedValue: null
 };
@@ -29,7 +30,8 @@ export async function plotScaleMap(
     animate = true,
     highlightSdz = null,
     preserveView = false,
-    enableComparison = false
+    enableComparison = false,
+    enableSdzClick = undefined
   } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
@@ -37,6 +39,7 @@ export async function plotScaleMap(
 
   mapState.isCountryMap = map_data.type === "ctry";
   mapState.enableComparison = enableComparison;
+  mapState.enableSdzClick = enableSdzClick ?? !enableComparison;
   mapState.selectedSdz = highlightSdz;
   const effectiveType = deprivation_type || "mdm";
   mapState.selectedValue = map_data.data?.ranks?.[highlightSdz]?.ranks?.[effectiveType];
@@ -367,8 +370,8 @@ function addCursorPointer() {
 
     const features = map.queryRenderedFeatures(e.point, { layers });
 
-   if (mapState.enableComparison) {
-    map.getCanvas().style.cursor = "default";
+    if (mapState.enableComparison && !mapState.enableSdzClick) {
+      map.getCanvas().style.cursor = "default";
     } else {
       map.getCanvas().style.cursor =
         features.length > 0 ? "pointer" : "default";
@@ -499,7 +502,7 @@ function addLgdClick(map) {
 function addSdzClick(map) {
   map.on("click", "sdz-fill", e => {
 
-    if (mapState.enableComparison) return;
+    if (!mapState.enableSdzClick) return;
 
     const feature = e.features?.[0];
     if (!feature) return;
@@ -509,6 +512,7 @@ function addSdzClick(map) {
     if (!sdzCode) return;
 
     const url = new URL(window.location);
+    
     url.searchParams.set("sdz", sdzCode);
 
   
@@ -725,7 +729,22 @@ function getLgdName(feature) {
 async function selectSdzByCode(code, options = {}) {
   const { moveToSdz = true } = options;
 
-  if (!code || !map?.getSource("sdz-shapes")) return;
+  if (!map?.getSource("sdz-shapes")) return;
+
+  // If no code provided, clear any existing selection
+  if (!code) {
+    
+    selectedSdzId = clearFeatureState(
+      map,
+      "sdz-shapes",
+      selectedSdzId,
+      "selected"
+    );
+
+    mapState.selectedSdz = null;
+    removeStaticSdzHighlight();
+    return;
+  }
 
   selectedSdzId = clearFeatureState(
     map,
@@ -741,7 +760,36 @@ async function selectSdzByCode(code, options = {}) {
     { selected: true }
   );
 
+  // Store the selected SDZ in mapState so other handlers use it
+  mapState.selectedSdz = code;
+
+  const sdz_data = await readData(code);
+  const type_select = document.getElementById("type-select");
+  const selectedType = type_select.value || "mdm";
+
+  mapState.selectedValue = sdz_data.data.ranks[selectedType];
+
   removeStaticSdzHighlight();
+  // Also update the source feature property `nisra_highlight` so future source.setData
+  // or animations keep the static highlight consistent with the selected SDZ.
+  try {
+    const src = map.getSource("sdz-shapes");
+    const current = src?._data;
+    if (current && Array.isArray(current.features)) {
+      src.setData({
+        ...current,
+        features: current.features.map(f => ({
+          ...f,
+          properties: {
+            ...f.properties,
+            nisra_highlight: f.properties?.nisra_code === code
+          }
+        }))
+      });
+    }
+  } catch (err) {
+    
+  }
 
   if (moveToSdz) {
     const sdzBounds = await getTargetBounds(
@@ -752,24 +800,7 @@ async function selectSdzByCode(code, options = {}) {
     const sdz_data = await readData(code);
     const type_select = document.getElementById("type-select");
 
-    const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
-    const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
-
-    scaleChart(
-      "lgd-scale-chart",
-      sdz_data,
-      type_select.value,
-      {
-        labels: "below",
-        marker: true
-      }
-    );
-
-    insertValue(
-      "lgd-scale-caption",
-      `<span class="text-purple fw-bold">${sdz_data.name}</span> is ranked ${sdz_data.data.ranks[type_select.value]} out of ${sdz_data.count} for <strong>${deprivation_type_text}</strong>.`
-    );
-
+    // Update map view only; defer chart/caption updates to the page-level listener
     moveToBounds(map, sdzBounds, true);
     
   }

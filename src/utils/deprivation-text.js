@@ -121,35 +121,48 @@ export function lgdDeprivationSummary(id, data, type) {
   `;
 }
 
-export function updateComparisonText(diff, currentSelectedName, hoveredName, clickedSdz = false, onMouseLeave = false, type) {
+export function updateComparisonText(data, hovered, clickedSdz = false, onMouseLeave = false, type) {
+
   const el = document.getElementById("comparison-text");
-  if (!el) return;
+  if (!el) return; 
+
+  const selected_value = data.data.ranks[type];
+  const hovered_value = hovered.value;
+  let type_title = config.deprivation_types[type].title;
+  type_title = type == "mdm" ? type_title : type_title.toLowerCase();
   
-  const hoveredStyled = `<span style="color:#BA3CBE;"><strong>${hoveredName}</strong></span>`;
-  const selectedStyled = `<span style="color:#D4351C;"><strong>${currentSelectedName}</strong></span>`;
+  const hoveredStyled = `<span class="text-lilac"><strong>${hovered.name}</strong></span>`;
+  const selectedStyled = `<span class="text-red"><strong>${data.name}</strong></span>`;
 
   let text;
 
   if (clickedSdz == true || onMouseLeave == true) {
-    text = `Hover over on an area to compare deprivation with ${selectedStyled}`;
+    text = `<p class="mb-0">${selectedStyled} is ranked ${selected_value} out of ${data.count} for <strong>${type_title}</strong>.</p><p class="mb-0">Hover over an area to compare deprivation.</p>`;
     el.innerHTML = text;
     return;
   }
 
-  if (Math.abs(diff) <= 85) {
-    text = `${hoveredStyled} has a similar deprivation ranking to ${selectedStyled}`;
+  const selected_decile = Math.ceil(selected_value / (data.count / 10));
+  const hovered_decile = Math.ceil(hovered_value / (data.count / 10));
+
+  text = `<p>`
+
+  if (selected_decile === hovered_decile) {
+    text += `${hoveredStyled} has a similar deprivation ranking to ${selectedStyled}`;
   } 
-  else if (diff > 0) {
-    text = `${hoveredStyled} is less deprived than ${selectedStyled}`;
+  else if (hovered_value > selected_value) {
+    text += `${hoveredStyled} is less deprived than ${selectedStyled}`;
   } 
   else {
-    text = `${hoveredStyled} is more deprived than ${selectedStyled}`;
+    text += `${hoveredStyled} is more deprived than ${selectedStyled}`;
   }
 
   if (type != "mdm") {
-    text += ` in ${config.deprivation_types[type].title.toLowerCase()}.`;
+    text += ` for <strong>${type_title.toLowerCase()}</strong>.`;
+  } else {
+    text += `.`;
   }
   
 
-  el.innerHTML = text;
+  el.innerHTML = `${text}</p>`;
 }

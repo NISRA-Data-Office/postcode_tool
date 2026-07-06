@@ -521,3 +521,15 @@ ul.x-list li::marker {
 .w-45 {
   width: 45% !important;
 }
+
+.text-red {
+  color: #D4351C;
+}
+
+.text-lilac {
+  color: #BA3CBE
+}
+
+.min-h-4 {
+  min-height: 4rem;
+}

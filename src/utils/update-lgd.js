@@ -6,7 +6,7 @@ import { config } from "../config/config.js";
 import { plotScaleMap } from "./plot-scale-map.js";
 import { scaleChart } from "./scale-chart.js";
 import { createLGDTable } from "./lgd-table.js";
-import { lgdDeprivationSummary } from "./deprivation-text.js";
+import { lgdDeprivationSummary, updateComparisonText } from "./deprivation-text.js";
 import { copySummary } from "./copy-summary.js";
 
 export async function updateLGD({ animate = true } = {}) {
@@ -44,6 +44,8 @@ export async function updateLGD({ animate = true } = {}) {
   const sdz = params?.get("sdz");
   const data = await readData(lgd);
   let sdz_data;
+  let currentSelectedName = null;
+  let currentSelectedValue = null;
 
   if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
     window.location.search = `code=${lgd}`;
@@ -77,19 +79,28 @@ export async function updateLGD({ animate = true } = {}) {
     deprivation_type_text
   );
 
-  await plotScaleMap("scale-map", data, type_select.value, { animate,
-    highlightSdz: sdz
-   });
+  await plotScaleMap("scale-map", data, type_select.value, {
+    animate,
+    highlightSdz: sdz,
+    enableComparison: true,
+    enableSdzClick: true
+  });
 
-  insertValue("place-name", data.name)
-    
+  insertValue("place-name", data.name);
+
+  currentSelectedValue = sdz ? sdz_data.data.ranks[type_select.value] : null;
+
   scaleChart(
     "lgd-scale-chart",
-    sdz ? sdz_data : data,
+    {
+      data: { ranks: { [type_select.value]: currentSelectedValue } },
+      count: data.sdz_count
+    },
     type_select.value,
     {
       labels: "below",
-      marker: sdz ? true : false
+      marker: sdz ? true : false,
+      comparisonScale: sdz ? true : false
     }
   );
 
@@ -97,6 +108,58 @@ export async function updateLGD({ animate = true } = {}) {
   createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
   document.getElementById("type-description").innerHTML = config.deprivation_types[type_select.value].description;
+
+  // Update chart and caption when an SDZ is selected (via map or table)
+  window.addEventListener("sdzselect", async e => {
+    const code = e?.detail?.code;
+
+    if (!code) {
+      sdz_data = null;
+      currentSelectedValue = null;
+
+      scaleChart("lgd-scale-chart",
+        {
+          data: { ranks: { [type_select.value]: null } },
+          count: data.sdz_count
+        },
+        type_select.value,
+        {
+          labels: "below",
+          marker: false,
+          comparisonScale: false
+        }
+      );
+
+      insertValue("lgd-scale-caption", ``);
+      return;
+    }
+
+    const newSdzData = await readData(code);
+    if (!newSdzData) return;
+
+    // Critical: update the shared selected state
+    sdz_data = newSdzData;
+    currentSelectedName = newSdzData.name;
+    currentSelectedValue = newSdzData.data.ranks[type_select.value];
+
+    scaleChart("lgd-scale-chart",
+      {
+        data: { ranks: { [type_select.value]: currentSelectedValue } },
+        count: data.sdz_count
+      },
+      type_select.value,
+      {
+        labels: "below",
+        marker: true,
+        comparisonScale: true
+      }
+    );
+
+    insertValue(
+      "lgd-scale-caption",
+      `<span class="text-purple fw-bold">${newSdzData.name}</span> is ranked ${currentSelectedValue} out of ${newSdzData.count} for <strong>${deprivation_type_text}</strong>.`
+    );
+  });
 
   type_select.addEventListener("change", async () => {
     const params = new URLSearchParams(window.location.search);
@@ -109,22 +172,33 @@ export async function updateLGD({ animate = true } = {}) {
       "deprivation-type",
       deprivation_type_text
     );
-      plotScaleMap("scale-map", data, type_select.value, {
+
+       await plotScaleMap("scale-map",
+        data,
+        type_select.value,
+        {
+        animate,
         highlightSdz: sdz,
-        preserveView: true
-      })
+        forceLgdView: true,
+        enableComparison: true,
+        enableSdzClick: true   
+      });
 
       sdz_data = await readData(sdz);
 
-      scaleChart(
-        "lgd-scale-chart",
-        sdz ? sdz_data : data,
-        type_select.value,
-        {
-          labels: "below",
-          marker: sdz ? true : false
-        }
-      );
+      scaleChart("lgd-scale-chart",
+            {
+              data: { ranks: { [type_select.value]: sdz_data ? sdz_data.data.ranks[type_select.value] : null } },
+              count: data.sdz_count
+            },
+            type_select.value,
+            {
+              labels: "below",
+              marker: sdz ? true : false,
+              comparisonScale: sdz ? true : false
+            });
+
+
       createLGDTable(lgdTableContainer, data, type_select.value, sdz)
 
       document.getElementById("type-description").innerHTML = config.deprivation_types[type_select.value].description;
@@ -136,6 +210,61 @@ export async function updateLGD({ animate = true } = {}) {
   });
 
   lgdDeprivationSummary("deprivation-summary", data, type_select.value);
+
+  if (sdz) {
+    currentSelectedName = sdz_data.name;
+    currentSelectedValue = sdz_data.data.ranks[type_select.value];
+
+    updateComparisonText(sdz_data, sdz_data, true, false, type_select.value);
+
+    window.addEventListener("sdzhovercompare", e => {
+      const { hovered, selected } = e.detail;
+      if (!hovered?.value || !selected?.value) return;
+
+      updateComparisonText(sdz_data, hovered, false, false, type_select.value);
+
+      scaleChart("lgd-scale-chart",
+        {
+          data: { ranks: { [type_select.value]: currentSelectedValue } },
+          count: data.sdz_count
+        },
+        type_select.value,
+        {
+          labels: "below",
+          marker: true,
+          compareValue: hovered.value,
+          comparisonScale: true
+        }
+      );
+    });
+
+    window.addEventListener("sdzhoverout", () => {
+      updateComparisonText(sdz_data, sdz_data, true, false, type_select.value);
+
+      const selectedType = type_select.value || "mdm";
+      currentSelectedValue = sdz_data.data.ranks[selectedType];
+
+      scaleChart("lgd-scale-chart",
+        {
+          data: { ranks: { [selectedType]: currentSelectedValue } },
+          count: data.sdz_count
+        },
+        selectedType,
+        {
+          labels: "below",
+          marker: true,
+          comparisonScale: true,
+          compareValue: null
+        }
+      );
+    });
+
+    type_select.addEventListener("change", () => {
+      currentSelectedValue = sdz_data.data.ranks[type_select.value];
+      updateComparisonText(sdz_data, sdz_data, true, false, type_select.value);
+    });
+    
+  }
 
   copySummary(data);
 
