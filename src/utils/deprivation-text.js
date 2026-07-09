@@ -162,7 +162,6 @@ export function updateComparisonText(data, hovered, clickedSdz = false, onMouseL
   } else {
     text += `.`;
   }
-  
 
-  el.innerHTML = `${text}</p><p class="mb-0">Click on an area to focus on it.</p>`;
+  el.innerHTML = `${text}</p>${window.location.pathname.indexOf("area.html") > -1 ? `<p class="mb-0">Click on an area to focus on it.</p>` : ""}`;
 }
