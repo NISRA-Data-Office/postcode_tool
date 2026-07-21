@@ -726,7 +726,7 @@ function getLgdName(feature) {
   );
 }
 
-async function selectSdzByCode(code, options = {}) {
+export async function selectSdzByCode(code, options = {}) {
   const { moveToSdz = true } = options;
 
   if (!map?.getSource("sdz-shapes")) return;
