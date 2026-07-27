@@ -33,7 +33,7 @@ export function scaleChart(id, data, type, options = {}) {
   const COMPARE_X = compareValue != null
     ? (compareValue / count) * SCALE_WIDTH
     : null;
-  const selectedMarkerColor = comparisonScale ? "#D4351C" : "#f8f8f8"
+  const selectedMarkerColor = "#D4351C";
 
 
   const LABEL_LEFT = "← 1 (Most deprived)";
