@@ -35,6 +35,23 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
 
     wrapper.appendChild(menu);
 
+    function getDeprivationType() {
+      const deprivationTypeEl = document.querySelector(".deprivation-type");
+      
+      let deprivationType = deprivationTypeEl ? deprivationTypeEl.textContent
+                                                  .toLowerCase()
+                                                  .trim()
+                                                  .replace(/[^a-z0-9\s-]/g, "")
+                                                  .replace(/\s+/g, "-")
+                                                  : "deprivation";
+                                                  
+      if (deprivationType === "overall-mdm") {
+        deprivationType = "overall";
+      }
+      
+      return deprivationType;
+    }
+
     if (plot_type == "map") {
         document.getElementById(`download-${capture_id}`)?.addEventListener("click", async (e) => {
         e.preventDefault();
@@ -48,8 +65,10 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
                     .replace(/[^a-z0-9\s-]/g, "")   // remove special characters
                     .replace(/\s+/g, "-")           // spaces → hyphens
                     .replace(/-+/g, "-");           // collapse multiple hyphens
+        
+        const deprivationType = getDeprivationType();
 
-        await exportCardWithMap(cardEl, map, mapContainerEl, `deprivation-in-${fileName}.png`, placeName);
+        await exportCardWithMap(cardEl, map, mapContainerEl, `${deprivationType}-deprivation-in-${fileName}.png`, placeName);
       });
     }
     
@@ -75,8 +94,10 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
           .replace(/[^a-z0-9\s-]/g, "")
           .replace(/\s+/g, "-")
           .replace(/-+/g, "-");
+
+          const deprivationType = getDeprivationType();
           
-          downloadCSV(data, `deprivation-in-${fileName}.csv`);
+          downloadCSV(data, `${deprivationType}-deprivation-in-${fileName}.csv`);
 });
 
 document.getElementById(`download-xlsx-${capture_id}`)
@@ -102,8 +123,9 @@ document.getElementById(`download-xlsx-${capture_id}`)
         .replace(/\s+/g, "-")
         .replace(/-+/g, "-");
         
-        
-        downloadExcel(data, `deprivation-in-${fileName}.xlsx`);
+        const deprivationType = getDeprivationType();
+
+        downloadExcel(data, `${deprivationType}-deprivation-in-${fileName}.xlsx`);
   });
   
   document.getElementById(`download-map-${capture_id}`)?.addEventListener("click", async (e) => {
@@ -178,9 +200,11 @@ document.getElementById(`download-xlsx-${capture_id}`)
         .replace(/[^a-z0-9\s-]/g, "")
         .replace(/\s+/g, "-")
         .replace(/-+/g, "-");
+    
+    const deprivationType = getDeprivationType();
 
     const link = document.createElement("a");
-    link.download = `deprivation-in-${fileName}.png`;
+    link.download = `${deprivationType}-deprivation-in-${fileName}.png`;
     link.href = finalCanvas.toDataURL("image/png");
     link.click();
   });
