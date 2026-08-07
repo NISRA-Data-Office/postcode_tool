@@ -2,8 +2,8 @@ source("src/r/config.R")
 
 # Import CPD ####
 
-cpd <- read.csv(paste0(data_dir, latest_cpd_file)) %>%
-  filter(SDZ2021 != "000000000" & X != 666666 & Y != 666666) %>%
+cpd <- read_csv("https://raw.githubusercontent.com/nisra-explore/postcode-search/refs/heads/main/CPD_LIGHT.csv",
+                show_col_types = FALSE) %>%
   mutate(
     postcode = paste0(
       substr(PC5, 1, nchar(PC5) - 3),

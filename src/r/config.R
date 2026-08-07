@@ -8,6 +8,7 @@ library(ggplot2)
 library(purrr)
 library(V8)
 library(ggspatial)
+library(readr)
 
 # Paths to directories ####
 ## Inputs ####
@@ -19,7 +20,6 @@ search_dir <- "public/search_data/"
 
 # Input file names ####
 geog_file <- "geog_data_withdz_and_area2.xlsx"
-latest_cpd_file <- "CPD_LIGHT_Jan26.csv"
 data_filename <- "nimdm-2026-ranks-sdz-test-data.csv"
 
 # Geo code lookups ####
