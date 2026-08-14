@@ -135,13 +135,7 @@ export async function updateLGD({ animate = true } = {}) {
         }
       );
 
-      updateComparisonText(
-        { name: data.name, count: data.sdz_count, data: { ranks: { [selectedType]: null } } },
-        { name: data.name, value: null },
-        true,
-        false,
-        selectedType
-      );
+      document.getElementById("comparison-text").innerHTML = "";
 
       insertValue("lgd-scale-caption", ``);
       return;
@@ -233,13 +227,7 @@ export async function updateLGD({ animate = true } = {}) {
         `<span class="text-purple fw-bold">${sdz_data.name}</span> is ranked ${currentSelectedValue} out of ${sdz_data.count} for <strong>${deprivation_type_text}</strong>.`
       );
     } else {
-      updateComparisonText(
-        { name: data.name, count: data.sdz_count, data: { ranks: { [selectedType]: null } } },
-        { name: data.name, value: null },
-        true,
-        false,
-        selectedType
-      );
+      document.getElementById("comparison-text").innerHTML = "";
       insertValue("lgd-scale-caption", ``);
     }
   });
