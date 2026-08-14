@@ -190,7 +190,10 @@ export async function updateSDZ({ animate = true } = {}) {
 
     scaleChart(
       "comparison-scale-chart",
-      lgdData,
+      {
+        data: { ranks: { currentSelectedValue } },
+        count: currentLgdData.sdz_count
+      },
       selectedType,
       {
         labels: "below",
@@ -198,8 +201,7 @@ export async function updateSDZ({ animate = true } = {}) {
       }
     );
 
-    updateComparisonText(sdz_data, sdz_data, true, false, type_select.value);
-
+    updateComparisonText(data, data, true, false, selectedType);
   });
 
 }
