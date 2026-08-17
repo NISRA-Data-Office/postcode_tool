@@ -81,6 +81,8 @@ export async function lgdMenu (id) {
         } else {
             window.location.href = `area.html?code=${encodeURIComponent(lgd)}`;
         }
+
+        document.getElementById("clear-focus").click();
         
     });
 

@@ -241,9 +241,12 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
   window.addEventListener("sdzselect", async e => {
     selectedCode = e.detail.code;
-    highlightRow(selectedCode);
-    const data = await readData(selectedCode);
-    updateComparisonText(data, data, false, true, selectedDeprivation);
+    if (selectedCode) {
+      highlightRow(selectedCode);
+      const data = await readData(selectedCode);
+      updateComparisonText(data, data, false, true, selectedDeprivation);
+    }
+    
   });
 
   render();
