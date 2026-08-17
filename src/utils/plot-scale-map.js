@@ -470,7 +470,9 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
 function addLgdClick(map) {
   map.on("click", e => {
 
-    if (mapState.enableComparison) return;
+    if (mapState.enableComparison && mapState.enableSdzClick === false) {
+      return;
+    }
     if (mapState.isCountryMap) return;
 
     const features = map.queryRenderedFeatures(e.point, {
