@@ -30,10 +30,52 @@ export async function updateLGD({ animate = true } = {}) {
     return;
   }
 
+  const sdz = params?.get("sdz");
+  const data = await readData(lgd);
+  let sdz_data = null;
+  let currentSelectedName = null;
+  let currentSelectedValue = null;
+  comparisonState = { data, sdzData: null, selectedType: type_select.value || "mdm" };
+
+  if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
+    window.location.search = `code=${lgd}`;
+  }
+ 
+  document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
+
+  insertNavButtons(data);
+  insertValue("place-name", data.name);
+
+  const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
+  const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
+
   if (lgd == "N92000002") {
     document.getElementById("lgd-select-group").classList.add("d-none");
     document.getElementById("deprivation-summary-group").classList.add("d-none");
-    document.getElementById("ni-explainer").classList.add("d-none");
+    
+    const explainer = document.getElementById("ni-explainer");
+    if (explainer) {
+      explainer.classList.add("d-none");
+    }
+
+    const headline = document.querySelector("#headline").parentElement;
+
+    let ni_description = document.getElementById("ni-description");
+
+    if (!ni_description) {
+      ni_description = document.createElement("p");
+      ni_description.id = "ni-description";
+
+      const paragraphs = headline.querySelectorAll("p");
+      headline.insertBefore(ni_description, paragraphs[paragraphs.length - 1]);
+    }
+
+    ni_description.innerHTML = `<p>Northern Ireland is made up of ${data.sdz_count} Super Data Zones, referred to here as 'neighbourhoods'. Each neighbourhood has an average population of 2,240 people.</p>
+                                <p>The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${data.sdz_count} is the least deprived.</p>
+    `;
+
+    document.getElementById("map-explanation").textContent = "Using the map or table, click on a neighbourhood to focus on that area.";
+    document.getElementById("sdz-description").classList.add("d-none");
     document.getElementById("scale-map").classList.add("ni-map");
     document.getElementById("lgd-table-container").classList.add("ni-map");
     document.getElementById("scale-map").classList.remove("scale-map");
@@ -53,25 +95,6 @@ export async function updateLGD({ animate = true } = {}) {
       document.getElementById("type-select").parentElement.appendChild(explore_text);
     }
   }
-
-  const sdz = params?.get("sdz");
-  const data = await readData(lgd);
-  let sdz_data = null;
-  let currentSelectedName = null;
-  let currentSelectedValue = null;
-  comparisonState = { data, sdzData: null, selectedType: type_select.value || "mdm" };
-
-  if (!Object.keys(data.data.ranks).includes(sdz) & sdz != null) {
-    window.location.search = `code=${lgd}`;
-  }
- 
-  document.getElementsByTagName("title")[0].textContent = `Deprivation in ${data.name}`;
-
-  insertNavButtons(data);
-  insertValue("place-name", data.name);
-
-  const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
-  const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
   if (lgd !== "N92000002") {
     const headline = document.querySelector("#headline").parentElement;
