@@ -270,6 +270,8 @@ export async function updateLGD({ animate = true } = {}) {
 
     document.getElementById("type-description").innerHTML = config.deprivation_types[selectedType].description;
 
+    lgdDeprivationSummary("deprivation-summary", data, selectedType);
+
     if (sdz_data) {
       currentSelectedName = sdz_data.name;
       currentSelectedValue = sdz_data.data.ranks[selectedType];

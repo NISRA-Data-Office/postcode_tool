@@ -89,11 +89,15 @@ export function getDeprivationSummary(id, data) {
 export function lgdDeprivationSummary(id, data, type) {
   
   const place = data;
-  const deprivation_type = "mdm";
+  const type_description = config.deprivation_types[type]?.description || "";
+  const type_title = config.deprivation_types[type]?.title || type;
+
+  const type_text = type === "mdm" ? "Overall MDM" : `${type_title.toLowerCase()} deprivation`;
+
   const children = Object.entries(place.data?.ranks || {}).map(([code, item]) => ({
     code,
     name: item.name,
-    rank: item.ranks?.[deprivation_type]
+    rank: item.ranks?.[type]
   }));
 
   const valid = children.filter(d => d.rank != null);
@@ -101,22 +105,20 @@ export function lgdDeprivationSummary(id, data, type) {
 
   const mostDeprived = sorted[0];
   const leastDeprived = sorted[sorted.length - 1];
-  
+
   const maxRank = Math.max(...valid.map(d => d.rank));
   const topMostCount = valid.filter(d => d.rank <= 100).length;
 
   document.getElementById(id).innerHTML = `
+      ${type_description}
       <p>
-        Levels of deprivation and disadvantage vary widely across councils and across Northern Ireland.
-      </p>
-      <p>
-        There are ${children.length} super data zones in <span class="text-purple fw-bold">${place.name}</span>. 
+        There are ${children.length} neighbourhoods in <span class="text-purple fw-bold">${place.name}</span>. 
         The most deprived neighbourhood is <span class="text-purple fw-bold">${mostDeprived?.name}</span>
         and the least deprived is <span class="text-purple fw-bold">${leastDeprived?.name}</span>.
       </p>
 
       <p>
-        <span class="text-purple fw-bold">${place.name}</span> contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland.
+        <span class="text-purple fw-bold">${place.name}</span> contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland when using the ${type_text}.
       </p>
   `;
 }
