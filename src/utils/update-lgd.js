@@ -42,6 +42,15 @@ export async function updateLGD({ animate = true } = {}) {
     document.getElementById("table-col").classList.remove("col-xl-5");
     document.getElementById("in-focus-col").classList.add("col-xl-8");
     document.getElementById("in-focus-col").classList.remove("col-xl-7");
+
+    if (!document.getElementById("explore-councils")) {
+      const explore_text = document.createElement("p");
+      explore_text.id = "explore-councils";
+      explore_text.className = "mt-5 text-center";
+      explore_text.innerHTML = '<a href="area.html?code=N09000001">Explore deprivation by council area</a>';
+      
+      document.getElementById("type-select").parentElement.appendChild(explore_text);
+    }
   }
 
   const sdz = params?.get("sdz");
