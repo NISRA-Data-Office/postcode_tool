@@ -33,6 +33,7 @@ export async function updateLGD({ animate = true } = {}) {
   if (lgd == "N92000002") {
     document.getElementById("lgd-select-group").classList.add("d-none");
     document.getElementById("deprivation-summary-group").classList.add("d-none");
+    document.getElementById("ni-explainer").classList.add("d-none");
     document.getElementById("scale-map").classList.add("ni-map");
     document.getElementById("lgd-table-container").classList.add("ni-map");
     document.getElementById("scale-map").classList.remove("scale-map");
@@ -71,6 +72,26 @@ export async function updateLGD({ animate = true } = {}) {
 
   const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
   const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
+
+  if (lgd !== "N92000002") {
+    const headline = document.querySelector("#headline").parentElement;
+    let explainer = document.getElementById("ni-explainer");
+    
+    if (!explainer) {
+      explainer = document.createElement("p");
+      explainer.id = "ni-explainer";
+
+      const paragraphs = headline.querySelectorAll("p");
+      headline.insertBefore(explainer, paragraphs[paragraphs.length - 1]);
+    }
+
+    const neighbourhood_count = Object.keys(data.data.ranks || {}).length;
+    const council_name = data.name;
+
+    explainer.innerHTML = `There are ${data.sdz_count} neighbourhoods in Northern Ireland. ${council_name} is made up of ${neighbourhood_count} neighbourhoods.
+                           The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${neighbourhood_count} is the least deprived in ${council_name}.
+    `;
+  }
 
   if (sdz) {
     insertValue("sdz-name", data.data.ranks[sdz].name);
