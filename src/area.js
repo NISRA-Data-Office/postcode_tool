@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   handleOnScroll();
   clearSdzFocus();
 
+  document.getElementById("download-pdf-btn")?.addEventListener("click", () => window.print());
   downloadButton("download-btn", "map-capture", "map");
 });
 

@@ -26,9 +26,7 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
         <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
         <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
         ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
-        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>
-        <li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">charts (as image)</a></li>` : ""}
-        <li><a class="dropdown-item" href="#" onclick="window.print(); return false;">page (as PDF)</a></li>
+        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>` : ""}
     `;
 
     menu.style.maxWidth = "50%";
@@ -142,7 +140,7 @@ document.getElementById(`download-xlsx-${capture_id}`)
     await exportCardWithMap(cardEl, map, mapContainerEl,`${areaName}-${deprivationType}-comparison-map.png`, placeName);
   });
   
-  document.getElementById(`download-scale-${capture_id}`)?.addEventListener("click", async (e) => {
+  document.getElementById("download-charts-btn")?.addEventListener("click", async (e) => {
     e.preventDefault();
 
     if (!window.location.pathname.includes("sdz")) return;

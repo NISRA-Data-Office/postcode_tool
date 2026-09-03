@@ -20,6 +20,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     populateInfoBoxes();
     handleOnScroll();
 
+    document.getElementById("download-pdf-btn")?.addEventListener("click", () => window.print());
     downloadButton("download-btn", "chart-capture", "map");
 })
 
