@@ -241,13 +241,21 @@ export function createLGDTable(container, place, selectedDeprivation, sdz) {
 
   window.addEventListener("sdzselect", async e => {
     selectedCode = e.detail.code;
+
     if (selectedCode) {
       highlightRow(selectedCode);
       const data = await readData(selectedCode);
       updateComparisonText(data, data, false, true, selectedDeprivation);
+    } else {
+      container.querySelectorAll(".sdz-row").forEach(row => {
+        row.classList.remove("selected");
+      });
+      
+      container.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
-    
   });
-
   render();
 }
