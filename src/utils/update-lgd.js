@@ -226,7 +226,7 @@ export async function updateLGD({ animate = true } = {}) {
     );
   });
 
-  type_select.addEventListener("change", async () => {
+  type_select.onchange = async () => {
     const params = new URLSearchParams(window.location.search);
     const sdz = params.get("sdz");
     const selectedType = type_select.value || "mdm";
@@ -285,7 +285,7 @@ export async function updateLGD({ animate = true } = {}) {
       document.getElementById("comparison-text").innerHTML = "";
       insertValue("lgd-scale-caption", ``);
     }
-  });
+  };
 
   lgdDeprivationSummary("deprivation-summary", data, type_select.value);
 
