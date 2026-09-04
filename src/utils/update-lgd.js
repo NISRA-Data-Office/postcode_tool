@@ -46,7 +46,7 @@ export async function updateLGD({ animate = true } = {}) {
   insertNavButtons(data);
   insertValue("place-name", data.name);
 
-  const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
+  const deprivation_type = config.deprivation_types[type_select.value].title;
   const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
   if (lgd == "N92000002") {
@@ -231,7 +231,7 @@ export async function updateLGD({ animate = true } = {}) {
     const sdz = params.get("sdz");
     const selectedType = type_select.value || "mdm";
 
-    const deprivation_type = config.deprivation_types[selectedType].title.toLowerCase();
+    const deprivation_type = config.deprivation_types[selectedType].title;
     const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
 
     insertValue(
