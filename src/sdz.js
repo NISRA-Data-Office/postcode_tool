@@ -21,7 +21,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     handleOnScroll();
 
     document.getElementById("download-pdf-btn")?.addEventListener("click", () => window.print());
-    downloadButton("download-btn", "chart-capture", "map");
+    downloadButton("download-btn", "map-capture", "map");
+    downloadButton("download-charts-btn","chart-capture","chart");
 })
 
 window.addEventListener("popstate", () => updateSDZ({ animate: true }));

@@ -22,12 +22,24 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
     const menu = document.createElement("ul");
     menu.className = "dropdown-menu";
 
-    menu.innerHTML = `
-        <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
-        <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
-        ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
-        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>` : ""}
-    `;
+    if (plot_type === "chart") {
+
+      menu.innerHTML = `
+          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-${capture_id}">charts (as image)</a></li>
+      `;
+
+    } else {
+
+      menu.innerHTML = `
+          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
+          ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
+          ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>` : ""}
+      `;
+
+    }
 
     menu.style.maxWidth = "50%";
 
@@ -140,12 +152,14 @@ document.getElementById(`download-xlsx-${capture_id}`)
     await exportCardWithMap(cardEl, map, mapContainerEl,`${areaName}-${deprivationType}-comparison-map.png`, placeName);
   });
   
-  document.getElementById("download-charts-btn")?.addEventListener("click", async (e) => {
+if (plot_type === "chart") {
+
+    document.getElementById(`download-${capture_id}`)?.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    if (!window.location.pathname.includes("sdz")) return;
+    const chartEl = document.getElementById(capture_id);
 
-    const chartEl = document.getElementById("chart-capture");
+    if (!chartEl) return;
 
     const canvas = await html2canvas(chartEl, {
       backgroundColor: "#ffffff",
@@ -193,7 +207,7 @@ document.getElementById(`download-xlsx-${capture_id}`)
     link.href = finalCanvas.toDataURL("image/png");
     link.click();
   });
-}
+}}
 
 async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null) {
   // Wait until map is fully rendered
