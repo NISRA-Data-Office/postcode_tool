@@ -13,7 +13,11 @@ let currentLgdBounds = null;
 let selectedSdzId = null;
 
 const mapState = {
-  isCountryMap: false
+  isCountryMap: false,
+  enableComparison: false,
+  enableSdzClick: false,
+  selectedSdz: null,
+  selectedValue: null
 };
 
 export async function plotScaleMap(
@@ -25,19 +29,27 @@ export async function plotScaleMap(
   const {
     animate = true,
     highlightSdz = null,
-    preserveView = false
+    preserveView = false,
+    enableComparison = false,
+    enableSdzClick = undefined
   } = options;
 
   if (!lgdGeojsonData) lgdGeojsonData = await loadShapes("LGD2014.geo.json");
   if (!sdzGeojsonData) sdzGeojsonData = await loadShapes("SDZ2021.geo.json");
 
   mapState.isCountryMap = map_data.type === "ctry";
+  mapState.enableComparison = enableComparison;
+  mapState.enableSdzClick = enableSdzClick ?? !enableComparison;
+  mapState.selectedSdz = highlightSdz;
+  const effectiveType = deprivation_type || "mdm";
+  mapState.selectedValue = map_data.data?.ranks?.[highlightSdz]?.ranks?.[effectiveType];
 
   const selectedLgdCode = map_data.code;
   const selectedLgdName = map_data.name;
 
   const ranks = map_data.data?.ranks || {};
   const sdzCodes = new Set(Object.keys(ranks));
+  const typeForColour = deprivation_type || "mdm";
 
   const rangeMin = 1;
   const rangeMax = map_data.sdz_count || sdzCodes.size;
@@ -57,7 +69,7 @@ export async function plotScaleMap(
     features: buildSdzFeatures({
       sdzCodes,
       ranks,
-      deprivation_type,
+      deprivation_type: typeForColour,
       selectedLgdCode,
       isCountryMap: mapState.isCountryMap,
       rangeMin,
@@ -69,6 +81,10 @@ export async function plotScaleMap(
   let mapBounds = await getTargetBounds(map_data, highlightSdz);
 
   if (map) {
+
+    map.removeFeatureState({ source: "sdz-shapes" });
+    map.removeFeatureState({ source: "lgd-shapes" });
+
     clearCurrentFeatureStates();
 
     map.getSource("lgd-shapes")?.setData(styledLgdGeojson);
@@ -144,8 +160,11 @@ export async function plotScaleMap(
     });
 
     addHoverPopup(map, "sdz-fill", "sdz-shapes", {
-      enabled: () => true
-    });
+      enabled: () => true,
+      enableComparison: mapState.enableComparison,
+      highlightSdz: mapState.selectedSdz,
+      selectedValue: mapState.selectedValue
+  });
 
     addLgdClick(map);
     addSdzClick(map);
@@ -268,6 +287,7 @@ function addFillLayer(id, source, beforeId) {
 }
 
 function addOutlineLayer(id, source, lineWidth) {
+  // Base outline layer
   map.addLayer({
     id,
     type: "line",
@@ -275,25 +295,68 @@ function addOutlineLayer(id, source, lineWidth) {
     paint: {
       "line-color": [
         "case",
-        ["boolean", ["get", "nisra_highlight"], false],
-        "#D4351C",
-        ["boolean", ["feature-state", "selected"], false],
-        "#D4351C",
+        ["boolean", ["feature-state", "hover"], false],
+        "#222222",
         "#555555"
       ],
       "line-width": [
         "case",
-        ["boolean", ["get", "nisra_highlight"], false],
-        3,
-        ["boolean", ["feature-state", "selected"], false],
-        3,
+        ["boolean", ["feature-state", "hover"], false],
+        lineWidth + 1,
         lineWidth
+      ],
+      "line-opacity": 0.9
+    }
+  });
+
+  // Red selected / highlighted outline, above normal map lines
+  map.addLayer({
+    id: `${id}-selected`,
+    type: "line",
+    source,
+    paint: {
+      "line-color": "#D4351C",
+      "line-width": [
+        "case",
+        [
+          "any",
+          ["boolean", ["get", "nisra_highlight"], false],
+          ["boolean", ["feature-state", "selected"], false]
+        ],
+        lineWidth + 4,
+        0
       ],
       "line-opacity": [
         "case",
-        ["boolean", ["get", "nisra_highlight"], false],
+        [
+          "any",
+          ["boolean", ["get", "nisra_highlight"], false],
+          ["boolean", ["feature-state", "selected"], false]
+        ],
         1,
-        0.9
+        0
+      ]
+    }
+  });
+
+  // Lilac comparison hover outline, above everything else
+  map.addLayer({
+    id: `${id}-compare-hover`,
+    type: "line",
+    source,
+    paint: {
+      "line-color": "#ce70d2",
+      "line-width": [
+        "case",
+        ["boolean", ["feature-state", "compareHover"], false],
+        lineWidth + 4,
+        0
+      ],
+      "line-opacity": [
+        "case",
+        ["boolean", ["feature-state", "compareHover"], false],
+        1,
+        0
       ]
     }
   });
@@ -307,13 +370,23 @@ function addCursorPointer() {
 
     const features = map.queryRenderedFeatures(e.point, { layers });
 
-    map.getCanvas().style.cursor =
-      features.length > 0 ? "pointer" : "default";
+    if (mapState.enableComparison && !mapState.enableSdzClick) {
+      map.getCanvas().style.cursor = "default";
+    } else {
+      map.getCanvas().style.cursor =
+        features.length > 0 ? "pointer" : "default";
+    }
   });
 }
 
 function addHoverPopup(map, layerId, sourceId, options = {}) {
   let hoveredId = null;
+
+  const {
+    enableComparison = false,
+    highlightSdz = null,
+    selectedValue = null
+  } = options;
 
   const popup = new maplibregl.Popup({
     closeButton: false,
@@ -322,22 +395,66 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
     className: "nisra-popup"
   });
 
+  const clearHoverState = ({ emitOut = false } = {}) => {
+    if (hoveredId === null) return;
+
+    clearFeatureState(map, sourceId, hoveredId, "compareHover");
+    clearFeatureState(map, sourceId, hoveredId, "hover");
+    hoveredId = null;
+
+    if (emitOut && enableComparison) {
+      window.dispatchEvent(new Event("sdzhoverout"));
+    }
+
+    popup.remove();
+  };
+
   map.on("mousemove", layerId, e => {
     if (options.enabled && !options.enabled()) {
+      clearHoverState({ emitOut: false });
       popup.remove();
       return;
     }
 
     const feature = e.features?.[0];
-    if (!feature) return;
+    if (!feature) {
+      clearHoverState({ emitOut: false });
+      return;
+    }
 
-    hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
+    const props = feature.properties;
+
+    if (
+      enableComparison &&
+      sourceId === "sdz-shapes" &&
+      props.nisra_code !== mapState.selectedSdz &&
+      props.nisra_value != null &&
+      mapState.selectedValue != null
+    ) {
+      window.dispatchEvent(new CustomEvent("sdzhovercompare", {
+        detail: {
+          hovered: {
+            code: props.nisra_code,
+            value: Number(props.nisra_value),
+            name: props.nisra_label
+          },
+          selected: {
+            code: mapState.selectedSdz,
+            value: Number(mapState.selectedValue)
+          }
+        }
+      }));
+    }
+
+    clearHoverState({ emitOut: false });
 
     hoveredId = feature.id;
 
     map.setFeatureState(
       { source: sourceId, id: hoveredId },
-      { hover: true }
+      enableComparison
+        ? { hover: true, compareHover: true }
+        : { hover: true }
     );
 
     popup
@@ -346,14 +463,16 @@ function addHoverPopup(map, layerId, sourceId, options = {}) {
       .addTo(map);
   });
 
-  map.on("mouseleave", layerId, () => {
-    hoveredId = clearFeatureState(map, sourceId, hoveredId, "hover");
-    popup.remove();
-  });
+  map.on("mouseleave", layerId, () => clearHoverState({ emitOut: true }));
+  map.on("mouseleave", () => clearHoverState({ emitOut: true }));
 }
 
 function addLgdClick(map) {
   map.on("click", e => {
+
+    if (mapState.enableComparison && mapState.enableSdzClick === false) {
+      return;
+    }
     if (mapState.isCountryMap) return;
 
     const features = map.queryRenderedFeatures(e.point, {
@@ -384,6 +503,9 @@ function addLgdClick(map) {
 
 function addSdzClick(map) {
   map.on("click", "sdz-fill", e => {
+
+    if (!mapState.enableSdzClick) return;
+
     const feature = e.features?.[0];
     if (!feature) return;
 
@@ -392,6 +514,7 @@ function addSdzClick(map) {
     if (!sdzCode) return;
 
     const url = new URL(window.location);
+    
     url.searchParams.set("sdz", sdzCode);
 
   
@@ -605,10 +728,25 @@ function getLgdName(feature) {
   );
 }
 
-async function selectSdzByCode(code, options = {}) {
+export async function selectSdzByCode(code, options = {}) {
   const { moveToSdz = true } = options;
 
-  if (!code || !map?.getSource("sdz-shapes")) return;
+  if (!map?.getSource("sdz-shapes")) return;
+
+  // If no code provided, clear any existing selection
+  if (!code) {
+    
+    selectedSdzId = clearFeatureState(
+      map,
+      "sdz-shapes",
+      selectedSdzId,
+      "selected"
+    );
+
+    mapState.selectedSdz = null;
+    removeStaticSdzHighlight();
+    return;
+  }
 
   selectedSdzId = clearFeatureState(
     map,
@@ -624,7 +762,36 @@ async function selectSdzByCode(code, options = {}) {
     { selected: true }
   );
 
+  // Store the selected SDZ in mapState so other handlers use it
+  mapState.selectedSdz = code;
+
+  const sdz_data = await readData(code);
+  const type_select = document.getElementById("type-select");
+  const selectedType = type_select.value || "mdm";
+
+  mapState.selectedValue = sdz_data.data.ranks[selectedType];
+
   removeStaticSdzHighlight();
+  // Also update the source feature property `nisra_highlight` so future source.setData
+  // or animations keep the static highlight consistent with the selected SDZ.
+  try {
+    const src = map.getSource("sdz-shapes");
+    const current = src?._data;
+    if (current && Array.isArray(current.features)) {
+      src.setData({
+        ...current,
+        features: current.features.map(f => ({
+          ...f,
+          properties: {
+            ...f.properties,
+            nisra_highlight: f.properties?.nisra_code === code
+          }
+        }))
+      });
+    }
+  } catch (err) {
+    
+  }
 
   if (moveToSdz) {
     const sdzBounds = await getTargetBounds(
@@ -635,24 +802,7 @@ async function selectSdzByCode(code, options = {}) {
     const sdz_data = await readData(code);
     const type_select = document.getElementById("type-select");
 
-    const deprivation_type = config.deprivation_types[type_select.value].title.toLowerCase();
-    const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
-
-    scaleChart(
-      "lgd-scale-chart",
-      sdz_data,
-      type_select.value,
-      {
-        labels: "below",
-        marker: true
-      }
-    );
-
-    insertValue(
-      "lgd-scale-caption",
-      `<span class="text-purple fw-bold">${sdz_data.name}</span> is ranked ${sdz_data.data.ranks[type_select.value]} out of ${sdz_data.count} for <strong>${deprivation_type_text}</strong>.`
-    );
-
+    // Update map view only; defer chart/caption updates to the page-level listener
     moveToBounds(map, sdzBounds, true);
     
   }

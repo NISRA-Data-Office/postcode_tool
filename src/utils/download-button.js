@@ -22,17 +22,52 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
     const menu = document.createElement("ul");
     menu.className = "dropdown-menu";
 
-    menu.innerHTML = `
-        <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
-        <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
-        ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
-        ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-scale-${capture_id}">charts (as image)</a></li>` : ""}
-        <li><a class="dropdown-item" href="#" onclick="window.print(); return false;">page (as PDF)</a></li>
-    `;
+    if (plot_type === "chart") {
+
+      menu.innerHTML = `
+          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">chart data (in CSV format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">chart data (in Excel format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-${capture_id}">charts (as image)</a></li>
+      `;
+
+    } else {
+
+      menu.innerHTML = `
+          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">map data (in CSV format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">map data (in Excel format)</a></li>
+          ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
+          ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>` : ""}
+      `;
+
+    }
 
     menu.style.maxWidth = "50%";
 
     wrapper.appendChild(menu);
+
+    function getDeprivationType() {
+      
+      let deprivationType = document.getElementById("type-select")?.value
+                                                                    ?.toLowerCase()
+                                                                    .trim()
+                                                                    .replace(/[^a-z0-9\s-]/g, "")
+                                                                    .replace(/\s+/g, "-") || "deprivation";
+                                                  
+      if (deprivationType === "mdm") {
+        deprivationType = "overall";
+      }
+      
+      return deprivationType;
+    }
+    
+    function getAreaName() {
+      
+      return document.querySelector(".place-name")?.textContent
+                                                    .toLowerCase()
+                                                    .trim()
+                                                    .replace(/[^a-z0-9\s-]/g, "")
+                                                    .replace(/\s+/g, "-") || "area";
+    }
 
     if (plot_type == "map") {
         document.getElementById(`download-${capture_id}`)?.addEventListener("click", async (e) => {
@@ -41,14 +76,11 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
         const cardEl = document.getElementById(capture_id);
         const mapContainerEl = document.getElementById("scale-map");
 
-        const fileName = rawText
-                    .toLowerCase()
-                    .trim()
-                    .replace(/[^a-z0-9\s-]/g, "")   // remove special characters
-                    .replace(/\s+/g, "-")           // spaces → hyphens
-                    .replace(/-+/g, "-");           // collapse multiple hyphens
+        const areaName = getAreaName();
+        
+        const deprivationType = getDeprivationType();
 
-        await exportCardWithMap(cardEl, map, mapContainerEl, `deprivation-in-${fileName}.png`);
+        await exportCardWithMap(cardEl, map, mapContainerEl, `${deprivationType}-deprivation-in-${areaName}.png`, placeName);
       });
     }
     
@@ -69,13 +101,11 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
 
     if (!data.length) return;
 
-    const fileName = rawText
-          .toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, "")
-          .replace(/\s+/g, "-")
-          .replace(/-+/g, "-");
+    const areaName = getAreaName();
+
+    const deprivationType = getDeprivationType();
           
-          downloadCSV(data, `deprivation-in-${fileName}.csv`);
+    downloadCSV(data, `${deprivationType}-deprivation-in-${areaName}.csv`);
 });
 
 document.getElementById(`download-xlsx-${capture_id}`)
@@ -95,22 +125,41 @@ document.getElementById(`download-xlsx-${capture_id}`)
 
     if (!data.length) return;
 
-    const fileName = rawText
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, "")
-        .replace(/\s+/g, "-")
-        .replace(/-+/g, "-");
+    const areaName = getAreaName();
         
-        
-        downloadExcel(data, `deprivation-in-${fileName}.xlsx`);
+    const deprivationType = getDeprivationType();
+
+    downloadExcel(data, `${deprivationType}-deprivation-in-${areaName}.xlsx`);
   });
   
-  document.getElementById(`download-scale-${capture_id}`)?.addEventListener("click", async (e) => {
+  document.getElementById(`download-map-${capture_id}`)?.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    if (!window.location.pathname.includes("sdz")) return;
+    if (!isSdzPage) return;
 
-    const chartEl = document.getElementById("chart-capture");
+    const cardEl = document.getElementById("map-capture");
+    const mapContainerEl = document.getElementById("comparison-map");
+
+    if (!cardEl || !mapContainerEl) {
+        console.error("Comparison map elements not found");
+        return;
+    }
+
+    const areaName = getAreaName();
+
+    const deprivationType = getDeprivationType();
+
+    await exportCardWithMap(cardEl, map, mapContainerEl,`${areaName}-${deprivationType}-comparison-map.png`, placeName);
+  });
+  
+if (plot_type === "chart") {
+
+    document.getElementById(`download-${capture_id}`)?.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const chartEl = document.getElementById(capture_id);
+
+    if (!chartEl) return;
 
     const canvas = await html2canvas(chartEl, {
       backgroundColor: "#ffffff",
@@ -149,20 +198,18 @@ document.getElementById(`download-xlsx-${capture_id}`)
         }
     );
 
-    const fileName = rawText
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, "")
-        .replace(/\s+/g, "-")
-        .replace(/-+/g, "-");
+    const areaName = getAreaName();
+    
+    const deprivationType = getDeprivationType();
 
     const link = document.createElement("a");
-    link.download = `deprivation-in-${fileName}.png`;
+    link.download = `${deprivationType}-deprivation-in-${areaName}.png`;
     link.href = finalCanvas.toDataURL("image/png");
     link.click();
   });
-}
+}}
 
-async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
+async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null) {
   // Wait until map is fully rendered
   await waitForMapReady(map);
 
@@ -206,7 +253,16 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
     if (pageTitle) {
         const title = clonedDoc.createElement("div");
 
-        title.textContent = pageTitle.textContent;
+        title.textContent = mapContainerEl.id === "comparison-map" ? `Deprivation in ${placeName.textContent} and nearby areas`
+        : pageTitle.textContent;
+
+        if (mapContainerEl.id === "comparison-map") {
+            const comparisonText = clonedDoc.getElementById("comparison-text");
+
+            if (comparisonText) {
+                comparisonText.style.display = "none";
+            }
+        }
 
         title.style.fontSize = "22px";
         title.style.fontWeight = "bold";
@@ -214,11 +270,7 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename) {
         title.style.marginTop = "16px";
         title.style.marginLeft = "5px";
 
-        const clonedCard = clonedDoc.getElementById(cardEl.id);
-
-        if (clonedCard) {
-            clonedCard.prepend(title);
-        }
+        clonedCard.prepend(title); 
     }
 
     // ✅ Remove/hide footer in the CLONE so it doesn't appear in the export
@@ -366,8 +418,6 @@ function extractSDZData(sdzData) {
         ]);
     });
 
-    console.log(rows)
-
     return rows;
 }
 
@@ -388,7 +438,7 @@ function downloadCSV(data, filename) {
 function downloadExcel(data, filename) {
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet(data);
-    const sheetName = filename.replace(/\.xlsx$/i, "");
+    const sheetName = "data";
 
     XLSX.utils.book_append_sheet(wb, ws, sheetName);
 

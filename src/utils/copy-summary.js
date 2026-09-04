@@ -1,6 +1,7 @@
 export function copySummary(data) {
   const button = document.getElementById("copy-summary");
   const summary = document.getElementById("deprivation-summary");
+  const summary_heading = document.getElementById("summary-heading");
 
   button.setAttribute(
     "aria-label",
@@ -10,7 +11,7 @@ export function copySummary(data) {
   if (!button || !summary) return;
 
   button.addEventListener("click", async () => {
-  const text = `${summary.innerText}\n\nSource: NISRA`;
+  const text = `${summary_heading.innerText}\n\n${summary.innerText}\n\nSource: NISRA`;
 
   if (!navigator.clipboard) {
     console.error("Clipboard API not available.");

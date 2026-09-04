@@ -89,11 +89,15 @@ export function getDeprivationSummary(id, data) {
 export function lgdDeprivationSummary(id, data, type) {
   
   const place = data;
-  const deprivation_type = "mdm";
+  const type_description = config.deprivation_types[type]?.description || "";
+  const type_title = config.deprivation_types[type]?.title || type;
+
+  const type_text = type === "mdm" ? "Overall MDM" : `${type_title.toLowerCase()} deprivation`;
+
   const children = Object.entries(place.data?.ranks || {}).map(([code, item]) => ({
     code,
     name: item.name,
-    rank: item.ranks?.[deprivation_type]
+    rank: item.ranks?.[type]
   }));
 
   const valid = children.filter(d => d.rank != null);
@@ -101,22 +105,65 @@ export function lgdDeprivationSummary(id, data, type) {
 
   const mostDeprived = sorted[0];
   const leastDeprived = sorted[sorted.length - 1];
-  
+
   const maxRank = Math.max(...valid.map(d => d.rank));
   const topMostCount = valid.filter(d => d.rank <= 100).length;
 
   document.getElementById(id).innerHTML = `
+      ${type_description}
       <p>
-        Levels of deprivation and disadvantage vary widely across councils and across Northern Ireland.
-      </p>
-      <p>
-        There are ${children.length} super data zones in <span class="text-purple fw-bold">${place.name}</span>. 
+        There are ${children.length} neighbourhoods in <span class="text-purple fw-bold">${place.name}</span>. 
         The most deprived neighbourhood is <span class="text-purple fw-bold">${mostDeprived?.name}</span>
         and the least deprived is <span class="text-purple fw-bold">${leastDeprived?.name}</span>.
       </p>
 
       <p>
-        <span class="text-purple fw-bold">${place.name}</span> contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland.
+        <span class="text-purple fw-bold">${place.name}</span> contains ${topMostCount} of the 100 most deprived neighbourhoods in Northern Ireland when using the ${type_text}.
       </p>
   `;
+}
+
+export function updateComparisonText(data, hovered, clickedSdz = false, onMouseLeave = false, type) {
+
+  const el = document.getElementById("comparison-text");
+  if (!el) return; 
+
+  const selected_value = data.data.ranks[type];
+  const hovered_value = hovered.value;
+  let type_title = config.deprivation_types[type].title;
+  type_title = type == "mdm" ? type_title : type_title.toLowerCase();
+  
+  const hoveredStyled = `<span class="text-lilac"><strong>${hovered.name}</strong></span>`;
+  const selectedStyled = `<span class="text-red"><strong>${data.name}</strong></span>`;
+
+  let text;
+
+  if (clickedSdz == true || onMouseLeave == true) {
+    text = `<p class="mb-0">${selectedStyled} is ranked ${selected_value} out of ${data.count} for <strong>${type_title}</strong>.</p><p class="mb-0">Hover over an area to compare deprivation.</p>`;
+    el.innerHTML = text;
+    return;
+  }
+
+  const selected_decile = Math.ceil(selected_value / (data.count / 10));
+  const hovered_decile = Math.ceil(hovered_value / (data.count / 10));
+
+  text = `<p class="mb-0">`
+
+  if (selected_decile === hovered_decile) {
+    text += `${hoveredStyled} has a similar deprivation ranking to ${selectedStyled}`;
+  } 
+  else if (hovered_value > selected_value) {
+    text += `${hoveredStyled} is less deprived than ${selectedStyled}`;
+  } 
+  else {
+    text += `${hoveredStyled} is more deprived than ${selectedStyled}`;
+  }
+
+  if (type != "mdm") {
+    text += ` for <strong>${type_title.toLowerCase()}</strong>.`;
+  } else {
+    text += `.`;
+  }
+
+  el.innerHTML = `${text}</p>${window.location.pathname.indexOf("area.html") > -1 ? `<p class="mb-0">Click on an area to focus on it.</p>` : ""}`;
 }

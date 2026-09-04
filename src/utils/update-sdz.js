@@ -3,27 +3,33 @@ import { postcode_data } from "./postcode-search.js";
 import { insertNavButtons } from "./page-layout.js";
 import { insertValue } from "./insert-value.js";
 import { plotNavMap } from "./plot-nav-map.js";
-import { getHeadline, getParagraph, getDeprivationSummary } from "./deprivation-text.js";
+import { plotScaleMap } from "./plot-scale-map.js";
+import { getHeadline, getParagraph, getDeprivationSummary, updateComparisonText } from "./deprivation-text.js";
 import { scaleChart } from "./scale-chart.js";
 import { insertScaleTable } from "./insert-scale-table.js";
 import { populateNextStepBoxes } from "./next-steps.js";
 import { copySummary } from "./copy-summary.js";
+import { config } from "../config/config.js";
+
+let currentSelectedName = "";
+let currentSelectedValue = null;
+let currentLgdData = null;
 
 export async function updateSDZ({ animate = true } = {}) {
-
     const params = new URLSearchParams(window.location.search);
-
+    const type_select = document.getElementById("type-select");
+  
     if (params.size === 0) {
-    window.location.replace("./");
-    return;
+      window.location.replace("./");
+      return;
     }
-
+  
     const sdz = params.get("sdz");
     const postcode = params?.get("postcode");
     const data = await readData(sdz);
     if (!data) {
-    window.location.replace("./");
-    return;
+      window.location.replace("./");
+      return;
     }
 
     const headline = document.getElementById("headline");
@@ -55,7 +61,6 @@ export async function updateSDZ({ animate = true } = {}) {
     
     insertValue("place-name", data.name);
     
-    // insertValue("deprivation-place-name", data.name)
     insertValue("overall-rank", data.data.ranks.mdm)
     insertValue("place-count", data.count)
     
@@ -67,15 +72,136 @@ export async function updateSDZ({ animate = true } = {}) {
 
     getDeprivationSummary("deprivation-summary", data);
 
+      const lgdCode = data.parents[0].code;
+      const lgdData = await readData(lgdCode);
+
+      currentSelectedName = data.name;
+      const selectedType = type_select.value || "mdm";
+      currentSelectedValue = data.data.ranks[selectedType];
+      currentLgdData = lgdData;
+
+      await plotScaleMap("comparison-map",
+        lgdData,
+        selectedType,
+        {
+        animate,
+        highlightSdz: data.code,
+        forceLgdView: true,
+        enableComparison: true,
+        enableSdzClick: false   
+      });
+
+    scaleChart("comparison-scale-chart",
+      {
+        data: { ranks: { [selectedType]: currentSelectedValue } },
+        count: currentLgdData.sdz_count
+      },
+      selectedType,
+      {
+        labels: "below",
+        marker: true,
+        comparisonScale: true
+      });
+
     scaleChart("mdm-scale-chart", data, "mdm", {
       labels: "below",
       annotation: true
     });
+
+    updateComparisonText(data, data, true, false, type_select.value);
 
     insertScaleTable("deprivation-scales", data);
 
     populateNextStepBoxes(data);
 
     copySummary(data);
+
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".next-step-btn");
+        if (!btn) return;
+
+        const targetId = btn.dataset.target;
+        const input = document.getElementById(targetId);
+
+        if (input) {
+            input.scrollIntoView({ behavior: "smooth", block: "center" });
+            input.focus({ preventScroll: true });
+        }
+    });
+ 
+    window.addEventListener("sdzhovercompare", (e) => {
+
+    const { hovered, selected } = e.detail;
+
+    if (!hovered?.value || !selected?.value) return;
+
+    const diff = hovered.value - selected.value;
+
+    updateComparisonText(data, hovered, false, false, type_select.value);
+    
+
+    scaleChart("comparison-scale-chart",
+    {
+        data: { ranks: { [selectedType]: currentSelectedValue } },
+        count: currentLgdData.sdz_count
+    },
+    selectedType,
+    {
+        labels: "below",
+        marker: true,
+        compareValue: hovered.value,
+        comparisonScale: true
+    }
+    );
+    });
+
+    window.addEventListener("sdzhoverout", (e) => {
+    updateComparisonText(data, data, true, false, type_select.value);
+
+    const selectedType = type_select.value || "mdm";
+
+    scaleChart("comparison-scale-chart",
+    {
+        data: { ranks: { [selectedType]: currentSelectedValue } },
+        count: currentLgdData.sdz_count
+    },
+    selectedType,
+    {
+        labels: "below",
+        marker: true,
+        comparisonScale: true,
+        compareValue: null
+    }
+    );
+
+    });
+
+  type_select.addEventListener("change", async () => {
+    const selectedType = type_select.value || "mdm";
+    currentSelectedValue = data.data.ranks[selectedType];
+
+    await plotScaleMap("comparison-map", lgdData, selectedType, {
+      animate,
+      highlightSdz: data.code,
+      forceLgdView: true,
+      enableComparison: true,
+      enableSdzClick: false   
+    });
+
+    scaleChart(
+      "comparison-scale-chart",
+      {
+        data: { ranks: { currentSelectedValue } },
+        count: currentLgdData.sdz_count
+      },
+      selectedType,
+      {
+        labels: "below",
+        comparisonScale: true
+      }
+    );
+
+    updateComparisonText(data, data, true, false, selectedType);
+  });
 
 }

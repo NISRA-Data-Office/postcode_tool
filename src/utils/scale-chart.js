@@ -4,11 +4,13 @@ export function scaleChart(id, data, type, options = {}) {
   const {
     labels = "none", // "above", "below", or "none"
     marker = true,
-    annotation = false
+    annotation = false,
+    compareValue = null,
+    comparisonScale = false
   } = options;
 
-  const value = marker ? data.data.ranks[type] : 0;
   const count = data.sdz_count ?? data.count;
+  const value = marker && data?.data?.ranks?.[type] != null ? data.data.ranks[type] : null;
 
   const SCALE_WIDTH = 151.9;
   const VIEWBOX_X = -4;
@@ -25,9 +27,14 @@ export function scaleChart(id, data, type, options = {}) {
 
   const MARKER_RADIUS = 3.3;
   const MARKER_STROKE = 0.5;
-  const MARKER_X = value / count * SCALE_WIDTH;
+  const MARKER_X = value != null ? (value / count) * SCALE_WIDTH : 0;
   const MARKER_Y = RECT_Y + SCALE_GROUP_Y + RECT_HEIGHT / 2;
   const MARKER_TOP_Y = MARKER_Y - MARKER_RADIUS;
+  const COMPARE_X = compareValue != null
+    ? (compareValue / count) * SCALE_WIDTH
+    : null;
+  const selectedMarkerColor = "#D4351C";
+
 
   const LABEL_LEFT = "← 1 (Most deprived)";
   const LABEL_MIDDLE = "Rank";
@@ -173,7 +180,7 @@ export function scaleChart(id, data, type, options = {}) {
   }
 
   const markerSvg =
-    marker
+    marker && value != null
       ? `
   <circle
     cx="${MARKER_X}"
@@ -182,10 +189,26 @@ export function scaleChart(id, data, type, options = {}) {
     stroke="#042433"
     stroke-width="${MARKER_STROKE}"
     stroke-miterlimit="8"
-    fill="#f8f8f8"
+    fill="${selectedMarkerColor}"
     id="marker-${chartId}" />
 `
       : "";
+
+      
+  const compareMarkerSvg =
+    compareValue != null
+      ? `
+  <circle
+    cx="${COMPARE_X}"
+    cy="${MARKER_Y}"
+    r="${MARKER_RADIUS}"
+    fill="#ce70d2"
+    stroke="#042433"
+    stroke-width="${MARKER_STROKE}"
+    id="compare-marker-${chartId}" />
+`
+      : "";
+
 
   div.innerHTML = `
 <svg
@@ -202,6 +225,7 @@ export function scaleChart(id, data, type, options = {}) {
   ${labelAboveSvg}
 
   ${markerSvg}
+  ${compareMarkerSvg}
 
   ${labelBelowSvg}
 

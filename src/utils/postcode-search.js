@@ -1,6 +1,6 @@
 export let postcode_data;
 
-export async function postcodeSearch(id, placeholder = "Search for a postcode or neighbourhood") {
+export async function postcodeSearch(id, placeholder = "Search for a postcode") {
 
   document.getElementById(id).innerHTML = `
   <div class="input-group">

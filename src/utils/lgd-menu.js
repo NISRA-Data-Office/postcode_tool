@@ -10,7 +10,9 @@ export async function lgdMenu (id) {
         const data = await res.json();
 
         lgd_data = data.data.lgd;
-        lgd_codes = Object.keys(lgd_data);
+        lgd_codes = Object.keys(lgd_data).sort((a, b) =>
+            lgd_data[a].name.localeCompare(lgd_data[b].name)
+        );
 
     } catch (error) {
         console.error("Failed to load data:", error);
@@ -37,6 +39,14 @@ export async function lgdMenu (id) {
 
     if (!has_placeholder) {
         lgd_select.appendChild(placeholder);
+    }
+
+    const ni_option = document.createElement("option");
+    ni_option.value = "N92000002";
+    ni_option.textContent = "Northern Ireland (All Councils)";
+    
+    if (![...current_options].some(o => o.value === "N92000002")) {
+        lgd_select.appendChild(ni_option);
     }
 
     for (let i = 0; i < lgd_codes.length; i ++) {
@@ -81,6 +91,8 @@ export async function lgdMenu (id) {
         } else {
             window.location.href = `area.html?code=${encodeURIComponent(lgd)}`;
         }
+
+        document.getElementById("clear-focus").click();
         
     });
 

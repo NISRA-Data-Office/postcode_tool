@@ -78,6 +78,17 @@ banner a[target="_blank"]:not(.no-external-icon)::after {
   outline-offset: 2px;
 }
 
+.map-container {
+  position: relative;
+  height: 500px;
+}
+
+#comparison-map {
+  height: 100%;
+  width: 100%;
+}
+
+
 .map:has(canvas:focus-visible) {
   outline: 3px solid #D4351C;
   outline-offset: 3px;
@@ -434,7 +445,7 @@ table tr:not(:has(th)):hover {
     margin: 2mm;
   }
 
-  #scale-map, #footer, #nav-map {
+  #scale-map, #footer, #comparison-map, #nav-map {
     page-break-inside: avoid;
     break-inside: avoid;
   }
@@ -509,4 +520,16 @@ ul.x-list li::marker {
 
 .w-45 {
   width: 45% !important;
+}
+
+.text-red {
+  color: #D4351C;
+}
+
+.text-lilac {
+  color: #BA3CBE
+}
+
+.min-h-4 {
+  min-height: 4rem;
 }
