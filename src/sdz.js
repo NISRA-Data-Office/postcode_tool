@@ -7,6 +7,7 @@ import { updateSDZ } from "./utils/update-sdz.js"
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { handleOnScroll } from "./utils/scroll-button.js";
 import { downloadButton } from "./utils/download-button.js";
+import { initCookieConsent } from "./utils/cookies.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -23,6 +24,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("download-pdf-btn")?.addEventListener("click", () => window.print());
     downloadButton("download-btn", "map-capture", "map");
     downloadButton("download-charts-btn","chart-capture","chart");
+
+    initCookieConsent({
+        bannerId: 'cookie-banner',
+        gtmId: 'GTM-WKK8ZWP'
+    });
 })
 
 window.addEventListener("popstate", () => updateSDZ({ animate: true }));

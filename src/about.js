@@ -1,5 +1,6 @@
 import { insertHeader, insertFooter, insertHead } from "./utils/page-layout.js";
 import { config } from "./config/config.js";
+import { initCookieConsent } from "./utils/cookies.js";
 
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -20,6 +21,10 @@ window.addEventListener("DOMContentLoaded", async () => {
       </li>
     </ol>
   `
+  initCookieConsent({
+    bannerId: 'cookie-banner',
+    gtmId: 'GTM-WKK8ZWP'
+  });
     
 
 })

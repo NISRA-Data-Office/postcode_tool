@@ -7,6 +7,7 @@ import { sharePage } from "./utils/share-page.js";
 import { updateLGD } from "./utils/update-lgd.js";
 import { clearSdzFocus } from "./utils/clear-sdz-focus.js";
 import { downloadButton } from "./utils/download-button.js";
+import { initCookieConsent } from "./utils/cookies.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
   await insertHead("Local Government District");
@@ -25,6 +26,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   document.getElementById("download-pdf-btn")?.addEventListener("click", () => window.print());
   downloadButton("download-btn", "map-capture", "map");
+  
+  initCookieConsent({
+    bannerId: 'cookie-banner',
+    gtmId: 'GTM-WKK8ZWP'
+  });
 });
 
 window.addEventListener("popstate", () => updateLGD({ animate: true }));
