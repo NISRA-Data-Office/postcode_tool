@@ -25,16 +25,16 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
     if (plot_type === "chart") {
 
       menu.innerHTML = `
-          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
-          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">chart data (in CSV format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">chart data (in Excel format)</a></li>
           <li><a class="dropdown-item" href="#" id="download-${capture_id}">charts (as image)</a></li>
       `;
 
     } else {
 
       menu.innerHTML = `
-          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">data (in CSV format)</a></li>
-          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">data (in Excel format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-csv-${capture_id}">map data (in CSV format)</a></li>
+          <li><a class="dropdown-item" href="#" id="download-xlsx-${capture_id}">map data (in Excel format)</a></li>
           ${!isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-${capture_id}">map (as image)</a></li>` : ""}
           ${isSdzPage ? `<li><a class="dropdown-item" href="#" id="download-map-${capture_id}">map (as image)</a></li>` : ""}
       `;
