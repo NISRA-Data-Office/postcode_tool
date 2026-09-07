@@ -217,9 +217,15 @@ export async function postcodeSearch(id, placeholder = "Search for a postcode") 
       return;
     }
 
-    const nameMatches = sdzs.filter(item => item.searchableName === search || item.searchableName.startsWith(search));
+    const nameMatches = sdzs
+      .filter(item => item.searchableName === search || item.searchableName.startsWith(search))
+      .sort((first, second) => first.sdzName.localeCompare(second.sdzName));
+
     const postcodeMatches = isPostcodeSearch(search)
-      ? postcodes.filter(item => matchesSearch(item, search)).slice(0, 20)
+      ? postcodes
+        .filter(item => matchesSearch(item, search))
+        .sort((first, second) => first.postcode.localeCompare(second.postcode))
+        .slice(0, 20)
       : [];
 
     currentMatches = [
