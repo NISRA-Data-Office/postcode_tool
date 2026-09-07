@@ -191,12 +191,13 @@ export async function updateSDZ({ animate = true } = {}) {
     scaleChart(
       "comparison-scale-chart",
       {
-        data: { ranks: { currentSelectedValue } },
+        data: { ranks: { [selectedType]: currentSelectedValue}},
         count: currentLgdData.sdz_count
       },
       selectedType,
       {
         labels: "below",
+        marker: true,
         comparisonScale: true
       }
     );
