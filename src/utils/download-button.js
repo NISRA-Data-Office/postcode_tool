@@ -209,7 +209,7 @@ if (plot_type === "chart") {
   });
 }}
 
-async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null) {
+export async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null) {
   // Wait until map is fully rendered
   await waitForMapReady(map);
 
@@ -315,7 +315,7 @@ async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeNam
   link.click();
 }
 
-async function addLogoUnderCanvas(originalCanvas, logoSrc, options = {}) {
+export async function addLogoUnderCanvas(originalCanvas, logoSrc, options = {}) {
   const {
     padding = 24,
     logoHeight = 60
@@ -386,7 +386,7 @@ async function waitForMapReady(map) {
   });
 }
 
-function extractLGDTableData() {
+export function extractLGDTableData() {
     const table = document.querySelector("#lgd-table-container table");
     if (!table) return [];
 
@@ -401,7 +401,8 @@ function extractLGDTableData() {
     );
 }
 
-function extractSDZData(sdzData) {
+export function extractSDZData(sdzData) {
+  console.log("extractSDZData")
     const rows = [];
     
     rows.push(["Measure", "Rank"]);
@@ -421,7 +422,7 @@ function extractSDZData(sdzData) {
     return rows;
 }
 
-function downloadCSV(data, filename) {
+export function downloadCSV(data, filename) {
     const csv = data
         .map(row => row.map(val => `"${val}"`).join(","))
         .join("\n");
@@ -435,7 +436,7 @@ function downloadCSV(data, filename) {
     link.click();
 }
 
-function downloadExcel(data, filename) {
+export function downloadExcel(data, filename) {
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet(data);
     const sheetName = "data";

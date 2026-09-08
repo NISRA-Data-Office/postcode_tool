@@ -6,6 +6,7 @@ import { handleOnScroll } from "./utils/scroll-button.js";
 import { updateLGD } from "./utils/update-lgd.js";
 import { clearSdzFocus } from "./utils/clear-sdz-focus.js";
 import { downloadButton } from "./utils/download-button.js";
+import { pageDownloadButton } from "./utils/page-download-button.js";
 import { initCookieConsent } from "./utils/cookies.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -23,7 +24,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   handleOnScroll();
   clearSdzFocus();
 
-  document.getElementById("download-pdf-btn")?.addEventListener("click", () => window.print());
+  pageDownloadButton("download-page-btn");
   downloadButton("download-btn", "map-capture", "map");
   
   initCookieConsent({
