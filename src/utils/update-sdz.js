@@ -9,7 +9,6 @@ import { scaleChart } from "./scale-chart.js";
 import { insertScaleTable } from "./insert-scale-table.js";
 import { populateNextStepBoxes } from "./next-steps.js";
 import { copySummary } from "./copy-summary.js";
-import { config } from "../config/config.js";
 
 let currentSelectedName = "";
 let currentSelectedValue = null;

@@ -43,7 +43,7 @@ export async function lgdMenu (id) {
 
     const ni_option = document.createElement("option");
     ni_option.value = "N92000002";
-    ni_option.textContent = "Northern Ireland (All Councils)";
+    ni_option.textContent = "Northern Ireland (all councils)";
     
     if (![...current_options].some(o => o.value === "N92000002")) {
         lgd_select.appendChild(ni_option);
@@ -92,8 +92,10 @@ export async function lgdMenu (id) {
             window.location.href = `area.html?code=${encodeURIComponent(lgd)}`;
         }
 
-        document.getElementById("clear-focus").click();
-        
+        const clear_btn = document.getElementById("clear-focus");
+        if (clear_btn) {
+            clear_btn.click();
+        }
     });
 
 }

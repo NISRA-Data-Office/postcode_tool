@@ -3,7 +3,6 @@ import { postcodeSearch } from "./utils/postcode-search.js";
 import { typeSelect } from "./utils/type-select.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { handleOnScroll } from "./utils/scroll-button.js";
-import { sharePage } from "./utils/share-page.js";
 import { updateLGD } from "./utils/update-lgd.js";
 import { clearSdzFocus } from "./utils/clear-sdz-focus.js";
 import { downloadButton } from "./utils/download-button.js";
