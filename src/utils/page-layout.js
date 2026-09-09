@@ -169,6 +169,8 @@ export async function insertHead(title = "") {
 
   await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js");
   await loadScript("https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js");
+  await loadScript("https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js");
+  await loadScript("https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js");
 
   document.body.removeAttribute("style");
 
