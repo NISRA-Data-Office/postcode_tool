@@ -89,23 +89,30 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
       e.preventDefault();
 
       let data;
+      let filenameArea;
       
       if (window.location.pathname.includes("sdz")) {
-        
         const sdz = new URLSearchParams(window.location.search).get("sdz");
         const sdzData = await readData(sdz);
-        data = extractSDZData(sdzData);
+
+        filenameArea = sdzData.parents[0].name
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, "")
+                .replace(/\s+/g, "-");
+        const lgdCode = sdzData.parents[0].code;
+        const lgdData = await readData(lgdCode);
+        const deprivationType = getDeprivationType() === "overall" ? "mdm" : getDeprivationType();
+        data = extractSDZMapData(lgdData, deprivationType);
     } else {
+      filenameArea = getAreaName();
       data = extractLGDTableData();
     }
 
     if (!data.length) return;
 
-    const areaName = getAreaName();
-
     const deprivationType = getDeprivationType();
           
-    downloadCSV(data, `${deprivationType}-deprivation-in-${areaName}.csv`);
+    downloadCSV(data, `${deprivationType}-deprivation-in-${filenameArea}.csv`);
 });
 
 document.getElementById(`download-xlsx-${capture_id}`)
@@ -113,13 +120,23 @@ document.getElementById(`download-xlsx-${capture_id}`)
   e.preventDefault();
 
   let data;
+  let filenameArea;
 
   if (window.location.pathname.includes("sdz")) {
     const sdz = new URLSearchParams(window.location.search).get("sdz");
     const sdzData = await readData(sdz);
-    data = extractSDZData(sdzData);
+
+    filenameArea = sdzData.parents[0].name
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-");
+    const lgdCode = sdzData.parents[0].code;
+    const lgdData = await readData(lgdCode);
+    const deprivationType = getDeprivationType() === "overall" ? "mdm" : getDeprivationType();
+    data = extractSDZMapData(lgdData, deprivationType);
 
     } else {
+      filenameArea = getAreaName();
       data = extractLGDTableData();
     }
 
@@ -129,7 +146,7 @@ document.getElementById(`download-xlsx-${capture_id}`)
         
     const deprivationType = getDeprivationType();
 
-    downloadExcel(data, `${deprivationType}-deprivation-in-${areaName}.xlsx`);
+    downloadExcel(data, `${deprivationType}-deprivation-in-${filenameArea}.xlsx`);
   });
   
   document.getElementById(`download-map-${capture_id}`)?.addEventListener("click", async (e) => {
@@ -401,8 +418,23 @@ export function extractLGDTableData() {
     );
 }
 
+export function extractSDZMapData(lgdData, deprivationType) {
+
+    const rows = [["SDZ", "Rank"]];
+
+    Object.values(lgdData.data.ranks).forEach(sdz => {
+
+        rows.push([
+            sdz.name,
+            sdz.ranks?.[deprivationType] ?? ""
+        ]);
+
+    });
+
+    return rows;
+}
+
 export function extractSDZData(sdzData) {
-  console.log("extractSDZData")
     const rows = [];
     
     rows.push(["Measure", "Rank"]);
