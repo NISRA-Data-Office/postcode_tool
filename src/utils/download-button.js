@@ -471,9 +471,52 @@ export function downloadCSV(data, filename) {
 export function downloadExcel(data, filename) {
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet(data);
-    const sheetName = "data";
 
-    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+    for (let c = 0; c < data[0].length; c++) {
 
+        const isNumericColumn = data
+            .slice(1)
+            .filter(row => row[c] !== null && row[c] !== undefined && row[c] !== "")
+            .every(row => !isNaN(Number(row[c])));
+
+        const headerRef = XLSX.utils.encode_cell({ r: 0, c });
+
+        if (ws[headerRef]) {
+            ws[headerRef].s = {
+                font: {
+                    bold: true
+                },
+                alignment: {
+                    horizontal: isNumericColumn ? "right" : "left"
+                }
+            };
+        }
+
+        if (isNumericColumn) {
+            for (let r = 1; r < data.length; r++) {
+                const cellRef = XLSX.utils.encode_cell({ r, c });
+
+                if (ws[cellRef]) {
+                    ws[cellRef].s = {
+                        alignment: {
+                            horizontal: "right"
+                        }
+                    };
+                }
+            }
+        }
+    }
+
+    ws["!cols"] = data[0].map((_, colIndex) => {
+        const maxLength = Math.max(
+            ...data.map(row => String(row[colIndex] ?? "").length)
+        );
+
+        return {
+            wch: maxLength + 2
+        };
+    });
+
+    XLSX.utils.book_append_sheet(wb, ws, "data");
     XLSX.writeFile(wb, filename);
 }
