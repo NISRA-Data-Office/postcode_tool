@@ -90,30 +90,45 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
 
       let data;
       let filenameArea;
-      
-      if (window.location.pathname.includes("sdz")) {
-        const sdz = new URLSearchParams(window.location.search).get("sdz");
-        const sdzData = await readData(sdz);
 
-        filenameArea = sdzData.parents[0].name
+      if (window.location.pathname.includes("sdz")) {
+
+          if (plot_type === "map") {
+            
+            const sdz = new URLSearchParams(window.location.search).get("sdz");
+            const sdzData = await readData(sdz);
+
+            filenameArea = sdzData.parents[0].name
                 .toLowerCase()
                 .replace(/[^a-z0-9\s-]/g, "")
                 .replace(/\s+/g, "-");
-        const lgdCode = sdzData.parents[0].code;
-        const lgdData = await readData(lgdCode);
-        const deprivationType = getDeprivationType() === "overall" ? "mdm" : getDeprivationType();
-        data = extractSDZMapData(lgdData, deprivationType);
-    } else {
-      filenameArea = getAreaName();
-      data = extractLGDTableData();
-    }
 
-    if (!data.length) return;
+            const lgdCode = sdzData.parents[0].code;
+            const lgdData = await readData(lgdCode);
 
-    const deprivationType = getDeprivationType();
+            const deprivationType = getDeprivationType() === "overall" ? "mdm" : getDeprivationType();
+
+            data = extractSDZMapData(lgdData, deprivationType);
+          } else {
+            const sdz = new URLSearchParams(window.location.search).get("sdz");
+            const sdzData = await readData(sdz);
+
+            filenameArea = getAreaName();
+            data = extractSDZData(sdzData);
+
+          }
+        } else {
           
-    downloadCSV(data, `${deprivationType}-deprivation-in-${filenameArea}.csv`);
-});
+          filenameArea = getAreaName();
+          data = extractLGDTableData();
+        }
+        
+        if (!data.length) return;
+        
+        const deprivationType = getDeprivationType();
+
+        downloadCSV(data, `${deprivationType}-deprivation-in-${filenameArea}.csv`);
+      });
 
 document.getElementById(`download-xlsx-${capture_id}`)
 ?.addEventListener("click", async (e) => {
@@ -123,31 +138,43 @@ document.getElementById(`download-xlsx-${capture_id}`)
   let filenameArea;
 
   if (window.location.pathname.includes("sdz")) {
-    const sdz = new URLSearchParams(window.location.search).get("sdz");
-    const sdzData = await readData(sdz);
+    
+    if (plot_type === "map") {
+      
+      const sdz = new URLSearchParams(window.location.search).get("sdz");
+      const sdzData = await readData(sdz);
 
-    filenameArea = sdzData.parents[0].name
-            .toLowerCase()
-            .replace(/[^a-z0-9\s-]/g, "")
-            .replace(/\s+/g, "-");
-    const lgdCode = sdzData.parents[0].code;
-    const lgdData = await readData(lgdCode);
-    const deprivationType = getDeprivationType() === "overall" ? "mdm" : getDeprivationType();
-    data = extractSDZMapData(lgdData, deprivationType);
+      filenameArea = sdzData.parents[0].name
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .replace(/\s+/g, "-");
 
+      const lgdCode = sdzData.parents[0].code;
+      const lgdData = await readData(lgdCode);
+
+      const deprivationType = getDeprivationType() === "overall" ? "mdm" : getDeprivationType();
+      data = extractSDZMapData(lgdData, deprivationType);
+    
     } else {
+      const sdz = new URLSearchParams(window.location.search).get("sdz");
+      const sdzData = await readData(sdz);
+
       filenameArea = getAreaName();
-      data = extractLGDTableData();
+      data = extractSDZData(sdzData);
     }
+  
+  } else {
+    
+    filenameArea = getAreaName();
+    data = extractLGDTableData();
+  }
+  
+  if (!data.length) return;
+  
+  const deprivationType = getDeprivationType();
 
-    if (!data.length) return;
-
-    const areaName = getAreaName();
-        
-    const deprivationType = getDeprivationType();
-
-    downloadExcel(data, `${deprivationType}-deprivation-in-${filenameArea}.xlsx`);
-  });
+  downloadExcel(data, `${deprivationType}-deprivation-in-${filenameArea}.xlsx`);
+});
   
   document.getElementById(`download-map-${capture_id}`)?.addEventListener("click", async (e) => {
     e.preventDefault();
