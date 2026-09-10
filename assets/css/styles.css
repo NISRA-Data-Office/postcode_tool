@@ -263,7 +263,7 @@ table tr:not(:has(th)):hover {
 }
 
 .bg-purple:hover, .bg-purple:active, .bg-purple.show {
-  background-color: #5e1f62 !important;
+  background-color: #6c757d !important;
   color: #fff !important;
 }
 

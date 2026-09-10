@@ -41,7 +41,7 @@ export function populateNextStepBoxes(data) {
         <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex">
             <a 
                 href="${item.link}" 
-                class="text-white bg-purple border border-secondary d-flex align-items-center justify-content-center text-center fs-5 p-3 mt-3 w-100 h-100 text-decoration-none"
+                class="text-white bg-purple rounded-2 border border-secondary d-flex align-items-center justify-content-center text-center fs-5 p-3 mt-3 w-100 h-100 text-decoration-none"
                 aria-label="${item.title}"
                 ${item.newTab ? 'target="_blank" rel="noopener"' : ''}>
                 ${item.text}
