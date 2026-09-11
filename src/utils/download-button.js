@@ -115,7 +115,9 @@ export async function downloadButton (button_id, capture_id, plot_type = "map") 
         
         const deprivationType = getDeprivationType();
 
-        await exportCardWithMap(cardEl, map, mapContainerEl, `${deprivationType}-deprivation-in-${areaName}.png`, placeName);
+        const deprivationLabel = document.getElementById("type-select")?.selectedOptions?.[0]?.textContent || "Deprivation";
+
+        await exportCardWithMap(cardEl, map, mapContainerEl, `${deprivationType}-deprivation-in-${areaName}.png`, placeName, deprivationLabel);
       });
     }
     
@@ -158,7 +160,9 @@ document.getElementById(`download-xlsx-${capture_id}`)
 
     const deprivationType = getDeprivationType();
 
-    await exportCardWithMap(cardEl, map, mapContainerEl,`${areaName}-${deprivationType}-comparison-map.png`, placeName);
+    const deprivationLabel = document.getElementById("type-select")?.selectedOptions?.[0]?.textContent || "Deprivation";
+
+    await exportCardWithMap(cardEl, map, mapContainerEl,`${areaName}-${deprivationType}-comparison-map.png`, placeName, deprivationLabel);
   });
   
 if (plot_type === "chart") {
@@ -200,7 +204,7 @@ if (plot_type === "chart") {
 
     const finalCanvas = await addLogoUnderCanvas(
         canvas,
-        "assets/img/logo/nisra-only-colour.png",
+        "assets/img/logo/nisra-only-colour.svg",
         {
             logoHeight: 70,
             padding: 24
@@ -216,7 +220,7 @@ if (plot_type === "chart") {
   });
 }}
 
-export async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null) {
+export async function exportCardWithMap(cardEl, map, mapContainerEl, filename, placeName = null, deprivationLabel = "Deprivation") {
   // Wait until map is fully rendered
   await waitForMapReady(map);
 
@@ -255,13 +259,19 @@ export async function exportCardWithMap(cardEl, map, mapContainerEl, filename, p
 
     if (!clonedCard || !clonedMapContainer) return;
 
+    const clonedDownloadBtn = clonedDoc.getElementById("download-btn")
+
+    if (clonedDownloadBtn) {
+      clonedDownloadBtn.style.display = "none";
+    }
+
     const pageTitle = document.querySelector("h2");
 
     if (pageTitle) {
         const title = clonedDoc.createElement("div");
 
-        title.textContent = mapContainerEl.id === "comparison-map" ? `Deprivation in ${placeName.textContent} and nearby areas`
-        : pageTitle.textContent;
+        title.textContent = mapContainerEl.id === "comparison-map" ? `${deprivationLabel} deprivation in ${placeName.textContent} and nearby areas`
+        : `${deprivationLabel} deprivation in ${placeName.textContent}`;
 
         if (mapContainerEl.id === "comparison-map") {
             const comparisonText = clonedDoc.getElementById("comparison-text");
@@ -311,7 +321,7 @@ export async function exportCardWithMap(cardEl, map, mapContainerEl, filename, p
   link.download = filename;
   const finalCanvas = await addLogoUnderCanvas(
     canvas,
-    "assets/img/logo/nisra-only-colour.png",
+    "assets/img/logo/nisra-only-colour.svg",
     {
         logoHeight: 70,
         padding: 24

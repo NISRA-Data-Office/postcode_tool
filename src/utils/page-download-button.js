@@ -112,7 +112,9 @@ export function pageDownloadButton(buttonId) {
                     
                     const mapContainerEl = document.getElementById("comparison-map") || document.getElementById("scale-map");
 
-                await exportCardWithMap(cardEl, map, mapContainerEl, `${getDeprivationType()}-deprivation-in-${getAreaName()}.png`, placeName);
+                    const deprivationLabel = document.getElementById("type-select")?.selectedOptions?.[0]?.textContent || "Deprivation";
+
+                await exportCardWithMap(cardEl, map, mapContainerEl, `${getDeprivationType()}-deprivation-in-${getAreaName()}.png`, placeName, deprivationLabel);
             });
 
             document.getElementById("page-download-chart")
@@ -152,7 +154,7 @@ export function pageDownloadButton(buttonId) {
                         }
                     });
                     
-                    const finalCanvas = await addLogoUnderCanvas(canvas, "assets/img/logo/nisra-only-colour.png",
+                    const finalCanvas = await addLogoUnderCanvas(canvas, "assets/img/logo/nisra-only-colour.svg",
                         {
                             logoHeight: 70,
                             padding: 24
