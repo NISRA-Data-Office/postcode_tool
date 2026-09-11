@@ -30,6 +30,8 @@ h3 { font-size: 21px; line-height: 1.143; font-weight: 400; }
 h4 { font-size: 18px; line-height: 1.333; font-weight: 400; }
 @media (min-width: 992px) { h4 { font-size: 21px; line-height: 1.286; } }
 
+a {color: #0F6FB8; text-decoration: underline; text-decoration-thickness: 1px; }
+a:hover, a:focus { text-decoration-thickness: 3px;}
 
 /* External link indicator (scope to main so footer links aren’t doubled) */
 /* Common styles */
@@ -415,9 +417,6 @@ table tr:not(:has(th)):hover {
   background: #f5f5f5;
 }
 
-.breadcrumb-item a {
-  color: var(--nisra_blue);
-}
 
 #lgd-table-container {
   height: calc(45px * 11 + 5px);
