@@ -1,40 +1,50 @@
 import { config } from "../config/config.js";
 
 export function getHeadline(data) {
+  const rank = data.data.ranks.mdm;
 
-    const mdm = data.data.ranks.mdm;
-    const count = data.count;
+  if (rank === 1) return " is more deprived than all neighbourhoods in Northern Ireland.";
+  if (rank <= 9) return " is more deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 85) return " is more deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 170) return " is more deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 255) return " is more deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 340) return " is more deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 425) return " is more deprived than most neighbourhoods in Northern Ireland.";
+  if (rank === 426) return " is ranked around the middle for deprivation in Northern Ireland.";
+  if (rank <= 511) return " is ranked around the middle for deprivation in Northern Ireland.";
+  if (rank <= 596) return " is less deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 681) return " is less deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 765) return " is less deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 841) return " is less deprived than most neighbourhoods in Northern Ireland.";
+  if (rank <= 849) return " is less deprived than most neighbourhoods in Northern Ireland.";
 
-    if (mdm === 1) return " is more deprived than all neighbourhoods in Northern Ireland.";
-    if (mdm >= 2 && mdm <= count * 0.5) return " is more deprived than most neighbourhoods in Northern Ireland.";
-    if (mdm >= count * 0.5 && mdm < count * 0.6) return " is ranked around the middle for deprivation in Northern Ireland.";
-    if (mdm >= count * 0.6 && mdm < count) return " is less deprived than most neighbourhoods in Northern Ireland.";
-    if (mdm === count) return " is less deprived than all neighbourhoods in Northern Ireland.";
+  return " is less deprived than all neighbourhoods in Northern Ireland.";
 }
 
 export function getParagraph(data) {
 
   const mdm = data.data.ranks.mdm;
-  const count = data.count;
   const percent = Math.round(data.data.ranks.mdm/data.count * 100);
   const name = data.name;
 
   const placeName = `<span class="text-purple fw-bold">${name}</span>`;
 
   if (mdm === 1) return `No neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
-  if (mdm >= 2 && mdm < count * 0.015) return `Fewer than 1% of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.1) return `Only ${percent}% of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm< count * 0.2) return `${100 - percent}% of neighbourhoods are less deprived than ${placeName}.`;
-  if (mdm < count * 0.3) return `About three quarters of neighbourhoods are less deprived than ${placeName}.`;
-  if (mdm < count * 0.4) return `About two thirds of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.5) return `Just under half (${percent}%) of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.6) return `Just over half (${percent}%) of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.7) return `About two thirds of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.8) return `About three quarters of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.9) return `${percent}% of neighbourhoods are more deprived than ${placeName}.`;
-  if (mdm < count * 0.99) return `Only ${100 - percent}% of neighbourhoods are less deprived than ${placeName}.`;
-  if (mdm < count) return `Fewer than 1% of neighbourhoods are less deprived than ${placeName}.`;
-  if (mdm === count) return `All neighbourhoods are more deprived than ${placeName}.`;
+  if (mdm <= 9) return `Fewer than 1% of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 85) return `Only 1% of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 170) return `About 10% of neighbourhoods in Northern Ireland are less deprived than ${placeName}.`;
+  if (mdm <= 255) return `About three quarters of neighbourhoods in Northern Ireland are less deprived than ${placeName}.`;
+  if (mdm <= 340) return `About two thirds of neighbourhoods in Northern Ireland are less deprived than ${placeName}.`;
+  if (mdm <= 425) return `Just under half (${percent}%) of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm === 426) return `Half (${percent}%) of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 511) return `Just over half (${percent}%) of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 596) return `About two thirds of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 681) return `About three quarters of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 765) return `(${percent}%) of neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
+  if (mdm <= 841) return `Only (${percent}%) of neighbourhoods in Northern Ireland are less deprived than ${placeName}.`;
+  if (mdm <= 849) return `Fewer than 1% of neighbourhoods in Northern Ireland are less deprived than ${placeName}.`;
+
+  return `All neighbourhoods in Northern Ireland are more deprived than ${placeName}.`;
 }
 
 export function getDeprivationSummary(id, data) {
