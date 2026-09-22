@@ -45,8 +45,17 @@ export async function lgdMenu (id) {
     ni_option.value = "N92000002";
     ni_option.textContent = "Northern Ireland (all councils)";
     
+    const council_heading = document.createElement("option");
+    council_heading.value = "heading";
+    council_heading.textContent = "Council areas";
+    council_heading.disabled = true;
+    
     if (![...current_options].some(o => o.value === "N92000002")) {
         lgd_select.appendChild(ni_option);
+    }
+
+    if (![...current_options].some(o => o.value === "heading")) {
+        lgd_select.appendChild(council_heading);
     }
 
     for (let i = 0; i < lgd_codes.length; i ++) {
