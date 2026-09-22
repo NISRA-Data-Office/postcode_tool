@@ -101,8 +101,7 @@ export async function updateLGD({ animate = true } = {}) {
     const neighbourhood_count = Object.keys(data.data.ranks || {}).length;
     const council_name = data.name;
 
-    explainer.innerHTML = `There are ${data.sdz_count} neighbourhoods in Northern Ireland. ${council_name} is made up of ${neighbourhood_count} neighbourhoods.
-                           The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${neighbourhood_count} is the least deprived in ${council_name}.
+    explainer.innerHTML = `${council_name} is made up of ${neighbourhood_count} neighbourhoods.
     `;
   }
 

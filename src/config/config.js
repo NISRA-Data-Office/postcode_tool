@@ -11,7 +11,7 @@ export const config = {
     "deprivation_types": {
         "mdm": {
             "title": "Overall MDM",
-            "description": "<p>This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation in this neighbourhood.</p>"
+            "description": "<p>This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation.</p>"
         },
         "income": {
             "title": "Income",
