@@ -15,31 +15,31 @@ export const config = {
         },
         "income": {
             "title": "Income",
-            "description": `<p>This shows how many people have a low income. It includes people who are not in work and people who have a job but do not earn very much.</p><p>This makes up 25% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows how many people have a low income. It includes people who are not in work and people who have a job but do not earn very much.</p><p>This makes up 25% of a neighbourhood's overall MDM score.</p>`
         },
         "employment": {
             "title": "Employment",
-            "description": `<p>This shows how many working-age people are not in work when they would like to be. This may be because of illness, disability, or caring for someone else.</p><p>This makes up 25% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows how many working-age people are not in work when they would like to be. This may be because of illness, disability, or caring for someone else.</p><p>This makes up 25% of a neighbourhood's overall MDM score.</p>`
         },
         "health": {
             "title": "Health and disability",
-            "description": `<p>This shows where people are affected by poor health. It includes the risk of dying earlier than expected and having a lower quality of life because of physical or mental health problems.</p><p>This makes up 15% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows where people are affected by poor health. It includes the risk of dying earlier than expected and having a lower quality of life because of physical or mental health problems.</p><p>This makes up 15% of a neighbourhood's overall MDM score.</p>`
         },
         "education": {
             "title": "Education, skills and training",
-            "description": `<p>This shows where people may have fewer chances to learn and build skills. It looks at children, young people, and adults.</p><p>This makes up 15% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows where people may have fewer chances to learn and build skills. It looks at children, young people, and adults.</p><p>This makes up 15% of a neighbourhood's overall MDM score.</p>`
         },
         "services": {
             "title": "Access to services",
-            "description": `<p>This shows how easy it is for people to use important services. This includes getting to services in person and using services online.</p><p>This makes up 10% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows how easy it is for people to use important services. This includes getting to services in person and using services online.</p><p>This makes up 10% of a neighbourhood's overall MDM score.</p>`
         },
         "living": {
             "title": "Living environment",
-            "description": `<p>This shows problems with homes and the local area. It includes whether people can get suitable homes and whether the local environment is good to live in.</p><p>This makes up 5% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows problems with homes and the local area. It includes whether people can get suitable homes and whether the local environment is good to live in.</p><p>This makes up 5% of a neighbourhood's overall MDM score.</p>`
         },
         "crime": {
             "title": "Crime and disorder",
-            "description": `<p>This shows the risk of crime and disorder in an area. It includes crimes against people and crimes involving property.</p><p>This makes up 5% of a neighbourhood's overall MDM deprivation score.</p>`
+            "description": `<p>This shows the risk of crime and disorder in an area. It includes crimes against people and crimes involving property.</p><p>This makes up 5% of a neighbourhood's overall MDM score.</p>`
         }
     },
 

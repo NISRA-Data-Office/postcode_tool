@@ -47,7 +47,7 @@ export async function updateLGD({ animate = true } = {}) {
   insertValue("place-name", data.name);
 
   const deprivation_type = config.deprivation_types[type_select.value].title;
-  const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
+  const deprivation_type_text = deprivation_type.toLowerCase() === "overall mdm" ? "Overall MDM" : `${deprivation_type} Deprivation`;
 
   if (lgd == "N92000002") {
     document.getElementById("deprivation-summary-group").classList.add("d-none");
@@ -222,6 +222,8 @@ export async function updateLGD({ animate = true } = {}) {
 
     const deprivation_type = config.deprivation_types[selectedType].title;
     const deprivation_type_text = deprivation_type == "overall mdm" ? "overall MDM" : `${deprivation_type} deprivation`;
+    console.log("deprivation_type:", deprivation_type)
+    console.log("deprivation_type_text:", deprivation_type_text)
 
     insertValue(
       "deprivation-type",

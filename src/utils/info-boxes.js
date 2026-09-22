@@ -1,7 +1,7 @@
 const labels = [
   `What you can use the rankings for?`,
   `What you should not use the rankings for?`,
-  `Comparing the Multiple Deprivation Measures with the individual domains`
+  `Comparing the Multiple Deprivation Measure with the individual domains`
 ];
 
 const content = [
