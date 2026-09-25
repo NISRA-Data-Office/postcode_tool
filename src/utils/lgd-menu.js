@@ -31,6 +31,14 @@ export async function lgdMenu (id) {
     const current_options = lgd_select.options;
     let has_placeholder = false;
     
+    const ni_option = document.createElement("option");
+    ni_option.value = "N92000002";
+    ni_option.textContent = "Northern Ireland (all councils)";
+    
+    if (![...current_options].some(o => o.value === "N92000002")) {
+        lgd_select.appendChild(ni_option);
+    }
+
     for (let i = 0; i < current_options.length; i ++) {
         if (current_options[i].value == placeholder.value) {
             has_placeholder = true;
@@ -39,23 +47,6 @@ export async function lgdMenu (id) {
 
     if (!has_placeholder) {
         lgd_select.appendChild(placeholder);
-    }
-
-    const ni_option = document.createElement("option");
-    ni_option.value = "N92000002";
-    ni_option.textContent = "Northern Ireland (all councils)";
-    
-    const council_heading = document.createElement("option");
-    council_heading.value = "heading";
-    council_heading.textContent = "Council areas";
-    council_heading.disabled = true;
-    
-    if (![...current_options].some(o => o.value === "N92000002")) {
-        lgd_select.appendChild(ni_option);
-    }
-
-    if (![...current_options].some(o => o.value === "heading")) {
-        lgd_select.appendChild(council_heading);
     }
 
     for (let i = 0; i < lgd_codes.length; i ++) {
