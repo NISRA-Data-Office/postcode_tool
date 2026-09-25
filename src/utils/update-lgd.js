@@ -62,11 +62,10 @@ export async function updateLGD({ animate = true } = {}) {
     let ni_description = document.getElementById("ni-description");
 
     if (!ni_description) {
-      ni_description = document.createElement("p");
+      ni_description = document.createElement("div");
       ni_description.id = "ni-description";
-
-      const paragraphs = headline.querySelectorAll("p");
-      headline.insertBefore(ni_description, paragraphs[paragraphs.length - 1]);
+      
+      headline.appendChild(ni_description);
     }
 
     ni_description.innerHTML = `<p>Northern Ireland is made up of ${data.sdz_count} Super Data Zones, referred to here as 'neighbourhoods'. Each neighbourhood has an average population of 2,240 people.</p>
@@ -93,15 +92,15 @@ export async function updateLGD({ animate = true } = {}) {
     if (!explainer) {
       explainer = document.createElement("p");
       explainer.id = "ni-explainer";
-
-      const paragraphs = headline.querySelectorAll("p");
-      headline.insertBefore(explainer, paragraphs[paragraphs.length - 1]);
+       
+      headline.appendChild(explainer);
     }
 
     const neighbourhood_count = Object.keys(data.data.ranks || {}).length;
     const council_name = data.name;
 
-    explainer.innerHTML = `${council_name} is made up of ${neighbourhood_count} neighbourhoods.
+    explainer.innerHTML = `<p>The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${data.sdz_count} is the least deprived.
+                           <p>${council_name} is made up of ${neighbourhood_count} neighbourhoods.</p>
     `;
   }
 
@@ -154,6 +153,13 @@ export async function updateLGD({ animate = true } = {}) {
   createLGDTable(lgdTableContainer, data, type_select.value, sdz);
 
   document.getElementById("type-description").innerHTML = config.deprivation_types[type_select.value].description;
+
+  const type_description = document.getElementById("type-description");
+  const sdz_description = document.getElementById("sdz-description");
+  
+  if (type_description && sdz_description) {
+    type_description.insertAdjacentElement("afterend", sdz_description);
+  }
 
   // Update chart and caption when an SDZ is selected (via map or table)
   window.addEventListener("sdzselect", async e => {
