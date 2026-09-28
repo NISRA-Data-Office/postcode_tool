@@ -51,29 +51,18 @@ export async function updateLGD({ animate = true } = {}) {
 
   if (lgd == "N92000002") {
     document.getElementById("deprivation-summary-group").classList.add("d-none");
-    
-    const explainer = document.getElementById("ni-explainer");
-    if (explainer) {
-      explainer.classList.add("d-none");
-    }
 
-    const headline = document.querySelector("#headline").parentElement;
+    document.getElementById("sdz-description").innerHTML = `Northern Ireland is made up of ${data.sdz_count} Super Data Zones, referred to here as 'neighbourhoods'. Each neighbourhood has an average population of 2,240 people.
 
-    let ni_description = document.getElementById("ni-description");
+        <br><br>
 
-    if (!ni_description) {
-      ni_description = document.createElement("div");
-      ni_description.id = "ni-description";
-      
-      headline.appendChild(ni_description);
-    }
-
-    ni_description.innerHTML = `<p>Northern Ireland is made up of ${data.sdz_count} Super Data Zones, referred to here as 'neighbourhoods'. Each neighbourhood has an average population of 2,240 people.</p>
-                                <p>The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${data.sdz_count} is the least deprived.</p>
+        The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${data.sdz_count} is the least deprived.
     `;
 
+    document.getElementById("sdz-description").classList.remove("d-none");
+
     document.getElementById("map-explanation").textContent = "Using the map or table, click on a neighbourhood to focus on that area.";
-    document.getElementById("sdz-description").classList.add("d-none");
+
     document.getElementById("scale-map").classList.add("ni-map");
     document.getElementById("lgd-table-container").classList.add("ni-map");
     document.getElementById("scale-map").classList.remove("scale-map");
@@ -83,26 +72,28 @@ export async function updateLGD({ animate = true } = {}) {
     document.getElementById("table-col").classList.remove("col-xl-5");
     document.getElementById("in-focus-col").classList.add("col-xl-8");
     document.getElementById("in-focus-col").classList.remove("col-xl-7");
-  }
-
-  if (lgd !== "N92000002") {
-    const headline = document.querySelector("#headline").parentElement;
-    let explainer = document.getElementById("ni-explainer");
+  
+  } else {
     
-    if (!explainer) {
-      explainer = document.createElement("p");
-      explainer.id = "ni-explainer";
-       
-      headline.appendChild(explainer);
-    }
+    document.getElementById("deprivation-summary-group").classList.remove("d-none");
+    document.getElementById("map-explanation").textContent = "Using the map or table, click on a neighbourhood to focus on that area. Click a neighbouring council on the map to explore deprivation in that area.";
 
     const neighbourhood_count = Object.keys(data.data.ranks || {}).length;
     const council_name = data.name;
 
-    explainer.innerHTML = `<p>The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${data.sdz_count} is the least deprived.
-                           <p>${council_name} is made up of ${neighbourhood_count} neighbourhoods.</p>
+    document.getElementById("sdz-description").innerHTML = `Northern Ireland is made up of 850 Super Data Zones, referred to here as 'neighbourhoods'. Each neighbourhood has an average population of 2,240 people.
+
+        <br><br>
+
+        The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked ${data.sdz_count} is the least deprived.
+
+        <br><br>
+
+        ${council_name} is made up of ${neighbourhood_count} neighbourhoods.
     `;
-  }
+
+    document.getElementById("sdz-description").classList.remove("d-none");
+}
 
   if (sdz) {
     insertValue("sdz-name", data.data.ranks[sdz].name);
