@@ -1,0 +1,892 @@
+import { test, expect } from '@playwright/test';
+
+test('pages match snapshots', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+  await expect(page.locator('#cookie-banner')).toMatchAriaSnapshot(`
+    - paragraph:
+      - strong: Cookies on the NISRA Data Explorer
+    - paragraph:
+      - text: This prototype web page places small amounts of information known as cookies on your device.
+      - link "Find out more about cookies":
+        - /url: https://www.nisra.gov.uk/cookies
+      - text: .
+    - button "Accept cookies"
+    - button "Reject cookies"
+    `);
+  await expect(page.locator('#banner')).toMatchAriaSnapshot(`
+    - paragraph:
+      - text: We welcome feedback from users through our
+      - link "short survey":
+        - /url: https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/NI_Deprivation_tool
+    `);
+  await expect(page.locator('#banner')).toMatchAriaSnapshot(`
+    - banner:
+      - link "NISRA logo":
+        - /url: https://www.nisra.gov.uk/
+        - img "NISRA logo"
+      - heading "Deprivation in Northern Ireland" [level=1]
+    `);
+  await expect(page.locator('#banner')).toMatchAriaSnapshot(`
+    - banner:
+      - paragraph: Test statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM).
+      - paragraph: Deprivation refers to people's unmet needs, a lack of access to opportunities and resources which we might expect in our society.
+    `);
+  await expect(page.locator('#content')).toMatchAriaSnapshot(`
+    - paragraph: "Find out about deprivation in your neighbourhood:"
+    - searchbox "Search for a postcode"
+    - button ""
+    - paragraph: "Explore deprivation by council area:"
+    - combobox "Select a council area":
+      - option "Northern Ireland (all councils)"
+      - option "Select a council area" [disabled] [selected]
+      - option "Antrim and Newtownabbey"
+      - option "Ards and North Down"
+      - option "Armagh City, Banbridge and Craigavon"
+      - option "Belfast"
+      - option "Causeway Coast and Glens"
+      - option "Derry City and Strabane"
+      - option "Fermanagh and Omagh"
+      - option "Lisburn and Castlereagh"
+      - option "Mid and East Antrim"
+      - option "Mid Ulster"
+      - option "Newry, Mourne and Down"
+    - link "View more deprivation resources and information":
+      - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
+    `);
+  await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+    - contentinfo:
+      - heading "Data Tools" [level=3]
+      - list:
+        - listitem:
+          - link "Local Statistics Explorer":
+            - /url: https://explore.nisra.gov.uk/local-stats/
+        - listitem:
+          - link "Data Portal":
+            - /url: https://data.nisra.gov.uk
+        - listitem:
+          - link "Census Flexible Table Builder":
+            - /url: https://build.nisra.gov.uk/en/
+      - heading "Corporate" [level=3]
+      - list:
+        - listitem:
+          - link "NISRA Website":
+            - /url: https://www.nisra.gov.uk/
+        - listitem:
+          - link "Careers":
+            - /url: https://www.nisra.gov.uk/about-us/careers
+        - listitem:
+          - link "Contact":
+            - /url: https://www.nisra.gov.uk/contact
+      - heading "Follow" [level=3]
+      - list:
+        - listitem:
+          - link "Facebook":
+            - /url: https://www.facebook.com/nisra.gov.uk
+            - img "Facebook"
+        - listitem:
+          - link "Twitter/X":
+            - /url: https://x.com/NISRA/
+            - img "Twitter/X"
+        - listitem:
+          - link "YouTube":
+            - /url: https://www.youtube.com/user/nisrastats
+            - img "YouTube"
+        - listitem:
+          - link "LinkedIn":
+            - /url: https://www.linkedin.com/company/northern-ireland-statistics-and-research-agency/
+            - img "LinkedIn"
+        - listitem:
+          - link "Instagram":
+            - /url: https://www.instagram.com/nisra.gov.uk/
+            - img "Instagram"
+      - list:
+        - listitem:
+          - link "© Crown Copyright":
+            - /url: https://www.nisra.gov.uk/crown-copyright
+        - listitem: "|"
+        - listitem:
+          - link "Terms and conditions":
+            - /url: https://www.nisra.gov.uk/terms-and-conditions
+        - listitem: "|"
+        - listitem:
+          - link "Cookies":
+            - /url: https://www.nisra.gov.uk/cookies
+        - listitem: "|"
+        - listitem:
+          - link "Privacy":
+            - /url: https://www.nisra.gov.uk/nisra-privacy-notice
+        - listitem: "|"
+        - listitem:
+          - link "Accessibility Statement":
+            - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
+    `);
+  await page.getByLabel('Select a council area').selectOption('N09000002');
+  await page.goto('http://localhost:3000/area.html?code=N09000002');
+  await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+    - main:
+      - navigation "breadcrumb":
+        - list:
+          - listitem:
+            - link "Home":
+              - /url: index.html
+          - listitem: / Armagh City, Banbridge and Craigavon
+      - heading "Deprivation in Armagh City, Banbridge and Craigavon" [level=2]
+      - paragraph: "Currently viewing: Overall MDM."
+      - paragraph:
+        - paragraph: This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation.
+      - paragraph: /Northern Ireland is made up of \\d+ Super Data Zones, referred to here as 'neighbourhoods'\\. Each neighbourhood has an average population of \\d+,\\d+ people\\. The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked \\d+ is the least deprived\\. Armagh City, Banbridge and Craigavon is made up of \\d+ neighbourhoods\\./
+      - searchbox "Search for a postcode"
+      - button ""
+      - button "About this app (opens About page)"
+      - button "Download"
+      - button "Share this page"
+      - paragraph: "Select another area:"
+      - combobox "Select a council area":
+        - option "Northern Ireland (all councils)"
+        - option "Select a council area" [disabled]
+        - option "Antrim and Newtownabbey"
+        - option "Ards and North Down"
+        - option "Armagh City, Banbridge and Craigavon" [selected]
+        - option "Belfast"
+        - option "Causeway Coast and Glens"
+        - option "Derry City and Strabane"
+        - option "Fermanagh and Omagh"
+        - option "Lisburn and Castlereagh"
+        - option "Mid and East Antrim"
+        - option "Mid Ulster"
+        - option "Newry, Mourne and Down"
+      - paragraph: "Select a type of deprivation:"
+      - combobox "Select a type of deprivation":
+        - option "Overall MDM" [selected]
+        - option "Income"
+        - option "Employment"
+        - option "Health and disability"
+        - option "Education, skills and training"
+        - option "Access to services"
+        - option "Living environment"
+        - option "Crime and disorder"
+      - paragraph: "View deprivation profile for:"
+      - button "Clear focus from map and table below"
+      - paragraph: Using the map or table, click on a neighbourhood to focus on that area. Click a neighbouring council on the map to explore deprivation in that area.
+      - region "Map"
+      - button "Zoom in"
+      - button "Zoom out"
+      - button "Enter fullscreen"
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - text: Areas grouped into deprivation deciles (based on rank)
+      - button "Download dropdown"
+      - table:
+        - rowgroup:
+          - row "Sort by NI rank Sort by Council rank Sort neighbourhoods alphabetically":
+            - columnheader "Sort by NI rank": NI Rank ▲
+            - columnheader "Sort by Council rank": Council Rank
+            - columnheader "Sort neighbourhoods alphabetically"
+        - rowgroup:
+          - row "Focus map on Lurgan L, ranked unknown":
+            - cell /\\d+/
+            - cell "1"
+            - cell "Lurgan L"
+          - row "Focus map on Lurgan G, ranked unknown":
+            - cell /\\d+/
+            - cell "2"
+            - cell "Lurgan G"
+          - row "Focus map on Portadown E, ranked unknown":
+            - cell /\\d+/
+            - cell "3"
+            - cell "Portadown E"
+          - row "Focus map on Craigavon G, ranked unknown":
+            - cell /\\d+/
+            - cell "4"
+            - cell "Craigavon G"
+          - row "Focus map on Portadown G, ranked unknown":
+            - cell /\\d+/
+            - cell "5"
+            - cell "Portadown G"
+          - row "Focus map on Portadown K, ranked unknown":
+            - cell /\\d+/
+            - cell "6"
+            - cell "Portadown K"
+          - row "Focus map on Lurgan K, ranked unknown":
+            - cell /\\d+/
+            - cell "7"
+            - cell "Lurgan K"
+          - row "Focus map on Craigavon E, ranked unknown":
+            - cell /\\d+/
+            - cell "8"
+            - cell "Craigavon E"
+          - row "Focus map on Craigavon D, ranked unknown":
+            - cell /\\d+/
+            - cell "9"
+            - cell "Craigavon D"
+          - row "Focus map on Portadown D, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown D"
+          - row "Focus map on Portadown C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown C"
+          - row "Focus map on Lurgan F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan F"
+          - row "Focus map on Armagh D, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh D"
+          - row "Focus map on Portadown L, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown L"
+          - row "Focus map on Lurgan R, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan R"
+          - row "Focus map on Lurgan N, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan N"
+          - row "Focus map on Lurgan Q, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan Q"
+          - row "Focus map on Armagh K, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh K"
+          - row "Focus map on Cusher L, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher L"
+          - row "Focus map on Armagh L, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh L"
+          - row "Focus map on Armagh F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh F"
+          - row "Focus map on Portadown N, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown N"
+          - row "Focus map on Banbridge G, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge G"
+          - row "Focus map on Lurgan T, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan T"
+          - row "Focus map on Lurgan E, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan E"
+          - row "Focus map on Banbridge D, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge D"
+          - row "Focus map on Craigavon C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon C"
+          - row "Focus map on Banbridge E, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge E"
+          - row "Focus map on Armagh C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh C"
+          - row "Focus map on Portadown R, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown R"
+          - row "Focus map on Cusher H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher H"
+          - row "Focus map on Portadown F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown F"
+          - row "Focus map on Cusher J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher J"
+          - row "Focus map on Lurgan D, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan D"
+          - row "Focus map on Portadown P, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown P"
+          - row "Focus map on Cusher K, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher K"
+          - row "Focus map on Armagh G, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh G"
+          - row "Focus map on Banbridge Q, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge Q"
+          - row "Focus map on Banbridge H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge H"
+          - row "Focus map on Banbridge P, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge P"
+          - row "Focus map on Lurgan C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan C"
+          - row "Focus map on Banbridge C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge C"
+          - row "Focus map on Armagh B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh B"
+          - row "Focus map on Armagh J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh J"
+          - row "Focus map on Craigavon B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon B"
+          - row "Focus map on Armagh E, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh E"
+          - row "Focus map on Lurgan B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan B"
+          - row "Focus map on Banbridge J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge J"
+          - row "Focus map on Banbridge K, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge K"
+          - row "Focus map on Craigavon F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon F"
+          - row "Focus map on Craigavon L, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon L"
+          - row "Focus map on Portadown Q, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown Q"
+          - row "Focus map on Portadown A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown A"
+          - row "Focus map on Lurgan P, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan P"
+          - row "Focus map on Banbridge B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge B"
+          - row "Focus map on Lagan River N, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River N"
+          - row "Focus map on Portadown B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown B"
+          - row "Focus map on Cusher C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher C"
+          - row "Focus map on Cusher F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher F"
+          - row "Focus map on Portadown J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown J"
+          - row "Focus map on Lurgan S, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan S"
+          - row "Focus map on Banbridge N, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge N"
+          - row "Focus map on Armagh A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh A"
+          - row "Focus map on Cusher G, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher G"
+          - row "Focus map on Banbridge A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge A"
+          - row "Focus map on Craigavon K, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon K"
+          - row "Focus map on Portadown H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Portadown H"
+          - row "Focus map on Armagh H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Armagh H"
+          - row "Focus map on Banbridge F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge F"
+          - row "Focus map on Craigavon H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon H"
+          - row "Focus map on Banbridge L, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Banbridge L"
+          - row "Focus map on Craigavon N, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon N"
+          - row "Focus map on Cusher D, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher D"
+          - row "Focus map on Craigavon J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon J"
+          - row "Focus map on Craigavon P, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon P"
+          - row "Focus map on Cusher A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher A"
+          - row "Focus map on Lurgan J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan J"
+          - row "Focus map on Lagan River L, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River L"
+          - row "Focus map on Lagan River E, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River E"
+          - row "Focus map on Lagan River J, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River J"
+          - row "Focus map on Craigavon A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Craigavon A"
+          - row "Focus map on Lagan River F, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River F"
+          - row "Focus map on Lagan River H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River H"
+          - row "Focus map on Lurgan A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan A"
+          - row "Focus map on Lagan River C, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River C"
+          - row "Focus map on Cusher B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher B"
+          - row "Focus map on Cusher E, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Cusher E"
+          - row "Focus map on Lagan River G, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River G"
+          - row "Focus map on Lagan River D, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River D"
+          - row "Focus map on Lurgan H, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lurgan H"
+          - row "Focus map on Lagan River K, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River K"
+          - row "Focus map on Lagan River B, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River B"
+          - row "Focus map on Lagan River A, ranked unknown":
+            - cell /\\d+/
+            - cell /\\d+/
+            - cell "Lagan River A"
+      - heading "What you can use the rankings for?" [level=3]:
+        - button "What you can use the rankings for?"
+      - heading "What you should not use the rankings for?" [level=3]:
+        - button "What you should not use the rankings for?"
+      - heading "Comparing the Multiple Deprivation Measure with the individual domains" [level=3]:
+        - button "Comparing the Multiple Deprivation Measure with the individual domains"
+      - heading "Overall MDM summary for Armagh City, Banbridge and Craigavon" [level=3]
+      - paragraph: This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation.
+      - paragraph: /There are \\d+ neighbourhoods in Armagh City, Banbridge and Craigavon\\. The most deprived neighbourhood is Lurgan L and the least deprived is Lagan River A\\./
+      - paragraph: /Armagh City, Banbridge and Craigavon contains \\d+ of the \\d+ most deprived neighbourhoods in Northern Ireland when using the Overall MDM\\./
+      - button "Copy deprivation summary for Armagh City, Banbridge and Craigavon to clipboard": Copy summary
+      - link "View more deprivation resources and information":
+        - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
+    `);
+  await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+    - contentinfo:
+      - heading "Data Tools" [level=3]
+      - list:
+        - listitem:
+          - link "Local Statistics Explorer":
+            - /url: https://explore.nisra.gov.uk/local-stats/
+        - listitem:
+          - link "Data Portal":
+            - /url: https://data.nisra.gov.uk
+        - listitem:
+          - link "Census Flexible Table Builder":
+            - /url: https://build.nisra.gov.uk/en/
+      - heading "Corporate" [level=3]
+      - list:
+        - listitem:
+          - link "NISRA Website":
+            - /url: https://www.nisra.gov.uk/
+        - listitem:
+          - link "Careers":
+            - /url: https://www.nisra.gov.uk/about-us/careers
+        - listitem:
+          - link "Contact":
+            - /url: https://www.nisra.gov.uk/contact
+      - heading "Follow" [level=3]
+      - list:
+        - listitem:
+          - link "Facebook":
+            - /url: https://www.facebook.com/nisra.gov.uk
+            - img "Facebook"
+        - listitem:
+          - link "Twitter/X":
+            - /url: https://x.com/NISRA/
+            - img "Twitter/X"
+        - listitem:
+          - link "YouTube":
+            - /url: https://www.youtube.com/user/nisrastats
+            - img "YouTube"
+        - listitem:
+          - link "LinkedIn":
+            - /url: https://www.linkedin.com/company/northern-ireland-statistics-and-research-agency/
+            - img "LinkedIn"
+        - listitem:
+          - link "Instagram":
+            - /url: https://www.instagram.com/nisra.gov.uk/
+            - img "Instagram"
+      - list:
+        - listitem:
+          - link "© Crown Copyright":
+            - /url: https://www.nisra.gov.uk/crown-copyright
+        - listitem: "|"
+        - listitem:
+          - link "Terms and conditions":
+            - /url: https://www.nisra.gov.uk/terms-and-conditions
+        - listitem: "|"
+        - listitem:
+          - link "Cookies":
+            - /url: https://www.nisra.gov.uk/cookies
+        - listitem: "|"
+        - listitem:
+          - link "Privacy":
+            - /url: https://www.nisra.gov.uk/nisra-privacy-notice
+        - listitem: "|"
+        - listitem:
+          - link "Accessibility Statement":
+            - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
+    `);
+  await page.goto('http://localhost:3000/sdz.html?sdz=N21000451');
+  await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+    - main:
+      - navigation:
+        - list:
+          - listitem:
+            - link "Home":
+              - /url: index.html
+          - listitem:
+            - text: /
+            - link "Derry City and Strabane":
+              - /url: area.html?code=N09000005
+          - listitem: / Sperrin H
+      - heading "How deprived is Sperrin H?" [level=2]
+      - searchbox "Search for a postcode"
+      - button ""
+      - button "About this app (opens About page)"
+      - button "Download"
+      - button "Share this page"
+      - heading "Multiple Deprivation Measure" [level=3]
+      - heading "Deprivation Rank:" [level=4]
+      - paragraph: /\\d+/
+      - paragraph: /out of \\d+/
+      - paragraph: Rank 1 is the most deprived
+      - paragraph: /\\d+ is the least deprived\\./
+      - heading "About Sperrin H" [level=3]
+      - paragraph:
+        - text: Sperrin H is a Super Data Zone, in
+        - link "Derry City and Strabane":
+          - /url: "area.html?code=N09000005 "
+        - text: .
+      - paragraph: /Super Data Zones - referred to here as 'neighbourhoods' - have an average population of \\d+,\\d+ people\\./
+      - region "Map"
+      - button "Zoom in"
+      - button "Zoom out"
+      - button "Enter fullscreen"
+      - paragraph: Click on a neighbouring area using the map above to view its deprivation profile.
+      - heading "Sperrin H is more deprived than most neighbourhoods in Northern Ireland." [level=3]
+      - paragraph: /About \\d+% of neighbourhoods in Northern Ireland are less deprived than Sperrin H\\./
+      - img: "/Sperrin H Rank: \\\\d+ ← 1 \\\\(Most deprived\\\\) Rank \\\\(Least deprived\\\\) \\\\d+ →/"
+      - paragraph: This is an overall measure, called the Multiple Deprivation Measure.
+      - heading "What you can use the rankings for?" [level=3]:
+        - button "What you can use the rankings for?"
+      - heading "What you should not use the rankings for?" [level=3]:
+        - button "What you should not use the rankings for?"
+      - heading "Comparing the Multiple Deprivation Measure with the individual domains" [level=3]:
+        - button "Comparing the Multiple Deprivation Measure with the individual domains"
+      - heading "Compare with nearby areas" [level=3]
+      - paragraph: "Select a type of deprivation:"
+      - combobox "Select a type of deprivation":
+        - option "Overall MDM" [selected]
+        - option "Income"
+        - option "Employment"
+        - option "Health and disability"
+        - option "Education, skills and training"
+        - option "Access to services"
+        - option "Living environment"
+        - option "Crime and disorder"
+      - region "Map"
+      - button "Zoom in"
+      - button "Zoom out"
+      - button "Enter fullscreen"
+      - paragraph:
+        - strong: Sperrin H
+        - text: /is ranked \\d+ out of \\d+ for/
+        - strong: Overall MDM
+        - text: .
+      - paragraph: Hover over an area to compare deprivation.
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - text: Areas grouped into deprivation deciles (based on rank)
+      - button "Download dropdown"
+      - heading "There are different types of deprivation in Sperrin H" [level=3]
+      - paragraph:
+        - text: "Overall MDM:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - img
+      - paragraph: This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation.
+      - paragraph:
+        - text: "Income:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows how many people have a low income. It includes people who are not in work and people who have a job but do not earn very much.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Employment:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows how many working-age people are not in work when they would like to be. This may be because of illness, disability, or caring for someone else.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Health and disability:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows where people are affected by poor health. It includes the risk of dying earlier than expected and having a lower quality of life because of physical or mental health problems.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Education, skills and training:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows where people may have fewer chances to learn and build skills. It looks at children, young people, and adults.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Access to services:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows how easy it is for people to use important services. This includes getting to services in person and using services online.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Living environment:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows problems with homes and the local area. It includes whether people can get suitable homes and whether the local environment is good to live in.
+      - paragraph: This makes up 5% of a neighbourhood's overall MDM score.
+      - paragraph:
+        - text: "Crime and disorder:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - img
+      - paragraph: This shows the risk of crime and disorder in an area. It includes crimes against people and crimes involving property.
+      - paragraph: This makes up 5% of a neighbourhood's overall MDM score.
+      - button "Download charts dropdown"
+      - heading "Deprivation summary for Sperrin H" [level=3]
+      - heading /The overall deprivation rank of Sperrin H is \\d+ out of \\d+ neighbourhoods\\./ [level=4]
+      - paragraph: /Rank 1 is the most deprived neighbourhood and rank \\d+ is the least deprived\\./
+      - paragraph: Sperrin H is more deprived than most neighbourhoods in Northern Ireland.
+      - paragraph: /About \\d+% of neighbourhoods in Northern Ireland are less deprived than Sperrin H\\./
+      - list:
+        - listitem:
+          - strong: "Income:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Employment:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Health and disability:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Education, skills and training:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Access to services:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Living environment:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Crime and disorder:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+      - button "Copy deprivation summary for Sperrin H to clipboard": Copy summary
+      - heading "Next steps" [level=3]
+      - link "undefined":
+        - /url: area.html?code=N09000005&sdz=N21000451
+        - text: Explore deprivation in areas surrounding Sperrin H
+      - button "undefined": Back to top and enter another postcode
+      - link "undefined":
+        - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
+        - text: View more deprivation resources and information
+    `);
+  await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+    - contentinfo:
+      - heading "Data Tools" [level=3]
+      - list:
+        - listitem:
+          - link "Local Statistics Explorer":
+            - /url: https://explore.nisra.gov.uk/local-stats/
+        - listitem:
+          - link "Data Portal":
+            - /url: https://data.nisra.gov.uk
+        - listitem:
+          - link "Census Flexible Table Builder":
+            - /url: https://build.nisra.gov.uk/en/
+      - heading "Corporate" [level=3]
+      - list:
+        - listitem:
+          - link "NISRA Website":
+            - /url: https://www.nisra.gov.uk/
+        - listitem:
+          - link "Careers":
+            - /url: https://www.nisra.gov.uk/about-us/careers
+        - listitem:
+          - link "Contact":
+            - /url: https://www.nisra.gov.uk/contact
+      - heading "Follow" [level=3]
+      - list:
+        - listitem:
+          - link "Facebook":
+            - /url: https://www.facebook.com/nisra.gov.uk
+            - img "Facebook"
+        - listitem:
+          - link "Twitter/X":
+            - /url: https://x.com/NISRA/
+            - img "Twitter/X"
+        - listitem:
+          - link "YouTube":
+            - /url: https://www.youtube.com/user/nisrastats
+            - img "YouTube"
+        - listitem:
+          - link "LinkedIn":
+            - /url: https://www.linkedin.com/company/northern-ireland-statistics-and-research-agency/
+            - img "LinkedIn"
+        - listitem:
+          - link "Instagram":
+            - /url: https://www.instagram.com/nisra.gov.uk/
+            - img "Instagram"
+      - list:
+        - listitem:
+          - link "© Crown Copyright":
+            - /url: https://www.nisra.gov.uk/crown-copyright
+        - listitem: "|"
+        - listitem:
+          - link "Terms and conditions":
+            - /url: https://www.nisra.gov.uk/terms-and-conditions
+        - listitem: "|"
+        - listitem:
+          - link "Cookies":
+            - /url: https://www.nisra.gov.uk/cookies
+        - listitem: "|"
+        - listitem:
+          - link "Privacy":
+            - /url: https://www.nisra.gov.uk/nisra-privacy-notice
+        - listitem: "|"
+        - listitem:
+          - link "Accessibility Statement":
+            - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
+    `);
+});
