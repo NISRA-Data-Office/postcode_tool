@@ -2,13 +2,13 @@
 import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/index.html');
 
   await expect(page).toHaveTitle(/Deprivation in Northern Ireland/);
 });
 
 test('postcode search goes to data zone page', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/index.html');
   await page.getByLabel('Search for a postcode').fill('BT9 5RR');
   await page.locator('#postcode-go').click();
 
@@ -18,7 +18,7 @@ test('postcode search goes to data zone page', async ({ page }) => {
 });
 
 test('council selection goes to council page', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/index.html');
   await page.getByLabel('Select a council area').selectOption({ label: 'Antrim and Newtownabbey' });
 
   await expect(page).toHaveTitle(/Antrim and Newtownabbey/);

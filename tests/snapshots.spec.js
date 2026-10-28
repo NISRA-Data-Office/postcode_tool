@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('pages match snapshots', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  await page.goto('http://localhost:3000/index.html');
   await expect(page.locator('#cookie-banner')).toMatchAriaSnapshot(`
     - paragraph:
       - strong: Cookies on the NISRA Data Explorer
