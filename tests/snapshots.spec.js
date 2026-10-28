@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('pages match snapshots', async ({ page }) => {
-  await page.goto('http://localhost:3000/index.html');
+  await page.goto('/index.html');
   await expect(page.locator('#cookie-banner')).toMatchAriaSnapshot(`
     - paragraph:
       - strong: Cookies on the NISRA Data Explorer
@@ -121,7 +121,7 @@ test('pages match snapshots', async ({ page }) => {
             - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
     `);
   await page.getByLabel('Select a council area').selectOption('N09000002');
-  await page.goto('http://localhost:3000/area.html?code=N09000002');
+  await page.goto('/area.html?code=N09000002');
   await expect(page.getByRole('main')).toMatchAriaSnapshot(`
     - main:
       - navigation "breadcrumb":
@@ -635,7 +635,7 @@ test('pages match snapshots', async ({ page }) => {
           - link "Accessibility Statement":
             - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
     `);
-  await page.goto('http://localhost:3000/sdz.html?sdz=N21000451');
+  await page.goto('/sdz.html?sdz=N21000451');
   await expect(page.getByRole('main')).toMatchAriaSnapshot(`
     - main:
       - navigation:
