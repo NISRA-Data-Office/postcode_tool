@@ -2,8 +2,20 @@
 	import { resolve } from '$app/paths';
 	import Breadcrumb from '#lib/components/Breadcrumb.svelte';
 	import AreaTitle from '#lib/components/AreaTitle.svelte';
+	import SdzBoxes from '#lib/components/SdzBoxes.svelte';
+	import SdzParagraph from '#lib/components/SdzParagraph.svelte';
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
+
 	let { data } = $props();
+
+	let name = $derived(data.name);
+	let code = $derived(data.code);
+	let domain = $state('mdm');
+	let mdmRank = $derived(data.data.ranks['mdm']);
+	let domainRank = $derived(data.data.ranks[domain]);
+	let count = $derived(data.count);
+	let parentCode = $derived(data.parents[0].code);
+	let parentName = $derived(data.parents[0].name);
 </script>
 
 <main class="flex-grow-1">
@@ -32,50 +44,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12 col-xl-4 mb-3">
-				<div class="bg-grey border border-secondary pt-2 px-3 h-100 d-flex flex-column">
-					<div>
-						<h3 class="fw-bold fs-3 text-center">Multiple Deprivation Measure</h3>
-					</div>
+		{#if data.type === 'sdz'}
+			<SdzBoxes {name} {code} {parentName} {parentCode} {mdmRank} {count} />
+			<SdzParagraph {name} {mdmRank} {count} />
+		{/if}
 
-					<div class="d-flex flex-column justify-content-center align-items-center mb-3">
-						<h4 class="mb-2 mt-4">Deprivation Rank:</h4>
-						<p class="overall-rank display-1 mb-1 fw-bold mt-0 text-blue"></p>
-						<p class="fw-bold fs-3 text-blue">out of <span class="place-count"></span></p>
-					</div>
-
-					<div class="mt-auto">
-						<p class="text-center mt-3 mb-0">Rank 1 is the most deprived</p>
-						<p class="text-center mb-2"><span class="place-count"></span> is the least deprived.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 col-xl-4 mb-3">
-				<div class="bg-grey border border-secondary h-100 px-3 pt-2 d-flex flex-column">
-					<h3 class="fw-bold fs-3 text-break">About <span class="place-name"></span></h3>
-					<div id="geo-description" class="fs-5"></div>
-				</div>
-			</div>
-
-			<div class="col-12 col-xl-4 mb-3 d-flex flex-column">
-				<div id="nav-map" class="map flex-grow-1 border border-secondary" tabindex="-1"></div>
-			</div>
-		</div>
-
-		<div class="row justify-content-end">
-			<div class="col-12 col-xl-4">
-				<p class="mb-0">
-					Click on a neighbouring area using the map above to view its deprivation profile.
-				</p>
-			</div>
-		</div>
-
-		<h3 class="h2 mt-4">
-			<span class="place-name text-purple"></span><span id="deprivation-headline"></span>
-		</h3>
-		<p id="deprivation-paragraph" class="fs-4"></p>
 		<div class="row align-items-center justify-content-center">
 			<div class="col-12 col-xl-8">
 				<div id="mdm-scale-chart"></div>

@@ -3,6 +3,9 @@
 	import { resolve } from '$app/paths';
 	import favicon from '#lib/assets/favicon.svg';
 
+	import Header from '#lib/components/Header.svelte';
+	import Footer from '#lib/components/Footer.svelte';
+
 	let { children } = $props();
 </script>
 
@@ -35,14 +38,21 @@
 	/>
 	<link rel="icon" type="image/svg+xml" href={resolve(`assets/img/icon/favicon.svg`)} />
 	<link rel="shortcut icon" href={resolve(`assets/img/icon/favicon.ico`)} />
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-touch-icon.png" />
+	<link
+		rel="apple-touch-icon"
+		sizes="180x180"
+		href={resolve(`assets/img/icon/apple-touch-icon.png`)}
+	/>
 
 	<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css" />
 
 	<link rel="stylesheet" href={resolve(`assets/css/styles.css`)} />
 </svelte:head>
 
+<Header />
+
 <div id="cookie-banner"></div>
-<banner id="banner"></banner>
 
 {@render children()}
+
+<Footer />
