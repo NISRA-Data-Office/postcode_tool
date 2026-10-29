@@ -45,11 +45,11 @@
 				<p>
 					<span class="text-purple fw-bold">{name}</span> is a Super Data Zone
 					{#if parentCode && parentName}, in
-					<a
-						class="text-blue"
-						href={resolve(`areas/${parentCode}`)}
-						title="View deprivation profile for {parentName}">{parentName}</a
-					>
+						<a
+							class="text-blue"
+							href={resolve(`areas/${parentCode}`)}
+							title="View deprivation profile for {parentName}">{parentName}</a
+						>
 					{/if}.
 				</p>
 				<p>

@@ -8,13 +8,13 @@
 	import DomainSelect from '#lib/components/DomainSelect.svelte';
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
 
-	let data : {
+	let data: {
 		name: string;
 		data: {
-			ranks: { [key:string] : number }
+			ranks: { [key: string]: number };
 		};
 		count: number;
-		parents?: [{name: string; code: string}];
+		parents?: [{ name: string; code: string }];
 		type: string;
 	} = $props();
 
