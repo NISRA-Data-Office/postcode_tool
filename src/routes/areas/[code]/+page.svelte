@@ -8,14 +8,18 @@
 	import DomainSelect from '#lib/components/DomainSelect.svelte';
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
 
-	let data: {
-		name: string;
+	let {
+		data
+	}: {
 		data: {
-			ranks: { [key: string]: number };
+			name: string;
+			data: {
+				ranks: { [key: string]: number };
+			};
+			count: number;
+			parents?: [{ name: string; code: string }];
+			type: string;
 		};
-		count: number;
-		parents?: [{ name: string; code: string }];
-		type: string;
 	} = $props();
 
 	let name = $derived(data.name);
