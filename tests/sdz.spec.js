@@ -9,7 +9,7 @@ test('super data zones are described', async ({ page }) => {
 		/Ards Peninsula N is a Super Data Zone, in Ards and North Down/
 	);
 	await expect(page.locator('#geo-description')).toHaveText(
-		/Super Data Zones - referred to here as \'neighbourhoods\' - have an average population of 2,240 people./
+		/Super Data Zones - referred to here as 'neighbourhoods' - have an average population of 2,240 people./
 	);
 	await expect(page.locator('#summary-heading')).toHaveText(/Ards Peninsula N/);
 });
