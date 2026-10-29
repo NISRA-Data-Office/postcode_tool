@@ -3,16 +3,14 @@
 
 	let {
 		name,
-		code,
 		parentName,
 		parentCode,
 		mdmRank,
 		count
 	}: {
 		name: string;
-		code: string;
-		parentName: string;
-		parentCode: string;
+		parentName?: string;
+		parentCode?: string;
 		mdmRank: number;
 		count: number;
 	} = $props();
@@ -45,12 +43,14 @@
 			<h3 class="fw-bold fs-3 text-break">About <span class="place-name">{name}</span></h3>
 			<div id="geo-description" class="fs-5">
 				<p>
-					<span class="text-purple fw-bold">{name}</span> is a Super Data Zone, in
+					<span class="text-purple fw-bold">{name}</span> is a Super Data Zone
+					{#if parentCode && parentName}, in
 					<a
 						class="text-blue"
 						href={resolve(`areas/${parentCode}`)}
 						title="View deprivation profile for {parentName}">{parentName}</a
-					>.
+					>
+					{/if}.
 				</p>
 				<p>
 					Super Data Zones - referred to here as 'neighbourhoods' - have an average population of

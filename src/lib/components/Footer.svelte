@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
+	import { asset } from '$app/paths';
 </script>
 
 <footer class="footer py-4 bg-nisra text-nisra pb-5">
@@ -28,7 +28,7 @@
 					<li class="list-inline-item">
 						<a href="https://www.facebook.com/nisra.gov.uk">
 							<img
-								src={resolve(`assets/img/logo/facebook-brands-solid-full.svg`)}
+								src={asset(`assets/img/logo/facebook-brands-solid-full.svg`)}
 								title="Facebook"
 								role="img"
 								class="img-50"
@@ -38,7 +38,7 @@
 					<li class="list-inline-item">
 						<a href="https://x.com/NISRA/">
 							<img
-								src={resolve(`assets/img/logo/x-twitter-brands-solid-full.svg`)}
+								src={asset(`assets/img/logo/x-twitter-brands-solid-full.svg`)}
 								title="Twitter/X"
 								role="img"
 								class="img-50"
@@ -48,7 +48,7 @@
 					<li class="list-inline-item">
 						<a href="https://www.youtube.com/user/nisrastats">
 							<img
-								src={resolve(`assets/img/logo/youtube-brands-solid-full.svg`)}
+								src={asset(`assets/img/logo/youtube-brands-solid-full.svg`)}
 								title="YouTube"
 								role="img"
 								class="img-50"
@@ -60,7 +60,7 @@
 							href="https://www.linkedin.com/company/northern-ireland-statistics-and-research-agency/"
 						>
 							<img
-								src={resolve(`assets/img/logo/linkedin-in-brands-solid-full.svg`)}
+								src={asset(`assets/img/logo/linkedin-in-brands-solid-full.svg`)}
 								title="LinkedIn"
 								role="img"
 								class="img-50"
@@ -70,7 +70,7 @@
 					<li class="list-inline-item">
 						<a href="https://www.instagram.com/nisra.gov.uk/">
 							<img
-								src={resolve(`assets/img/logo/instagram-brands-solid-full.svg`)}
+								src={asset(`assets/img/logo/instagram-brands-solid-full.svg`)}
 								title="Instagram"
 								role="img"
 								class="img-50"

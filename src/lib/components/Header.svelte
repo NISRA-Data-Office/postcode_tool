@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
-	import { title, rateit, year } from '#lib/util/config.js';
+	import { asset } from '$app/paths';
+	import { title, rateit, year } from '#lib/config.js';
 </script>
 
 <banner id="banner" class="navbar p-0 bg-navy">
@@ -26,7 +26,7 @@
 					rel="noopener noreferrer"
 				>
 					<img
-						src={resolve(`assets/img/logo/nisra-only-white.svg`)}
+						src={asset(`assets/img/logo/nisra-only-white.svg`)}
 						alt="NISRA logo"
 						height="60"
 						class="me-3"

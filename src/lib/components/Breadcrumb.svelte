@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	interface Props {
 		links: [{ label: string; href?: string }];
 	}
@@ -7,10 +8,10 @@
 
 <nav id="nav">
 	<ol class="breadcrumb mb-0 mt-2 mb-2 text-secondary">
-		{#each links as link}
+		{#each links as link (link.label)}
 			<li class="breadcrumb-item">
 				{#if link.href}
-					<a href={link.href} class="p-1">{link.label}</a>
+					<a href={resolve(link.href)} class="p-1">{link.label}</a>
 				{:else}
 					{link.label}
 				{/if}
