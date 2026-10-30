@@ -6,6 +6,7 @@
 	import SdzParagraph from '#lib/components/SdzParagraph.svelte';
 	import SdzSummary from '#lib/components/SdzSummary.svelte';
 	import DomainSelect from '#lib/components/DomainSelect.svelte';
+	import ScaleChart from '#lib/components/ScaleChart.svelte';
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
 
 	let {
@@ -26,6 +27,7 @@
 	let domain = $state('mdm');
 	let mdmRank = $derived(data.data.ranks['mdm']);
 	let domainRanks = $derived(data.data.ranks);
+	let selectedRank = $derived(data.data.ranks[domain]);
 	let count = $derived(data.count);
 	let parentCode = $derived(data.parents ? data.parents[0].code : undefined);
 	let parentName = $derived(data.parents ? data.parents[0].name : undefined);
@@ -63,7 +65,9 @@
 
 			<div class="row align-items-center justify-content-center">
 				<div class="col-12 col-xl-8">
-					<div id="mdm-scale-chart"></div>
+					<div id="mdm-scale-chart">
+						<ScaleChart rank={mdmRank} maxRank={count} labels="below" {name} />
+					</div>
 				</div>
 			</div>
 
@@ -87,7 +91,9 @@
 						</div>
 						<div class="bg-white border border-secondary p-3">
 							<div id="comparison-text" class="text-center min-h-4"></div>
-							<div id="comparison-scale-chart"></div>
+							<div id="comparison-scale-chart">
+								<ScaleChart rank={selectedRank} maxRank={count} labels="below" />
+							</div>
 							<div class="text-center py-1">
 								Areas grouped into deprivation deciles (based on rank)
 							</div>

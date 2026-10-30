@@ -7,6 +7,7 @@
 	id="type-select"
 	class="form-select rounded-0 border-secondary"
 	aria-label="Select a type of deprivation"
+	bind:value={selected}
 >
 	{#each domains as domain (domain.code)}
 		{#if domain.code === selected}

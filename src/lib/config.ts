@@ -12,3 +12,16 @@ export const domains: { code: string; label: string }[] = [
 	{ code: 'living', label: 'Living environment' },
 	{ code: 'crime', label: 'Crime and disorder' }
 ];
+
+export const colourPalette: string[] = [
+	'#00205B',
+	'#385384',
+	'#7086AD',
+	'#A8B8D6',
+	'#E0EBFF',
+	'#EEFBE0',
+	'#CDE5B0',
+	'#ABD07F',
+	'#8ABA4F',
+	'#68A41E'
+];
