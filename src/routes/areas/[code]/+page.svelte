@@ -6,8 +6,9 @@
 	import SdzParagraph from '#lib/components/SdzParagraph.svelte';
 	import SdzSummary from '#lib/components/SdzSummary.svelte';
 	import DomainSelect from '#lib/components/DomainSelect.svelte';
-	import ScaleChart from '#lib/components/ScaleChart.svelte';
+	import RankChart from '#lib/components/RankChart.svelte';
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
+	import RankChartTable from '#lib/components/RankChartTable.svelte';
 
 	let {
 		data
@@ -66,7 +67,7 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col-12 col-xl-8">
 					<div id="mdm-scale-chart">
-						<ScaleChart rank={mdmRank} maxRank={count} labels="below" {name} />
+						<RankChart rank={mdmRank} maxRank={count} labels="below" {name} />
 					</div>
 				</div>
 			</div>
@@ -92,7 +93,7 @@
 						<div class="bg-white border border-secondary p-3">
 							<div id="comparison-text" class="text-center min-h-4"></div>
 							<div id="comparison-scale-chart">
-								<ScaleChart rank={selectedRank} maxRank={count} labels="below" />
+								<RankChart rank={selectedRank} maxRank={count} labels="below" />
 							</div>
 							<div class="text-center py-1">
 								Areas grouped into deprivation deciles (based on rank)
@@ -116,7 +117,9 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col col-xl-10">
 					<div id="chart-capture">
-						<div id="deprivation-scales" class="mt-4"></div>
+						<div id="deprivation-scales" class="mt-4">
+							<RankChartTable ranks={domainRanks} maxRank={count} />
+						</div>
 					</div>
 				</div>
 			</div>
