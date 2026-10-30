@@ -32,7 +32,7 @@
 		<div class="col-12 col-xl-8">
 			{#if index === 0}
 				<RankChart rank={ranks[code]} {maxRank} labels="above" />
-			{:else if (index + 1) === domains.length}
+			{:else if index + 1 === domains.length}
 				<RankChart rank={ranks[code]} {maxRank} labels="below" />
 			{:else}
 				<RankChart rank={ranks[code]} {maxRank} />

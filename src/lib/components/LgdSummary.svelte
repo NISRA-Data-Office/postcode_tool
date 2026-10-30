@@ -22,8 +22,8 @@
 
 	function domainLabel(label: string, code: string) {
 		let val = label[0].toLowerCase() + label.slice(1);
-		if (code != "mdm") {
-			val += " domain";
+		if (code != 'mdm') {
+			val += ' domain';
 		}
 
 		return val;
@@ -45,11 +45,18 @@
 
 		<p>
 			<span class="text-purple fw-bold">{name}</span> contains {countTop100} of the 100 most deprived
-			neighbourhoods in Northern Ireland when using the {domainLabel(domainInfo.label, domainInfo.code)}.
+			neighbourhoods in Northern Ireland when using the {domainLabel(
+				domainInfo.label,
+				domainInfo.code
+			)}.
 		</p>
 	</div>
 	<div class="d-flex align-items-center gap-3 my-3">
-		<button class="btn bg-purple border-secondary rounded-2" id="copy-summary">
+		<button
+			class="btn bg-purple border-secondary rounded-2"
+			id="copy-summary"
+			onclick={copySummary}
+		>
 			Copy summary
 		</button>
 

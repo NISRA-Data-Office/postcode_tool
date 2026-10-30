@@ -8,8 +8,8 @@
 	class="form-select rounded-0 border-secondary"
 	aria-label="Select a council area"
 	onchange={handleSelect}
-    bind:value={selected}
-    placeholder="Select a council area"
+	bind:value={selected}
+	placeholder="Select a council area"
 >
 	<option value={ni.code}>{ni.name} (all councils)</option>
 	<optgroup label="Select a council area">

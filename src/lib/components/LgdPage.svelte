@@ -31,13 +31,15 @@
 		goto(resolve(`areas/${code}`));
 	}
 
-    let domainRanks = $derived(Object.keys(ranks).map((key) => {
-        return {
-            code: key,
-            name: ranks[key].name,
-            rank: ranks[key].ranks[domain]
-        };
-    }));
+	let domainRanks = $derived(
+		Object.keys(ranks).map((key) => {
+			return {
+				code: key,
+				name: ranks[key].name,
+				rank: ranks[key].ranks[domain]
+			};
+		})
+	);
 </script>
 
 <div class="row mb-4">
@@ -71,5 +73,5 @@
 		<DomainSelect bind:selected={domain} />
 	</div>
 
-    <LgdSummary {name} {domain} {numChildren} {domainRanks} />	
+	<LgdSummary {name} {domain} {numChildren} {domainRanks} />
 </div>
