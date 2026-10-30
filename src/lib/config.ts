@@ -57,3 +57,18 @@ export const colourPalette: string[] = [
 	'#8ABA4F',
 	'#68A41E'
 ];
+
+export const ni = { code: 'N92000002', name: 'Northern Ireland' };
+export const lgds = [
+	{ code: 'N09000001', name: 'Antrim and Newtownabbey' },
+	{ code: 'N09000002', name: 'Armagh City, Banbridge and Craigavon' },
+	{ code: 'N09000003', name: 'Belfast' },
+	{ code: 'N09000004', name: 'Causeway Coast and Glens' },
+	{ code: 'N09000005', name: 'Derry City and Strabane' },
+	{ code: 'N09000006', name: 'Fermanagh and Omagh' },
+	{ code: 'N09000007', name: 'Lisburn and Castlereagh' },
+	{ code: 'N09000008', name: 'Mid and East Antrim' },
+	{ code: 'N09000009', name: 'Mid Ulster' },
+	{ code: 'N09000010', name: 'Newry, Mourne and Down' },
+	{ code: 'N09000011', name: 'Ards and North Down' }
+];

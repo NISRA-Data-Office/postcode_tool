@@ -54,4 +54,18 @@
 
 {@render children()}
 
+<button id="scroll-btn" class="d-none">Back to top</button>
+
+<div class="bg-grey h5 text-end mt-1 mb-0 border">
+	<div class="container py-1">
+		<a
+			href="https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty"
+			target="_blank"
+			rel="noopener"
+			title="Deprivation statistics on the NISRA website (opens in new tab)"
+		>
+			View more deprivation resources and information
+		</a>
+	</div>
+</div>
 <Footer />

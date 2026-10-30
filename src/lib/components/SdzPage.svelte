@@ -1,10 +1,14 @@
 <script lang="ts">
-	import SdzBoxes from '#lib/components/SdzBoxes.svelte';
-	import SdzParagraph from '#lib/components/SdzParagraph.svelte';
-	import SdzSummary from '#lib/components/SdzSummary.svelte';
-	import DomainSelect from '#lib/components/DomainSelect.svelte';
-	import RankChart from '#lib/components/RankChart.svelte';
-	import RankChartTable from '#lib/components/RankChartTable.svelte';
+	import { asset } from '$app/paths';
+
+	import AreaTitle from './AreaTitle.svelte';
+	import ButtonRow from './ButtonRow.svelte';
+	import SdzBoxes from './SdzBoxes.svelte';
+	import SdzParagraph from './SdzParagraph.svelte';
+	import SdzSummary from './SdzSummary.svelte';
+	import DomainSelect from './DomainSelect.svelte';
+	import RankChart from './RankChart.svelte';
+	import RankChartTable from './RankChartTable.svelte';
 
 	let {
 		name,
@@ -24,6 +28,15 @@
 	let parentCode = $derived(parents[0].code);
 	let parentName = $derived(parents[0].name);
 </script>
+
+<div class="row mb-4">
+	<div class="col-12 col-xl-8">
+		<AreaTitle type="sdz" {name} />
+	</div>
+	<div class="col-12 col-xl-4">
+	<ButtonRow />
+	</div>
+</div>
 
 <SdzBoxes {name} {parentName} {parentCode} {mdmRank} {count} />
 <SdzParagraph {name} {mdmRank} {count} />
