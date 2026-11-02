@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { asset } from '$app/paths';
-
 	import AreaTitle from './AreaTitle.svelte';
 	import ButtonRow from './ButtonRow.svelte';
 	import SdzBoxes from './SdzBoxes.svelte';

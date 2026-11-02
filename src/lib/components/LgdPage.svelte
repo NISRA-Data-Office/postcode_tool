@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { asset, resolve } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { domains } from '#lib/config.ts';
 	import AreaTitle from './AreaTitle.svelte';
@@ -8,6 +8,7 @@
 	import LgdSelect from './LgdSelect.svelte';
 	import LgdSummary from './LgdSummary.svelte';
 	import ButtonRow from './ButtonRow.svelte';
+	import DomainDescription from './DomainDescription.svelte';
 
 	let {
 		name,
@@ -49,7 +50,7 @@
 			Currently viewing: <span class="deprivation-type text-purple">{domains[domainIdx].label}</span
 			>.
 		</p>
-		<p id="type-description">{@html domains[domainIdx].description}</p>
+		<p id="type-description"><DomainDescription {domain} /></p>
 		<p id="sdz-description">
 			Northern Ireland is made up of {childrenType.count}
 			{childrenType.name}, referred to here as 'neighbourhoods', which have an average population of

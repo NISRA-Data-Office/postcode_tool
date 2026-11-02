@@ -2,6 +2,7 @@
 	import { asset } from '$app/paths';
 	import RankChart from './RankChart.svelte';
 	import { domains } from '#lib/config.ts';
+	import DomainDescription from './DomainDescription.svelte';
 
 	let {
 		ranks,
@@ -18,7 +19,7 @@
 	}
 </script>
 
-{#each domains as { code, label, description }, index (code)}
+{#each domains as { code, label }, index (code)}
 	<div class={index == 0 ? 'row border-bottom border-dark mb-3' : 'row'}>
 		<div class="col-12 col-xl-4 text-xl-end d-flex flex-column justify-content-center">
 			<button
@@ -41,7 +42,7 @@
 		<div class="i-text-panel is-open border border-secondary" hidden={!expanded[index]}>
 			<div class="d-flex flex-row align-items-start p-2">
 				<img src={asset('assets/img/logo/i-button.svg')} width="18" class="me-2 mt-1" />
-				<div class="mb-0">{@html description}</div>
+				<div class="mb-0"><DomainDescription domain={code} /></div>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { domains } from '#lib/config.ts';
+	import DomainDescription from './DomainDescription.svelte';
 	let {
 		name,
 		domain,
@@ -36,7 +37,7 @@
 		<span class="text-purple place-name">{name}</span>
 	</h3>
 	<div class="bg-white p-2 border border-secondary" id="deprivation-summary">
-		{@html domainInfo.description}
+		<DomainDescription {domain} />
 		<p>
 			There are {numChildren} neighbourhoods in <span class="text-purple fw-bold">{name}</span>. The
 			most deprived neighbourhood is <span class="text-purple fw-bold">{mostDeprived.name}</span>
