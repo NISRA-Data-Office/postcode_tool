@@ -1,0 +1,258 @@
+import { test, expect } from '@playwright/test';
+
+test('pages match old snapshots', async ({ page }) => {
+	await page.goto('/areas/N21000451');
+	await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+    - main:
+      - navigation:
+        - list:
+          - listitem:
+            - link "Home":
+              - /url: /
+          - listitem:
+            - text: /
+            - link "Derry City and Strabane":
+              - /url: /areas/N09000005
+          - listitem: / Sperrin H
+      - heading "How deprived is Sperrin H?" [level=2]
+      - searchbox "Search for a postcode"
+      - button ""
+      - button "About this app (opens About page)"
+      - button "Download"
+      - button "Share this page"
+      - heading "Multiple Deprivation Measure" [level=3]
+      - heading "Deprivation Rank:" [level=4]
+      - paragraph: /\\d+/
+      - paragraph: /out of \\d+/
+      - paragraph: Rank 1 is the most deprived
+      - paragraph: /\\d+ is the least deprived\\./
+      - heading "About Sperrin H" [level=3]
+      - paragraph:
+        - text: Sperrin H is a Super Data Zone, in
+        - link "Derry City and Strabane":
+          - /url: "areas/N09000005"
+        - text: .
+      - paragraph: /Super Data Zones - referred to here as 'neighbourhoods' - have an average population of \\d+,\\d+ people\\./
+      - region "Map"
+      - button "Zoom in"
+      - button "Zoom out"
+      - button "Enter fullscreen"
+      - paragraph: Click on a neighbouring area using the map above to view its deprivation profile.
+      - heading "Sperrin H is more deprived than most neighbourhoods in Northern Ireland." [level=3]
+      - paragraph: /About \\d+% of neighbourhoods in Northern Ireland are less deprived than Sperrin H\\./
+      - img: "/Sperrin H Rank: \\\\d+ ← 1 \\\\(Most deprived\\\\) Rank \\\\(Least deprived\\\\) \\\\d+ →/"
+      - paragraph: This is an overall measure, called the Multiple Deprivation Measure.
+      - heading "What you can use the rankings for?" [level=3]:
+        - button "What you can use the rankings for?"
+      - heading "What you should not use the rankings for?" [level=3]:
+        - button "What you should not use the rankings for?"
+      - heading "Comparing the Multiple Deprivation Measure with the individual domains" [level=3]:
+        - button "Comparing the Multiple Deprivation Measure with the individual domains"
+      - heading "Compare with nearby areas" [level=3]
+      - paragraph: "Select a type of deprivation:"
+      - combobox "Select a type of deprivation":
+        - option "Overall MDM" [selected]
+        - option "Income"
+        - option "Employment"
+        - option "Health and disability"
+        - option "Education, skills and training"
+        - option "Access to services"
+        - option "Living environment"
+        - option "Crime and disorder"
+      - region "Map"
+      - button "Zoom in"
+      - button "Zoom out"
+      - button "Enter fullscreen"
+      - paragraph:
+        - strong: Sperrin H
+        - text: /is ranked \\d+ out of \\d+ for/
+        - strong: Overall MDM
+        - text: .
+      - paragraph: Hover over an area to compare deprivation.
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - text: Areas grouped into deprivation deciles (based on rank)
+      - button "Download dropdown"
+      - heading "There are different types of deprivation in Sperrin H" [level=3]
+      - paragraph:
+        - text: "Overall MDM:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - img
+      - paragraph: This is the overall measure. It is called the Multiple Deprivation Measure, or MDM. It brings together different types of deprivation.
+      - paragraph:
+        - text: "Income:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows how many people have a low income. It includes people who are not in work and people who have a job but do not earn very much.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Employment:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows how many working-age people are not in work when they would like to be. This may be because of illness, disability, or caring for someone else.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Health and disability:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows where people are affected by poor health. It includes the risk of dying earlier than expected and having a lower quality of life because of physical or mental health problems.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Education, skills and training:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows where people may have fewer chances to learn and build skills. It looks at children, young people, and adults.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Access to services:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows how easy it is for people to use important services. This includes getting to services in person and using services online.
+      - paragraph: /This makes up \\d+% of a neighbourhood's overall MDM score\\./
+      - paragraph:
+        - text: "Living environment:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img
+      - img
+      - paragraph: This shows problems with homes and the local area. It includes whether people can get suitable homes and whether the local environment is good to live in.
+      - paragraph: This makes up 5% of a neighbourhood's overall MDM score.
+      - paragraph:
+        - text: "Crime and disorder:"
+        - img
+      - paragraph: /Rank \\d+/
+      - img: /← 1 \\(Most deprived\\) Rank \\(Least deprived\\) \\d+ →/
+      - img
+      - paragraph: This shows the risk of crime and disorder in an area. It includes crimes against people and crimes involving property.
+      - paragraph: This makes up 5% of a neighbourhood's overall MDM score.
+      - button "Download charts dropdown"
+      - heading "Deprivation summary for Sperrin H" [level=3]
+      - heading /The overall deprivation rank of Sperrin H is \\d+ out of \\d+ neighbourhoods\\./ [level=4]
+      - paragraph: /Rank 1 is the most deprived neighbourhood and rank \\d+ is the least deprived\\./
+      - paragraph: Sperrin H is more deprived than most neighbourhoods in Northern Ireland.
+      - paragraph: /About \\d+% of neighbourhoods in Northern Ireland are less deprived than Sperrin H\\./
+      - list:
+        - listitem:
+          - strong: "Income:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Employment:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Health and disability:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Education, skills and training:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Access to services:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Living environment:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+        - listitem:
+          - strong: "Crime and disorder:"
+          - text: Sperrin H is ranked
+          - strong: /\\d+/
+          - text: /out of \\d+ neighbourhoods\\./
+      - button "Copy deprivation summary for Sperrin H to clipboard": Copy summary
+      - heading "Next steps" [level=3]
+      - link "undefined":
+        - /url: area.html?code=N09000005&sdz=N21000451
+        - text: Explore deprivation in areas surrounding Sperrin H
+      - button "undefined": Back to top and enter another postcode
+      - link "undefined":
+        - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
+        - text: View more deprivation resources and information
+    `);
+	await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+    - contentinfo:
+      - heading "Data Tools" [level=3]
+      - list:
+        - listitem:
+          - link "Local Statistics Explorer":
+            - /url: https://explore.nisra.gov.uk/local-stats/
+        - listitem:
+          - link "Data Portal":
+            - /url: https://data.nisra.gov.uk
+        - listitem:
+          - link "Census Flexible Table Builder":
+            - /url: https://build.nisra.gov.uk/en/
+      - heading "Corporate" [level=3]
+      - list:
+        - listitem:
+          - link "NISRA Website":
+            - /url: https://www.nisra.gov.uk/
+        - listitem:
+          - link "Careers":
+            - /url: https://www.nisra.gov.uk/about-us/careers
+        - listitem:
+          - link "Contact":
+            - /url: https://www.nisra.gov.uk/contact
+      - heading "Follow" [level=3]
+      - list:
+        - listitem:
+          - link "Facebook":
+            - /url: https://www.facebook.com/nisra.gov.uk
+            - img "Facebook"
+        - listitem:
+          - link "Twitter/X":
+            - /url: https://x.com/NISRA/
+            - img "Twitter/X"
+        - listitem:
+          - link "YouTube":
+            - /url: https://www.youtube.com/user/nisrastats
+            - img "YouTube"
+        - listitem:
+          - link "LinkedIn":
+            - /url: https://www.linkedin.com/company/northern-ireland-statistics-and-research-agency/
+            - img "LinkedIn"
+        - listitem:
+          - link "Instagram":
+            - /url: https://www.instagram.com/nisra.gov.uk/
+            - img "Instagram"
+      - list:
+        - listitem:
+          - link "© Crown Copyright":
+            - /url: https://www.nisra.gov.uk/crown-copyright
+        - listitem: "|"
+        - listitem:
+          - link "Terms and conditions":
+            - /url: https://www.nisra.gov.uk/terms-and-conditions
+        - listitem: "|"
+        - listitem:
+          - link "Cookies":
+            - /url: https://www.nisra.gov.uk/cookies
+        - listitem: "|"
+        - listitem:
+          - link "Privacy":
+            - /url: https://www.nisra.gov.uk/nisra-privacy-notice
+        - listitem: "|"
+        - listitem:
+          - link "Accessibility Statement":
+            - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
+    `);
+});
