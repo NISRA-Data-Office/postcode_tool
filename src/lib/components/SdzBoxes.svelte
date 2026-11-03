@@ -27,7 +27,6 @@
 			goto(resolve('/areas/[code]', { code: areaCode }), { reset: false });
 		}
 	}
-
 </script>
 
 <div class="row">
@@ -75,7 +74,12 @@
 	</div>
 
 	<div class="col-12 col-xl-4 mb-3 d-flex flex-column">
-		<NavMap boundaryFile="public/map/SDZ2021.geo.json" selectedArea={selected} {bounds} {handleClick} />
+		<NavMap
+			boundaryFile="public/map/SDZ2021.geo.json"
+			selectedArea={selected}
+			{bounds}
+			{handleClick}
+		/>
 	</div>
 </div>
 

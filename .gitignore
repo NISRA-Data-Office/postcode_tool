@@ -1,5 +1,7 @@
 node_modules
 
+.Rproj.user/*
+
 # Output
 .output
 .vercel

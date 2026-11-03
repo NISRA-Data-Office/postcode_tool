@@ -7,6 +7,7 @@
 	import DomainSelect from './DomainSelect.svelte';
 	import RankChart from './RankChart.svelte';
 	import RankChartTable from './RankChartTable.svelte';
+	import ScaleMap from './ScaleMap.svelte';
 
 	let {
 		code,
@@ -67,7 +68,16 @@
 	<div class="col-12 col-xl-7">
 		<div id="map-capture">
 			<div class="map-container border border-secondary border-bottom-0">
-				<div id="comparison-map"></div>
+				<div id="comparison-map">
+					<ScaleMap
+						selected={code}
+						{domain}
+						type="lgd"
+						area={parentCode}
+						name={parentName}
+						{bounds}
+					/>
+				</div>
 			</div>
 			<div class="bg-white border border-secondary p-3">
 				<div id="comparison-text" class="text-center min-h-4"></div>

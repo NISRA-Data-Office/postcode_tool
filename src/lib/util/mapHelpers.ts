@@ -1,3 +1,5 @@
+import { colourPalette } from '#lib/config.ts';
+
 export type Bounds = [[number, number], [number, number]];
 export const niBounds: Bounds = [
 	[-8.1775, 54.0227],
@@ -6,4 +8,44 @@ export const niBounds: Bounds = [
 
 export function cleanName(name: string) {
 	return name.replaceAll('_', ' ');
+}
+
+function rankToFill(rank: number, maxRank: number, palette: string[]) {
+	const pctRank = (rank - 1) / maxRank;
+	return palette[Math.floor(pctRank * palette.length)];
+}
+
+export function prepAreaFeatures(
+	areaData,
+	rankData,
+	domain,
+	idProp,
+	nameProp,
+	lgd: string | null = null
+) {
+	const areaCount = areaData.features.length;
+	if (lgd) {
+		areaData.features = areaData.features.filter((feat) => {
+			return feat.properties.LGD_code === lgd;
+		});
+	}
+
+	areaData.features = areaData.features.map((feat) => {
+		let id = feat.properties[idProp];
+		let rank = rankData[id].ranks[domain];
+
+		return {
+			...feat,
+			properties: {
+				...feat.properties,
+				label: cleanName(feat.properties[nameProp]),
+				fillColour: rankToFill(rank, areaCount, colourPalette),
+				hoverColour: '',
+				rank: rank,
+				highlight: false
+			}
+		};
+	});
+
+	return areaData;
 }
