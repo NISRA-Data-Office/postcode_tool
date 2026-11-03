@@ -72,6 +72,8 @@
 	});
 </script>
 
+{@debug areaGeojson}
+
 <MapLibre
 	bind:map
 	{style}
@@ -94,7 +96,7 @@
 		<FillLayer
 			id="area-fill"
 			paint={{
-				'fill-color': ['get', 'fillColour'],
+				'fill-color': ['string', ['get', `fill-${domain}`], '#eeeeee'],
 				'fill-opacity': 1
 			}}
 			onmousemove={(ev) => {
@@ -114,8 +116,13 @@
 		<LineLayer
 			id="area-outline"
 			paint={{
-				'line-color': ['case', ['feature-state', 'hover'], '#222222', '#555555'],
-				'line-width': ['case', ['feature-state', 'hover'], 2, 1]
+				'line-color': [
+					'case',
+					['boolean', ['feature-state', 'hover'], false],
+					'#222222',
+					'#555555'
+				],
+				'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 2, 1]
 			}}
 		/>
 		{#if hovered && hovered.feature}

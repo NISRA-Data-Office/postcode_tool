@@ -1,4 +1,4 @@
-import { colourPalette } from '#lib/config.ts';
+import { colourPalette, domains } from '#lib/config.ts';
 
 export type Bounds = [[number, number], [number, number]];
 export const niBounds: Bounds = [
@@ -32,16 +32,20 @@ export function prepAreaFeatures(
 
 	areaData.features = areaData.features.map((feat) => {
 		let id = feat.properties[idProp];
-		let rank = rankData[id].ranks[domain];
+		let colours: { [key: string]: string } = {};
+		let ranks = rankData[id].ranks;
+		domains.forEach((domain) => {
+			colours[`fill-${domain.code}`] = rankToFill(ranks[domain.code], areaCount, colourPalette);
+		});
 
 		return {
 			...feat,
 			properties: {
 				...feat.properties,
+				...ranks,
+				...colours,
 				label: cleanName(feat.properties[nameProp]),
-				fillColour: rankToFill(rank, areaCount, colourPalette),
 				hoverColour: '',
-				rank: rank,
 				highlight: false
 			}
 		};
