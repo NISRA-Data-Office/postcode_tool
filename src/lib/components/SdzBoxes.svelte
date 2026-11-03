@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import NavMap from './NavMap.svelte';
 
@@ -17,8 +18,16 @@
 		mdmRank: number;
 		count: number;
 		selected: string;
-		bounds: [number, number, number, number]
+		bounds: [number, number, number, number];
 	} = $props();
+
+	function handleClick(ev) {
+		let areaCode: string = ev.features?.[0].id;
+		if (areaCode) {
+			goto(resolve('/areas/[code]', { code: areaCode }), { reset: false });
+		}
+	}
+
 </script>
 
 <div class="row">
@@ -66,7 +75,7 @@
 	</div>
 
 	<div class="col-12 col-xl-4 mb-3 d-flex flex-column">
-		<NavMap boundaryFile="public/map/SDZ2021.geo.json" selectedArea={selected} {bounds}/>
+		<NavMap boundaryFile="public/map/SDZ2021.geo.json" selectedArea={selected} {bounds} {handleClick} />
 	</div>
 </div>
 

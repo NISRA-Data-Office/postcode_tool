@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import AreaTitle from './AreaTitle.svelte';
 	import ButtonRow from './ButtonRow.svelte';
 	import SdzBoxes from './SdzBoxes.svelte';
@@ -10,12 +9,14 @@
 	import RankChartTable from './RankChartTable.svelte';
 
 	let {
+		code,
 		name,
 		domainRanks,
 		count,
 		parents,
 		bounds
 	}: {
+		code: string;
 		name: string;
 		domainRanks: { [key: string]: number };
 		count: number;
@@ -28,8 +29,6 @@
 	let selectedRank = $derived(domainRanks[domain]);
 	let parentCode = $derived(parents[0].code);
 	let parentName = $derived(parents[0].name);
-
-	let code = page.params.code || '';
 </script>
 
 <div class="row mb-4">
@@ -41,7 +40,7 @@
 	</div>
 </div>
 
-<SdzBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds}/>
+<SdzBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} />
 <SdzParagraph {name} {mdmRank} {count} />
 
 <div class="row align-items-center justify-content-center">

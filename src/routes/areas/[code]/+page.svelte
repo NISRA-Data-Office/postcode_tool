@@ -8,6 +8,7 @@
 		data
 	}: {
 		data: {
+			code: string;
 			name: string;
 			data: {
 				ranks: { [key: string]: number | object };
@@ -21,13 +22,21 @@
 
 	let name = $derived(data.name);
 	let count = $derived(data.count);
+	let code = $derived(data.code);
 </script>
 
 <main class="flex-grow-1">
 	<div id="content" class="container">
 		<Breadcrumb links={getBreadcrumbLinks(data)} />
 		{#if data.type === 'sdz' && data.parents}
-			<SdzPage {name} parents={data.parents} domainRanks={data.data.ranks} {count} bounds={data.bounds}/>
+			<SdzPage
+				{code}
+				{name}
+				parents={data.parents}
+				domainRanks={data.data.ranks}
+				{count}
+				bounds={data.bounds}
+			/>
 		{:else if data.type === 'lgd'}
 			<LgdPage
 				{name}

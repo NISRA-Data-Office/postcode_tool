@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { niBounds, cleanName } from '#lib/util/mapHelpers.ts';
+	import type { Bounds } from '#lib/util/mapHelpers.ts';
 
 	import { setWorkerUrl } from 'maplibre-gl';
 	import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
@@ -21,21 +23,24 @@
 		boundaryFile,
 		selectedArea,
 		bounds,
-		promoteId = "SDZ21_code",
-		nameProp = "SDZ21_name"
-	}: { boundaryFile: string; selectedArea: string; bounds: [number, number, number, number]; promoteId: string; nameProp: string; } =
-		$props();
-	let hovered: {
-		feature: maplibregl.MapGeoJSONFeature | undefined;
-		lngLat: maplibregl.LngLat | undefined;
-	} | undefined = $state.raw();
+		handleClick,
+		promoteId = 'SDZ21_code',
+		nameProp = 'SDZ21_name'
+	}: {
+		boundaryFile: string;
+		selectedArea: string;
+		bounds: [number, number, number, number];
+		handleClick: Function;
+		promoteId: string;
+		nameProp: string;
+	} = $props();
+	let hovered:
+		| {
+				feature: maplibregl.MapGeoJSONFeature | undefined;
+				lngLat: maplibregl.LngLat | undefined;
+		  }
+		| undefined = $state.raw();
 	let map: maplibregl.Map | undefined = $state.raw();
-
-	type Bounds = [[number, number], [number, number]];
-	const niBounds: Bounds = [
-		[-8.1775, 54.0227],
-		[-5.4328, 55.313]
-	];
 
 	let style = asset('public/map/style-omt.json');
 	let mapBounds: Bounds = $derived([
@@ -43,9 +48,12 @@
 		[bounds[0], bounds[1]]
 	]);
 
-	function cleanName(name: string) {
-		return name.replaceAll('_', ' ');
-	}
+	$effect(() => {
+		map?.fitBounds(mapBounds, {
+			padding: 30,
+			duration: 800
+		});
+	});
 </script>
 
 <div id="nav-map" class="map flex-grow-1 border border-secondary" tabindex="-1">
@@ -69,7 +77,7 @@
 					'fill-color': ['case', ['boolean', ['feature-state', 'hover'], false], '#999999', '#fff'],
 					'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.4, 0]
 				}}
-				onmousemove={(ev) => {					
+				onmousemove={(ev) => {
 					if (map) {
 						if (ev.features?.[0]) {
 							hovered = {
@@ -77,15 +85,16 @@
 								lngLat: ev.lngLat
 							};
 							const isSelected = ev.features[0].id === selectedArea;
-							map.getCanvas().style.cursor = isSelected ? "default" : "pointer";
+							map.getCanvas().style.cursor = isSelected ? 'default' : 'pointer';
 						} else {
-							map.getCanvas().style.cursor = "default";
+							map.getCanvas().style.cursor = 'default';
 						}
 					}
 				}}
 				onmouseleave={() => {
 					hovered = undefined;
 				}}
+				onclick={handleClick}
 			/>
 			<LineLayer
 				id="area-outline"
@@ -97,12 +106,21 @@
 			{#if hovered && hovered.feature}
 				<FeatureState id={hovered.feature.id} state={{ hover: true }} />
 				{#if hovered.lngLat}
-					<Popup closeButton={false} closeOnClick={false} offset={[0, -6]} class='nisra-popup' lnglat={hovered.lngLat}>
-						<div><strong>
-							{#if hovered.feature.id != selectedArea}
-							View: {/if}
-							{cleanName(hovered.feature.properties[nameProp])}
-						</strong></div>
+					<Popup
+						closeButton={false}
+						closeOnClick={false}
+						offset={[0, -6]}
+						class="nisra-popup"
+						lnglat={hovered.lngLat}
+					>
+						<div>
+							<strong>
+								{#if hovered.feature.id != selectedArea}
+									View:
+								{/if}
+								{cleanName(hovered.feature.properties[nameProp])}
+							</strong>
+						</div>
 					</Popup>
 				{/if}
 			{/if}
