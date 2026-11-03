@@ -1,18 +1,23 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import NavMap from './NavMap.svelte';
 
 	let {
 		name,
 		parentName,
 		parentCode,
 		mdmRank,
-		count
+		count,
+		selected,
+		bounds
 	}: {
 		name: string;
 		parentName?: string;
 		parentCode?: string;
 		mdmRank: number;
 		count: number;
+		selected: string;
+		bounds: [number, number, number, number]
 	} = $props();
 </script>
 
@@ -61,7 +66,7 @@
 	</div>
 
 	<div class="col-12 col-xl-4 mb-3 d-flex flex-column">
-		<div id="nav-map" class="map flex-grow-1 border border-secondary" tabindex="-1"></div>
+		<NavMap boundaryFile="public/map/SDZ2021.geo.json" selectedArea={selected} {bounds}/>
 	</div>
 </div>
 

@@ -15,6 +15,7 @@
 			count: number;
 			parents?: [{ name: string; code: string }];
 			type: string;
+			bounds: [number, number, number, number];
 		};
 	} = $props();
 
@@ -26,7 +27,7 @@
 	<div id="content" class="container">
 		<Breadcrumb links={getBreadcrumbLinks(data)} />
 		{#if data.type === 'sdz' && data.parents}
-			<SdzPage {name} parents={data.parents} domainRanks={data.data.ranks} {count} />
+			<SdzPage {name} parents={data.parents} domainRanks={data.data.ranks} {count} bounds={data.bounds}/>
 		{:else if data.type === 'lgd'}
 			<LgdPage
 				{name}
