@@ -10,6 +10,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Deprivation in Northern Ireland - Home</title>
+</svelte:head>
+
 <main class="flex-grow-1 d-flex flex-column">
 	<div id="content" class="flex-grow-1 d-flex flex-column">
 		<!-- Main Content -->

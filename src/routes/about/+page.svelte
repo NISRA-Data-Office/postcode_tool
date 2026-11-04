@@ -3,6 +3,10 @@
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
 </script>
 
+<svelte:head>
+	<title>Deprivation in Northern Ireland - About</title>
+</svelte:head>
+
 <div id="content" class="container mt-4">
 	<Breadcrumb links={getBreadcrumbLinks({ name: 'About' })} />
 	<h2 class="h1">About and essential info</h2>

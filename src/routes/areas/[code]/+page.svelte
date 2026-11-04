@@ -25,6 +25,10 @@
 	let code = $derived(data.code);
 </script>
 
+<svelte:head>
+	<title>Deprivation in {name}</title>
+</svelte:head>
+
 <main class="flex-grow-1">
 	<div id="content" class="container">
 		<Breadcrumb links={getBreadcrumbLinks(data)} />

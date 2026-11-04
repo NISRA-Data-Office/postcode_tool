@@ -40,7 +40,7 @@
 	function handleLgdSelect(event) {
 		const code = event.target.value;
 		if (code === page.params.code) return;
-		goto(resolve(`areas/${code}`));
+		goto(resolve('/areas/[code]', { code: code }), { reset: false });
 	}
 
 	let domainRanks = $derived(
