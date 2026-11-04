@@ -24,7 +24,7 @@
 	import areaBoundaries from '#lib/assets/SDZ2021.geo.json';
 
 	let {
-		selected,
+		selected = $bindable(),
 		domain,
 		type,
 		area,
@@ -33,10 +33,10 @@
 		promoteId = 'SDZ21_code',
 		nameProp = 'SDZ21_name',
 		lgdProp = 'LGD_code',
-		hoveredArea = $bindable(undefined),
+		hoveredArea = $bindable(),
 		handleClick
 	}: {
-		selected: string;
+		selected?: string;
 		domain: string;
 		type: 'lgd' | 'ctry';
 		area: string;
@@ -46,7 +46,7 @@
 		promoteId: string;
 		nameProp: string;
 		hoveredArea: string | number | undefined;
-		handleClick?: function;
+		handleClick?: Function;
 	} = $props();
 
 	let style = asset('public/map/style-omt.json');
@@ -69,15 +69,17 @@
 	]);
 
 	$effect(() => {
-		map?.fitBounds(mapBounds, {
-			padding: 30,
-			duration: 800
-		});
+		if (map) {
+			map.fitBounds(mapBounds, {
+				padding: 30,
+				duration: 800
+			});
 
-		if (handleClick && map) {
-			map.getCanvas().style.cursor = hovered.feature ? 'pointer' : 'default';
-		} else if (map) {
-			map.getCanvas().style.cursor = 'default';
+			if (handleClick && map) {
+				map.getCanvas().style.cursor = hovered?.feature ? 'pointer' : 'default';
+			} else {
+				map.getCanvas().style.cursor = 'default';
+			}
 		}
 	});
 
@@ -105,7 +107,11 @@
 		}
 	}
 
-	function mouseleave() {
+	function mouseleave(ev) {
+		if (map && ev.features?.[0]) {
+			return;
+		}
+
 		hovered = undefined;
 		hoveredArea = undefined;
 	}
@@ -139,6 +145,7 @@
 			onmousemove={mousemove}
 			onmouseleave={mouseleave}
 			filter={layerFilter}
+			onclick={handleClick ? handleClick : () => {}}
 		/>
 		<LineLayer
 			id="area-outline"
@@ -149,15 +156,17 @@
 			}}
 			filter={layerFilter}
 		/>
-		<LineLayer
-			id="area-outline-selected"
-			paint={{
-				'line-color': ['case', ['==', ['get', promoteId], selected], '#d4351c', '#000000'],
-				'line-width': ['case', ['==', ['get', promoteId], selected], 5, 0],
-				'line-opacity': ['case', ['==', ['get', promoteId], selected], 1, 0]
-			}}
-			filter={layerFilter}
-		/>
+		{#if selected}
+			<LineLayer
+				id="area-outline-selected"
+				paint={{
+					'line-color': ['case', ['==', ['get', promoteId], selected], '#d4351c', '#000000'],
+					'line-width': ['case', ['==', ['get', promoteId], selected], 5, 0],
+					'line-opacity': ['case', ['==', ['get', promoteId], selected], 1, 0]
+				}}
+				filter={layerFilter}
+			/>
+		{/if}
 		<LineLayer
 			id="area-outline-hover"
 			paint={{
@@ -174,7 +183,7 @@
 		/>
 	</GeoJSONSource>
 	{#if type === 'lgd'}
-		<GeoJSONSource id="lgd-boundaries" data={lgdBoundaries} promoteId="LGDcode">
+		<GeoJSONSource id="lgd-boundaries" data={lgdBoundaries} promoteId="LGDCode">
 			<FillLayer
 				id="lgd-fill"
 				paint={{
@@ -182,6 +191,7 @@
 				}}
 				onmousemove={mousemove}
 				onmouseleave={mouseleave}
+				onclick={handleClick ? handleClick : () => {}}
 				filter={lgdFilter}
 			/>
 			<LineLayer

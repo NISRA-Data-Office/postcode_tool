@@ -8,15 +8,15 @@
 		name,
 		labels
 	}: {
-		rank: number;
+		rank?: number;
 		maxRank: number;
 		rankCompare?: number;
 		name?: string;
 		labels?: string;
 	} = $props();
 
-	let rankProp = $derived(rank / maxRank);
-	let rankCompareProp = $derived(rankCompare ? rankCompare / maxRank : null);
+	let rankProp = $derived(rank ? rank / maxRank : undefined);
+	let rankCompareProp = $derived(rankCompare ? rankCompare / maxRank : undefined);
 
 	let minX = -4;
 	let minY = $derived(name ? -10 : labels === 'above' ? -5 : labels === 'below' ? -2 : -4);
@@ -36,7 +36,7 @@
 	const markerR = 3.3;
 	const markerStroke = '#042433';
 	const markerStrokeWidth = 0.5;
-	const markerCx = $derived(rankProp * scaleWidth);
+	const markerCx = $derived(rankProp ? rankProp * scaleWidth : undefined);
 	const markerCompareCx = $derived(rankCompareProp ? rankCompareProp * scaleWidth : null);
 	const markerCy = $derived(rectY + scaleGroupY + rectHeight / 2);
 	const markerColour = '#d4351c';
@@ -61,11 +61,11 @@
 	let markerTopY = $derived(markerCy - markerR);
 	let boxWidth = $derived(name ? Math.max(33, name.length * 2.8 + 5) : null);
 	let boxX = $derived(
-		!boxWidth
-			? null
-			: rankProp > 0.5
+		boxWidth && rankProp && markerCx
+			? rankProp > 0.5
 				? Math.max(boxMinX, markerCx - boxGap - boxWidth)
 				: Math.min(boxMaxX - boxWidth, markerCx + boxGap)
+			: undefined
 	);
 </script>
 
@@ -81,16 +81,18 @@
 			/>
 		{/each}
 	</g>
-	<circle
-		cx={markerCx}
-		cy={markerCy}
-		r={markerR}
-		stroke={markerStroke}
-		stroke-width={markerStrokeWidth}
-		stroke-miterlimit="8"
-		fill={markerColour}
-	/>
-	{#if rankCompare}
+	{#if rank}
+		<circle
+			cx={markerCx}
+			cy={markerCy}
+			r={markerR}
+			stroke={markerStroke}
+			stroke-width={markerStrokeWidth}
+			stroke-miterlimit="8"
+			fill={markerColour}
+		/>
+	{/if}
+	{#if rankCompare && rankCompare != rank}
 		<circle
 			cx={markerCompareCx}
 			cy={markerCy}

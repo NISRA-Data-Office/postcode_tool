@@ -39,10 +39,12 @@
 			/>
 		{:else if data.type === 'lgd'}
 			<LgdPage
+				{code}
 				{name}
 				childrenType={{ name: 'Super data zone', count: 850 }}
 				numChildren={Object.keys(data.data.ranks).length}
 				ranks={data.data.ranks}
+				bounds={data.bounds}
 			/>
 		{/if}
 	</div>
