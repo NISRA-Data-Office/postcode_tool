@@ -40,6 +40,7 @@
 	function handleLgdSelect(event) {
 		const code = event.target.value;
 		if (code === page.params.code) return;
+		selected = undefined;
 		goto(resolve('/areas/[code]', { code: code }), { reset: false });
 	}
 
@@ -110,7 +111,7 @@
 		<DomainSelect bind:selected={domain} />
 	</div>
 </div>
-<SelectedArea name={selectedName} code={selected} />
+<SelectedArea name={selectedName} bind:code={selected} />
 <div class="row">
 	<p id="map-explanation">
 		Using the map or table, click on a neighbourhood to focus on that area. Click a neighbouring

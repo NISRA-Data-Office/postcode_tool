@@ -14,6 +14,8 @@
 
 	let sortCol: 'name' | 'rank' | 'councilRank' = $state('rank');
 	let sortDir: 'asc' | 'desc' = $state('asc');
+	let tableContainer: HTMLDivElement;
+	let tableBody: HTMLElement;
 
 	function prepRanks(ranks: RawRankEntry[]): RankEntry[] {
 		ranks.sort((a, b) => a.rank - b.rank);
@@ -36,10 +38,26 @@
 
 	let ranksSorted = $state(ranksPrep);
 	$effect(() => ranksSorted.sort(sortFn));
+
+	$effect(() => {
+		if (selected) {
+			let selectedIdx = ranksSorted.findIndex((row) => row.code === selected);
+			let selectedRow = tableBody.children[selectedIdx];
+			tableContainer.scrollTo({
+				top: selectedRow.offsetTop - tableContainer.clientHeight / 2 + selectedRow.clientHeight / 2,
+				behavior: 'smooth'
+			});
+		} else {
+			tableContainer.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		}
+	});
 </script>
 
 <div id="table-col" class="col-12 col-xl-5 mb-3">
-	<div id="lgd-table-container">
+	<div id="lgd-table-container" bind:this={tableContainer}>
 		<table class="lgd-table">
 			<thead>
 				<tr>
@@ -96,10 +114,10 @@
 					</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody bind:this={tableBody}>
 				{#each ranksSorted as { name, code, rank, councilRank }, index (index)}
 					<tr
-						class="sdz-row cursor-pointer"
+						class={`sdz-row cursor-pointer ${code === selected ? 'selected' : ''}`}
 						data-code={code}
 						tabindex="-1"
 						aria-label={`Focus map on on ${name}`}
