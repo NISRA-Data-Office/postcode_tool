@@ -33,7 +33,8 @@
 		promoteId = 'SDZ21_code',
 		nameProp = 'SDZ21_name',
 		lgdProp = 'LGD_code',
-		hoveredArea = $bindable(undefined)
+		hoveredArea = $bindable(undefined),
+		handleClick
 	}: {
 		selected: string;
 		domain: string;
@@ -45,6 +46,7 @@
 		promoteId: string;
 		nameProp: string;
 		hoveredArea: string | number | undefined;
+		handleClick?: function;
 	} = $props();
 
 	let style = asset('public/map/style-omt.json');
@@ -71,6 +73,12 @@
 			padding: 30,
 			duration: 800
 		});
+
+		if (handleClick && map) {
+			map.getCanvas().style.cursor = hovered.feature ? 'pointer' : 'default';
+		} else if (map) {
+			map.getCanvas().style.cursor = 'default';
+		}
 	});
 
 	let layerFilter: maplibregl.FilterSpecification | undefined = $derived(

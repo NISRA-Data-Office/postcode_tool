@@ -8,6 +8,7 @@
 	import RankChart from './RankChart.svelte';
 	import RankChartTable from './RankChartTable.svelte';
 	import ScaleMap from './ScaleMap.svelte';
+	import RankComparison from './RankComparison.svelte';
 	import areaData from '#lib/assets/N92000002.json';
 
 	let {
@@ -42,9 +43,12 @@
 	let hoveredRank: number | undefined = $derived(
 		hoveredArea ? areaData.data.ranks[hoveredArea].ranks[domain] : undefined
 	);
+	let hoveredName: string | undefined = $derived(
+		hoveredArea ? areaData.data.ranks[hoveredArea].name : undefined
+	);
 </script>
 
-{@debug hoveredRank}
+{@debug hoveredArea}
 
 <div class="row mb-4">
 	<div class="col-12 col-xl-8">
@@ -95,7 +99,14 @@
 				</div>
 			</div>
 			<div class="bg-white border border-secondary p-3">
-				<div id="comparison-text" class="text-center min-h-4"></div>
+				<RankComparison
+					{name}
+					rank={selectedRank}
+					nameCompare={hoveredName}
+					rankCompare={hoveredRank}
+					{domain}
+					maxRank={count}
+				/>
 				<div id="comparison-scale-chart">
 					<RankChart rank={selectedRank} rankCompare={hoveredRank} maxRank={count} labels="below" />
 				</div>

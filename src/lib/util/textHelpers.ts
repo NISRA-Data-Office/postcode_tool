@@ -1,3 +1,5 @@
+import { domains } from '#lib/config.ts';
+
 export function headline(mdmRank: number, count: number, percent: number) {
 	if (mdmRank === 1) {
 		return `is more deprived than all neighbourhoods in Northern Ireland.`;
@@ -46,5 +48,22 @@ export function paragraph(mdmRank: number, count: number, percent: number) {
 		return 'Fewer than 1% of neighbourhoods in Northern Ireland are less deprived than';
 	} else if (mdmRank === count) {
 		return `All neighbourhoods in Northern Ireland are more deprived than`;
+	}
+}
+
+export function domainLabel(code: string) {
+	return domains.filter((domain) => domain.code === code)?.[0].label;
+}
+
+export function compareRanks(rank: number, rankCompare: number, maxRank: number) {
+	let decile = Math.floor((10 * rank) / maxRank);
+	let decileCompare = Math.floor((10 * rankCompare) / maxRank);
+
+	if (decile == decileCompare) {
+		return ' has a similar deprivation ranking to ';
+	} else if (rank < rankCompare) {
+		return ' is less deprived than ';
+	} else if (rank > rankCompare) {
+		return ' is more deprived than ';
 	}
 }
