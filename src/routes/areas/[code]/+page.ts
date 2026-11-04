@@ -15,6 +15,6 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageLoad = async ({ params, fetch }) => {
 	let code = params.code;
-	let resp = await fetch(asset(`/public/data/${code}.json`));
+	let resp = await fetch(asset(`public/data/${code}.json`));
 	return resp.json();
 };

@@ -95,7 +95,7 @@
 								{sortSym}{/if}
 						</button>
 					</th>
-					<th data-key="name" class="cursor-pointer w-30" tabindex="0">
+					<th data-key="name" class="cursor-pointer w-45" tabindex="0">
 						<button
 							aria-label="Sort by neighbourhood alphabetically"
 							onclick={() => {
