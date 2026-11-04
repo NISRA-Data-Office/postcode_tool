@@ -14,6 +14,7 @@
 	import RankComparison from './RankComparison.svelte';
 	import SelectedArea from './SelectedArea.svelte';
 	import areaData from '#lib/assets/N92000002.json';
+	import RankTable from './RankTable.svelte';
 
 	let {
 		name,
@@ -155,6 +156,6 @@
 			</div>
 		</div>
 	</div>
-
-	<LgdSummary {name} {domain} {numChildren} {domainRanks} />
+	<RankTable ranks={domainRanks} bind:selected />
 </div>
+<LgdSummary {name} {domain} {numChildren} {domainRanks} />
