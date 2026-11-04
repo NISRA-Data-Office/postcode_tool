@@ -32,7 +32,8 @@
 		bounds,
 		promoteId = 'SDZ21_code',
 		nameProp = 'SDZ21_name',
-		lgdProp = 'LGD_code'
+		lgdProp = 'LGD_code',
+		hoveredArea = $bindable(undefined)
 	}: {
 		selected: string;
 		domain: string;
@@ -43,11 +44,12 @@
 		bounds: [number, number, number, number];
 		promoteId: string;
 		nameProp: string;
+		hoveredArea: string | number | undefined;
 	} = $props();
 
 	let style = asset('public/map/style-omt.json');
 	let areaGeojson = $derived(
-		prepAreaFeatures(areaBoundaries, areaData.data.ranks, domain, promoteId, nameProp)
+		prepAreaFeatures(areaBoundaries, areaData.data.ranks, promoteId, nameProp)
 	);
 
 	let hovered:
@@ -56,6 +58,7 @@
 				lngLat: maplibregl.LngLat | undefined;
 		  }
 		| undefined = $state.raw();
+
 	let map: maplibregl.Map | undefined = $state.raw();
 
 	let mapBounds: Bounds = $derived([
@@ -74,8 +77,6 @@
 		type === 'lgd' ? ['==', ['get', lgdProp], area] : undefined
 	);
 </script>
-
-{@debug selected}
 
 <MapLibre
 	bind:map
@@ -109,11 +110,13 @@
 							feature: ev.features[0],
 							lngLat: ev.lngLat
 						};
+						hoveredArea = hovered.feature?.id;
 					}
 				}
 			}}
 			onmouseleave={() => {
 				hovered = undefined;
+				hoveredArea = undefined;
 			}}
 			filter={layerFilter}
 		/>

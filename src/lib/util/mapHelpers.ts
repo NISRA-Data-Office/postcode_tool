@@ -15,7 +15,7 @@ function rankToFill(rank: number, maxRank: number, palette: string[]) {
 	return palette[Math.floor(pctRank * palette.length)];
 }
 
-export function prepAreaFeatures(areaData, rankData, domain, idProp, nameProp) {
+export function prepAreaFeatures(areaData, rankData, idProp, nameProp) {
 	const areaCount = areaData.features.length;
 
 	areaData.features = areaData.features.map((feat) => {
