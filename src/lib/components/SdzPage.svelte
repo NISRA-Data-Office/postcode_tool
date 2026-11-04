@@ -48,8 +48,6 @@
 	);
 </script>
 
-{@debug hoveredArea}
-
 <div class="row mb-4">
 	<div class="col-12 col-xl-8">
 		<AreaTitle type="sdz" {name} />

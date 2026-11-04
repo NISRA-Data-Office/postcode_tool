@@ -84,6 +84,10 @@
 	let layerFilter: maplibregl.FilterSpecification | undefined = $derived(
 		type === 'lgd' ? ['==', ['get', lgdProp], area] : undefined
 	);
+
+	let hoveredRank: number | undefined = $derived(
+		hoveredArea ? areaData.data.ranks[hoveredArea].ranks[domain] : undefined
+	);
 </script>
 
 <MapLibre
@@ -172,10 +176,7 @@
 				>
 					<div>
 						<strong>
-							{#if hovered.feature.id != selected}
-								View:
-							{/if}
-							{cleanName(hovered.feature.properties[nameProp])}
+							{cleanName(hovered.feature.properties[nameProp])}: {hoveredRank}
 						</strong>
 					</div>
 				</Popup>
