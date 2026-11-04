@@ -41,10 +41,10 @@
 
 	let hoveredArea: string | number | undefined = $state();
 	let hoveredRank: number | undefined = $derived(
-		hoveredArea ? areaData.data.ranks[hoveredArea].ranks[domain] : undefined
+		hoveredArea && areaData ? areaData.data.ranks[hoveredArea]?.ranks[domain] : undefined
 	);
 	let hoveredName: string | undefined = $derived(
-		hoveredArea ? areaData.data.ranks[hoveredArea].name : undefined
+		hoveredArea && areaData ? areaData.data.ranks[hoveredArea]?.name : undefined
 	);
 </script>
 

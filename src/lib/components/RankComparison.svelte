@@ -17,8 +17,6 @@
 	} = $props();
 </script>
 
-{@debug name, rank}
-
 <div id="comparison-text" class="text-center min-h-4">
 	{#if name && rank}
 		{#if nameCompare && rankCompare && nameCompare != name}
