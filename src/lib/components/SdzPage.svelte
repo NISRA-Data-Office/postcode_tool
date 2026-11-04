@@ -30,6 +30,12 @@
 	let selectedRank = $derived(domainRanks[domain]);
 	let parentCode = $derived(parents[0].code);
 	let parentName = $derived(parents[0].name);
+	let scaleMapBounds = $derived([
+		bounds[0] - 0.05,
+		bounds[1] - 0.05,
+		bounds[2] + 0.05,
+		bounds[3] + 0.05
+	]);
 </script>
 
 <div class="row mb-4">
@@ -75,7 +81,7 @@
 						type="lgd"
 						area={parentCode}
 						name={parentName}
-						{bounds}
+						bounds={scaleMapBounds}
 					/>
 				</div>
 			</div>

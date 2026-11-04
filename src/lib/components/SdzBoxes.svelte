@@ -56,8 +56,8 @@
 			<h3 class="fw-bold fs-3 text-break">About <span class="place-name">{name}</span></h3>
 			<div id="geo-description" class="fs-5">
 				<p>
-					<span class="text-purple fw-bold">{name}</span> is a Super Data Zone
-					{#if parentCode && parentName}, in
+					<span class="text-purple fw-bold">{name}</span> is a Super Data Zone{#if parentCode && parentName},
+						in
 						<a
 							class="text-blue"
 							href={resolve(`areas/${parentCode}`)}

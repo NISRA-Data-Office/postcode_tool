@@ -15,20 +15,8 @@ function rankToFill(rank: number, maxRank: number, palette: string[]) {
 	return palette[Math.floor(pctRank * palette.length)];
 }
 
-export function prepAreaFeatures(
-	areaData,
-	rankData,
-	domain,
-	idProp,
-	nameProp,
-	lgd: string | null = null
-) {
+export function prepAreaFeatures(areaData, rankData, domain, idProp, nameProp) {
 	const areaCount = areaData.features.length;
-	if (lgd) {
-		areaData.features = areaData.features.filter((feat) => {
-			return feat.properties.LGD_code === lgd;
-		});
-	}
 
 	areaData.features = areaData.features.map((feat) => {
 		let id = feat.properties[idProp];

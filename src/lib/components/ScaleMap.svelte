@@ -31,7 +31,8 @@
 		name,
 		bounds,
 		promoteId = 'SDZ21_code',
-		nameProp = 'SDZ21_name'
+		nameProp = 'SDZ21_name',
+		lgdProp = 'LGD_code'
 	}: {
 		selected: string;
 		domain: string;
@@ -46,9 +47,7 @@
 
 	let style = asset('public/map/style-omt.json');
 	let areaGeojson = $derived(
-		type === 'lgd'
-			? prepAreaFeatures(areaBoundaries, areaData.data.ranks, domain, promoteId, nameProp, area)
-			: prepAreaFeatures(areaBoundaries, areaData.data.ranks, domain, promoteId, nameProp)
+		prepAreaFeatures(areaBoundaries, areaData.data.ranks, domain, promoteId, nameProp)
 	);
 
 	let hovered:
@@ -70,9 +69,13 @@
 			duration: 800
 		});
 	});
+
+	let layerFilter: maplibregl.FilterSpecification | undefined = $derived(
+		type === 'lgd' ? ['==', ['get', lgdProp], area] : undefined
+	);
 </script>
 
-{@debug areaGeojson}
+{@debug selected}
 
 <MapLibre
 	bind:map
@@ -112,18 +115,39 @@
 			onmouseleave={() => {
 				hovered = undefined;
 			}}
+			filter={layerFilter}
 		/>
 		<LineLayer
 			id="area-outline"
 			paint={{
+				'line-color': '#555555',
+				'line-width': 1,
+				'line-opacity': 0.9
+			}}
+			filter={layerFilter}
+		/>
+		<LineLayer
+			id="area-outline-selected"
+			paint={{
+				'line-color': ['case', ['==', ['get', promoteId], selected], '#d4351c', '#000000'],
+				'line-width': ['case', ['==', ['get', promoteId], selected], 5, 0],
+				'line-opacity': ['case', ['==', ['get', promoteId], selected], 1, 0]
+			}}
+			filter={layerFilter}
+		/>
+		<LineLayer
+			id="area-outline-hover"
+			paint={{
 				'line-color': [
 					'case',
 					['boolean', ['feature-state', 'hover'], false],
-					'#222222',
-					'#555555'
+					'#ce70d2',
+					'#000000'
 				],
-				'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 2, 1]
+				'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 5, 0],
+				'line-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 1, 0]
 			}}
+			filter={layerFilter}
 		/>
 		{#if hovered && hovered.feature}
 			<FeatureState id={hovered.feature.id} state={{ hover: true }} />
