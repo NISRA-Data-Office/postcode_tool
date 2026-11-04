@@ -85,9 +85,30 @@
 		type === 'lgd' ? ['==', ['get', lgdProp], area] : undefined
 	);
 
+	let lgdFilter: maplibregl.FilterSpecification | undefined = $derived(
+		type === 'lgd' ? ['!=', ['get', 'LGDCode'], area] : undefined
+	);
+
 	let hoveredRank: number | undefined = $derived(
 		hoveredArea ? areaData.data.ranks[hoveredArea].ranks[domain] : undefined
 	);
+
+	function mousemove(ev) {
+		if (map) {
+			if (ev.features?.[0]) {
+				hovered = {
+					feature: ev.features[0],
+					lngLat: ev.lngLat
+				};
+				hoveredArea = hovered.feature?.id;
+			}
+		}
+	}
+
+	function mouseleave() {
+		hovered = undefined;
+		hoveredArea = undefined;
+	}
 </script>
 
 <MapLibre
@@ -115,21 +136,8 @@
 				'fill-color': ['string', ['get', `fill-${domain}`], '#eeeeee'],
 				'fill-opacity': 1
 			}}
-			onmousemove={(ev) => {
-				if (map) {
-					if (ev.features?.[0]) {
-						hovered = {
-							feature: ev.features[0],
-							lngLat: ev.lngLat
-						};
-						hoveredArea = hovered.feature?.id;
-					}
-				}
-			}}
-			onmouseleave={() => {
-				hovered = undefined;
-				hoveredArea = undefined;
-			}}
+			onmousemove={mousemove}
+			onmouseleave={mouseleave}
 			filter={layerFilter}
 		/>
 		<LineLayer
@@ -164,23 +172,55 @@
 			}}
 			filter={layerFilter}
 		/>
-		{#if hovered && hovered.feature}
-			<FeatureState id={hovered.feature.id} state={{ hover: true }} />
-			{#if hovered.lngLat}
-				<Popup
-					closeButton={false}
-					closeOnClick={false}
-					offset={[0, -6]}
-					class="nisra-popup"
-					lnglat={hovered.lngLat}
-				>
-					<div>
-						<strong>
-							{cleanName(hovered.feature.properties[nameProp])}: {hoveredRank}
-						</strong>
-					</div>
-				</Popup>
-			{/if}
-		{/if}
 	</GeoJSONSource>
+	{#if type === 'lgd'}
+		<GeoJSONSource id="lgd-boundaries" data={lgdBoundaries} promoteId="LGDcode">
+			<FillLayer
+				id="lgd-fill"
+				paint={{
+					'fill-opacity': 0
+				}}
+				onmousemove={mousemove}
+				onmouseleave={mouseleave}
+				filter={lgdFilter}
+			/>
+			<LineLayer
+				id="lgd-outline"
+				paint={{
+					'line-color': [
+						'case',
+						['boolean', ['feature-state', 'hover'], false],
+						'#222222',
+						'#555555'
+					],
+					'line-width': ['case', ['boolean', ['feature-state', 'hover'], false], 3, 2],
+					'line-opacity': 0.9
+				}}
+				filter={lgdFilter}
+				beforeId="area-fill"
+			/>
+		</GeoJSONSource>
+	{/if}
+	{#if hovered && hovered.feature}
+		<FeatureState id={hovered.feature.id} source={hovered.feature.source} state={{ hover: true }} />
+		{#if hovered.lngLat}
+			<Popup
+				closeButton={false}
+				closeOnClick={false}
+				offset={[0, -6]}
+				class="nisra-popup"
+				lnglat={hovered.lngLat}
+			>
+				<div>
+					<strong>
+						{#if hovered.feature.source === 'area-boundaries'}
+							{cleanName(hovered.feature.properties[nameProp])}: {hoveredRank}
+						{:else if hovered.feature.source === 'lgd-boundaries'}
+							{hovered.feature.properties.LGDNAME}
+						{/if}
+					</strong>
+				</div>
+			</Popup>
+		{/if}
+	{/if}
 </MapLibre>
