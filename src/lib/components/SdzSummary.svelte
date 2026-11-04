@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { headline, paragraph } from '#lib/util/textHelpers.ts';
 	import { domains } from '#lib/config.ts';
-	import { text } from 'stream/consumers';
 
 	let {
 		name,
