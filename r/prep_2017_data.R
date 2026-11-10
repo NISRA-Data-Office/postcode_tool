@@ -159,3 +159,28 @@ walk(names(lgd_data), \(lgd) {
 walk(names(soa_data), \(soa) {
   write_json(soa_data[[soa]], glue::glue("static/public/data/{soa}.json"))
 })
+
+
+# postcode search ---------------------------------------------------------
+
+cpd <- read_csv("https://raw.githubusercontent.com/nisra-explore/postcode-search/refs/heads/main/CPD_LIGHT.csv",
+                show_col_types = FALSE)
+cpd <- cpd |> 
+  mutate(
+    postcode = paste0(
+      substr(PC5, 1, nchar(PC5) - 3),
+      " ",
+      substr(PC5, nchar(PC5) - 2, nchar(PC5))
+    ),
+    SOA2001NAME = gsub("_", " ", SOA2001NAME)
+  )
+
+cpd_soas <- unique(cpd$SOA2001)
+search_data <- lapply(cpd_soas, \(soa) {
+  nm <- cpd$SOA2001NAME[cpd$SOA2001 == soa][[1]]
+  pcs <- cpd$postcode[cpd$SOA2001 == soa]
+  list(name = nm, codes = pcs)
+})
+names(search_data) <- cpd_soas
+
+write_json(search_data, "src/lib/assets/postcode.json")
