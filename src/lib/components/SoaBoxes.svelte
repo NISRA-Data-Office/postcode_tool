@@ -37,8 +37,6 @@
 	});
 </script>
 
-{@debug urbanRural, urbanRuralDescription }
-
 <div class="row">
 	<div class="col-12 col-xl-4 mb-3">
 		<div class="bg-grey border border-secondary pt-2 px-3 h-100 d-flex flex-column">
