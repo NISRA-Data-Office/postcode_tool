@@ -61,8 +61,8 @@ The About page is wired up in `src/about.js` and `about.html`, but it is still a
 
 The app currently supports the following levels and domains:
 
-| Key            | Measure                                    | Notes                                          |
-| -------------- | ------------------------------------------ | ---------------------------------------------- |
+| Key          | Measure                                    | Notes                                          |
+| ------------ | ------------------------------------------ | ---------------------------------------------- |
 | `mdm`        | Overall deprivation                        | Multiple Deprivation Measure                   |
 | `income`     | Income deprivation                         | Relative material deprivation                  |
 | `employment` | Employment deprivation                     | Work-related deprivation                       |
@@ -133,28 +133,28 @@ The JSON files in `public/data/` contain the main deprivation dataset. A represe
 
 ```json
 {
-  "code": "N09000001",
-  "name": "Antrim and Newtownabbey",
-  "type": "lgd",
-  "sdz_count": 850,
-  "bounds": [-5.8682, 54.5682, -6.4959, 54.8119],
-  "data": {
-    "ranks": {
-      "N21000001": {
-        "name": "Dunsilly A",
-        "ranks": {
-          "mdm": 666,
-          "income": 675,
-          "employment": 647,
-          "health": 646,
-          "education": 648,
-          "services": 234,
-          "living": 487,
-          "crime": 682
-        }
-      }
-    }
-  }
+	"code": "N09000001",
+	"name": "Antrim and Newtownabbey",
+	"type": "lgd",
+	"sdz_count": 850,
+	"bounds": [-5.8682, 54.5682, -6.4959, 54.8119],
+	"data": {
+		"ranks": {
+			"N21000001": {
+				"name": "Dunsilly A",
+				"ranks": {
+					"mdm": 666,
+					"income": 675,
+					"employment": 647,
+					"health": 646,
+					"education": 648,
+					"services": 234,
+					"living": 487,
+					"crime": 682
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -259,12 +259,12 @@ The project is intended to present NISRA deprivation statistics in a more access
 
 The application uses:
 
-* Northern Ireland Multiple Deprivation Measure (NIMDM)
-* Central Postcode Directory (CPD)
-* Mid-Year Population Estimates
-* NISRA geography datasets
-* Local Government District geography files
-* Super Data Zone geography files
+- Northern Ireland Multiple Deprivation Measure (NIMDM)
+- Central Postcode Directory (CPD)
+- Mid-Year Population Estimates
+- NISRA geography datasets
+- Local Government District geography files
+- Super Data Zone geography files
 
 ---
 

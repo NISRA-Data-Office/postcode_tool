@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('pages match snapshots', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
-  await expect(page.locator('#cookie-banner')).toMatchAriaSnapshot(`
+	await page.goto('/index.html');
+	await expect(page.locator('#cookie-banner')).toMatchAriaSnapshot(`
     - paragraph:
       - strong: Cookies on the NISRA Data Explorer
     - paragraph:
@@ -13,25 +13,25 @@ test('pages match snapshots', async ({ page }) => {
     - button "Accept cookies"
     - button "Reject cookies"
     `);
-  await expect(page.locator('#banner')).toMatchAriaSnapshot(`
+	await expect(page.locator('#banner')).toMatchAriaSnapshot(`
     - paragraph:
       - text: We welcome feedback from users through our
       - link "short survey":
         - /url: https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/NI_Deprivation_tool
     `);
-  await expect(page.locator('#banner')).toMatchAriaSnapshot(`
+	await expect(page.locator('#banner')).toMatchAriaSnapshot(`
     - banner:
       - link "NISRA logo":
         - /url: https://www.nisra.gov.uk/
         - img "NISRA logo"
       - heading "Deprivation in Northern Ireland" [level=1]
     `);
-  await expect(page.locator('#banner')).toMatchAriaSnapshot(`
+	await expect(page.locator('#banner')).toMatchAriaSnapshot(`
     - banner:
       - paragraph: Test statistics on deprivation in Northern Ireland, including the Multiple Deprivation Measure (MDM).
       - paragraph: Deprivation refers to people's unmet needs, a lack of access to opportunities and resources which we might expect in our society.
     `);
-  await expect(page.locator('#content')).toMatchAriaSnapshot(`
+	await expect(page.locator('#content')).toMatchAriaSnapshot(`
     - paragraph: "Find out about deprivation in your neighbourhood:"
     - searchbox "Search for a postcode"
     - button ""
@@ -53,7 +53,7 @@ test('pages match snapshots', async ({ page }) => {
     - link "View more deprivation resources and information":
       - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
     `);
-  await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+	await expect(page.locator('#footer')).toMatchAriaSnapshot(`
     - contentinfo:
       - heading "Data Tools" [level=3]
       - list:
@@ -120,9 +120,9 @@ test('pages match snapshots', async ({ page }) => {
           - link "Accessibility Statement":
             - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
     `);
-  await page.getByLabel('Select a council area').selectOption('N09000002');
-  await page.goto('http://localhost:3000/area.html?code=N09000002');
-  await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+	await page.getByLabel('Select a council area').selectOption('N09000002');
+	await page.goto('/area.html?code=N09000002');
+	await expect(page.getByRole('main')).toMatchAriaSnapshot(`
     - main:
       - navigation "breadcrumb":
         - list:
@@ -568,7 +568,7 @@ test('pages match snapshots', async ({ page }) => {
       - link "View more deprivation resources and information":
         - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
     `);
-  await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+	await expect(page.locator('#footer')).toMatchAriaSnapshot(`
     - contentinfo:
       - heading "Data Tools" [level=3]
       - list:
@@ -635,8 +635,8 @@ test('pages match snapshots', async ({ page }) => {
           - link "Accessibility Statement":
             - /url: https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html
     `);
-  await page.goto('http://localhost:3000/sdz.html?sdz=N21000451');
-  await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+	await page.goto('/sdz.html?sdz=N21000451');
+	await expect(page.getByRole('main')).toMatchAriaSnapshot(`
     - main:
       - navigation:
         - list:
@@ -822,7 +822,7 @@ test('pages match snapshots', async ({ page }) => {
         - /url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation-and-poverty
         - text: View more deprivation resources and information
     `);
-  await expect(page.locator('#footer')).toMatchAriaSnapshot(`
+	await expect(page.locator('#footer')).toMatchAriaSnapshot(`
     - contentinfo:
       - heading "Data Tools" [level=3]
       - list:
