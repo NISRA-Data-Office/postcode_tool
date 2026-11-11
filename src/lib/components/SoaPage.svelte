@@ -59,7 +59,16 @@
 	</div>
 </div>
 
-<SoaBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} {urbanRural} />
+<SoaBoxes
+	{name}
+	{parentName}
+	{parentCode}
+	{mdmRank}
+	{count}
+	selected={code}
+	{bounds}
+	{urbanRural}
+/>
 <AreaParagraph {name} {mdmRank} {count} />
 
 <div class="row align-items-center justify-content-center">

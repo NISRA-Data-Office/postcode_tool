@@ -76,7 +76,7 @@ export const domains: { code: string; label: string; description: string[] }[] =
 	{
 		code: 'idap',
 		label: 'Income deprivation affecting older people',
-		description : [
+		description: [
 			'This shows the proportion of the population aged 65 and over living in low income households.'
 		]
 	}

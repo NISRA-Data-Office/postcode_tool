@@ -31,9 +31,12 @@
 	}
 
 	let urbanRuralDescription = $derived.by(() => {
-		let article = urbanRural.toLowerCase() === "urban" ? "an" : "a";
-		let description = urbanRural.toLowerCase() === "mixed urban/rural" ? "mixed urban and rural" : urbanRural.toLowerCase();
-		return `${article} ${description} area`
+		let article = urbanRural.toLowerCase() === 'urban' ? 'an' : 'a';
+		let description =
+			urbanRural.toLowerCase() === 'mixed urban/rural'
+				? 'mixed urban and rural'
+				: urbanRural.toLowerCase();
+		return `${article} ${description} area`;
 	});
 </script>
 
