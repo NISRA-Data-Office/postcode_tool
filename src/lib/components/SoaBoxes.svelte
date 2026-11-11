@@ -9,6 +9,7 @@
 		parentCode,
 		mdmRank,
 		count,
+		urbanRural,
 		selected,
 		bounds
 	}: {
@@ -17,6 +18,7 @@
 		parentCode?: string;
 		mdmRank: number;
 		count: number;
+		urbanRural: string;
 		selected: string;
 		bounds: [number, number, number, number];
 	} = $props();
@@ -27,7 +29,15 @@
 			goto(resolve('/areas/[code]', { code: areaCode }), { reset: false });
 		}
 	}
+
+	let urbanRuralDescription = $derived.by(() => {
+		let article = urbanRural.toLowerCase() === "urban" ? "an" : "a";
+		let description = urbanRural.toLowerCase() === "mixed urban/rural" ? "mixed urban and rural" : urbanRural.toLowerCase();
+		return `${article} ${description} area`
+	});
 </script>
+
+{@debug urbanRural, urbanRuralDescription }
 
 <div class="row">
 	<div class="col-12 col-xl-4 mb-3">
@@ -68,6 +78,9 @@
 				<p>
 					Super Output Areas - referred to here as 'neighbourhoods' - have an average population of
 					2,030 people.
+				</p>
+				<p>
+					{name} is in {urbanRuralDescription}.
 				</p>
 			</div>
 		</div>

@@ -49,6 +49,7 @@
 				parents={data.parents}
 				domainRanks={data.data.ranks}
 				{count}
+				urbanRural={data.urban_rural}
 				bounds={data.bounds}
 			/>
 		{:else if data.type === 'lgd'}

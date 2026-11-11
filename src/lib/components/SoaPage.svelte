@@ -16,6 +16,7 @@
 		name,
 		domainRanks,
 		count,
+		urbanRural,
 		parents,
 		bounds
 	}: {
@@ -23,6 +24,7 @@
 		name: string;
 		domainRanks: { [key: string]: number };
 		count: number;
+		urbanRural: string;
 		parents: [{ name: string; code: string }];
 		bounds: [number, number, number, number];
 	} = $props();
@@ -57,7 +59,7 @@
 	</div>
 </div>
 
-<SoaBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} />
+<SoaBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} {urbanRural} />
 <AreaParagraph {name} {mdmRank} {count} />
 
 <div class="row align-items-center justify-content-center">

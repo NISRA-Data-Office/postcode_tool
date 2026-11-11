@@ -84,6 +84,12 @@ ni_bbox <- unname(unclass(sf::st_bbox(soa_simpl)))[c(3, 2, 1, 4)]
 ranks_url <- "https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.ReadDataset/NIMDM17T2/CSV/1.0/en"
 ranks_raw <- read_csv(ranks_url)
 
+urban_rural_url <- "https://www.nisra.gov.uk/files/nisra/publications/Settlement15-lookup.xls"
+urban_rural_tf <- download_tf(urban_rural_url)
+urban_rural <- readxl::read_xls(urban_rural_tf, sheet = "SOA2011", skip = 3)
+urban_rural <- urban_rural[, c(1, 3)]
+colnames(urban_rural) <- c("area_code", "urban_rural")
+
 domain_code <- function(x) {
   from <- c(1, 2, 4, 6, 7, 8, 9, 10, 13, 15)
   to <- c("mdm", "income", "employment", "health", "education", "services", "living", "crime", "idac", "idap")
@@ -102,12 +108,14 @@ soa_data <- lapply(lgd_lkp$area_code, \(code) {
   ranks_list <- as.list(area_ranks$rank)
   names(ranks_list) <- area_ranks$domain
   lgd_row <- lgd_lkp[lgd_lkp$area_code == code, ]
+  ur <- urban_rural$urban_rural[urban_rural$area_code == code]
   
   list(
     code = code,
     name = area_nm,
     type = "soa",
     count = 890L,
+    urban_rural = ur,
     parents = list(
       list(code = lgd_row$lgd2014, name = lgd_row$lgd2014_name)
     ),
