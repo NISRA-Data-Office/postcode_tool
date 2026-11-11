@@ -1,1 +1,1 @@
-{"code":"95GG48S2","name":"Whiterock 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9692,54.5909,-5.9829,54.5983],"data":{"ranks":{"mdm":23,"income":306,"employment":8,"health":1,"education":5,"services":731,"living":130,"crime":227}}}
+{"code":"95GG48S2","name":"Whiterock 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9692,54.5909,-5.9829,54.5983],"data":{"ranks":{"mdm":23,"income":306,"employment":8,"health":1,"education":5,"services":731,"living":130,"crime":227,"idac":299,"idap":889}}}

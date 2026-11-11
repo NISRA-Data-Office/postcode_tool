@@ -85,8 +85,8 @@ ranks_url <- "https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_A
 ranks_raw <- read_csv(ranks_url)
 
 domain_code <- function(x) {
-  from <- c(1, 2, 4, 6, 7, 8, 9, 10)
-  to <- c("mdm", "income", "employment", "health", "education", "services", "living", "crime")
+  from <- c(1, 2, 4, 6, 7, 8, 9, 10, 13, 15)
+  to <- c("mdm", "income", "employment", "health", "education", "services", "living", "crime", "idac", "idap")
   recode_values(x, from = from, to = to, default = NA_character_)
 }
 

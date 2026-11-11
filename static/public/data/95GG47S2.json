@@ -1,1 +1,1 @@
-{"code":"95GG47S2","name":"Water Works 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9395,54.6135,-5.9506,54.622],"data":{"ranks":{"mdm":2,"income":23,"employment":2,"health":4,"education":63,"services":846,"living":341,"crime":21}}}
+{"code":"95GG47S2","name":"Water Works 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9395,54.6135,-5.9506,54.622],"data":{"ranks":{"mdm":2,"income":23,"employment":2,"health":4,"education":63,"services":846,"living":341,"crime":21,"idac":30,"idap":571}}}

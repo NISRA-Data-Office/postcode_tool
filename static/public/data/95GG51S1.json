@@ -1,1 +1,1 @@
-{"code":"95GG51S1","name":"Woodvale 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9597,54.6017,-5.9673,54.6071],"data":{"ranks":{"mdm":8,"income":7,"employment":45,"health":47,"education":2,"services":610,"living":368,"crime":37}}}
+{"code":"95GG51S1","name":"Woodvale 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9597,54.6017,-5.9673,54.6071],"data":{"ranks":{"mdm":8,"income":7,"employment":45,"health":47,"education":2,"services":610,"living":368,"crime":37,"idac":8,"idap":806}}}

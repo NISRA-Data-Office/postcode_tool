@@ -1,1 +1,1 @@
-{"code":"95GG40S2","name":"Shankill 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.932,54.6011,-5.9514,54.6093],"data":{"ranks":{"mdm":18,"income":115,"employment":20,"health":27,"education":4,"services":776,"living":116,"crime":3}}}
+{"code":"95GG40S2","name":"Shankill 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.932,54.6011,-5.9514,54.6093],"data":{"ranks":{"mdm":18,"income":115,"employment":20,"health":27,"education":4,"services":776,"living":116,"crime":3,"idac":214,"idap":883}}}

@@ -65,6 +65,20 @@ export const domains: { code: string; label: string; description: string[] }[] =
 			'This shows the risk of crime and disorder in an area. It includes crimes against people and crimes involving property.',
 			"This makes up 5% of a neighbourhood's overall MDM score."
 		]
+	},
+	{
+		code: 'idac',
+		label: 'Income deprivation affecting children',
+		description: [
+			'This shows the proportion of the population aged 15 and under living in low income households.'
+		]
+	},
+	{
+		code: 'idap',
+		label: 'Income deprivation affecting older people',
+		description : [
+			'This shows the proportion of the population aged 65 and over living in low income households.'
+		]
 	}
 ];
 
