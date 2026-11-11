@@ -68,7 +68,7 @@
 		cooperativeGestures={false}
 		dragRotate={false}
 	>
-		<NavigationControl position="top-right" showCompass={false} showZoom={false} />
+		<NavigationControl position="top-right" showCompass={false} showZoom={true} />
 		<FullScreenControl />
 		<GeoJSONSource id="area-boundaries" data={asset(boundaryFile)} {promoteId}>
 			<FillLayer
