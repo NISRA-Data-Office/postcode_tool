@@ -28,6 +28,10 @@
 	}
 
 	let currentMatches = $derived(inputText ? loadOptions(inputText) : []);
+
+	function cleanPostcode(postcode: string) : string {
+		return postcode.toUpperCase().trim().replaceAll(/\s+/g, ' ');
+	}
 </script>
 
 <div id="postcode-search" class="position-relative">
@@ -44,7 +48,9 @@
 			spellcheck="false"
 			onkeyup={(ev) => {
 				if (ev.key === 'Enter' && currentMatches && currentMatches.length > 0) {
-					goto(resolve('/areas/[code]', { code: currentMatches[0].areaCode }));
+					let areaCode = currentMatches[0].areaCode;
+					let query = new URLSearchParams({postcode: cleanPostcode(inputText)});
+					goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 				}
 			}}
 			bind:value={inputText}
@@ -63,7 +69,10 @@
 						class="postcode-dropdown__item d-block w-100 p-2 border-0 border-bottom text-start"
 						role="option"
 						aria-selected="false"
-						onclick={() => goto(resolve('/areas/[code]', { code: areaCode }))}
+						onclick={() => {
+							let query = new URLSearchParams({postcode: cleanPostcode(inputText)});
+							goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
+						}}
 						onmouseenter={() => (selectedIndex = index)}
 					>
 						<strong>{postcode}</strong> View <strong>{areaName}</strong>
