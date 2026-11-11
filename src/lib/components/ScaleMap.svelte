@@ -146,6 +146,7 @@
 			onmouseleave={mouseleave}
 			filter={layerFilter}
 			onclick={handleClick ? handleClick : () => {}}
+			beforeId="water_name"
 		/>
 		<LineLayer
 			id="area-outline"
@@ -193,6 +194,7 @@
 				onmouseleave={mouseleave}
 				onclick={handleClick ? handleClick : () => {}}
 				filter={lgdFilter}
+				beforeId="water_name"
 			/>
 			<LineLayer
 				id="lgd-outline"
