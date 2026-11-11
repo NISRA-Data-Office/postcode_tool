@@ -1,1 +1,1 @@
-{"code":"95OO02W1","name":"Augher","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-7.0106,54.3971,-7.162,54.5076]],"data":{"ranks":{"mdm":479,"income":331,"employment":692,"health":757,"education":699,"services":36,"living":197,"crime":720}}}
+{"code":"95OO02W1","name":"Augher","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-7.0106,54.3971,-7.162,54.5076],"data":{"ranks":{"mdm":479,"income":331,"employment":692,"health":757,"education":699,"services":36,"living":197,"crime":720}}}

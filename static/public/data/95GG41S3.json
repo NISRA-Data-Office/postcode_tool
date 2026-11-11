@@ -1,1 +1,1 @@
-{"code":"95GG41S3","name":"Stormont 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.8466,54.5947,-5.8655,54.6029]],"data":{"ranks":{"mdm":876,"income":879,"employment":773,"health":741,"education":832,"services":750,"living":471,"crime":832}}}
+{"code":"95GG41S3","name":"Stormont 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.8466,54.5947,-5.8655,54.6029],"data":{"ranks":{"mdm":876,"income":879,"employment":773,"health":741,"education":832,"services":750,"living":471,"crime":832}}}

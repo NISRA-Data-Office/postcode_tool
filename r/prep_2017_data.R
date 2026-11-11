@@ -38,9 +38,21 @@ soa <- left_join(soa, lgd_lkp)
 # this prevents gaps between adjacent SOAs
 soa_simpl <- rmapshaper::ms_simplify(soa, keep = 0.1)
 
+# file extension needs to be json or can't use 'import ... from ...' with vite
 sf::write_sf(
   soa_simpl, 
-  "src/lib/assets/soa2011.geojson",
+  "src/lib/assets/soa2011.json",
+  driver = "GeoJSON",
+  layer_options = "COORDINATE_PRECISION=6",
+  delete_dsn = TRUE
+)
+
+# second copy is for the nav map so it can run without loading the whole thing
+# this should be fixed
+sf::write_sf(
+  soa_simpl, 
+  "static/public/map/soa2011.geojson",
+  driver = "GeoJSON",
   layer_options = "COORDINATE_PRECISION=6",
   delete_dsn = TRUE
 )
@@ -99,7 +111,7 @@ soa_data <- lapply(lgd_lkp$area_code, \(code) {
     parents = list(
       list(code = lgd_row$lgd2014, name = lgd_row$lgd2014_name)
     ),
-    bounds = bboxes[match(code, soa$area_code)],
+    bounds = bboxes[[match(code, soa$area_code)]],
     data = list(ranks = ranks_list)
   )
 })
@@ -121,9 +133,11 @@ lgd_data <- lapply(lgd_codes, \(code) {
     name = nm,
     type = "lgd",
     bounds = lgd_bboxes[[which(lgds$LGDCode == code)]],
-    data = children_ranks
+    data = list(ranks = children_ranks)
   )
 })
+
+names(lgd_data) <- lgd_codes
 
 ni_data <- list(
   code = "N92000002",

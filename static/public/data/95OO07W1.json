@@ -1,1 +1,1 @@
-{"code":"95OO07W1","name":"Caledon","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.7811,54.3294,-6.9125,54.4867]],"data":{"ranks":{"mdm":465,"income":363,"employment":629,"health":566,"education":668,"services":57,"living":150,"crime":796}}}
+{"code":"95OO07W1","name":"Caledon","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.7811,54.3294,-6.9125,54.4867],"data":{"ranks":{"mdm":465,"income":363,"employment":629,"health":566,"education":668,"services":57,"living":150,"crime":796}}}

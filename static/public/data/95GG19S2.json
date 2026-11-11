@@ -1,1 +1,1 @@
-{"code":"95GG19S2","name":"Crumlin 2 Belfast","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9425,54.6065,-5.9587,54.6143]],"data":{"ranks":{"mdm":21,"income":30,"employment":56,"health":20,"education":10,"services":749,"living":168,"crime":68}}}
+{"code":"95GG19S2","name":"Crumlin 2 Belfast","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9425,54.6065,-5.9587,54.6143],"data":{"ranks":{"mdm":21,"income":30,"employment":56,"health":20,"education":10,"services":749,"living":168,"crime":68}}}

@@ -1,1 +1,1 @@
-{"code":"95OO22W1","name":"Washing Bay","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.5413,54.5016,-6.6854,54.572]],"data":{"ranks":{"mdm":476,"income":400,"employment":473,"health":379,"education":581,"services":143,"living":537,"crime":750}}}
+{"code":"95OO22W1","name":"Washing Bay","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.5413,54.5016,-6.6854,54.572],"data":{"ranks":{"mdm":476,"income":400,"employment":473,"health":379,"education":581,"services":143,"living":537,"crime":750}}}

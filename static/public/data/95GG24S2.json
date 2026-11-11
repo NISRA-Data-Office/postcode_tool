@@ -1,1 +1,1 @@
-{"code":"95GG24S2","name":"Fortwilliam 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9209,54.6226,-5.9334,54.6273]],"data":{"ranks":{"mdm":298,"income":417,"employment":268,"health":277,"education":266,"services":824,"living":32,"crime":143}}}
+{"code":"95GG24S2","name":"Fortwilliam 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9209,54.6226,-5.9334,54.6273],"data":{"ranks":{"mdm":298,"income":417,"employment":268,"health":277,"education":266,"services":824,"living":32,"crime":143}}}

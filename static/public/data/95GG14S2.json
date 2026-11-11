@@ -1,1 +1,1 @@
-{"code":"95GG14S2","name":"Cavehill 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9363,54.6313,-5.9504,54.6415]],"data":{"ranks":{"mdm":736,"income":517,"employment":778,"health":844,"education":844,"services":550,"living":231,"crime":335}}}
+{"code":"95GG14S2","name":"Cavehill 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9363,54.6313,-5.9504,54.6415],"data":{"ranks":{"mdm":736,"income":517,"employment":778,"health":844,"education":844,"services":550,"living":231,"crime":335}}}

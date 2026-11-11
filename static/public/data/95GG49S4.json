@@ -1,1 +1,1 @@
-{"code":"95GG49S4","name":"Windsor 4","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.942,54.5828,-5.9519,54.587]],"data":{"ranks":{"mdm":556,"income":693,"employment":832,"health":506,"education":359,"services":871,"living":5,"crime":73}}}
+{"code":"95GG49S4","name":"Windsor 4","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.942,54.5828,-5.9519,54.587],"data":{"ranks":{"mdm":556,"income":693,"employment":832,"health":506,"education":359,"services":871,"living":5,"crime":73}}}

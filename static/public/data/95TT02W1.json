@@ -1,1 +1,1 @@
-{"code":"95TT02W1","name":"Bellaghy","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.4573,54.7854,-6.5457,54.8618]],"data":{"ranks":{"mdm":541,"income":377,"employment":546,"health":540,"education":629,"services":168,"living":533,"crime":826}}}
+{"code":"95TT02W1","name":"Bellaghy","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.4573,54.7854,-6.5457,54.8618],"data":{"ranks":{"mdm":541,"income":377,"employment":546,"health":540,"education":629,"services":168,"living":533,"crime":826}}}

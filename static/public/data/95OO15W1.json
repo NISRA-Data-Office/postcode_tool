@@ -1,1 +1,1 @@
-{"code":"95OO15W1","name":"Drumglass","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.7345,54.5086,-6.7776,54.5383]],"data":{"ranks":{"mdm":291,"income":341,"employment":262,"health":203,"education":206,"services":476,"living":549,"crime":387}}}
+{"code":"95OO15W1","name":"Drumglass","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.7345,54.5086,-6.7776,54.5383],"data":{"ranks":{"mdm":291,"income":341,"employment":262,"health":203,"education":206,"services":476,"living":549,"crime":387}}}

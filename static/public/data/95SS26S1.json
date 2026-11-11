@@ -1,1 +1,1 @@
-{"code":"95SS26S1","name":"Poleglass 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-6.021,54.5633,-6.0324,54.5724]],"data":{"ranks":{"mdm":39,"income":167,"employment":33,"health":17,"education":40,"services":491,"living":235,"crime":82}}}
+{"code":"95SS26S1","name":"Poleglass 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-6.021,54.5633,-6.0324,54.5724],"data":{"ranks":{"mdm":39,"income":167,"employment":33,"health":17,"education":40,"services":491,"living":235,"crime":82}}}

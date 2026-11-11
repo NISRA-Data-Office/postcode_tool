@@ -1,1 +1,1 @@
-{"code":"95TT08W1","name":"Lecumpher","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.5619,54.6954,-6.7655,54.7769]],"data":{"ranks":{"mdm":563,"income":406,"employment":703,"health":650,"education":704,"services":65,"living":532,"crime":814}}}
+{"code":"95TT08W1","name":"Lecumpher","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.5619,54.6954,-6.7655,54.7769],"data":{"ranks":{"mdm":563,"income":406,"employment":703,"health":650,"education":704,"services":65,"living":532,"crime":814}}}

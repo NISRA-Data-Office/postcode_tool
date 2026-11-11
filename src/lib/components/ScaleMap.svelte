@@ -21,7 +21,7 @@
 
 	import lgdBoundaries from '#lib/assets/LGD2014.geo.json';
 	import areaData from '#lib/assets/N92000002.json';
-	import areaBoundaries from '#lib/assets/SDZ2021.geo.json';
+	import areaBoundaries from '#lib/assets/soa2011.json';
 
 	let {
 		selected = $bindable(),
@@ -30,9 +30,9 @@
 		area,
 		name,
 		bounds,
-		promoteId = 'SDZ21_code',
-		nameProp = 'SDZ21_name',
-		lgdProp = 'LGD_code',
+		promoteId = 'area_code',
+		nameProp = 'area_name',
+		lgdProp = 'lgd2014',
 		hoveredArea = $bindable(),
 		handleClick
 	}: {
@@ -45,6 +45,7 @@
 		bounds: [number, number, number, number];
 		promoteId: string;
 		nameProp: string;
+		lgdProp: string;
 		hoveredArea: string | number | undefined;
 		handleClick?: Function;
 	} = $props();

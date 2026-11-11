@@ -1,1 +1,1 @@
-{"code":"95GG07S3","name":"Beechmount 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.961,54.5923,-5.9726,54.6009]],"data":{"ranks":{"mdm":181,"income":508,"employment":113,"health":99,"education":162,"services":796,"living":111,"crime":91}}}
+{"code":"95GG07S3","name":"Beechmount 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.961,54.5923,-5.9726,54.6009],"data":{"ranks":{"mdm":181,"income":508,"employment":113,"health":99,"education":162,"services":796,"living":111,"crime":91}}}

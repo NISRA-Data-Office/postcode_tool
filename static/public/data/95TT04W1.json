@@ -1,1 +1,1 @@
-{"code":"95TT04W1","name":"Draperstown","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.7674,54.7246,-6.9734,54.8055]],"data":{"ranks":{"mdm":389,"income":214,"employment":416,"health":370,"education":575,"services":174,"living":686,"crime":812}}}
+{"code":"95TT04W1","name":"Draperstown","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.7674,54.7246,-6.9734,54.8055],"data":{"ranks":{"mdm":389,"income":214,"employment":416,"health":370,"education":575,"services":174,"living":686,"crime":812}}}

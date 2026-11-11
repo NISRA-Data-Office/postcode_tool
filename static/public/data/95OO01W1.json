@@ -1,1 +1,1 @@
-{"code":"95OO01W1","name":"Altmore","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.8143,54.5059,-6.9905,54.582]],"data":{"ranks":{"mdm":313,"income":242,"employment":425,"health":497,"education":435,"services":53,"living":122,"crime":871}}}
+{"code":"95OO01W1","name":"Altmore","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.8143,54.5059,-6.9905,54.582],"data":{"ranks":{"mdm":313,"income":242,"employment":425,"health":497,"education":435,"services":53,"living":122,"crime":871}}}

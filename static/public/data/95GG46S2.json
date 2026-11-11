@@ -1,1 +1,1 @@
-{"code":"95GG46S2","name":"Upper Springfield 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.977,54.5928,-5.9934,54.6024]],"data":{"ranks":{"mdm":77,"income":605,"employment":39,"health":29,"education":77,"services":498,"living":25,"crime":141}}}
+{"code":"95GG46S2","name":"Upper Springfield 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.977,54.5928,-5.9934,54.6024],"data":{"ranks":{"mdm":77,"income":605,"employment":39,"health":29,"education":77,"services":498,"living":25,"crime":141}}}

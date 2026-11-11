@@ -1,1 +1,1 @@
-{"code":"95GG15S3","name":"Cherryvalley 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.8167,54.5898,-5.839,54.5949]],"data":{"ranks":{"mdm":640,"income":775,"employment":427,"health":457,"education":394,"services":740,"living":669,"crime":460}}}
+{"code":"95GG15S3","name":"Cherryvalley 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.8167,54.5898,-5.839,54.5949],"data":{"ranks":{"mdm":640,"income":775,"employment":427,"health":457,"education":394,"services":740,"living":669,"crime":460}}}

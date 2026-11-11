@@ -1,1 +1,1 @@
-{"code":"95GG39S2","name":"Shaftesbury 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9189,54.5879,-5.9392,54.5941]],"data":{"ranks":{"mdm":146,"income":438,"employment":146,"health":68,"education":72,"services":769,"living":275,"crime":39}}}
+{"code":"95GG39S2","name":"Shaftesbury 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9189,54.5879,-5.9392,54.5941],"data":{"ranks":{"mdm":146,"income":438,"employment":146,"health":68,"education":72,"services":769,"living":275,"crime":39}}}

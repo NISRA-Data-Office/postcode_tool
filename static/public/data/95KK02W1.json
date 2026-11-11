@@ -1,1 +1,1 @@
-{"code":"95KK02W1","name":"Coagh","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.5754,54.6222,-6.7325,54.6682]],"data":{"ranks":{"mdm":492,"income":566,"employment":491,"health":308,"education":413,"services":181,"living":456,"crime":724}}}
+{"code":"95KK02W1","name":"Coagh","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.5754,54.6222,-6.7325,54.6682],"data":{"ranks":{"mdm":492,"income":566,"employment":491,"health":308,"education":413,"services":181,"living":456,"crime":724}}}

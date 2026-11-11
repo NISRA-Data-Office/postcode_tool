@@ -1,1 +1,1 @@
-{"code":"95KK07W1","name":"Lissan","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.7052,54.6405,-6.8927,54.7479]],"data":{"ranks":{"mdm":434,"income":562,"employment":521,"health":526,"education":512,"services":10,"living":524,"crime":791}}}
+{"code":"95KK07W1","name":"Lissan","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.7052,54.6405,-6.8927,54.7479],"data":{"ranks":{"mdm":434,"income":562,"employment":521,"health":526,"education":512,"services":10,"living":524,"crime":791}}}

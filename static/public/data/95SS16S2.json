@@ -1,1 +1,1 @@
-{"code":"95SS16S2","name":"Kilwee 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-6.0112,54.5528,-6.0268,54.5622]],"data":{"ranks":{"mdm":107,"income":511,"employment":53,"health":40,"education":125,"services":756,"living":102,"crime":67}}}
+{"code":"95SS16S2","name":"Kilwee 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-6.0112,54.5528,-6.0268,54.5622],"data":{"ranks":{"mdm":107,"income":511,"employment":53,"health":40,"education":125,"services":756,"living":102,"crime":67}}}

@@ -1,1 +1,1 @@
-{"code":"95SS29S2","name":"Twinbrook 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-6.0223,54.5457,-6.0285,54.5549]],"data":{"ranks":{"mdm":36,"income":64,"employment":26,"health":28,"education":112,"services":668,"living":59,"crime":167}}}
+{"code":"95SS29S2","name":"Twinbrook 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-6.0223,54.5457,-6.0285,54.5549],"data":{"ranks":{"mdm":36,"income":64,"employment":26,"health":28,"education":112,"services":668,"living":59,"crime":167}}}

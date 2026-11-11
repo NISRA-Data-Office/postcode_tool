@@ -1,1 +1,1 @@
-{"code":"95GG02S1","name":"Ardoyne 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9604,54.6133,-5.9671,54.6181]],"data":{"ranks":{"mdm":16,"income":29,"employment":19,"health":19,"education":58,"services":814,"living":78,"crime":74}}}
+{"code":"95GG02S1","name":"Ardoyne 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9604,54.6133,-5.9671,54.6181],"data":{"ranks":{"mdm":16,"income":29,"employment":19,"health":19,"education":58,"services":814,"living":78,"crime":74}}}

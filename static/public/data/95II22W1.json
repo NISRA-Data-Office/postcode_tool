@@ -1,1 +1,1 @@
-{"code":"95II22W1","name":"Upper Braniel","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.8398,54.561,-5.8682,54.5817]],"data":{"ranks":{"mdm":614,"income":622,"employment":560,"health":443,"education":466,"services":469,"living":403,"crime":475}}}
+{"code":"95II22W1","name":"Upper Braniel","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.8398,54.561,-5.8682,54.5818],"data":{"ranks":{"mdm":614,"income":622,"employment":560,"health":443,"education":466,"services":469,"living":403,"crime":475}}}

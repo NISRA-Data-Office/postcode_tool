@@ -2,8 +2,8 @@
 	import AreaTitle from './AreaTitle.svelte';
 	import ButtonRow from './ButtonRow.svelte';
 	import SdzBoxes from './SdzBoxes.svelte';
-	import SdzParagraph from './SdzParagraph.svelte';
-	import SdzSummary from './SdzSummary.svelte';
+	import AreaParagraph from './AreaParagraph.svelte';
+	import AreaSummary from './AreaSummary.svelte';
 	import DomainSelect from './DomainSelect.svelte';
 	import RankChart from './RankChart.svelte';
 	import RankChartTable from './RankChartTable.svelte';
@@ -58,7 +58,7 @@
 </div>
 
 <SdzBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} />
-<SdzParagraph {name} {mdmRank} {count} />
+<AreaParagraph {name} {mdmRank} {count} />
 
 <div class="row align-items-center justify-content-center">
 	<div class="col-12 col-xl-8">
@@ -139,7 +139,7 @@
 	aria-label="Download charts dropdown">Download</button
 >
 
-<SdzSummary {name} {mdmRank} {domainRanks} {count} />
+<AreaSummary {name} {mdmRank} {domainRanks} {count} />
 
 <h3 class="h2 mt-4">Next steps</h3>
 <div id="next-steps" class="row g-4 mb-5"></div>

@@ -1,1 +1,1 @@
-{"code":"95GG36S2","name":"Orangefield 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.8768,54.5806,-5.8947,54.5856]],"data":{"ranks":{"mdm":834,"income":779,"employment":770,"health":638,"education":712,"services":825,"living":442,"crime":667}}}
+{"code":"95GG36S2","name":"Orangefield 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.8768,54.5806,-5.8947,54.5856],"data":{"ranks":{"mdm":834,"income":779,"employment":770,"health":638,"education":712,"services":825,"living":442,"crime":667}}}

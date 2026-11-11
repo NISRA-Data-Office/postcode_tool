@@ -1,1 +1,1 @@
-{"code":"95GG44S1","name":"The Mount 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.891,54.5904,-5.9073,54.5981]],"data":{"ranks":{"mdm":80,"income":282,"employment":134,"health":79,"education":8,"services":791,"living":152,"crime":17}}}
+{"code":"95GG44S1","name":"The Mount 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.891,54.5904,-5.9073,54.5981],"data":{"ranks":{"mdm":80,"income":282,"employment":134,"health":79,"education":8,"services":791,"living":152,"crime":17}}}

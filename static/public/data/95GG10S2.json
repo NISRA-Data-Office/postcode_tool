@@ -1,1 +1,1 @@
-{"code":"95GG10S2","name":"Blackstaff 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.946,54.5843,-5.9585,54.5919]],"data":{"ranks":{"mdm":102,"income":141,"employment":215,"health":133,"education":36,"services":641,"living":54,"crime":71}}}
+{"code":"95GG10S2","name":"Blackstaff 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.946,54.5843,-5.9585,54.5919],"data":{"ranks":{"mdm":102,"income":141,"employment":215,"health":133,"education":36,"services":641,"living":54,"crime":71}}}

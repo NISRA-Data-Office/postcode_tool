@@ -1,1 +1,1 @@
-{"code":"95GG35S3","name":"New Lodge 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9281,54.6097,-5.9372,54.6153]],"data":{"ranks":{"mdm":32,"income":162,"employment":37,"health":18,"education":1,"services":881,"living":107,"crime":65}}}
+{"code":"95GG35S3","name":"New Lodge 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9281,54.6097,-5.9372,54.6153],"data":{"ranks":{"mdm":32,"income":162,"employment":37,"health":18,"education":1,"services":881,"living":107,"crime":65}}}

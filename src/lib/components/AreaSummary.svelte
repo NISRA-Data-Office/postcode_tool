@@ -33,7 +33,11 @@
 	<h3 id="summary-heading" class="h2" bind:this={summaryHeading}>
 		Deprivation summary for <span class="text-purple place-name">{name}</span>
 	</h3>
-	<div class="bg-white p-2 border border-secondary" id="deprivation-summary" bind:this={summaryText}>
+	<div
+		class="bg-white p-2 border border-secondary"
+		id="deprivation-summary"
+		bind:this={summaryText}
+	>
 		<h4>
 			The overall deprivation rank of
 			<span class="text-purple fw-bold">{name}</span>
@@ -67,10 +71,16 @@
 		</ul>
 	</div>
 	<div class="d-flex align-items-center gap-3 my-3">
-		<button class="btn bg-purple border-secondary rounded-2" id="copy-summary" onclick={copySummary}>
+		<button
+			class="btn bg-purple border-secondary rounded-2"
+			id="copy-summary"
+			onclick={copySummary}
+		>
 			Copy summary
 		</button>
 
-		<span id="text-copied" class="fw-bold d-none" bind:this={textCopied}>Summary copied to clipboard </span>
+		<span id="text-copied" class="fw-bold d-none" bind:this={textCopied}
+			>Summary copied to clipboard
+		</span>
 	</div>
 </div>

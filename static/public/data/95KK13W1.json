@@ -1,1 +1,1 @@
-{"code":"95KK13W1","name":"Sandholes","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.7014,54.5645,-6.8403,54.6314]],"data":{"ranks":{"mdm":478,"income":365,"employment":522,"health":465,"education":523,"services":179,"living":301,"crime":648}}}
+{"code":"95KK13W1","name":"Sandholes","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.7014,54.5645,-6.8403,54.6314],"data":{"ranks":{"mdm":478,"income":365,"employment":522,"health":465,"education":523,"services":179,"living":301,"crime":648}}}

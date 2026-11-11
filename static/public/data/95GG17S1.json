@@ -1,1 +1,1 @@
-{"code":"95GG17S1","name":"Cliftonville 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9458,54.6154,-5.9556,54.6222]],"data":{"ranks":{"mdm":98,"income":161,"employment":75,"health":74,"education":183,"services":638,"living":109,"crime":100}}}
+{"code":"95GG17S1","name":"Cliftonville 1","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9458,54.6154,-5.9556,54.6222],"data":{"ranks":{"mdm":98,"income":161,"employment":75,"health":74,"education":183,"services":638,"living":109,"crime":100}}}

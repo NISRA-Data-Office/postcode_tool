@@ -1,1 +1,1 @@
-{"code":"95SS06S2","name":"Collin Glen 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-6.025,54.553,-6.0419,54.5611]],"data":{"ranks":{"mdm":20,"income":135,"employment":11,"health":2,"education":30,"services":592,"living":98,"crime":134}}}
+{"code":"95SS06S2","name":"Collin Glen 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-6.025,54.553,-6.0417,54.5611],"data":{"ranks":{"mdm":20,"income":135,"employment":11,"health":2,"education":30,"services":592,"living":98,"crime":134}}}

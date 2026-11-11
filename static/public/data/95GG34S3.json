@@ -1,1 +1,1 @@
-{"code":"95GG34S3","name":"Musgrave 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9662,54.5597,-5.9877,54.5736]],"data":{"ranks":{"mdm":820,"income":870,"employment":820,"health":735,"education":815,"services":735,"living":103,"crime":455}}}
+{"code":"95GG34S3","name":"Musgrave 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9662,54.5597,-5.9877,54.5736],"data":{"ranks":{"mdm":820,"income":870,"employment":820,"health":735,"education":815,"services":735,"living":103,"crime":455}}}

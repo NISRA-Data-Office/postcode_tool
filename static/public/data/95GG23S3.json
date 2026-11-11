@@ -1,1 +1,1 @@
-{"code":"95GG23S3","name":"Finaghy 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9757,54.5486,-5.9923,54.5611]],"data":{"ranks":{"mdm":859,"income":787,"employment":741,"health":703,"education":819,"services":789,"living":552,"crime":678}}}
+{"code":"95GG23S3","name":"Finaghy 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9757,54.5486,-5.9923,54.5611],"data":{"ranks":{"mdm":859,"income":787,"employment":741,"health":703,"education":819,"services":789,"living":552,"crime":678}}}

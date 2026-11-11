@@ -1,1 +1,1 @@
-{"code":"95II17W1","name":"Lower Braniel","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.8577,54.5657,-5.8753,54.5817]],"data":{"ranks":{"mdm":641,"income":697,"employment":429,"health":416,"education":483,"services":745,"living":755,"crime":511}}}
+{"code":"95II17W1","name":"Lower Braniel","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.8577,54.5657,-5.8753,54.5817],"data":{"ranks":{"mdm":641,"income":697,"employment":429,"health":416,"education":483,"services":745,"living":755,"crime":511}}}

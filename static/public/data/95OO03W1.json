@@ -1,1 +1,1 @@
-{"code":"95OO03W1","name":"Aughnacloy","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[[-6.8597,54.3743,-7.0396,54.4713]],"data":{"ranks":{"mdm":344,"income":183,"employment":482,"health":483,"education":500,"services":106,"living":474,"crime":515}}}
+{"code":"95OO03W1","name":"Aughnacloy","type":"soa","count":890,"parents":[{"code":"N09000009","name":"Mid Ulster"}],"bounds":[-6.8597,54.3743,-7.0396,54.4713],"data":{"ranks":{"mdm":344,"income":183,"employment":482,"health":483,"education":500,"services":106,"living":474,"crime":515}}}

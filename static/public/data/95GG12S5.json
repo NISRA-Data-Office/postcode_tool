@@ -1,1 +1,1 @@
-{"code":"95GG12S5","name":"Botanic 5","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9188,54.5829,-5.9302,54.5906]],"data":{"ranks":{"mdm":79,"income":221,"employment":149,"health":58,"education":44,"services":713,"living":27,"crime":13}}}
+{"code":"95GG12S5","name":"Botanic 5","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9188,54.5829,-5.9302,54.5906],"data":{"ranks":{"mdm":79,"income":221,"employment":149,"health":58,"education":44,"services":713,"living":27,"crime":13}}}

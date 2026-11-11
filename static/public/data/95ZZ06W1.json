@@ -1,1 +1,1 @@
-{"code":"95ZZ06W1","name":"East","type":"soa","count":890,"parents":[{"code":"N09000005","name":"Derry City and Strabane"}],"bounds":[[-7.4433,54.8139,-7.4707,54.8257]],"data":{"ranks":{"mdm":1,"income":4,"employment":3,"health":54,"education":14,"services":559,"living":127,"crime":76}}}
+{"code":"95ZZ06W1","name":"East","type":"soa","count":890,"parents":[{"code":"N09000005","name":"Derry City and Strabane"}],"bounds":[-7.4433,54.8139,-7.4707,54.8257],"data":{"ranks":{"mdm":1,"income":4,"employment":3,"health":54,"education":14,"services":559,"living":127,"crime":76}}}

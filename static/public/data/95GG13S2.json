@@ -1,1 +1,1 @@
-{"code":"95GG13S2","name":"Castleview 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9263,54.6314,-5.9365,54.6461]],"data":{"ranks":{"mdm":711,"income":607,"employment":709,"health":615,"education":805,"services":651,"living":97,"crime":523}}}
+{"code":"95GG13S2","name":"Castleview 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9263,54.6314,-5.9365,54.6461],"data":{"ranks":{"mdm":711,"income":607,"employment":709,"health":615,"education":805,"services":651,"living":97,"crime":523}}}

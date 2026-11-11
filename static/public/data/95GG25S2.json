@@ -1,1 +1,1 @@
-{"code":"95GG25S2","name":"Glen Road 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9897,54.573,-6.003,54.5796]],"data":{"ranks":{"mdm":267,"income":526,"employment":160,"health":132,"education":300,"services":819,"living":96,"crime":340}}}
+{"code":"95GG25S2","name":"Glen Road 2","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9897,54.573,-6.003,54.5796],"data":{"ranks":{"mdm":267,"income":526,"employment":160,"health":132,"education":300,"services":819,"living":96,"crime":340}}}

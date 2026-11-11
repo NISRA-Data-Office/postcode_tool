@@ -1,1 +1,1 @@
-{"code":"95GG33S3","name":"Malone 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[[-5.9467,54.5683,-5.9624,54.5758]],"data":{"ranks":{"mdm":773,"income":792,"employment":860,"health":860,"education":886,"services":821,"living":6,"crime":347}}}
+{"code":"95GG33S3","name":"Malone 3","type":"soa","count":890,"parents":[{"code":"N09000003","name":"Belfast"}],"bounds":[-5.9467,54.5683,-5.9624,54.5758],"data":{"ranks":{"mdm":773,"income":792,"employment":860,"health":860,"education":886,"services":821,"living":6,"crime":347}}}
