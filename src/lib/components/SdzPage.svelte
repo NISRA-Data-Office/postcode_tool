@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import AreaTitle from './AreaTitle.svelte';
 	import ButtonRow from './ButtonRow.svelte';
 	import SdzBoxes from './SdzBoxes.svelte';
@@ -17,7 +18,8 @@
 		domainRanks,
 		count,
 		parents,
-		bounds
+		bounds,
+		postcode
 	}: {
 		code: string;
 		name: string;
@@ -25,6 +27,7 @@
 		count: number;
 		parents: [{ name: string; code: string }];
 		bounds: [number, number, number, number];
+		postcode?: string;
 	} = $props();
 
 	let mdmRank = $derived(domainRanks['mdm']);
@@ -57,7 +60,7 @@
 	</div>
 </div>
 
-<SdzBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} />
+<SdzBoxes {name} {parentName} {parentCode} {mdmRank} {count} selected={code} {bounds} {postcode}/>
 <SdzParagraph {name} {mdmRank} {count} />
 
 <div class="row align-items-center justify-content-center">
