@@ -32,3 +32,13 @@ There are some other folders in this repository:
 - `tests` - end-to-end tests using playwright (these need updated)
 - `r` - R scripts used to generate data (also need updated)
 - `static` - files which are served "as-is" when the app is built, mostly just holding data files (which could be moved elsewhere) and assets used in the old version of the app
+
+## Building
+
+Build website by running:
+
+```
+npm run build
+```
+
+This creates a folder called "build" which contains the built website.
