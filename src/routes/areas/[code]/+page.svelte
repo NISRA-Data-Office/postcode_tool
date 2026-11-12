@@ -3,6 +3,7 @@
 	import Breadcrumb from '#lib/components/Breadcrumb.svelte';
 	import { getBreadcrumbLinks } from '#lib/util/linkHelpers.ts';
 	import SdzPage from '#lib/components/SdzPage.svelte';
+	import SoaPage from '#lib/components/SoaPage.svelte';
 	import LgdPage from '#lib/components/LgdPage.svelte';
 
 	let {
@@ -42,11 +43,21 @@
 				{count}
 				bounds={data.bounds}
 			/>
+		{:else if data.type === 'soa' && data.parents}
+			<SoaPage
+				{code}
+				{name}
+				parents={data.parents}
+				domainRanks={data.data.ranks}
+				{count}
+				urbanRural={data.urban_rural}
+				bounds={data.bounds}
+			/>
 		{:else if data.type === 'lgd'}
 			<LgdPage
 				{code}
 				{name}
-				childrenType={{ name: 'Super data zone', count: 850 }}
+				childrenType={{ name: 'super output areas', count: 890 }}
 				numChildren={Object.keys(data.data.ranks).length}
 				ranks={data.data.ranks}
 				bounds={data.bounds}

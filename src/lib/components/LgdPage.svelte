@@ -91,7 +91,7 @@
 		<p id="sdz-description">
 			Northern Ireland is made up of {childrenType.count}
 			{childrenType.name}, referred to here as 'neighbourhoods', which have an average population of
-			2,240 people.
+			2,030 people.
 		</p>
 		<p>
 			The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked {childrenType.count}
