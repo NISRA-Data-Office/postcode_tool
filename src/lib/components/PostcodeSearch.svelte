@@ -52,7 +52,7 @@
 					let query = new URLSearchParams({ postcode: currentMatches[0].postcode });
 					currentMatches = [];
 					inputText = '';
-					goto(resolve(`/areas/[code]?${query}`, { code: areaCode }), { shallow: false });
+					goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 				}
 			}}
 			bind:value={inputText}
@@ -73,7 +73,7 @@
 						aria-selected="false"
 						onclick={() => {
 							let query = new URLSearchParams({ postcode: postcode });
-							goto(resolve(`/areas/[code]?${query}`, { code: areaCode }), { refreshAll: true });
+							goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 							currentMatches = [];
 							inputText = '';
 						}}
