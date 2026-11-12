@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import NavMap from './NavMap.svelte';
+	import { cleanPostcode, isPostcode } from '#lib/util/postcodeHelpers.ts';
 
 	let {
 		name,
@@ -38,6 +41,16 @@
 				: urbanRural.toLowerCase();
 		return `${article} ${description} area`;
 	});
+
+	let postcode: string | undefined = $state();
+
+	onMount(() => {
+		let pc = page.url.searchParams.get('postcode');
+		if (pc && isPostcode(pc)) {
+			postcode = cleanPostcode(pc);
+			document.title = `Deprivation in ${postcode}`;
+		}
+	});
 </script>
 
 <div class="row">
@@ -67,8 +80,12 @@
 			<h3 class="fw-bold fs-3 text-break">About <span class="place-name">{name}</span></h3>
 			<div id="geo-description" class="fs-5">
 				<p>
-					<span class="text-purple fw-bold">{name}</span> is a Super Output Area{#if parentCode && parentName},
-						in
+					{#if postcode}
+						{postcode} is in <span class="text-purple fw-bold">{name}</span>,
+					{:else}
+						<span class="text-purple fw-bold">{name}</span> is
+					{/if}
+					a Super Output Area{#if parentCode && parentName}, in
 						<a
 							class="text-blue"
 							href={resolve(`areas/${parentCode}`)}
