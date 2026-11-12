@@ -50,6 +50,8 @@
 				if (ev.key === 'Enter' && currentMatches && currentMatches.length > 0) {
 					let areaCode = currentMatches[0].areaCode;
 					let query = new URLSearchParams({ postcode: currentMatches[0].postcode });
+					currentMatches = [];
+					inputText = '';
 					goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 				}
 			}}
@@ -72,6 +74,8 @@
 						onclick={() => {
 							let query = new URLSearchParams({ postcode: postcode });
 							goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
+							currentMatches = [];
+							inputText = '';
 						}}
 						onmouseenter={() => (selectedIndex = index)}
 					>

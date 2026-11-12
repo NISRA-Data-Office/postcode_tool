@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import NavMap from './NavMap.svelte';
@@ -38,6 +38,16 @@
 		if (pc && isPostcode(pc)) {
 			postcode = cleanPostcode(pc);
 			document.title = `Deprivation in ${postcode}`;
+		}
+	});
+
+	afterNavigate(() => {
+		let pc = page.url.searchParams.get('postcode');
+		if (pc && isPostcode(pc)) {
+			postcode = cleanPostcode(pc);
+			document.title = `Deprivation in ${postcode}`;
+		} else {
+			postcode = undefined;
 		}
 	});
 </script>
