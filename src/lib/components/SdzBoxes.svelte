@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import NavMap from './NavMap.svelte';
+	import { cleanPostcode, isPostcode } from '#lib/util/postcodeHelpers.ts';
 
 	let {
 		name,
@@ -10,8 +13,7 @@
 		mdmRank,
 		count,
 		selected,
-		bounds,
-		postcode
+		bounds
 	}: {
 		name: string;
 		parentName?: string;
@@ -20,7 +22,6 @@
 		count: number;
 		selected: string;
 		bounds: [number, number, number, number];
-		postcode?: string;
 	} = $props();
 
 	function handleClick(ev) {
@@ -29,6 +30,16 @@
 			goto(resolve('/areas/[code]', { code: areaCode }), { reset: false });
 		}
 	}
+
+	let postcode: string | undefined = $state();
+
+	onMount(() => {
+		let pc = page.url.searchParams.get('postcode');
+		if (pc && isPostcode(pc)) {
+			postcode = cleanPostcode(pc);
+			document.title = `Deprivation in ${postcode}`;
+		}
+	});
 </script>
 
 <div class="row">
@@ -59,9 +70,9 @@
 			<div id="geo-description" class="fs-5">
 				<p>
 					{#if postcode}
-						{postcode} is in <span class="text-purple fw-bold">{name}</span>, 
+						{postcode} is in <span class="text-purple fw-bold">{name}</span>,
 					{:else}
-						<span class="text-purple fw-bold">{name}</span> is 
+						<span class="text-purple fw-bold">{name}</span> is
 					{/if}
 					a Super Data Zone{#if parentCode && parentName}, in
 						<a

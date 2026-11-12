@@ -29,7 +29,7 @@
 
 	let currentMatches = $derived(inputText ? loadOptions(inputText) : []);
 
-	function cleanPostcode(postcode: string) : string {
+	function cleanPostcode(postcode: string): string {
 		return postcode.toUpperCase().trim().replaceAll(/\s+/g, ' ');
 	}
 </script>
@@ -49,7 +49,7 @@
 			onkeyup={(ev) => {
 				if (ev.key === 'Enter' && currentMatches && currentMatches.length > 0) {
 					let areaCode = currentMatches[0].areaCode;
-					let query = new URLSearchParams({postcode: cleanPostcode(inputText)});
+					let query = new URLSearchParams({ postcode: cleanPostcode(inputText) });
 					goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 				}
 			}}
@@ -70,7 +70,7 @@
 						role="option"
 						aria-selected="false"
 						onclick={() => {
-							let query = new URLSearchParams({postcode: cleanPostcode(inputText)});
+							let query = new URLSearchParams({ postcode: cleanPostcode(inputText) });
 							goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 						}}
 						onmouseenter={() => (selectedIndex = index)}

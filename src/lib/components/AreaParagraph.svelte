@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { headline, paragraph } from '#lib/util/textHelpers.ts';
+
 	let {
 		name,
 		mdmRank,
