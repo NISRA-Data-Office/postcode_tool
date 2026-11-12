@@ -73,9 +73,14 @@
 		if (map) {
 			map.fitBounds(mapBounds, {
 				padding: 30,
-				duration: 800
+				duration: 800,
+				maxZoom: 10
 			});
+		}
+	});
 
+	$effect(() => {
+		if (map) {
 			if (handleClick && map) {
 				map.getCanvas().style.cursor = hovered?.feature ? 'pointer' : 'default';
 			} else {
@@ -123,7 +128,7 @@
 	{style}
 	inlineStyle="height: 100%;"
 	maxBounds={niBounds}
-	{bounds}
+	bounds={mapBounds}
 	attributionControl={false}
 	cooperativeGestures={true}
 	dragRotate={false}
