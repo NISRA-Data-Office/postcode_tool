@@ -49,7 +49,7 @@
 			onkeyup={(ev) => {
 				if (ev.key === 'Enter' && currentMatches && currentMatches.length > 0) {
 					let areaCode = currentMatches[0].areaCode;
-					let query = new URLSearchParams({ postcode: cleanPostcode(inputText) });
+					let query = new URLSearchParams({ postcode: currentMatches[0].postcode });
 					goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 				}
 			}}
@@ -70,7 +70,7 @@
 						role="option"
 						aria-selected="false"
 						onclick={() => {
-							let query = new URLSearchParams({ postcode: cleanPostcode(inputText) });
+							let query = new URLSearchParams({ postcode: postcode });
 							goto(resolve(`/areas/[code]?${query}`, { code: areaCode }));
 						}}
 						onmouseenter={() => (selectedIndex = index)}
