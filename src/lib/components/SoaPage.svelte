@@ -9,6 +9,8 @@
 	import RankChartTable from './RankChartTable.svelte';
 	import ScaleMap from './ScaleMap.svelte';
 	import RankComparison from './RankComparison.svelte';
+	import NextSteps from './NextSteps.svelte';
+	import InfoBoxes from './InfoBoxes.svelte';
 	import areaData from '#lib/assets/N92000002.json';
 
 	let {
@@ -80,6 +82,7 @@
 </div>
 
 <p class="fs-4">This is an overall measure, called the Multiple Deprivation Measure.</p>
+<InfoBoxes />
 <div id="info-boxes"></div>
 
 <h3 class="h2 mt-4">Compare with nearby areas</h3>
@@ -152,5 +155,4 @@
 
 <AreaSummary {name} {mdmRank} {domainRanks} {count} />
 
-<h3 class="h2 mt-4">Next steps</h3>
-<div id="next-steps" class="row g-4 mb-5"></div>
+<NextSteps {name} {parentCode} />
