@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 'switch-to-old-data'
+    branches: 'main'
 
 permissions:
   contents: read
