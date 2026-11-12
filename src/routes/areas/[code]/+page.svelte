@@ -24,15 +24,10 @@
 	let name = $derived(data.name);
 	let count = $derived(data.count);
 	let code = $derived(data.code);
-	let postcode: string | undefined = $derived(page.url.searchParams.get('postcode'));
 </script>
 
 <svelte:head>
-	{#if postcode && ['sdz', 'soa'].includes(data.type)}
-		<title>Deprivation in {postcode}</title>
-	{:else}
-		<title>Deprivation in {name}</title>
-	{/if}
+	<title>Deprivation in {name}</title>
 </svelte:head>
 
 <main class="flex-grow-1">
@@ -46,7 +41,6 @@
 				domainRanks={data.data.ranks}
 				{count}
 				bounds={data.bounds}
-				{postcode}
 			/>
 		{:else if data.type === 'lgd'}
 			<LgdPage
