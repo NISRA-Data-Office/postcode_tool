@@ -6,9 +6,11 @@
 
 	let {
 		ranks,
+		type,
 		selected = $bindable()
 	}: {
 		ranks: RawRankEntry[];
+		type: 'lgd' | 'ctry';
 		selected?: string;
 	} = $props();
 
@@ -80,23 +82,25 @@
 								{sortSym}{/if}
 						</button>
 					</th>
-					<th data-key="lgdRank" class="cursor-pointer w-30" tabindex="0">
-						<button
-							aria-label="Sort by council rank"
-							onclick={() => {
-								if (sortCol === 'councilRank') {
-									sortDir = sortDir === 'asc' ? 'desc' : 'asc';
-								} else {
-									sortCol = 'councilRank';
-									sortDir = 'asc';
-								}
-								ranksSorted = ranksPrep.sort(sortFn);
-							}}
-						>
-							Council Rank{#if sortCol == 'councilRank'}
-								{sortSym}{/if}
-						</button>
-					</th>
+					{#if type === 'lgd'}
+						<th data-key="lgdRank" class="cursor-pointer w-30" tabindex="0">
+							<button
+								aria-label="Sort by council rank"
+								onclick={() => {
+									if (sortCol === 'councilRank') {
+										sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+									} else {
+										sortCol = 'councilRank';
+										sortDir = 'asc';
+									}
+									ranksSorted = ranksPrep.sort(sortFn);
+								}}
+							>
+								Council Rank{#if sortCol == 'councilRank'}
+									{sortSym}{/if}
+							</button>
+						</th>
+					{/if}
 					<th data-key="name" class="cursor-pointer w-45" tabindex="0">
 						<button
 							aria-label="Sort by neighbourhood alphabetically"
@@ -126,7 +130,9 @@
 						onclick={() => (selected = code)}
 					>
 						<td class="border-secondary">{rank}</td>
-						<td class="border-secondary">{councilRank}</td>
+						{#if type === 'lgd'}
+							<td class="border-secondary">{councilRank}</td>
+						{/if}
 						<td class="border-secondary">{name}</td>
 					</tr>
 				{/each}

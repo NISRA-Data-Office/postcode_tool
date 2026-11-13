@@ -1,6 +1,6 @@
 export const title: string = 'Deprivation in Northern Ireland';
 export const rateit: string = 'NI_Deprivation_tool';
-export const year: number | undefined = undefined;
+export const year: number | undefined = 2017;
 
 export const domains: { code: string; label: string; description: string[]; statistic: string }[] =
 	[

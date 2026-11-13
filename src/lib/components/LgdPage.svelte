@@ -92,8 +92,10 @@
 	<div class="col-12 col-xl-8">
 		<AreaTitle type="lgd" {name} />
 		<p class="h4 my-3">
-			Currently viewing: <span class="deprivation-type text-purple">{domains[domainIdx].label}</span
-			>.
+			Currently viewing: <span class="deprivation-type text-purple"
+				>{domains[domainIdx].label} {#if domain != 'mdm'}
+					domain{/if}</span
+			>
 		</p>
 		<DomainDescription {domain} />
 		<p id="sdz-description">
@@ -165,7 +167,7 @@
 			</div>
 		</div>
 	</div>
-	<RankTable ranks={domainRanks} bind:selected />
+	<RankTable ranks={domainRanks} {type} bind:selected />
 </div>
 
 <InfoBoxes />

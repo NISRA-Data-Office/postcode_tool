@@ -46,7 +46,7 @@
 	<div class="container-fluid bg-grey py-2 d-flex flex-column text-black" role="banner">
 		<p class="m-0">
 			{year ? `The ${year}` : 'Test'} statistics on deprivation in Northern Ireland, including the Multiple
-			Deprivation Measure (MDM).
+			Deprivation Measure (NIMDM).
 		</p>
 		<p class="m-0">
 			Deprivation refers to people's unmet needs, a lack of access to opportunities and resources
