@@ -64,7 +64,8 @@
 
 	function handleScaleMapClick() {
 		let areaType: string = hoveredArea && hoveredArea.slice(0, 3) == 'N09' ? 'lgd' : 'area';
-		if (hoveredArea && areaType === 'lgd') {
+		if (hoveredArea && areaType === 'lgd' && hoveredArea != code) {
+			selected = undefined;
 			goto(resolve('/areas/[code]', { code: hoveredArea }), { reset: false });
 		} else {
 			selected = hoveredArea;
