@@ -6,12 +6,7 @@
 <banner id="banner" class="navbar p-0 bg-navy">
 	<div class="container-fluid bg-blue align-items-center justify-content-center py-2">
 		<p class="m-0">
-			We welcome feedback from users through our <a
-				href={`https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${rateit}`}
-				target="_blank"
-				rel="noopener noreferrer"
-				title="RateIt Survey (opens in new tab)">short survey</a
-			>
+			This is a new service. Help us improve it and <a href="mailto:deprivation@nisra.gov.uk">give your feedback by email</a>.
 		</p>
 	</div>
 	<div class="container-fluid align-items-center justify-content-center" role="banner">
