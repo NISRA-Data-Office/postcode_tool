@@ -23,9 +23,9 @@ export function paragraph(mdmRank: number, count: number, percent: number) {
 	} else if (percent < 0.01) {
 		return 'Fewer than 1% of neighbourhoods in Northern Ireland are more deprived than';
 	} else if (percent < 0.1) {
-		return 'Only 1% of neighbourhoods in Northern Ireland are more deprived than';
+		return `Only ${percentDisplay}% of neighbourhoods in Northern Ireland are more deprived than`;
 	} else if (percent <= 0.2) {
-		return 'About 10% of neighbourhoods in Northern Ireland are more deprived than';
+		return `${percentDisplay}% of neighbourhoods in Northern Ireland are more deprived than`;
 	} else if (percent <= 0.3) {
 		return 'About three quarters of neighbourhoods in Northern Ireland are less deprived than';
 	} else if (percent <= 0.4) {
@@ -33,12 +33,12 @@ export function paragraph(mdmRank: number, count: number, percent: number) {
 	} else if (percent < 0.5) {
 		return `Just under half (${percentDisplay}%) of neighbourhoods in Northern Ireland are more deprived than`;
 	} else if (percent == 0.5) {
-		return 'Half of neighbourhoods in Northern Ireland are more deprived than';
-	} else if (percent <= 0.6) {
+		return `Half (${percentDisplay}%) of neighbourhoods in Northern Ireland are more deprived than`;
+	} else if (percent < 0.6) {
 		return `Just over half (${percentDisplay}%) of neighbourhoods in Northern Ireland are more deprived than`;
-	} else if (percent <= 0.7) {
+	} else if (percent < 0.7) {
 		return 'About two thirds of neighbourhoods in Northern Ireland are more deprived than';
-	} else if (percent <= 0.8) {
+	} else if (percent < 0.8) {
 		return 'About three quarters of neighbourhoods in Northern Ireland are more deprived than';
 	} else if (percent <= 0.9) {
 		return `${percentDisplay}% of neighbourhoods in Northern Ireland are more deprived than`;
