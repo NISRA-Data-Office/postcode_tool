@@ -45,7 +45,7 @@ export function prepAreaFeatures(areaData, rankData, idProp, nameProp) {
 export function clipBounds(bounds: Bounds, maxBounds: Bounds): Bounds {
 	let [[s, w], [n, e]] = bounds;
 	let [[sMax, wMax], [nMax, eMax]] = maxBounds;
-	
+
 	return [
 		[Math.max(s, sMax), Math.max(w, wMax)],
 		[Math.min(n, nMax), Math.min(e, eMax)]
