@@ -2,7 +2,9 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
+
 	import { domains } from '#lib/config.ts';
+
 	import AreaTitle from './AreaTitle.svelte';
 	import DomainSelect from './DomainSelect.svelte';
 	import LgdSelect from './LgdSelect.svelte';
@@ -13,8 +15,9 @@
 	import RankChart from './RankChart.svelte';
 	import RankComparison from './RankComparison.svelte';
 	import SelectedArea from './SelectedArea.svelte';
-	import areaData from '#lib/assets/N92000002.json';
 	import RankTable from './RankTable.svelte';
+
+	import areaData from '#lib/assets/N92000002.json';
 
 	let {
 		name,

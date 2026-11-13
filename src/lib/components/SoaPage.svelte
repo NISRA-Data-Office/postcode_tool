@@ -36,12 +36,7 @@
 	let selectedRank = $derived(domainRanks[domain]);
 	let parentCode = $derived(parents[0].code);
 	let parentName = $derived(parents[0].name);
-	let scaleMapBounds = $derived([
-		bounds[0],
-		bounds[1],
-		bounds[2],
-		bounds[3]
-	]);
+	let scaleMapBounds = $derived([bounds[0], bounds[1], bounds[2], bounds[3]]);
 
 	let hoveredArea: string | number | undefined = $state();
 	let hoveredRank: number | undefined = $derived(

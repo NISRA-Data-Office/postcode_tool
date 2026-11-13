@@ -36,17 +36,19 @@
 
 	let sortSym = $derived(sortDir === 'asc' ? '▲' : '▼');
 
-	let ranksSorted = $state(ranksPrep);
-	$effect(() => ranksSorted.sort(sortFn));
+	let ranksSorted = $derived(ranksPrep.sort(sortFn));
 
 	$effect(() => {
 		if (selected) {
 			let selectedIdx = ranksSorted.findIndex((row) => row.code === selected);
 			let selectedRow = tableBody.children[selectedIdx];
-			tableContainer.scrollTo({
-				top: selectedRow.offsetTop - tableContainer.clientHeight / 2 + selectedRow.clientHeight / 2,
-				behavior: 'smooth'
-			});
+			if (selectedRow && selectedRow.offsetTop) {
+				tableContainer.scrollTo({
+					top:
+						selectedRow.offsetTop - tableContainer.clientHeight / 2 + selectedRow.clientHeight / 2,
+					behavior: 'smooth'
+				});
+			}
 		} else {
 			tableContainer.scrollTo({
 				top: 0,
