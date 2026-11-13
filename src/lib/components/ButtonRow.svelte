@@ -45,7 +45,7 @@
 				}
 			};
 		}
-		
+
 		if (type === 'lgd' || type === 'ctry') {
 			return {
 				id: ['STATISTIC', 'SOA'],
@@ -85,8 +85,8 @@
 			onclick={() => (expanded = !expanded)}>Download</button
 		>
 		<ul class={`dropdown-menu${expanded ? ' show' : ''}`}>
-			<li><DataDownloadButton >Data (as CSV format)</DataDownloadButton></li>
-			<li><DataDownloadButton >Data (as XLSX format)</DataDownloadButton></li>
+			<li><DataDownloadButton>Data (as CSV format)</DataDownloadButton></li>
+			<li><DataDownloadButton>Data (as XLSX format)</DataDownloadButton></li>
 		</ul>
 	</div>
 	<div class="col">

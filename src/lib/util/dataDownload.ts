@@ -1,29 +1,29 @@
 const API_URL = 'https://ws-data.nisra.gov.uk/public/api.jsonrpc';
 
-type Dimension = { [key:string]: { category: { index: string[] } } };
+type Dimension = { [key: string]: { category: { index: [string] } } };
 
-export type Query = {
-    id?: string[];
-    dimension?: Dimension;
-}
+type Query = {
+	id?: string[];
+	dimension?: Dimension;
+};
 
 type Data = {
-    jsonrpc: string;
-    method: string;
-    params: {
-        class: string;
-        id: string[];
-        dimension: Dimension;
-        extension: {
-            pivot: null;
-            codes: boolean;
-            language: { code: string; };
-            format: { type: string; version: string | number; };
-            matrix: string;
-        },
-        version: string;
-    }
-}
+	jsonrpc: string;
+	method: string;
+	params: {
+		class: string;
+		id: string[];
+		dimension: Dimension;
+		extension: {
+			pivot: null;
+			codes: boolean;
+			language: { code: string };
+			format: { type: string; version: string | number };
+			matrix: string;
+		};
+		version: string;
+	};
+};
 
 export function downloadDataset(
 	dataset: string,
@@ -55,31 +55,31 @@ export function downloadDataset(
 		}
 	};
 
-    if (query && query.id) {
-        data.params.id = query.id;
-    }
+	if (query && query.id) {
+		data.params.id = query.id;
+	}
 
-    if (query && query.dimension) {
-        data.params.dimension = query.dimension;
-    }
+	if (query && query.dimension) {
+		data.params.dimension = query.dimension;
+	}
 
-    url.searchParams.append('data', JSON.stringify(data));
+	url.searchParams.append('data', JSON.stringify(data));
 
 	fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            if (fileType === "xlsx") {
-                const res = data['result'];
-                const parts = res.split(';base64,');
-                const mimeType = parts[0].substring(5);
+		.then((response) => response.json())
+		.then((data) => {
+			if (fileType === 'xlsx') {
+				const res = data['result'];
+				const parts = res.split(';base64,');
+				const mimeType = parts[0].substring(5);
 				const fileData = Uint8Array.fromBase64(parts[1]);
-                download(fileName, fileData, fileType, mimeType);
-            } else {
-                const res = data['result'];
-                const mimeType = 'text/csv';
-                download(fileName, res, fileType, mimeType);
-            }
-        });
+				download(fileName, fileData, fileType, mimeType);
+			} else {
+				const res = data['result'];
+				const mimeType = 'text/csv';
+				download(fileName, res, fileType, mimeType);
+			}
+		});
 }
 
 export function download(
