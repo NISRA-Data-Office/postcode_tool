@@ -93,7 +93,8 @@
 		<AreaTitle type="lgd" {name} />
 		<p class="h4 my-3">
 			Currently viewing: <span class="deprivation-type text-purple"
-				>{domains[domainIdx].label} {#if domain != 'mdm'}
+				>{domains[domainIdx].label}
+				{#if domain != 'mdm'}
 					domain{/if}</span
 			>
 		</p>

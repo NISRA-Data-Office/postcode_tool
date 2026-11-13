@@ -6,7 +6,9 @@
 <banner id="banner" class="navbar p-0 bg-navy">
 	<div class="container-fluid bg-blue align-items-center justify-content-center py-2">
 		<p class="m-0">
-			This is a new service. Help us improve it and <a href="mailto:deprivation@nisra.gov.uk">give your feedback by email</a>.
+			This is a new service. Help us improve it and <a href="mailto:deprivation@nisra.gov.uk"
+				>give your feedback by email</a
+			>.
 		</p>
 	</div>
 	<div class="container-fluid align-items-center justify-content-center" role="banner">
