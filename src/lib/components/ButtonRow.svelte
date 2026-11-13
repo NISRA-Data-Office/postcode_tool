@@ -4,7 +4,8 @@
 
 	import PostcodeSearch from './PostcodeSearch.svelte';
 	import DataDownloadButton from './DataDownloadButton.svelte';
-	import { domains } from '#lib/config.ts';
+	import { domains, datasetId } from '#lib/config.ts';
+	import { domainLabel } from '#lib/util/textHelpers.ts';
 	import type { Query } from '#lib/util/dataDownload.ts';
 
 	function sharePage() {
@@ -64,6 +65,16 @@
 			};
 		}
 	});
+
+	function kebabCase(x: string): string {
+		return x.toLowerCase().replaceAll(/\s+/g, '-');
+	}
+
+	let fileName = $derived(
+		type === 'lgd' || type === 'ctry'
+			? `${kebabCase(domainLabel(domain))}-deprivation-in-${kebabCase(name)}`
+			: `deprivation-in-${kebabCase(name)}`
+	);
 </script>
 
 <PostcodeSearch />
@@ -85,8 +96,16 @@
 			onclick={() => (expanded = !expanded)}>Download</button
 		>
 		<ul class={`dropdown-menu${expanded ? ' show' : ''}`}>
-			<li><DataDownloadButton>Data (as CSV format)</DataDownloadButton></li>
-			<li><DataDownloadButton>Data (as XLSX format)</DataDownloadButton></li>
+			<li>
+				<DataDownloadButton dataset={datasetId} {fileName} format="csv" {query}
+					>Data (as CSV format)</DataDownloadButton
+				>
+			</li>
+			<li>
+				<DataDownloadButton dataset={datasetId} {fileName} format="xlsx" {query}
+					>Data (as XLSX format)</DataDownloadButton
+				>
+			</li>
 		</ul>
 	</div>
 	<div class="col">

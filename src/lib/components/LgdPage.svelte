@@ -105,7 +105,7 @@
 		{/if}
 	</div>
 	<div class="col-12 col-xl-4">
-		<ButtonRow />
+		<ButtonRow {name} {code} type="lgd" {domain} />
 		<div id="lgd-select-group">
 			<p class="mt-3 mb-1">Select another area:</p>
 			<LgdSelect selected={page.params.code} handleSelect={handleLgdSelect} />

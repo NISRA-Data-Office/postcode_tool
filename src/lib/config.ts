@@ -120,3 +120,5 @@ export const lgds = [
 	{ code: 'N09000010', name: 'Newry, Mourne and Down' },
 	{ code: 'N09000011', name: 'Ards and North Down' }
 ];
+
+export const datasetId: string = 'NIMDM17T2';

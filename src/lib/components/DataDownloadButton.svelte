@@ -18,6 +18,6 @@
 	} = $props();
 </script>
 
-<button class="dropdown-item">
+<button class="dropdown-item" onclick={() => downloadDataset(dataset, fileName, format, query)}>
 	{@render children()}
 </button>

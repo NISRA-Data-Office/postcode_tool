@@ -55,7 +55,7 @@
 		<AreaTitle type="sdz" {name} />
 	</div>
 	<div class="col-12 col-xl-4">
-		<ButtonRow />
+		<ButtonRow {name} {code} type="sdz" {domain} />
 	</div>
 </div>
 
