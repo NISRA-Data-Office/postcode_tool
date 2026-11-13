@@ -17,7 +17,7 @@
 			};
 			count: number;
 			parents?: [{ name: string; code: string }];
-			type: string;
+			type: 'sdz' | 'soa' | 'lgd' | 'ctry';
 			bounds: [number, number, number, number];
 		};
 	} = $props();
@@ -25,6 +25,7 @@
 	let name = $derived(data.name);
 	let count = $derived(data.count);
 	let code = $derived(data.code);
+	let type = $derived(data.type);
 </script>
 
 <svelte:head>
@@ -34,7 +35,7 @@
 <main class="flex-grow-1">
 	<div id="content" class="container">
 		<Breadcrumb links={getBreadcrumbLinks(data)} />
-		{#if data.type === 'sdz' && data.parents}
+		{#if type === 'sdz' && data.parents}
 			<SdzPage
 				{code}
 				{name}
@@ -43,7 +44,7 @@
 				{count}
 				bounds={data.bounds}
 			/>
-		{:else if data.type === 'soa' && data.parents}
+		{:else if type === 'soa' && data.parents}
 			<SoaPage
 				{code}
 				{name}
@@ -53,10 +54,11 @@
 				urbanRural={data.urban_rural}
 				bounds={data.bounds}
 			/>
-		{:else if data.type === 'lgd'}
+		{:else if type === 'lgd' || type === 'ctry'}
 			<LgdPage
-				{code}
 				{name}
+				{code}
+				{type}
 				childrenType={{ name: 'super output areas', count: 890 }}
 				numChildren={Object.keys(data.data.ranks).length}
 				ranks={data.data.ranks}
