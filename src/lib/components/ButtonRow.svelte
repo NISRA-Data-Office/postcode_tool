@@ -75,6 +75,8 @@
 			? `${kebabCase(domainLabel(domain))}-deprivation-in-${kebabCase(name)}`
 			: `deprivation-in-${kebabCase(name)}`
 	);
+
+	let afterDownload = () => (expanded = false);
 </script>
 
 <PostcodeSearch />
@@ -87,22 +89,30 @@
 		>
 	</div>
 
-	<div class="dropdown col">
+	<div
+		class="dropdown col"
+		onfocusout={(e) => {
+			if (e.relatedTarget && e.currentTarget.contains(e.relatedTarget)) return;
+			expanded = false;
+		}}
+	>
 		<button
 			class="btn dropdown-toggle bg-purple rounded-2 border-secondary w-100 h-100"
 			id="download-page-btn"
 			type="button"
 			aria-expanded={expanded ? 'true' : 'false'}
-			onclick={() => (expanded = !expanded)}>Download</button
+			onclick={() => (expanded = !expanded)}
 		>
+			Download
+		</button>
 		<ul class={`dropdown-menu${expanded ? ' show' : ''}`}>
 			<li>
-				<DataDownloadButton dataset={datasetId} {fileName} format="csv" {query}
+				<DataDownloadButton dataset={datasetId} {fileName} format="csv" {query} {afterDownload}
 					>Data (as CSV format)</DataDownloadButton
 				>
 			</li>
 			<li>
-				<DataDownloadButton dataset={datasetId} {fileName} format="xlsx" {query}
+				<DataDownloadButton dataset={datasetId} {fileName} format="xlsx" {query} {afterDownload}
 					>Data (as XLSX format)</DataDownloadButton
 				>
 			</li>

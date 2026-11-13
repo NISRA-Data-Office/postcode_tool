@@ -8,16 +8,24 @@
 		fileName,
 		format,
 		query,
+		afterDownload,
 		children
 	}: {
 		dataset: string;
 		fileName: string;
 		format: 'csv' | 'xlsx';
-		query: Query;
+		query?: Query;
+		afterDownload?: Function;
 		children: Snippet;
 	} = $props();
 </script>
 
-<button class="dropdown-item" onclick={() => downloadDataset(dataset, fileName, format, query)}>
+<button
+	class="dropdown-item"
+	onclick={() => {
+		downloadDataset(dataset, fileName, format, query);
+		if (afterDownload) afterDownload();
+	}}
+>
 	{@render children()}
 </button>

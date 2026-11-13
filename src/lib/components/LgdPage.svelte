@@ -16,12 +16,14 @@
 	import RankComparison from './RankComparison.svelte';
 	import SelectedArea from './SelectedArea.svelte';
 	import RankTable from './RankTable.svelte';
+	import InfoBoxes from './InfoBoxes.svelte';
 
 	import areaData from '#lib/assets/N92000002.json';
 
 	let {
 		name,
 		code,
+		type,
 		childrenType,
 		numChildren,
 		ranks,
@@ -29,6 +31,7 @@
 	}: {
 		name: string;
 		code: string;
+		type: 'lgd' | 'ctry';
 		childrenType: { name: string; count: number };
 		numChildren: number;
 		ranks: { [key: string]: { name: string; ranks: { [key: string]: number } } };
@@ -56,6 +59,8 @@
 			};
 		})
 	);
+
+	let childCodes = $derived(type === 'lgd' ? Object.keys(ranks) : []);
 
 	function handleScaleMapClick() {
 		let areaType: string = hoveredArea && hoveredArea.slice(0, 3) == 'N09' ? 'lgd' : 'area';
@@ -100,12 +105,12 @@
 			The neighbourhood ranked 1 is the most deprived and the neighbourhood ranked {childrenType.count}
 			is the least deprived.
 		</p>
-		{#if numChildren != childrenType.count}
+		{#if type === 'lgd'}
 			<p>{name} is made up of {numChildren} neighbourhoods.</p>
 		{/if}
 	</div>
 	<div class="col-12 col-xl-4">
-		<ButtonRow {name} {code} type="lgd" {domain} />
+		<ButtonRow {name} code={childCodes} {type} {domain} />
 		<div id="lgd-select-group">
 			<p class="mt-3 mb-1">Select another area:</p>
 			<LgdSelect selected={page.params.code} handleSelect={handleLgdSelect} />
@@ -125,7 +130,7 @@
 			<div id="scale-map" class="map scale-map border border-secondary" tabindex="-1">
 				<ScaleMap
 					{domain}
-					type="lgd"
+					{type}
 					area={code}
 					{name}
 					{bounds}
@@ -162,4 +167,9 @@
 	</div>
 	<RankTable ranks={domainRanks} bind:selected />
 </div>
-<LgdSummary {name} {domain} {numChildren} {domainRanks} />
+
+<InfoBoxes />
+
+{#if type === 'lgd'}
+	<LgdSummary {name} {domain} {numChildren} {domainRanks} />
+{/if}

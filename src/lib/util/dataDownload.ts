@@ -1,8 +1,8 @@
 const API_URL = 'https://ws-data.nisra.gov.uk/public/api.jsonrpc';
 
-type Dimension = { [key: string]: { category: { index: [string] } } };
+type Dimension = { [key: string]: { category: { index: string[] } } };
 
-type Query = {
+export type Query = {
 	id?: string[];
 	dimension?: Dimension;
 };
@@ -63,9 +63,11 @@ export function downloadDataset(
 		data.params.dimension = query.dimension;
 	}
 
-	url.searchParams.append('data', JSON.stringify(data));
-
-	fetch(url)
+	// use post instead of get to avoid url getting too long
+	fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(data)
+	})
 		.then((response) => response.json())
 		.then((data) => {
 			if (fileType === 'xlsx') {

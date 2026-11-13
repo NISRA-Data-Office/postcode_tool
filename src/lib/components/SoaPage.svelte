@@ -78,7 +78,6 @@
 
 <p class="fs-4">This is an overall measure, called the Multiple Deprivation Measure.</p>
 <InfoBoxes />
-<div id="info-boxes"></div>
 
 <h3 class="h2 mt-4">Compare with nearby areas</h3>
 
