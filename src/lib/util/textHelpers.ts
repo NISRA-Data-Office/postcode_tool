@@ -20,7 +20,7 @@ export function paragraph(mdmRank: number, count: number, percent: number) {
 
 	if (mdmRank === 1) {
 		return 'No neighbourhoods in Northern Ireland are more deprived than';
-	} else if (percent < 0.01) {
+	} else if (percent <= 0.01) {
 		return 'Fewer than 1% of neighbourhoods in Northern Ireland are more deprived than';
 	} else if (percent < 0.1) {
 		return `Only ${percentDisplay}% of neighbourhoods in Northern Ireland are more deprived than`;
@@ -30,9 +30,9 @@ export function paragraph(mdmRank: number, count: number, percent: number) {
 		return 'About three quarters of neighbourhoods in Northern Ireland are less deprived than';
 	} else if (percent <= 0.4) {
 		return 'About two thirds of neighbourhoods in Northern Ireland are less deprived than';
-	} else if (percent < 0.5) {
+	} else if (percent < 0.5 && mdmRank < (count / 2 + 1)) {
 		return `Just under half (${percentDisplay}%) of neighbourhoods in Northern Ireland are more deprived than`;
-	} else if (percent == 0.5) {
+	} else if (mdmRank == (count / 2 + 1)) {
 		return `Half (${percentDisplay}%) of neighbourhoods in Northern Ireland are more deprived than`;
 	} else if (percent < 0.6) {
 		return `Just over half (${percentDisplay}%) of neighbourhoods in Northern Ireland are more deprived than`;
