@@ -117,11 +117,6 @@
 					<RankChart rank={selectedRank} rankCompare={hoveredRank} maxRank={count} labels="below" />
 				</div>
 				<div class="text-center py-1">Areas grouped into deprivation deciles (based on rank)</div>
-				<button
-					class="btn col bg-purple rounded-2 border-secondary"
-					id="download-btn"
-					aria-label="Download dropdown">Download</button
-				>
 			</div>
 		</div>
 	</div>
